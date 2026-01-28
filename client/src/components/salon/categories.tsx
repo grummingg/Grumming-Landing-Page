@@ -13,21 +13,21 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 const categoryColors: Record<string, string> = {
-  "1": "from-rose-100 to-rose-200",
-  "2": "from-emerald-100 to-emerald-200", 
-  "3": "from-pink-100 to-pink-200",
-  "4": "from-amber-100 to-amber-200",
-  "5": "from-blue-100 to-blue-200",
-  "6": "from-purple-100 to-purple-200",
+  "1": "from-primary/10 to-primary/20",
+  "2": "from-accent/10 to-accent/20", 
+  "3": "from-primary/10 to-primary/20",
+  "4": "from-accent/10 to-accent/20",
+  "5": "from-primary/10 to-primary/20",
+  "6": "from-accent/10 to-accent/20",
 };
 
 const categoryIconColors: Record<string, string> = {
-  "1": "text-rose-500",
-  "2": "text-emerald-500",
-  "3": "text-pink-500",
-  "4": "text-amber-500",
-  "5": "text-blue-500",
-  "6": "text-purple-500",
+  "1": "text-primary",
+  "2": "text-accent",
+  "3": "text-primary",
+  "4": "text-accent",
+  "5": "text-primary",
+  "6": "text-accent",
 };
 
 interface CategoriesProps {
@@ -39,7 +39,7 @@ export function Categories({ categories }: CategoriesProps) {
   const rightCategories = categories.slice(3, 6);
 
   return (
-    <section id="categories" className="py-20 sm:py-24 bg-gradient-to-b from-rose-50/50 to-background dark:from-rose-950/20 dark:to-background">
+    <section id="categories" className="py-20 sm:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -48,12 +48,12 @@ export function Categories({ categories }: CategoriesProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-categories-title">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground" data-testid="text-categories-title">
             Skip the calls.
             <br />
-            <span className="text-primary">Book your stylist instantly.</span>
+            <span className="text-accent">Book your stylist instantly.</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto" data-testid="text-categories-description">
+          <p className="text-base text-muted-foreground max-w-lg mx-auto leading-relaxed" data-testid="text-categories-description">
             Discover top-rated stylists and book your next appointment in just a few taps
           </p>
         </motion.div>
@@ -78,15 +78,15 @@ export function Categories({ categories }: CategoriesProps) {
                     style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
                   >
                     <Card
-                      className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 w-28"
+                      className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 w-32 border-0 shadow-md"
                       data-testid={`card-category-${category.id}`}
                     >
-                      <CardContent className="p-4 flex flex-col items-center text-center">
-                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3`}>
-                          <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} />
+                      <CardContent className="p-5 flex flex-col items-center text-center">
+                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3`}>
+                          <Icon className={`w-6 h-6 ${categoryIconColors[category.id]}`} />
                         </div>
                         <span
-                          className="text-sm font-medium"
+                          className="text-sm font-medium text-foreground"
                           data-testid={`text-category-name-${category.id}`}
                         >
                           {category.name}
@@ -105,20 +105,20 @@ export function Categories({ categories }: CategoriesProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="w-64 h-[480px] bg-foreground dark:bg-card rounded-[3rem] p-3 shadow-2xl relative">
-                <div className="w-full h-full bg-gradient-to-br from-card to-muted rounded-[2.5rem] flex items-center justify-center">
-                  <Card className="w-32 shadow-lg">
-                    <CardContent className="p-4 flex flex-col items-center text-center">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent/20 to-accent/30 flex items-center justify-center mb-3">
-                        <Calendar className="w-7 h-7 text-accent" />
+              <div className="w-64 h-[480px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl relative">
+                <div className="w-full h-full bg-gradient-to-br from-purple-100 to-purple-200 rounded-[2.5rem] flex items-center justify-center">
+                  <Card className="w-36 shadow-lg border-0">
+                    <CardContent className="p-5 flex flex-col items-center text-center">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent/20 to-accent/40 flex items-center justify-center mb-3">
+                        <Calendar className="w-6 h-6 text-accent" />
                       </div>
-                      <span className="text-sm font-medium">
+                      <span className="text-sm font-semibold text-foreground">
                         Book Now
                       </span>
                     </CardContent>
                   </Card>
                 </div>
-                <div className="absolute top-8 left-1/2 -translate-x-1/2 w-20 h-6 bg-foreground dark:bg-card rounded-full" />
+                <div className="absolute top-8 left-1/2 -translate-x-1/2 w-20 h-6 bg-gray-900 rounded-full" />
               </div>
             </motion.div>
 
@@ -140,15 +140,15 @@ export function Categories({ categories }: CategoriesProps) {
                     style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
                   >
                     <Card
-                      className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 w-28"
+                      className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 w-32 border-0 shadow-md"
                       data-testid={`card-category-${category.id}`}
                     >
-                      <CardContent className="p-4 flex flex-col items-center text-center">
-                        <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3`}>
-                          <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} />
+                      <CardContent className="p-5 flex flex-col items-center text-center">
+                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3`}>
+                          <Icon className={`w-6 h-6 ${categoryIconColors[category.id]}`} />
                         </div>
                         <span
-                          className="text-sm font-medium"
+                          className="text-sm font-medium text-foreground"
                           data-testid={`text-category-name-${category.id}`}
                         >
                           {category.name}
@@ -173,14 +173,14 @@ export function Categories({ categories }: CategoriesProps) {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <Card
-                    className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300"
+                    className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 border-0 shadow-md"
                     data-testid={`card-category-mobile-${category.id}`}
                   >
-                    <CardContent className="p-4 flex flex-col items-center text-center">
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3`}>
-                        <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} />
+                    <CardContent className="p-5 flex flex-col items-center text-center">
+                      <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3`}>
+                        <Icon className={`w-6 h-6 ${categoryIconColors[category.id]}`} />
                       </div>
-                      <span className="text-sm font-medium">
+                      <span className="text-sm font-medium text-foreground">
                         {category.name}
                       </span>
                     </CardContent>
