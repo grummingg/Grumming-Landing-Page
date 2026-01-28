@@ -112,7 +112,7 @@ export function Categories({ categories }: CategoriesProps) {
                       Book Now
                     </span>
                     <div className="px-8 py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl text-white text-sm font-semibold shadow-md">
-                      Get Started
+                      Book Now
                     </div>
                   </div>
                 </div>
