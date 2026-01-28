@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { SalonHero } from "@/components/salon/hero";
 import { Categories } from "@/components/salon/categories";
 import { Locations } from "@/components/salon/locations";
-import { FeaturedSalons } from "@/components/salon/featured-salons";
 import { HowItWorks } from "@/components/salon/how-it-works";
 import { AppDownload } from "@/components/salon/app-download";
 import { SalonFooter } from "@/components/salon/footer";
@@ -59,7 +58,6 @@ export default function SalonLanding() {
       <main>
         <SalonHero />
         <Categories categories={salonData.categories} />
-        <FeaturedSalons salons={salonData.featuredSalons} />
         <Locations locations={salonData.locations} />
         <HowItWorks />
         <AppDownload />
