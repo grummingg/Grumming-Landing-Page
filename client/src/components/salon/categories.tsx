@@ -1,7 +1,22 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Scissors, Bath, Sparkles, Brush, Heart, Fingerprint, type LucideIcon } from "lucide-react";
 import type { Category } from "@shared/schema";
-import salonVideo from "../../assets/videos/salon-services.mp4";
+import haircutVideo from "../../assets/videos/service-haircut.mp4";
+import spaVideo from "../../assets/videos/service-spa.mp4";
+import skincareVideo from "../../assets/videos/service-skincare.mp4";
+import makeupVideo from "../../assets/videos/service-makeup.mp4";
+import wellnessVideo from "../../assets/videos/service-wellness.mp4";
+import nailsVideo from "../../assets/videos/service-nails.mp4";
+
+const serviceVideos: Record<string, string> = {
+  "1": haircutVideo,
+  "2": spaVideo,
+  "3": skincareVideo,
+  "4": makeupVideo,
+  "5": wellnessVideo,
+  "6": nailsVideo,
+};
 
 const iconMap: Record<string, LucideIcon> = {
   Scissors,
@@ -35,6 +50,7 @@ interface CategoriesProps {
 }
 
 export function Categories({ categories }: CategoriesProps) {
+  const [selectedCategory, setSelectedCategory] = useState("1");
   const leftCategories = categories.slice(0, 3);
   const rightCategories = categories.slice(3, 6);
 
@@ -243,14 +259,15 @@ export function Categories({ categories }: CategoriesProps) {
                     style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
                   >
                     <div
-                      className="group cursor-pointer transition-all duration-300 flex flex-col items-center text-center"
+                      className={`group cursor-pointer transition-all duration-300 flex flex-col items-center text-center ${selectedCategory === category.id ? 'scale-110' : ''}`}
                       data-testid={`card-category-${category.id}`}
+                      onClick={() => setSelectedCategory(category.id)}
                     >
-                      <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300`}>
+                      <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${selectedCategory === category.id ? 'ring-4 ring-primary/30 shadow-[0_12px_40px_-6px_rgba(0,0,0,0.3)]' : ''}`}>
                         <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} strokeWidth={2} />
                       </div>
                       <span
-                        className="text-sm font-semibold text-foreground"
+                        className={`text-sm font-semibold transition-colors ${selectedCategory === category.id ? 'text-primary' : 'text-foreground'}`}
                         data-testid={`text-category-name-${category.id}`}
                       >
                         {category.name}
@@ -275,7 +292,8 @@ export function Categories({ categories }: CategoriesProps) {
               <div className="w-72 h-[520px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl relative">
                 <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative">
                   <video
-                    src={salonVideo}
+                    key={selectedCategory}
+                    src={serviceVideos[selectedCategory]}
                     autoPlay
                     loop
                     muted
@@ -310,14 +328,15 @@ export function Categories({ categories }: CategoriesProps) {
                     style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
                   >
                     <div
-                      className="group cursor-pointer transition-all duration-300 flex flex-col items-center text-center"
+                      className={`group cursor-pointer transition-all duration-300 flex flex-col items-center text-center ${selectedCategory === category.id ? 'scale-110' : ''}`}
                       data-testid={`card-category-${category.id}`}
+                      onClick={() => setSelectedCategory(category.id)}
                     >
-                      <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300`}>
+                      <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${selectedCategory === category.id ? 'ring-4 ring-primary/30 shadow-[0_12px_40px_-6px_rgba(0,0,0,0.3)]' : ''}`}>
                         <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} strokeWidth={2} />
                       </div>
                       <span
-                        className="text-sm font-semibold text-foreground"
+                        className={`text-sm font-semibold transition-colors ${selectedCategory === category.id ? 'text-primary' : 'text-foreground'}`}
                         data-testid={`text-category-name-${category.id}`}
                       >
                         {category.name}
@@ -329,32 +348,62 @@ export function Categories({ categories }: CategoriesProps) {
             </div>
           </div>
 
-          {/* Mobile Grid */}
-          <div className="lg:hidden grid grid-cols-2 sm:grid-cols-3 gap-6">
-            {categories.map((category, index) => {
-              const Icon = iconMap[category.icon] || Scissors;
-              return (
-                <motion.div
-                  key={category.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <div
-                    className="group cursor-pointer transition-all duration-300 p-4 flex flex-col items-center text-center"
-                    data-testid={`card-category-mobile-${category.id}`}
+          {/* Mobile Grid with Phone */}
+          <div className="lg:hidden flex flex-col items-center gap-8">
+            {/* Mobile Phone Mockup */}
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="w-56 h-[400px] bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl relative">
+                <div className="w-full h-full rounded-[2rem] overflow-hidden relative">
+                  <video
+                    key={`mobile-${selectedCategory}`}
+                    src={serviceVideos[selectedCategory]}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                    data-testid="video-salon-services-mobile"
+                  />
+                </div>
+                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-gray-900 rounded-full" />
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-gray-700 rounded-full" />
+              </div>
+            </motion.div>
+
+            {/* Mobile Categories Grid */}
+            <div className="grid grid-cols-3 gap-4">
+              {categories.map((category, index) => {
+                const Icon = iconMap[category.icon] || Scissors;
+                return (
+                  <motion.div
+                    key={category.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300`}>
-                      <Icon className={`w-8 h-8 ${categoryIconColors[category.id]}`} strokeWidth={1.5} />
+                    <div
+                      className={`group cursor-pointer transition-all duration-300 p-3 flex flex-col items-center text-center ${selectedCategory === category.id ? 'scale-110' : ''}`}
+                      data-testid={`card-category-mobile-${category.id}`}
+                      onClick={() => setSelectedCategory(category.id)}
+                    >
+                      <div className={`w-14 h-14 rounded-[1rem] bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-2 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${selectedCategory === category.id ? 'ring-4 ring-primary/30' : ''}`}>
+                        <Icon className={`w-6 h-6 ${categoryIconColors[category.id]}`} strokeWidth={2} />
+                      </div>
+                      <span className={`text-xs font-semibold transition-colors ${selectedCategory === category.id ? 'text-primary' : 'text-foreground'}`}>
+                        {category.name}
+                      </span>
                     </div>
-                    <span className="text-sm font-semibold text-foreground">
-                      {category.name}
-                    </span>
-                  </div>
-                </motion.div>
-              );
-            })}
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
