@@ -71,18 +71,13 @@ export function Footer({ brandName, brandTagline }: FooterProps) {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link}>
-                    <Button
-                      variant="link"
-                      className="p-0 h-auto text-muted-foreground"
-                      asChild
+                    <a
+                      href="#"
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      data-testid={`link-footer-${link.toLowerCase().replace(/\s+/g, "-")}`}
                     >
-                      <a
-                        href="#"
-                        data-testid={`link-footer-${link.toLowerCase().replace(/\s+/g, "-")}`}
-                      >
-                        {link}
-                      </a>
-                    </Button>
+                      {link}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -97,16 +92,20 @@ export function Footer({ brandName, brandTagline }: FooterProps) {
             &copy; {new Date().getFullYear()} {brandName}. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <Button variant="link" className="p-0 h-auto text-muted-foreground" asChild>
-              <a href="#" data-testid="link-footer-privacy-policy">
-                Privacy Policy
-              </a>
-            </Button>
-            <Button variant="link" className="p-0 h-auto text-muted-foreground" asChild>
-              <a href="#" data-testid="link-footer-terms-of-service">
-                Terms of Service
-              </a>
-            </Button>
+            <a
+              href="#"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              data-testid="link-footer-privacy-policy"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="#"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              data-testid="link-footer-terms-of-service"
+            >
+              Terms of Service
+            </a>
           </div>
         </div>
       </div>
