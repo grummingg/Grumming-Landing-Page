@@ -246,8 +246,8 @@ export function Categories({ categories }: CategoriesProps) {
                       className="group cursor-pointer transition-all duration-300 flex flex-col items-center text-center"
                       data-testid={`card-category-${category.id}`}
                     >
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
-                        <Icon className={`w-8 h-8 ${categoryIconColors[category.id]}`} strokeWidth={1.5} />
+                      <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300`}>
+                        <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} strokeWidth={2} />
                       </div>
                       <span
                         className="text-sm font-semibold text-foreground"
@@ -313,8 +313,8 @@ export function Categories({ categories }: CategoriesProps) {
                       className="group cursor-pointer transition-all duration-300 flex flex-col items-center text-center"
                       data-testid={`card-category-${category.id}`}
                     >
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
-                        <Icon className={`w-8 h-8 ${categoryIconColors[category.id]}`} strokeWidth={1.5} />
+                      <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300`}>
+                        <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} strokeWidth={2} />
                       </div>
                       <span
                         className="text-sm font-semibold text-foreground"
@@ -345,7 +345,7 @@ export function Categories({ categories }: CategoriesProps) {
                     className="group cursor-pointer transition-all duration-300 p-4 flex flex-col items-center text-center"
                     data-testid={`card-category-mobile-${category.id}`}
                   >
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
+                    <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300`}>
                       <Icon className={`w-8 h-8 ${categoryIconColors[category.id]}`} strokeWidth={1.5} />
                     </div>
                     <span className="text-sm font-semibold text-foreground">
