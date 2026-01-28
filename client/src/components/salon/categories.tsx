@@ -6,7 +6,7 @@ import haircutVideo from "../../assets/videos/salon-services.mp4";
 import spaVideo from "../../assets/videos/service-spa.mp4";
 import skincareVideo from "../../assets/videos/service-skincare.mp4";
 import makeupVideo from "../../assets/videos/service-makeup.mp4";
-import wellnessVideo from "../../assets/videos/service-wellness.mp4";
+import haircolourVideo from "../../assets/videos/service-haircolour.mp4";
 import nailsVideo from "../../assets/videos/service-nails.mp4";
 
 const serviceVideosByName: Record<string, string> = {
@@ -14,7 +14,7 @@ const serviceVideosByName: Record<string, string> = {
   spa: spaVideo,
   skincare: skincareVideo,
   makeup: makeupVideo,
-  "hair colour": haircutVideo,
+  "hair colour": haircolourVideo,
   nails: nailsVideo,
 };
 
