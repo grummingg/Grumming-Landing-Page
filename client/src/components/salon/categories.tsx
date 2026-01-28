@@ -1,22 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 import { Scissors, Bath, Sparkles, Brush, Palette, Fingerprint, type LucideIcon, Loader2 } from "lucide-react";
 import type { Category } from "@shared/schema";
-import haircutVideo from "../../assets/videos/salon-services.mp4";
-import spaVideo from "../../assets/videos/service-spa.mp4";
-import skincareVideo from "../../assets/videos/service-skincare.mp4";
-import makeupVideo from "../../assets/videos/service-makeup.mp4";
-import haircolourVideo from "../../assets/videos/service-haircolour.mp4";
-import nailsVideo from "../../assets/videos/service-nails.mp4";
 
-const serviceVideosByName: Record<string, string> = {
-  haircut: haircutVideo,
-  spa: spaVideo,
-  skincare: skincareVideo,
-  makeup: makeupVideo,
-  "hair colour": haircolourVideo,
-  nails: nailsVideo,
+import haircutMale from "../../assets/videos/haircut-male.mp4";
+import haircutFemale from "../../assets/videos/haircut-female.mp4";
+import spaMale from "../../assets/videos/spa-male.mp4";
+import spaFemale from "../../assets/videos/spa-female.mp4";
+import skincareMale from "../../assets/videos/skincare-male.mp4";
+import skincareFemale from "../../assets/videos/skincare-female.mp4";
+import makeupMale from "../../assets/videos/makeup-male.mp4";
+import makeupFemale from "../../assets/videos/makeup-female.mp4";
+import haircolourMale from "../../assets/videos/haircolour-male.mp4";
+import haircolourFemale from "../../assets/videos/haircolour-female.mp4";
+import nailsMale from "../../assets/videos/nails-male.mp4";
+import nailsFemale from "../../assets/videos/nails-female.mp4";
+
+const serviceVideosByName: Record<string, string[]> = {
+  haircut: [haircutMale, haircutFemale],
+  spa: [spaMale, spaFemale],
+  skincare: [skincareMale, skincareFemale],
+  makeup: [makeupMale, makeupFemale],
+  "hair colour": [haircolourMale, haircolourFemale],
+  nails: [nailsMale, nailsFemale],
 };
+
+const allVideos: string[] = Object.values(serviceVideosByName).flat();
 
 const iconMap: Record<string, LucideIcon> = {
   Scissors,
@@ -36,17 +45,29 @@ const categoryColorsByIcon: Record<string, string> = {
   Fingerprint: "from-violet-400 to-violet-500",
 };
 
-function getVideoForCategory(category: Category): string {
+function getRandomVideoForCategory(category: Category): string {
   const nameLower = category.name.toLowerCase();
+  let videos: string[] | undefined;
+  
   if (serviceVideosByName[nameLower]) {
-    return serviceVideosByName[nameLower];
-  }
-  for (const key of Object.keys(serviceVideosByName)) {
-    if (nameLower.includes(key) || key.includes(nameLower)) {
-      return serviceVideosByName[key];
+    videos = serviceVideosByName[nameLower];
+  } else {
+    for (const key of Object.keys(serviceVideosByName)) {
+      if (nameLower.includes(key) || key.includes(nameLower)) {
+        videos = serviceVideosByName[key];
+        break;
+      }
     }
   }
-  return haircutVideo;
+  
+  if (videos && videos.length > 0) {
+    return videos[Math.floor(Math.random() * videos.length)];
+  }
+  return allVideos[Math.floor(Math.random() * allVideos.length)];
+}
+
+function getRandomVideo(): string {
+  return allVideos[Math.floor(Math.random() * allVideos.length)];
 }
 
 function getCategoryColor(category: Category): string {
@@ -86,6 +107,47 @@ export function Categories({ categories }: CategoriesProps) {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(
     categories.length > 0 ? categories[0] : null
   );
+  const [currentVideo, setCurrentVideo] = useState<string>(() => getRandomVideo());
+  const intervalRef = useRef<number | null>(null);
+  const timeoutRef = useRef<number | null>(null);
+
+  const clearAllTimers = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  }, []);
+
+  const startAutoRotate = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = window.setInterval(() => {
+      setCurrentVideo(getRandomVideo());
+    }, 5000);
+  }, []);
+
+  const handleCategoryClick = useCallback((category: Category) => {
+    setSelectedCategory(category);
+    setCurrentVideo(getRandomVideoForCategory(category));
+    
+    clearAllTimers();
+    
+    timeoutRef.current = window.setTimeout(() => {
+      startAutoRotate();
+    }, 10000);
+  }, [clearAllTimers, startAutoRotate]);
+
+  useEffect(() => {
+    startAutoRotate();
+    return () => {
+      clearAllTimers();
+    };
+  }, [startAutoRotate, clearAllTimers]);
   
   if (!categories.length || !selectedCategory) {
     return null;
@@ -93,7 +155,6 @@ export function Categories({ categories }: CategoriesProps) {
 
   const leftCategories = categories.slice(0, 3);
   const rightCategories = categories.slice(3, 6);
-  const selectedVideo = getVideoForCategory(selectedCategory);
 
   return (
     <section id="categories" className="py-20 sm:py-24 bg-background">
@@ -297,7 +358,7 @@ export function Categories({ categories }: CategoriesProps) {
                     <div
                       className={`group cursor-pointer transition-all duration-300 flex flex-col items-center text-center ${isSelected ? 'scale-110' : ''}`}
                       data-testid={`card-category-${category.id}`}
-                      onClick={() => setSelectedCategory(category)}
+                      onClick={() => handleCategoryClick(category)}
                     >
                       <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30 shadow-[0_12px_40px_-6px_rgba(0,0,0,0.3)]' : ''}`}>
                         <Icon className="w-7 h-7 text-white" strokeWidth={2} />
@@ -326,8 +387,8 @@ export function Categories({ categories }: CategoriesProps) {
               <div className="w-72 h-[520px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl relative">
                 <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative">
                   <VideoPlayer
-                    key={selectedCategory.id}
-                    src={selectedVideo}
+                    key={currentVideo}
+                    src={currentVideo}
                     testId="video-salon-services"
                   />
                 </div>
@@ -357,7 +418,7 @@ export function Categories({ categories }: CategoriesProps) {
                     <div
                       className={`group cursor-pointer transition-all duration-300 flex flex-col items-center text-center ${isSelected ? 'scale-110' : ''}`}
                       data-testid={`card-category-${category.id}`}
-                      onClick={() => setSelectedCategory(category)}
+                      onClick={() => handleCategoryClick(category)}
                     >
                       <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30 shadow-[0_12px_40px_-6px_rgba(0,0,0,0.3)]' : ''}`}>
                         <Icon className="w-7 h-7 text-white" strokeWidth={2} />
@@ -386,8 +447,8 @@ export function Categories({ categories }: CategoriesProps) {
               <div className="w-56 h-[400px] bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl relative">
                 <div className="w-full h-full rounded-[2rem] overflow-hidden relative">
                   <VideoPlayer
-                    key={`mobile-${selectedCategory.id}`}
-                    src={selectedVideo}
+                    key={`mobile-${currentVideo}`}
+                    src={currentVideo}
                     testId="video-salon-services-mobile"
                   />
                 </div>
@@ -411,7 +472,7 @@ export function Categories({ categories }: CategoriesProps) {
                     <div
                       className={`group cursor-pointer transition-all duration-300 p-3 flex flex-col items-center text-center ${isSelected ? 'scale-110' : ''}`}
                       data-testid={`card-category-mobile-${category.id}`}
-                      onClick={() => setSelectedCategory(category)}
+                      onClick={() => handleCategoryClick(category)}
                     >
                       <div className={`w-14 h-14 rounded-[1rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-2 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30' : ''}`}>
                         <Icon className="w-6 h-6 text-white" strokeWidth={2} />
