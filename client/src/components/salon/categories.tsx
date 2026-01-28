@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Scissors, Bath, Sparkles, Brush, Heart, Fingerprint, Calendar, type LucideIcon } from "lucide-react";
+import { Scissors, Bath, Sparkles, Brush, Heart, Fingerprint, type LucideIcon } from "lucide-react";
 import type { Category } from "@shared/schema";
+import salonVideo from "@assets/videos/salon-services.mp4";
 
 const iconMap: Record<string, LucideIcon> = {
   Scissors,
@@ -100,15 +101,16 @@ export function Categories({ categories }: CategoriesProps) {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="w-64 h-[480px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl relative">
-                <div className="w-full h-full bg-gradient-to-br from-purple-100 to-purple-200 rounded-[2.5rem] flex items-center justify-center">
-                  <div className="flex flex-col items-center text-center p-6">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-4 shadow-lg">
-                      <Calendar className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="px-8 py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl text-white text-sm font-semibold shadow-md">
-                      Book Now
-                    </div>
-                  </div>
+                <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative">
+                  <video
+                    src={salonVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                    data-testid="video-salon-services"
+                  />
                 </div>
                 <div className="absolute top-8 left-1/2 -translate-x-1/2 w-20 h-6 bg-gray-900 rounded-full" />
               </div>
