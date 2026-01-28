@@ -13,21 +13,21 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 const categoryColors: Record<string, string> = {
-  "1": "from-primary/10 to-primary/20",
-  "2": "from-accent/10 to-accent/20", 
-  "3": "from-primary/10 to-primary/20",
-  "4": "from-accent/10 to-accent/20",
-  "5": "from-primary/10 to-primary/20",
-  "6": "from-accent/10 to-accent/20",
+  "1": "from-rose-400 to-rose-500",
+  "2": "from-emerald-400 to-emerald-500", 
+  "3": "from-pink-400 to-pink-500",
+  "4": "from-amber-400 to-amber-500",
+  "5": "from-sky-400 to-sky-500",
+  "6": "from-violet-400 to-violet-500",
 };
 
 const categoryIconColors: Record<string, string> = {
-  "1": "text-primary",
-  "2": "text-accent",
-  "3": "text-primary",
-  "4": "text-accent",
-  "5": "text-primary",
-  "6": "text-accent",
+  "1": "text-white",
+  "2": "text-white",
+  "3": "text-white",
+  "4": "text-white",
+  "5": "text-white",
+  "6": "text-white",
 };
 
 interface CategoriesProps {
@@ -75,15 +75,15 @@ export function Categories({ categories }: CategoriesProps) {
                     style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
                   >
                     <Card
-                      className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 w-32 border-0 shadow-md"
+                      className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 w-36 border-0 shadow-lg hover:shadow-xl"
                       data-testid={`card-category-${category.id}`}
                     >
-                      <CardContent className="p-5 flex flex-col items-center text-center">
-                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3`}>
-                          <Icon className={`w-6 h-6 ${categoryIconColors[category.id]}`} />
+                      <CardContent className="p-6 flex flex-col items-center text-center">
+                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-4 shadow-md`}>
+                          <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} />
                         </div>
                         <span
-                          className="text-sm font-medium text-foreground"
+                          className="text-sm font-semibold text-foreground"
                           data-testid={`text-category-name-${category.id}`}
                         >
                           {category.name}
@@ -104,12 +104,12 @@ export function Categories({ categories }: CategoriesProps) {
             >
               <div className="w-64 h-[480px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl relative">
                 <div className="w-full h-full bg-gradient-to-br from-purple-100 to-purple-200 rounded-[2.5rem] flex items-center justify-center">
-                  <Card className="w-36 shadow-lg border-0">
-                    <CardContent className="p-5 flex flex-col items-center text-center">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent/20 to-accent/40 flex items-center justify-center mb-3">
-                        <Calendar className="w-6 h-6 text-accent" />
+                  <Card className="w-40 shadow-xl border-0">
+                    <CardContent className="p-6 flex flex-col items-center text-center">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-4 shadow-md">
+                        <Calendar className="w-7 h-7 text-white" />
                       </div>
-                      <span className="text-sm font-semibold text-foreground">
+                      <span className="text-sm font-bold text-foreground">
                         Book Now
                       </span>
                     </CardContent>
@@ -137,15 +137,15 @@ export function Categories({ categories }: CategoriesProps) {
                     style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
                   >
                     <Card
-                      className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 w-32 border-0 shadow-md"
+                      className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 w-36 border-0 shadow-lg hover:shadow-xl"
                       data-testid={`card-category-${category.id}`}
                     >
-                      <CardContent className="p-5 flex flex-col items-center text-center">
-                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3`}>
-                          <Icon className={`w-6 h-6 ${categoryIconColors[category.id]}`} />
+                      <CardContent className="p-6 flex flex-col items-center text-center">
+                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-4 shadow-md`}>
+                          <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} />
                         </div>
                         <span
-                          className="text-sm font-medium text-foreground"
+                          className="text-sm font-semibold text-foreground"
                           data-testid={`text-category-name-${category.id}`}
                         >
                           {category.name}
@@ -170,14 +170,14 @@ export function Categories({ categories }: CategoriesProps) {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <Card
-                    className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 border-0 shadow-md"
+                    className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 border-0 shadow-lg hover:shadow-xl"
                     data-testid={`card-category-mobile-${category.id}`}
                   >
-                    <CardContent className="p-5 flex flex-col items-center text-center">
-                      <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3`}>
-                        <Icon className={`w-6 h-6 ${categoryIconColors[category.id]}`} />
+                    <CardContent className="p-6 flex flex-col items-center text-center">
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-4 shadow-md`}>
+                        <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} />
                       </div>
-                      <span className="text-sm font-medium text-foreground">
+                      <span className="text-sm font-semibold text-foreground">
                         {category.name}
                       </span>
                     </CardContent>
