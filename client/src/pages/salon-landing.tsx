@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { SalonNavbar } from "@/components/salon/navbar";
 import { SalonHero } from "@/components/salon/hero";
 import { Categories } from "@/components/salon/categories";
 import { Locations } from "@/components/salon/locations";
@@ -13,11 +12,7 @@ import { defaultSalonConfig, type SalonConfig } from "@shared/schema";
 function LoadingSkeleton() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border h-16 flex items-center px-6 gap-4">
-        <Skeleton className="h-9 w-9 rounded-lg" />
-        <Skeleton className="h-6 w-28" />
-      </div>
-      <div className="pt-16 min-h-screen bg-primary flex items-center justify-center">
+      <div className="min-h-screen bg-primary flex items-center justify-center">
         <div className="max-w-5xl mx-auto px-4 text-center space-y-6">
           <Skeleton className="h-16 w-full max-w-3xl mx-auto bg-white/20" />
           <Skeleton className="h-6 w-full max-w-xl mx-auto bg-white/20" />
@@ -47,7 +42,6 @@ export default function SalonLanding() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SalonNavbar />
       <main>
         <SalonHero />
         <Categories categories={salonData.categories} />
