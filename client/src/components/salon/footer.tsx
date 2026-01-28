@@ -2,8 +2,18 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { SiInstagram, SiFacebook, SiX, SiYoutube } from "react-icons/si";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export function SalonFooter() {
+  const { toast } = useToast();
+
+  const handleComingSoonLink = (linkName: string) => {
+    toast({
+      title: "Coming Soon",
+      description: `${linkName} page is under development. Stay tuned!`,
+    });
+  };
+
   const footerLinks = {
     Services: ["Haircut", "Spa & Massage", "Facial", "Makeup", "Nail Art", "Waxing"],
     Company: ["About Us", "Careers", "Blog", "Press", "Partner with Us"],
@@ -11,10 +21,10 @@ export function SalonFooter() {
   };
 
   const socialLinks = [
-    { icon: SiInstagram, href: "#", label: "Instagram" },
-    { icon: SiFacebook, href: "#", label: "Facebook" },
-    { icon: SiX, href: "#", label: "Twitter" },
-    { icon: SiYoutube, href: "#", label: "YouTube" },
+    { icon: SiInstagram, label: "Instagram" },
+    { icon: SiFacebook, label: "Facebook" },
+    { icon: SiX, label: "Twitter" },
+    { icon: SiYoutube, label: "YouTube" },
   ];
 
   return (
@@ -56,15 +66,11 @@ export function SalonFooter() {
                   size="icon"
                   variant="ghost"
                   className="text-white/80"
-                  asChild
+                  onClick={() => handleComingSoonLink(social.label)}
+                  aria-label={social.label}
+                  data-testid={`link-social-${social.label.toLowerCase()}`}
                 >
-                  <a
-                    href={social.href}
-                    aria-label={social.label}
-                    data-testid={`link-social-${social.label.toLowerCase()}`}
-                  >
-                    <social.icon className="w-5 h-5" />
-                  </a>
+                  <social.icon className="w-5 h-5" />
                 </Button>
               ))}
             </div>
@@ -78,13 +84,14 @@ export function SalonFooter() {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link}>
-                    <a
-                      href="#"
-                      className="text-white/70 hover:text-white transition-colors"
+                    <button
+                      type="button"
+                      onClick={() => handleComingSoonLink(link)}
+                      className="text-white/70 hover:text-white transition-colors text-left"
                       data-testid={`link-footer-${link.toLowerCase().replace(/\s+/g, "-")}`}
                     >
                       {link}
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -99,15 +106,30 @@ export function SalonFooter() {
             &copy; {new Date().getFullYear()} SalonBook. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="text-white/60 hover:text-white transition-colors" data-testid="link-footer-privacy">
+            <button
+              type="button"
+              onClick={() => handleComingSoonLink("Privacy Policy")}
+              className="text-white/60 hover:text-white transition-colors"
+              data-testid="link-footer-privacy"
+            >
               Privacy Policy
-            </a>
-            <a href="#" className="text-white/60 hover:text-white transition-colors" data-testid="link-footer-terms">
+            </button>
+            <button
+              type="button"
+              onClick={() => handleComingSoonLink("Terms of Service")}
+              className="text-white/60 hover:text-white transition-colors"
+              data-testid="link-footer-terms"
+            >
               Terms of Service
-            </a>
-            <a href="#" className="text-white/60 hover:text-white transition-colors" data-testid="link-footer-cookies">
+            </button>
+            <button
+              type="button"
+              onClick={() => handleComingSoonLink("Cookie Policy")}
+              className="text-white/60 hover:text-white transition-colors"
+              data-testid="link-footer-cookies"
+            >
               Cookie Policy
-            </a>
+            </button>
           </div>
         </div>
       </div>

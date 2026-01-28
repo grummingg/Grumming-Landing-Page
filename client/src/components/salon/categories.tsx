@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Scissors, Bath, Sparkles, Brush, Heart, Fingerprint, type LucideIcon } from "lucide-react";
+import { Scissors, Bath, Sparkles, Brush, Heart, Fingerprint, type LucideIcon, Loader2 } from "lucide-react";
 import type { Category } from "@shared/schema";
 import haircutVideo from "../../assets/videos/salon-services.mp4";
 import spaVideo from "../../assets/videos/service-spa.mp4";
@@ -9,13 +9,13 @@ import makeupVideo from "../../assets/videos/service-makeup.mp4";
 import wellnessVideo from "../../assets/videos/service-wellness.mp4";
 import nailsVideo from "../../assets/videos/service-nails.mp4";
 
-const serviceVideos: Record<string, string> = {
-  "1": haircutVideo,
-  "2": spaVideo,
-  "3": skincareVideo,
-  "4": makeupVideo,
-  "5": wellnessVideo,
-  "6": nailsVideo,
+const serviceVideosByName: Record<string, string> = {
+  haircut: haircutVideo,
+  spa: spaVideo,
+  skincare: skincareVideo,
+  makeup: makeupVideo,
+  wellness: wellnessVideo,
+  nails: nailsVideo,
 };
 
 const iconMap: Record<string, LucideIcon> = {
@@ -27,32 +27,73 @@ const iconMap: Record<string, LucideIcon> = {
   Fingerprint,
 };
 
-const categoryColors: Record<string, string> = {
-  "1": "from-rose-400 to-rose-500",
-  "2": "from-emerald-400 to-emerald-500", 
-  "3": "from-pink-400 to-pink-500",
-  "4": "from-amber-400 to-amber-500",
-  "5": "from-sky-400 to-sky-500",
-  "6": "from-violet-400 to-violet-500",
+const categoryColorsByIcon: Record<string, string> = {
+  Scissors: "from-rose-400 to-rose-500",
+  Bath: "from-emerald-400 to-emerald-500",
+  Sparkles: "from-pink-400 to-pink-500",
+  Brush: "from-amber-400 to-amber-500",
+  Heart: "from-sky-400 to-sky-500",
+  Fingerprint: "from-violet-400 to-violet-500",
 };
 
-const categoryIconColors: Record<string, string> = {
-  "1": "text-white",
-  "2": "text-white",
-  "3": "text-white",
-  "4": "text-white",
-  "5": "text-white",
-  "6": "text-white",
-};
+function getVideoForCategory(category: Category): string {
+  const nameLower = category.name.toLowerCase();
+  if (serviceVideosByName[nameLower]) {
+    return serviceVideosByName[nameLower];
+  }
+  for (const key of Object.keys(serviceVideosByName)) {
+    if (nameLower.includes(key) || key.includes(nameLower)) {
+      return serviceVideosByName[key];
+    }
+  }
+  return haircutVideo;
+}
+
+function getCategoryColor(category: Category): string {
+  return categoryColorsByIcon[category.icon] || "from-gray-400 to-gray-500";
+}
 
 interface CategoriesProps {
   categories: Category[];
 }
 
+function VideoPlayer({ src, testId }: { src: string; testId: string }) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  return (
+    <div className="relative w-full h-full">
+      {isLoading && (
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-pink-500/30 flex items-center justify-center">
+          <Loader2 className="w-8 h-8 text-white animate-spin" />
+        </div>
+      )}
+      <video
+        src={src}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className={`w-full h-full object-cover transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+        data-testid={testId}
+        onLoadedData={() => setIsLoading(false)}
+        onCanPlay={() => setIsLoading(false)}
+      />
+    </div>
+  );
+}
+
 export function Categories({ categories }: CategoriesProps) {
-  const [selectedCategory, setSelectedCategory] = useState("1");
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(
+    categories.length > 0 ? categories[0] : null
+  );
+  
+  if (!categories.length || !selectedCategory) {
+    return null;
+  }
+
   const leftCategories = categories.slice(0, 3);
   const rightCategories = categories.slice(3, 6);
+  const selectedVideo = getVideoForCategory(selectedCategory);
 
   return (
     <section id="categories" className="py-20 sm:py-24 bg-background">
@@ -72,13 +113,11 @@ export function Categories({ categories }: CategoriesProps) {
         </motion.div>
 
         <div className="relative flex items-center justify-center min-h-[520px]">
-          {/* Decorative connecting lines - SVG */}
           <svg
             className="absolute inset-0 w-full h-full hidden lg:block pointer-events-none"
             viewBox="0 0 1200 520"
             preserveAspectRatio="xMidYMid meet"
           >
-            {/* Left side curved lines */}
             <motion.path
               d="M 320 100 Q 450 100 520 200"
               stroke="url(#gradient1)"
@@ -113,7 +152,6 @@ export function Categories({ categories }: CategoriesProps) {
               transition={{ duration: 1, delay: 0.5 }}
             />
             
-            {/* Right side curved lines */}
             <motion.path
               d="M 880 100 Q 750 100 680 200"
               stroke="url(#gradient4)"
@@ -148,7 +186,6 @@ export function Categories({ categories }: CategoriesProps) {
               transition={{ duration: 1, delay: 0.5 }}
             />
             
-            {/* Small decorative dots along lines */}
             <motion.circle
               cx="400"
               cy="100"
@@ -210,7 +247,6 @@ export function Categories({ categories }: CategoriesProps) {
               transition={{ duration: 0.4, delay: 0.8 }}
             />
             
-            {/* Gradient definitions */}
             <defs>
               <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#fb7185" />
@@ -240,7 +276,6 @@ export function Categories({ categories }: CategoriesProps) {
           </svg>
 
           <div className="hidden lg:flex items-center justify-between w-full max-w-6xl relative z-10">
-            {/* Left Categories */}
             <div className="flex flex-col gap-8 items-end">
               {leftCategories.map((category, index) => {
                 const Icon = iconMap[category.icon] || Scissors;
@@ -249,6 +284,7 @@ export function Categories({ categories }: CategoriesProps) {
                   { x: 200, y: 0 },
                   { x: 160, y: 10 },
                 ];
+                const isSelected = selectedCategory.id === category.id;
                 return (
                   <motion.div
                     key={category.id}
@@ -259,15 +295,15 @@ export function Categories({ categories }: CategoriesProps) {
                     style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
                   >
                     <div
-                      className={`group cursor-pointer transition-all duration-300 flex flex-col items-center text-center ${selectedCategory === category.id ? 'scale-110' : ''}`}
+                      className={`group cursor-pointer transition-all duration-300 flex flex-col items-center text-center ${isSelected ? 'scale-110' : ''}`}
                       data-testid={`card-category-${category.id}`}
-                      onClick={() => setSelectedCategory(category.id)}
+                      onClick={() => setSelectedCategory(category)}
                     >
-                      <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${selectedCategory === category.id ? 'ring-4 ring-primary/30 shadow-[0_12px_40px_-6px_rgba(0,0,0,0.3)]' : ''}`}>
-                        <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} strokeWidth={2} />
+                      <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30 shadow-[0_12px_40px_-6px_rgba(0,0,0,0.3)]' : ''}`}>
+                        <Icon className="w-7 h-7 text-white" strokeWidth={2} />
                       </div>
                       <span
-                        className={`text-sm font-semibold transition-colors ${selectedCategory === category.id ? 'text-primary' : 'text-foreground'}`}
+                        className={`text-sm font-semibold transition-colors ${isSelected ? 'text-primary' : 'text-foreground'}`}
                         data-testid={`text-category-name-${category.id}`}
                       >
                         {category.name}
@@ -278,7 +314,6 @@ export function Categories({ categories }: CategoriesProps) {
               })}
             </div>
 
-            {/* Center Phone Mockup */}
             <motion.div
               className="relative mx-12"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -286,30 +321,21 @@ export function Categories({ categories }: CategoriesProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {/* Glow effect behind phone */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-pink-400/20 blur-3xl rounded-full scale-150" />
               
               <div className="w-72 h-[520px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl relative">
                 <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative">
-                  <video
-                    key={selectedCategory}
-                    src={serviceVideos[selectedCategory]}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                    data-testid="video-salon-services"
+                  <VideoPlayer
+                    key={selectedCategory.id}
+                    src={selectedVideo}
+                    testId="video-salon-services"
                   />
                 </div>
-                {/* Phone notch */}
                 <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-7 bg-gray-900 rounded-full" />
-                {/* Phone button */}
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-gray-700 rounded-full" />
               </div>
             </motion.div>
 
-            {/* Right Categories */}
             <div className="flex flex-col gap-8 items-start">
               {rightCategories.map((category, index) => {
                 const Icon = iconMap[category.icon] || Scissors;
@@ -318,6 +344,7 @@ export function Categories({ categories }: CategoriesProps) {
                   { x: -200, y: 0 },
                   { x: -160, y: 10 },
                 ];
+                const isSelected = selectedCategory.id === category.id;
                 return (
                   <motion.div
                     key={category.id}
@@ -328,15 +355,15 @@ export function Categories({ categories }: CategoriesProps) {
                     style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
                   >
                     <div
-                      className={`group cursor-pointer transition-all duration-300 flex flex-col items-center text-center ${selectedCategory === category.id ? 'scale-110' : ''}`}
+                      className={`group cursor-pointer transition-all duration-300 flex flex-col items-center text-center ${isSelected ? 'scale-110' : ''}`}
                       data-testid={`card-category-${category.id}`}
-                      onClick={() => setSelectedCategory(category.id)}
+                      onClick={() => setSelectedCategory(category)}
                     >
-                      <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${selectedCategory === category.id ? 'ring-4 ring-primary/30 shadow-[0_12px_40px_-6px_rgba(0,0,0,0.3)]' : ''}`}>
-                        <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} strokeWidth={2} />
+                      <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30 shadow-[0_12px_40px_-6px_rgba(0,0,0,0.3)]' : ''}`}>
+                        <Icon className="w-7 h-7 text-white" strokeWidth={2} />
                       </div>
                       <span
-                        className={`text-sm font-semibold transition-colors ${selectedCategory === category.id ? 'text-primary' : 'text-foreground'}`}
+                        className={`text-sm font-semibold transition-colors ${isSelected ? 'text-primary' : 'text-foreground'}`}
                         data-testid={`text-category-name-${category.id}`}
                       >
                         {category.name}
@@ -348,9 +375,7 @@ export function Categories({ categories }: CategoriesProps) {
             </div>
           </div>
 
-          {/* Mobile Grid with Phone */}
           <div className="lg:hidden flex flex-col items-center gap-8">
-            {/* Mobile Phone Mockup */}
             <motion.div
               className="relative"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -360,15 +385,10 @@ export function Categories({ categories }: CategoriesProps) {
             >
               <div className="w-56 h-[400px] bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl relative">
                 <div className="w-full h-full rounded-[2rem] overflow-hidden relative">
-                  <video
-                    key={`mobile-${selectedCategory}`}
-                    src={serviceVideos[selectedCategory]}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                    data-testid="video-salon-services-mobile"
+                  <VideoPlayer
+                    key={`mobile-${selectedCategory.id}`}
+                    src={selectedVideo}
+                    testId="video-salon-services-mobile"
                   />
                 </div>
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-gray-900 rounded-full" />
@@ -376,10 +396,10 @@ export function Categories({ categories }: CategoriesProps) {
               </div>
             </motion.div>
 
-            {/* Mobile Categories Grid */}
             <div className="grid grid-cols-3 gap-4">
               {categories.map((category, index) => {
                 const Icon = iconMap[category.icon] || Scissors;
+                const isSelected = selectedCategory.id === category.id;
                 return (
                   <motion.div
                     key={category.id}
@@ -389,14 +409,14 @@ export function Categories({ categories }: CategoriesProps) {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <div
-                      className={`group cursor-pointer transition-all duration-300 p-3 flex flex-col items-center text-center ${selectedCategory === category.id ? 'scale-110' : ''}`}
+                      className={`group cursor-pointer transition-all duration-300 p-3 flex flex-col items-center text-center ${isSelected ? 'scale-110' : ''}`}
                       data-testid={`card-category-mobile-${category.id}`}
-                      onClick={() => setSelectedCategory(category.id)}
+                      onClick={() => setSelectedCategory(category)}
                     >
-                      <div className={`w-14 h-14 rounded-[1rem] bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-2 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${selectedCategory === category.id ? 'ring-4 ring-primary/30' : ''}`}>
-                        <Icon className={`w-6 h-6 ${categoryIconColors[category.id]}`} strokeWidth={2} />
+                      <div className={`w-14 h-14 rounded-[1rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-2 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30' : ''}`}>
+                        <Icon className="w-6 h-6 text-white" strokeWidth={2} />
                       </div>
-                      <span className={`text-xs font-semibold transition-colors ${selectedCategory === category.id ? 'text-primary' : 'text-foreground'}`}>
+                      <span className={`text-xs font-semibold transition-colors ${isSelected ? 'text-primary' : 'text-foreground'}`}>
                         {category.name}
                       </span>
                     </div>
