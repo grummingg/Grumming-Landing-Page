@@ -14,12 +14,11 @@ export function SalonHero() {
           transition={{ duration: 0.6 }}
         >
           <h1
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+            className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white mb-8 leading-tight"
             data-testid="text-hero-headline"
           >
-            Discover the Best
-            <br />
-            <span className="text-primary">Stylists Around You</span>
+            <span className="block tracking-tight">Discover the Best</span>
+            <span className="block text-white/95 italic tracking-wide">Stylists Around You</span>
           </h1>
         </motion.div>
 
