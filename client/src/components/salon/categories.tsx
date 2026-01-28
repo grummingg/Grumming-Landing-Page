@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Scissors, Bath, Sparkles, Brush, Heart, Fingerprint, type LucideIcon } from "lucide-react";
 import type { Category } from "@shared/schema";
-import salonVideo from "@assets/videos/salon-services.mp4";
+import salonVideo from "../assets/videos/salon-services.mp4";
 
 const iconMap: Record<string, LucideIcon> = {
   Scissors,
