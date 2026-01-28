@@ -1,22 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Search, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 export function SalonHero() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
-
-  const cities = ["Delhi", "Mumbai", "Bangalore", "Chennai", "Hyderabad", "Pune", "Kolkata"];
-
   return (
     <section className="relative min-h-screen flex items-center justify-center">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-primary/80" />
@@ -47,7 +31,7 @@ export function SalonHero() {
         </motion.div>
 
         <motion.p
-          className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-10"
+          className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -57,66 +41,10 @@ export function SalonHero() {
         </motion.p>
 
         <motion.div
-          className="bg-card rounded-xl p-4 sm:p-6 shadow-2xl max-w-3xl mx-auto"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Find salons near you..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-                data-testid="input-search"
-              />
-            </div>
-            <div className="sm:w-48">
-              <Select value={selectedCity} onValueChange={setSelectedCity}>
-                <SelectTrigger data-testid="select-city">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-muted-foreground" />
-                    <SelectValue placeholder="Select city" />
-                  </div>
-                </SelectTrigger>
-                <SelectContent>
-                  {cities.map((city) => (
-                    <SelectItem key={city} value={city.toLowerCase()} data-testid={`option-city-${city.toLowerCase()}`}>
-                      {city}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            <Button size="lg" className="gap-2" data-testid="button-search">
-              <Search className="w-4 h-4" />
-              Search
-            </Button>
-          </div>
-
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm">
-            <span className="text-muted-foreground">Popular:</span>
-            {["Haircut", "Spa", "Facial", "Bridal Makeup"].map((tag) => (
-              <Button
-                key={tag}
-                variant="secondary"
-                size="sm"
-                data-testid={`button-popular-${tag.toLowerCase().replace(/\s+/g, "-")}`}
-              >
-                {tag}
-              </Button>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
         >
           {[
             { value: "5000+", label: "Salons" },
