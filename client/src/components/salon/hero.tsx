@@ -37,7 +37,7 @@ export function SalonHero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           data-testid="text-hero-subheadline"
         >
-          Book appointments at top-rated salons for haircuts, spa treatments, facials, makeup, and more
+          Book appointments with top-rated stylists for haircuts, spa treatments, facials, makeup, and more
         </motion.p>
 
         <motion.div
@@ -47,7 +47,7 @@ export function SalonHero() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           {[
-            { value: "5000+", label: "Salons" },
+            { value: "5000+", label: "Stylists" },
             { value: "50K+", label: "Happy Customers" },
             { value: "20+", label: "Cities" },
             { value: "4.8", label: "Avg Rating" },
