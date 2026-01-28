@@ -1,21 +1,20 @@
-import { type User, type InsertUser, type LandingPageConfig, defaultLandingPageConfig } from "@shared/schema";
+import { type User, type InsertUser, type SalonConfig, defaultSalonConfig } from "@shared/schema";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-  getLandingPageConfig(): Promise<LandingPageConfig>;
-  saveLandingPageConfig(config: LandingPageConfig): Promise<LandingPageConfig>;
+  getSalonConfig(): Promise<SalonConfig>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<string, User>;
-  private landingPageConfig: LandingPageConfig;
+  private salonConfig: SalonConfig;
 
   constructor() {
     this.users = new Map();
-    this.landingPageConfig = { ...defaultLandingPageConfig, id: randomUUID() };
+    this.salonConfig = { ...defaultSalonConfig };
   }
 
   async getUser(id: string): Promise<User | undefined> {
@@ -35,13 +34,8 @@ export class MemStorage implements IStorage {
     return user;
   }
 
-  async getLandingPageConfig(): Promise<LandingPageConfig> {
-    return this.landingPageConfig;
-  }
-
-  async saveLandingPageConfig(config: LandingPageConfig): Promise<LandingPageConfig> {
-    this.landingPageConfig = { ...config, id: this.landingPageConfig.id };
-    return this.landingPageConfig;
+  async getSalonConfig(): Promise<SalonConfig> {
+    return this.salonConfig;
   }
 }
 

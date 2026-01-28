@@ -1,0 +1,138 @@
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { SiInstagram, SiFacebook, SiX, SiYoutube } from "react-icons/si";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+
+export function SalonFooter() {
+  const footerLinks = {
+    Services: ["Haircut", "Spa & Massage", "Facial", "Makeup", "Nail Art", "Waxing"],
+    Company: ["About Us", "Careers", "Blog", "Press", "Partner with Us"],
+    Support: ["Help Center", "Safety", "Cancellation Policy", "Report an Issue"],
+  };
+
+  const socialLinks = [
+    { icon: SiInstagram, href: "#", label: "Instagram" },
+    { icon: SiFacebook, href: "#", label: "Facebook" },
+    { icon: SiX, href: "#", label: "Twitter" },
+    { icon: SiYoutube, href: "#", label: "YouTube" },
+  ];
+
+  return (
+    <footer className="bg-primary text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                <span className="text-primary font-bold text-lg">S</span>
+              </div>
+              <span className="font-bold text-2xl" data-testid="text-footer-brand">
+                SalonBook
+              </span>
+            </div>
+            <p className="text-white/80 mb-6 max-w-sm" data-testid="text-footer-description">
+              Discover and book appointments at the best salons near you. Your trusted partner for all beauty and wellness needs.
+            </p>
+
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center gap-3 text-white/80">
+                <Mail className="w-5 h-5" />
+                <span data-testid="text-footer-email">support@salonbook.com</span>
+              </div>
+              <div className="flex items-center gap-3 text-white/80">
+                <Phone className="w-5 h-5" />
+                <span data-testid="text-footer-phone">+91 1800-123-4567</span>
+              </div>
+              <div className="flex items-center gap-3 text-white/80">
+                <MapPin className="w-5 h-5" />
+                <span data-testid="text-footer-address">Mumbai, Maharashtra, India</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              {socialLinks.map((social) => (
+                <Button
+                  key={social.label}
+                  size="icon"
+                  variant="ghost"
+                  className="text-white/80"
+                  asChild
+                >
+                  <a
+                    href={social.href}
+                    aria-label={social.label}
+                    data-testid={`link-social-${social.label.toLowerCase()}`}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          {Object.entries(footerLinks).map(([category, links]) => (
+            <div key={category}>
+              <h4 className="font-semibold text-lg mb-4" data-testid={`text-footer-category-${category.toLowerCase()}`}>
+                {category}
+              </h4>
+              <ul className="space-y-3">
+                {links.map((link) => (
+                  <li key={link}>
+                    <a
+                      href="#"
+                      className="text-white/70 hover:text-white transition-colors"
+                      data-testid={`link-footer-${link.toLowerCase().replace(/\s+/g, "-")}`}
+                    >
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 p-6 bg-white/10 rounded-xl">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <h4 className="font-semibold text-lg mb-1">Subscribe to our newsletter</h4>
+              <p className="text-white/70 text-sm">Get exclusive offers and updates delivered to your inbox</p>
+            </div>
+            <div className="flex gap-2 w-full sm:w-auto">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/50 min-w-[240px]"
+                data-testid="input-newsletter-email"
+              />
+              <Button className="bg-accent text-accent-foreground gap-2" data-testid="button-subscribe">
+                <Send className="w-4 h-4" />
+                Subscribe
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <Separator className="my-8 bg-white/20" />
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-white/60 text-sm" data-testid="text-footer-copyright">
+            &copy; {new Date().getFullYear()} SalonBook. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6 text-sm">
+            <a href="#" className="text-white/60 hover:text-white transition-colors" data-testid="link-footer-privacy">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-white/60 hover:text-white transition-colors" data-testid="link-footer-terms">
+              Terms of Service
+            </a>
+            <a href="#" className="text-white/60 hover:text-white transition-colors" data-testid="link-footer-cookies">
+              Cookie Policy
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

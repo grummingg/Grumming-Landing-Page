@@ -17,176 +17,110 @@ export const insertUserSchema = createInsertSchema(users).pick({
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
-// Landing Page Configuration Types
-export const heroContentSchema = z.object({
-  headline: z.string(),
-  subheadline: z.string(),
-  ctaText: z.string(),
-  ctaSecondaryText: z.string(),
-});
-
-export const featureSchema = z.object({
+// Salon Landing Page Types
+export const categorySchema = z.object({
   id: z.string(),
+  name: z.string(),
   icon: z.string(),
-  title: z.string(),
-  description: z.string(),
 });
 
-export const testimonialSchema = z.object({
+export const locationSchema = z.object({
   id: z.string(),
   name: z.string(),
-  role: z.string(),
-  company: z.string(),
-  content: z.string(),
-  avatar: z.string(),
+  image: z.string(),
+  salonCount: z.number(),
 });
 
-export const pricingTierSchema = z.object({
+export const salonSchema = z.object({
   id: z.string(),
   name: z.string(),
-  price: z.string(),
-  period: z.string(),
-  description: z.string(),
-  features: z.array(z.string()),
-  highlighted: z.boolean(),
-  ctaText: z.string(),
+  image: z.string(),
+  rating: z.number(),
+  reviewCount: z.number(),
+  location: z.string(),
+  startingPrice: z.number(),
+  services: z.array(z.string()),
 });
 
-export const themeConfigSchema = z.object({
-  primaryColor: z.string(),
-  fontFamily: z.string(),
-  borderRadius: z.string(),
-  darkMode: z.boolean(),
+export const salonConfigSchema = z.object({
+  categories: z.array(categorySchema),
+  locations: z.array(locationSchema),
+  featuredSalons: z.array(salonSchema),
 });
 
-export const landingPageConfigSchema = z.object({
-  id: z.string().optional(),
-  hero: heroContentSchema,
-  features: z.array(featureSchema),
-  testimonials: z.array(testimonialSchema),
-  pricing: z.array(pricingTierSchema),
-  theme: themeConfigSchema,
-  brandName: z.string(),
-  brandTagline: z.string(),
-});
+export type Category = z.infer<typeof categorySchema>;
+export type Location = z.infer<typeof locationSchema>;
+export type Salon = z.infer<typeof salonSchema>;
+export type SalonConfig = z.infer<typeof salonConfigSchema>;
 
-export type HeroContent = z.infer<typeof heroContentSchema>;
-export type Feature = z.infer<typeof featureSchema>;
-export type Testimonial = z.infer<typeof testimonialSchema>;
-export type PricingTier = z.infer<typeof pricingTierSchema>;
-export type ThemeConfig = z.infer<typeof themeConfigSchema>;
-export type LandingPageConfig = z.infer<typeof landingPageConfigSchema>;
-
-// Default landing page configuration
-export const defaultLandingPageConfig: LandingPageConfig = {
-  brandName: "Horizon",
-  brandTagline: "The future of digital experience",
-  hero: {
-    headline: "Build Something Amazing",
-    subheadline: "Create stunning digital experiences with our powerful platform. Launch faster, scale effortlessly, and delight your users.",
-    ctaText: "Get Started Free",
-    ctaSecondaryText: "Watch Demo",
-  },
-  features: [
+// Default salon data
+export const defaultSalonConfig: SalonConfig = {
+  categories: [
+    { id: "1", name: "Haircut", icon: "Scissors" },
+    { id: "2", name: "Spa", icon: "Sparkles" },
+    { id: "3", name: "Facial", icon: "Heart" },
+    { id: "4", name: "Makeup", icon: "Palette" },
+    { id: "5", name: "Massage", icon: "Hand" },
+    { id: "6", name: "Nail Art", icon: "Gem" },
+  ],
+  locations: [
+    { id: "1", name: "Delhi", image: "delhi", salonCount: 250 },
+    { id: "2", name: "Mumbai", image: "mumbai", salonCount: 320 },
+    { id: "3", name: "Bangalore", image: "bangalore", salonCount: 180 },
+    { id: "4", name: "Chennai", image: "chennai", salonCount: 145 },
+    { id: "5", name: "Hyderabad", image: "hyderabad", salonCount: 165 },
+    { id: "6", name: "Pune", image: "pune", salonCount: 120 },
+  ],
+  featuredSalons: [
     {
       id: "1",
-      icon: "Zap",
-      title: "Lightning Fast",
-      description: "Optimized performance that keeps your users engaged with sub-second load times.",
+      name: "Luxe Beauty Lounge",
+      image: "salon1",
+      rating: 4.9,
+      reviewCount: 328,
+      location: "Connaught Place, Delhi",
+      startingPrice: 499,
+      services: ["Haircut", "Spa", "Facial"],
     },
     {
       id: "2",
-      icon: "Shield",
-      title: "Enterprise Security",
-      description: "Bank-grade encryption and security protocols to protect your data and users.",
+      name: "Glamour Studio",
+      image: "salon2",
+      rating: 4.8,
+      reviewCount: 256,
+      location: "Bandra, Mumbai",
+      startingPrice: 599,
+      services: ["Makeup", "Hair Styling", "Nail Art"],
     },
     {
       id: "3",
-      icon: "Sparkles",
-      title: "AI-Powered",
-      description: "Leverage cutting-edge AI to automate workflows and enhance user experiences.",
+      name: "Zen Wellness Spa",
+      image: "salon3",
+      rating: 4.9,
+      reviewCount: 412,
+      location: "Koramangala, Bangalore",
+      startingPrice: 799,
+      services: ["Massage", "Spa", "Facial"],
     },
     {
       id: "4",
-      icon: "Globe",
-      title: "Global Scale",
-      description: "Deploy worldwide with our edge network spanning 200+ data centers.",
+      name: "Style Icon Salon",
+      image: "salon4",
+      rating: 4.7,
+      reviewCount: 189,
+      location: "Jubilee Hills, Hyderabad",
+      startingPrice: 399,
+      services: ["Haircut", "Beard Trim", "Hair Color"],
     },
     {
       id: "5",
-      icon: "Palette",
-      title: "Beautiful Design",
-      description: "Stunning templates and components that make your product stand out.",
-    },
-    {
-      id: "6",
-      icon: "Code",
-      title: "Developer First",
-      description: "Powerful APIs and SDKs that integrate seamlessly with your existing stack.",
+      name: "Aura Beauty Bar",
+      image: "salon5",
+      rating: 4.8,
+      reviewCount: 275,
+      location: "T Nagar, Chennai",
+      startingPrice: 549,
+      services: ["Facial", "Makeup", "Waxing"],
     },
   ],
-  testimonials: [
-    {
-      id: "1",
-      name: "Sarah Chen",
-      role: "CEO",
-      company: "TechFlow",
-      content: "This platform transformed how we build products. We shipped 3x faster and our customers love the result.",
-      avatar: "SC",
-    },
-    {
-      id: "2",
-      name: "Marcus Johnson",
-      role: "CTO",
-      company: "Innovate Labs",
-      content: "The developer experience is unmatched. Our team was productive from day one.",
-      avatar: "MJ",
-    },
-    {
-      id: "3",
-      name: "Emily Rodriguez",
-      role: "Product Lead",
-      company: "StartupXYZ",
-      content: "We scaled from 1K to 1M users without breaking a sweat. Incredible infrastructure.",
-      avatar: "ER",
-    },
-  ],
-  pricing: [
-    {
-      id: "1",
-      name: "Starter",
-      price: "$0",
-      period: "/month",
-      description: "Perfect for side projects and experiments",
-      features: ["Up to 1,000 users", "Basic analytics", "Community support", "1 project"],
-      highlighted: false,
-      ctaText: "Start Free",
-    },
-    {
-      id: "2",
-      name: "Pro",
-      price: "$49",
-      period: "/month",
-      description: "For growing teams and businesses",
-      features: ["Unlimited users", "Advanced analytics", "Priority support", "Unlimited projects", "Custom domains", "API access"],
-      highlighted: true,
-      ctaText: "Get Started",
-    },
-    {
-      id: "3",
-      name: "Enterprise",
-      price: "Custom",
-      period: "",
-      description: "For large organizations with specific needs",
-      features: ["Everything in Pro", "Dedicated support", "SLA guarantee", "Custom integrations", "On-premise option", "Advanced security"],
-      highlighted: false,
-      ctaText: "Contact Sales",
-    },
-  ],
-  theme: {
-    primaryColor: "indigo",
-    fontFamily: "Inter",
-    borderRadius: "md",
-    darkMode: false,
-  },
 };
