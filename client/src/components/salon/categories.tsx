@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Scissors, Bath, Sparkles, Brush, Heart, Fingerprint, type LucideIcon, Loader2 } from "lucide-react";
+import { Scissors, Bath, Sparkles, Brush, Palette, Fingerprint, type LucideIcon, Loader2 } from "lucide-react";
 import type { Category } from "@shared/schema";
 import haircutVideo from "../../assets/videos/salon-services.mp4";
 import spaVideo from "../../assets/videos/service-spa.mp4";
@@ -14,7 +14,7 @@ const serviceVideosByName: Record<string, string> = {
   spa: spaVideo,
   skincare: skincareVideo,
   makeup: makeupVideo,
-  wellness: wellnessVideo,
+  "hair colour": haircutVideo,
   nails: nailsVideo,
 };
 
@@ -23,7 +23,7 @@ const iconMap: Record<string, LucideIcon> = {
   Bath,
   Sparkles,
   Brush,
-  Heart,
+  Palette,
   Fingerprint,
 };
 
@@ -32,7 +32,7 @@ const categoryColorsByIcon: Record<string, string> = {
   Bath: "from-emerald-400 to-emerald-500",
   Sparkles: "from-pink-400 to-pink-500",
   Brush: "from-amber-400 to-amber-500",
-  Heart: "from-sky-400 to-sky-500",
+  Palette: "from-sky-400 to-sky-500",
   Fingerprint: "from-violet-400 to-violet-500",
 };
 

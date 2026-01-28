@@ -60,7 +60,7 @@ export const defaultSalonConfig: SalonConfig = {
     { id: "2", name: "Spa", icon: "Bath" },
     { id: "3", name: "Skincare", icon: "Sparkles" },
     { id: "4", name: "Makeup", icon: "Brush" },
-    { id: "5", name: "Wellness", icon: "Heart" },
+    { id: "5", name: "Hair Colour", icon: "Palette" },
     { id: "6", name: "Nails", icon: "Fingerprint" },
   ],
   locations: [
