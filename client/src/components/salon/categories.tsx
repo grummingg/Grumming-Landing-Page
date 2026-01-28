@@ -1,4 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Scissors, Sparkles, Heart, Palette, Hand, Gem, Calendar, type LucideIcon } from "lucide-react";
 import type { Category } from "@shared/schema";
@@ -74,22 +73,20 @@ export function Categories({ categories }: CategoriesProps) {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
                   >
-                    <Card
-                      className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 w-36 border-0 shadow-lg hover:shadow-xl"
+                    <div
+                      className="group cursor-pointer transition-all duration-300 w-36 p-6 flex flex-col items-center text-center"
                       data-testid={`card-category-${category.id}`}
                     >
-                      <CardContent className="p-6 flex flex-col items-center text-center">
-                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-4 shadow-md`}>
-                          <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} />
-                        </div>
-                        <span
-                          className="text-sm font-semibold text-foreground"
-                          data-testid={`text-category-name-${category.id}`}
-                        >
-                          {category.name}
-                        </span>
-                      </CardContent>
-                    </Card>
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-4 shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-300`}>
+                        <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} />
+                      </div>
+                      <span
+                        className="text-sm font-semibold text-foreground"
+                        data-testid={`text-category-name-${category.id}`}
+                      >
+                        {category.name}
+                      </span>
+                    </div>
                   </motion.div>
                 );
               })}
@@ -134,22 +131,20 @@ export function Categories({ categories }: CategoriesProps) {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
                   >
-                    <Card
-                      className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 w-36 border-0 shadow-lg hover:shadow-xl"
+                    <div
+                      className="group cursor-pointer transition-all duration-300 w-36 p-6 flex flex-col items-center text-center"
                       data-testid={`card-category-${category.id}`}
                     >
-                      <CardContent className="p-6 flex flex-col items-center text-center">
-                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-4 shadow-md`}>
-                          <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} />
-                        </div>
-                        <span
-                          className="text-sm font-semibold text-foreground"
-                          data-testid={`text-category-name-${category.id}`}
-                        >
-                          {category.name}
-                        </span>
-                      </CardContent>
-                    </Card>
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-4 shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-300`}>
+                        <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} />
+                      </div>
+                      <span
+                        className="text-sm font-semibold text-foreground"
+                        data-testid={`text-category-name-${category.id}`}
+                      >
+                        {category.name}
+                      </span>
+                    </div>
                   </motion.div>
                 );
               })}
@@ -167,19 +162,17 @@ export function Categories({ categories }: CategoriesProps) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card
-                    className="group cursor-pointer hover-elevate overflow-visible transition-all duration-300 border-0 shadow-lg hover:shadow-xl"
+                  <div
+                    className="group cursor-pointer transition-all duration-300 p-6 flex flex-col items-center text-center"
                     data-testid={`card-category-mobile-${category.id}`}
                   >
-                    <CardContent className="p-6 flex flex-col items-center text-center">
-                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-4 shadow-md`}>
-                        <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} />
-                      </div>
-                      <span className="text-sm font-semibold text-foreground">
-                        {category.name}
-                      </span>
-                    </CardContent>
-                  </Card>
+                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${categoryColors[category.id]} flex items-center justify-center mb-4 shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-300`}>
+                      <Icon className={`w-7 h-7 ${categoryIconColors[category.id]}`} />
+                    </div>
+                    <span className="text-sm font-semibold text-foreground">
+                      {category.name}
+                    </span>
+                  </div>
                 </motion.div>
               );
             })}
