@@ -16,9 +16,9 @@ export function SalonHero() {
         <source src={heroVideo} type="video/mp4" />
       </video>
 
-      {/* Purple Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/80 via-purple-400/75 to-purple-500/70" />
-      <div className="absolute inset-0 bg-gradient-to-t from-purple-600/50 to-transparent" />
+      {/* Dark Teal Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#2D5F5D]/85 via-[#2D5F5D]/75 to-[#1a3a39]/80" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1a3a39]/60 to-transparent" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
