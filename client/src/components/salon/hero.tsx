@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export function SalonHero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-primary/80" />
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-400/90 via-purple-300/85 to-purple-400/80" />
       
       <div
         className="absolute inset-0 opacity-20"
@@ -12,7 +12,7 @@ export function SalonHero() {
         }}
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-purple-500/40 to-transparent" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
