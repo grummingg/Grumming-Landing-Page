@@ -60,6 +60,10 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  console.log("Server starting...");
+  console.log("NODE_ENV:", process.env.NODE_ENV);
+  console.log("PORT:", process.env.PORT || "5000 (default)");
+  
   try {
     await registerRoutes(httpServer, app);
 
