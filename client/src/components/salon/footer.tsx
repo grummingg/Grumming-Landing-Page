@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { SiInstagram, SiFacebook, SiX, SiYoutube } from "react-icons/si";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export function SalonFooter() {
   const footerLinks = {
@@ -93,28 +92,7 @@ export function SalonFooter() {
           ))}
         </div>
 
-        <div className="mt-12 p-6 bg-white/10 rounded-xl">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-              <h4 className="font-semibold text-lg mb-1">Subscribe to our newsletter</h4>
-              <p className="text-white/70 text-sm">Get exclusive offers and updates delivered to your inbox</p>
-            </div>
-            <div className="flex gap-2 w-full sm:w-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/50 min-w-[240px]"
-                data-testid="input-newsletter-email"
-              />
-              <Button className="bg-accent text-accent-foreground gap-2" data-testid="button-subscribe">
-                <Send className="w-4 h-4" />
-                Subscribe
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        <Separator className="my-8 bg-white/20" />
+        <Separator className="mt-12 mb-8 bg-white/20" />
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/60 text-sm" data-testid="text-footer-copyright">
