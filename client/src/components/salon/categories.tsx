@@ -108,9 +108,6 @@ export function Categories({ categories }: CategoriesProps) {
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-4 shadow-lg">
                       <Calendar className="w-8 h-8 text-white" />
                     </div>
-                    <span className="text-base font-bold text-gray-800 mb-4">
-                      Book Now
-                    </span>
                     <div className="px-8 py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl text-white text-sm font-semibold shadow-md">
                       Book Now
                     </div>
