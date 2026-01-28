@@ -104,14 +104,20 @@ export function Categories({ categories }: CategoriesProps) {
             >
               <div className="w-64 h-[480px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl relative">
                 <div className="w-full h-full bg-gradient-to-br from-purple-100 to-purple-200 rounded-[2.5rem] flex items-center justify-center">
-                  <Card className="w-40 shadow-xl border-0">
+                  <Card className="w-48 shadow-2xl border-0">
                     <CardContent className="p-6 flex flex-col items-center text-center">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-4 shadow-md">
-                        <Calendar className="w-7 h-7 text-white" />
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-4 shadow-lg">
+                        <Calendar className="w-8 h-8 text-white" />
                       </div>
-                      <span className="text-sm font-bold text-foreground">
+                      <span className="text-base font-bold text-foreground mb-1">
                         Book Now
                       </span>
+                      <span className="text-xs text-muted-foreground mb-4">
+                        Quick & Easy
+                      </span>
+                      <div className="w-full py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl text-white text-sm font-semibold shadow-md">
+                        Get Started
+                      </div>
                     </CardContent>
                   </Card>
                 </div>
