@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { Scissors, Droplets, Smile, Palette, Hand, Gem, Calendar, type LucideIcon } from "lucide-react";
+import { Scissors, Bath, Sparkles, Brush, Heart, Fingerprint, Calendar, type LucideIcon } from "lucide-react";
 import type { Category } from "@shared/schema";
 
 const iconMap: Record<string, LucideIcon> = {
   Scissors,
-  Droplets,
-  Smile,
-  Palette,
-  Hand,
-  Gem,
+  Bath,
+  Sparkles,
+  Brush,
+  Heart,
+  Fingerprint,
 };
 
 const categoryColors: Record<string, string> = {

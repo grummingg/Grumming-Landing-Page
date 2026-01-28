@@ -57,11 +57,11 @@ export type SalonConfig = z.infer<typeof salonConfigSchema>;
 export const defaultSalonConfig: SalonConfig = {
   categories: [
     { id: "1", name: "Haircut", icon: "Scissors" },
-    { id: "2", name: "Spa", icon: "Droplets" },
-    { id: "3", name: "Facial", icon: "Smile" },
-    { id: "4", name: "Makeup", icon: "Palette" },
-    { id: "5", name: "Massage", icon: "Hand" },
-    { id: "6", name: "Nails", icon: "Gem" },
+    { id: "2", name: "Spa", icon: "Bath" },
+    { id: "3", name: "Skincare", icon: "Sparkles" },
+    { id: "4", name: "Makeup", icon: "Brush" },
+    { id: "5", name: "Wellness", icon: "Heart" },
+    { id: "6", name: "Nails", icon: "Fingerprint" },
   ],
   locations: [
     { id: "1", name: "Delhi", image: "delhi", salonCount: 250 },
