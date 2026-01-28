@@ -28,7 +28,7 @@ export function SalonHero() {
           transition={{ duration: 0.6 }}
         >
           <h1
-            className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-8 leading-tight drop-shadow-lg font-display"
+            className="text-4xl sm:text-5xl md:text-6xl font-normal text-white mb-8 leading-tight drop-shadow-lg font-display"
             data-testid="text-hero-headline"
           >
             <span className="block tracking-tight">Discover the Best</span>
