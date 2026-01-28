@@ -29,7 +29,7 @@ export function SalonHero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           data-testid="text-hero-subheadline"
         >
-          Book appointments with top-rated stylists for haircuts, spa treatments, facials, makeup, and more
+          Premium beauty services at your fingertips
         </motion.p>
 
         <motion.div
