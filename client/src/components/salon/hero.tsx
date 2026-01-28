@@ -28,7 +28,7 @@ export function SalonHero() {
           transition={{ duration: 0.6 }}
         >
           <h1
-            className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white mb-8 leading-tight drop-shadow-lg"
+            className="text-5xl sm:text-6xl md:text-7xl font-black text-white mb-8 leading-tight drop-shadow-lg font-display"
             data-testid="text-hero-headline"
           >
             <span className="block tracking-tight">Discover the Best</span>
@@ -37,7 +37,7 @@ export function SalonHero() {
         </motion.div>
 
         <motion.p
-          className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8"
+          className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8 font-semibold font-display"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -54,7 +54,7 @@ export function SalonHero() {
         >
           <a
             href="#"
-            className="inline-flex items-center gap-3 bg-black rounded-lg px-4 py-2.5 border border-white/20 hover:bg-black/80 transition-colors"
+            className="inline-flex items-center gap-3 bg-black rounded-lg px-4 py-2.5 border border-white/20 hover-elevate"
             data-testid="link-hero-google-play"
             aria-label="Get it on Google Play"
           >
@@ -71,7 +71,7 @@ export function SalonHero() {
           </a>
           <a
             href="#"
-            className="inline-flex items-center gap-3 bg-black rounded-lg px-4 py-2.5 border border-white/20 hover:bg-black/80 transition-colors"
+            className="inline-flex items-center gap-3 bg-black rounded-lg px-4 py-2.5 border border-white/20 hover-elevate"
             data-testid="link-hero-app-store"
             aria-label="Download on the App Store"
           >
