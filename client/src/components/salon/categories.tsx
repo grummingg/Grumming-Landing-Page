@@ -225,13 +225,13 @@ export function Categories({ categories }: CategoriesProps) {
 
           <div className="hidden lg:flex items-center justify-between w-full max-w-6xl relative z-10">
             {/* Left Categories */}
-            <div className="flex flex-col gap-10 items-end">
+            <div className="flex flex-col gap-8 items-end">
               {leftCategories.map((category, index) => {
                 const Icon = iconMap[category.icon] || Scissors;
                 const offsets = [
-                  { x: 80, y: -20 },
-                  { x: 120, y: 0 },
-                  { x: 80, y: 20 },
+                  { x: 160, y: -10 },
+                  { x: 200, y: 0 },
+                  { x: 160, y: 10 },
                 ];
                 return (
                   <motion.div
@@ -292,13 +292,13 @@ export function Categories({ categories }: CategoriesProps) {
             </motion.div>
 
             {/* Right Categories */}
-            <div className="flex flex-col gap-10 items-start">
+            <div className="flex flex-col gap-8 items-start">
               {rightCategories.map((category, index) => {
                 const Icon = iconMap[category.icon] || Scissors;
                 const offsets = [
-                  { x: -80, y: -20 },
-                  { x: -120, y: 0 },
-                  { x: -80, y: 20 },
+                  { x: -160, y: -10 },
+                  { x: -200, y: 0 },
+                  { x: -160, y: 10 },
                 ];
                 return (
                   <motion.div
