@@ -48,14 +48,11 @@ export function Categories({ categories }: CategoriesProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground" data-testid="text-categories-title">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground" data-testid="text-categories-title">
             Skip the calls.
             <br />
             <span className="text-accent">Book your stylist instantly.</span>
           </h2>
-          <p className="text-base text-muted-foreground max-w-lg mx-auto leading-relaxed" data-testid="text-categories-description">
-            Discover top-rated stylists and book your next appointment in just a few taps
-          </p>
         </motion.div>
 
         <div className="relative flex items-center justify-center min-h-[500px]">
