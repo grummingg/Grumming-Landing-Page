@@ -49,12 +49,12 @@ export function Categories({ categories }: CategoriesProps) {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-categories-title">
-            What's waiting for you
+            Skip the calls.
             <br />
-            <span className="text-primary">at our salons?</span>
+            <span className="text-primary">Book your stylist instantly.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto" data-testid="text-categories-description">
-            Our app is packed with features that enable you to experience beauty services like never before
+            Discover top-rated stylists and book your next appointment in just a few taps
           </p>
         </motion.div>
 
