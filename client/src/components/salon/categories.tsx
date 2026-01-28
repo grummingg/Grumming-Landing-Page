@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Scissors, Bath, Sparkles, Brush, Heart, Fingerprint, type LucideIcon } from "lucide-react";
 import type { Category } from "@shared/schema";
-import haircutVideo from "../../assets/videos/service-haircut.mp4";
+import haircutVideo from "../../assets/videos/salon-services.mp4";
 import spaVideo from "../../assets/videos/service-spa.mp4";
 import skincareVideo from "../../assets/videos/service-skincare.mp4";
 import makeupVideo from "../../assets/videos/service-makeup.mp4";
