@@ -26,7 +26,7 @@ export function SalonHero() {
           >
             Discover the Best
             <br />
-            <span className="text-accent">Stylists Around You</span>
+            <span className="text-primary">Stylists Around You</span>
           </h1>
         </motion.div>
 
