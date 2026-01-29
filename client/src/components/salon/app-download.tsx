@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function AppDownload() {
   return (
-    <section id="download" className="py-20 sm:py-24 bg-white dark:bg-gray-950">
+    <section id="download" className="py-20 sm:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
@@ -12,20 +12,20 @@ export function AppDownload() {
             transition={{ duration: 0.6 }}
           >
             <h2
-              className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight"
+              className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight"
               data-testid="text-download-title"
             >
               Download the app now!
             </h2>
 
-            <p className="text-base text-gray-600 dark:text-gray-400 mb-8 max-w-sm leading-relaxed">
+            <p className="text-base text-gray-600 mb-8 max-w-sm leading-relaxed">
               Experience seamless booking only on the SalonBook app
             </p>
 
             <div className="flex flex-wrap gap-3">
               <a
                 href="#"
-                className="inline-flex items-center gap-2.5 bg-gray-900 dark:bg-gray-800 rounded-lg px-4 py-2.5 hover-elevate border border-gray-800 dark:border-gray-700"
+                className="inline-flex items-center gap-2.5 bg-gray-900 rounded-lg px-4 py-2.5 hover-elevate"
                 data-testid="button-play-store"
                 aria-label="Get it on Google Play"
               >
@@ -42,7 +42,7 @@ export function AppDownload() {
               </a>
               <a
                 href="#"
-                className="inline-flex items-center gap-2.5 bg-gray-900 dark:bg-gray-800 rounded-lg px-4 py-2.5 hover-elevate border border-gray-800 dark:border-gray-700"
+                className="inline-flex items-center gap-2.5 bg-gray-900 rounded-lg px-4 py-2.5 hover-elevate"
                 data-testid="button-app-store"
                 aria-label="Download on the App Store"
               >
@@ -66,11 +66,11 @@ export function AppDownload() {
           >
             <div className="relative">
               {/* Phone mockup */}
-              <div className="w-52 h-[400px] bg-gray-900 rounded-[2.5rem] p-2 shadow-xl relative">
+              <div className="w-52 h-[400px] bg-white rounded-[2.5rem] p-2 shadow-lg border border-gray-200 relative">
                 {/* Phone screen with QR code */}
-                <div className="w-full h-full bg-white rounded-[2rem] flex flex-col items-center justify-center p-5">
+                <div className="w-full h-full bg-gray-50 rounded-[2rem] flex flex-col items-center justify-center p-5">
                   {/* Notch */}
-                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-900 rounded-full" />
+                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-800 rounded-full" />
                   
                   <p className="text-gray-600 text-center text-xs mb-5 font-medium mt-6">
                     Scan the QR code to<br />download the app
@@ -156,7 +156,7 @@ export function AppDownload() {
                 </div>
                 
                 {/* Home indicator */}
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-gray-700 rounded-full" />
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-gray-300 rounded-full" />
               </div>
             </div>
           </motion.div>
