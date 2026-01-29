@@ -37,37 +37,37 @@ export function SalonFooter() {
                 Grumming
               </span>
             </div>
-            <p className="text-white/80 mb-6 max-w-sm" data-testid="text-footer-description">
+            <p className="text-white/60 mb-6 max-w-xs text-sm leading-relaxed" data-testid="text-footer-description">
               Discover and book appointments at the best salons near you. Your trusted partner for all beauty and wellness needs.
             </p>
 
-            <div className="space-y-3 mb-6">
-              <div className="flex items-center gap-3 text-white/80">
-                <Mail className="w-5 h-5" />
-                <span data-testid="text-footer-email">support@grumming.com</span>
+            <div className="space-y-2.5 mb-6">
+              <div className="flex items-center gap-2.5 text-white/60">
+                <Mail className="w-4 h-4" />
+                <span className="text-sm" data-testid="text-footer-email">support@grumming.com</span>
               </div>
-              <div className="flex items-center gap-3 text-white/80">
-                <Phone className="w-5 h-5" />
-                <span data-testid="text-footer-phone">+91 1800-123-4567</span>
+              <div className="flex items-center gap-2.5 text-white/60">
+                <Phone className="w-4 h-4" />
+                <span className="text-sm" data-testid="text-footer-phone">+91 1800-123-4567</span>
               </div>
-              <div className="flex items-center gap-3 text-white/80">
-                <MapPin className="w-5 h-5" />
-                <span data-testid="text-footer-address">Mumbai, Maharashtra, India</span>
+              <div className="flex items-center gap-2.5 text-white/60">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm" data-testid="text-footer-address">Mumbai, Maharashtra, India</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
               {socialLinks.map((social) => (
                 <Button
                   key={social.label}
                   size="icon"
                   variant="ghost"
-                  className="text-white/80"
+                  className="text-white/60 hover:text-white h-8 w-8"
                   onClick={() => handleComingSoonLink(social.label)}
                   aria-label={social.label}
                   data-testid={`link-social-${social.label.toLowerCase()}`}
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-4 h-4" />
                 </Button>
               ))}
             </div>
