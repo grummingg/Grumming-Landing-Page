@@ -33,7 +33,7 @@ export function SalonFooter() {
     ],
     Support: [
       { name: "Help Center", url: null },
-      { name: "Safety", url: null },
+      { name: "Safety", url: "/safety" },
       { name: "Cancellation Policy", url: "/cancellation-policy" },
       { name: "Report an Issue", url: null },
     ],
