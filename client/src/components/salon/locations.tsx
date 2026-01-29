@@ -55,17 +55,11 @@ export function Locations({ locations }: LocationsProps) {
                       <MapPin className={`w-7 h-7 ${colors.icon}`} />
                     </div>
                     <h3
-                      className="font-bold text-lg text-gray-900 mb-1"
+                      className="font-bold text-lg text-gray-900"
                       data-testid={`text-location-name-${location.id}`}
                     >
                       {location.name}
                     </h3>
-                    <div className="flex items-center gap-1.5">
-                      <span className={`w-1.5 h-1.5 rounded-full ${colors.accent}`}></span>
-                      <p className="text-sm font-medium text-gray-600" data-testid={`badge-location-count-${location.id}`}>
-                        {location.salonCount}+ Salons
-                      </p>
-                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
