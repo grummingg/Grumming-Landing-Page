@@ -78,17 +78,75 @@ interface CategoriesProps {
   categories: Category[];
 }
 
-function VideoPlayer({ src, testId }: { src: string; testId: string }) {
+function CrossfadeVideoPlayer({ src, testId }: { src: string; testId: string }) {
+  const [activeVideo, setActiveVideo] = useState<'A' | 'B'>('A');
+  const [videoASrc, setVideoASrc] = useState(src);
+  const [videoBSrc, setVideoBSrc] = useState(src);
+  const pendingTransitionRef = useRef<'A' | 'B' | null>(null);
+  const transitionTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (src === (activeVideo === 'A' ? videoASrc : videoBSrc)) return;
+    
+    const targetSide = activeVideo === 'A' ? 'B' : 'A';
+    pendingTransitionRef.current = targetSide;
+    
+    if (targetSide === 'A') {
+      setVideoASrc(src);
+    } else {
+      setVideoBSrc(src);
+    }
+  }, [src, activeVideo, videoASrc, videoBSrc]);
+
+  useEffect(() => {
+    return () => {
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleVideoReady = useCallback((which: 'A' | 'B') => {
+    if (which === pendingTransitionRef.current) {
+      pendingTransitionRef.current = null;
+      
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
+      }
+      
+      transitionTimeoutRef.current = window.setTimeout(() => {
+        setActiveVideo(which);
+      }, 50);
+    }
+  }, []);
+
   return (
-    <video
-      src={src}
-      autoPlay
-      loop
-      muted
-      playsInline
-      className="w-full h-full object-cover bg-gray-900"
-      data-testid={testId}
-    />
+    <div className="relative w-full h-full bg-gray-900 overflow-hidden">
+      <video
+        src={videoASrc}
+        autoPlay
+        loop
+        muted
+        playsInline
+        onCanPlay={() => handleVideoReady('A')}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+          activeVideo === 'A' ? 'opacity-100 z-10' : 'opacity-0 z-0'
+        }`}
+        data-testid={`${testId}-a`}
+      />
+      <video
+        src={videoBSrc}
+        autoPlay
+        loop
+        muted
+        playsInline
+        onCanPlay={() => handleVideoReady('B')}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+          activeVideo === 'B' ? 'opacity-100 z-10' : 'opacity-0 z-0'
+        }`}
+        data-testid={`${testId}-b`}
+      />
+    </div>
   );
 }
 
@@ -375,8 +433,7 @@ export function Categories({ categories }: CategoriesProps) {
               
               <div className="w-72 h-[520px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl relative">
                 <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative">
-                  <VideoPlayer
-                    key={currentVideo}
+                  <CrossfadeVideoPlayer
                     src={currentVideo}
                     testId="video-salon-services"
                   />
@@ -435,8 +492,7 @@ export function Categories({ categories }: CategoriesProps) {
             >
               <div className="w-56 h-[400px] bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl relative">
                 <div className="w-full h-full rounded-[2rem] overflow-hidden relative">
-                  <VideoPlayer
-                    key={`mobile-${currentVideo}`}
+                  <CrossfadeVideoPlayer
                     src={currentVideo}
                     testId="video-salon-services-mobile"
                   />
