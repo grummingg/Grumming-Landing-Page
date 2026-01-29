@@ -34,10 +34,10 @@ export function SalonFooter() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-primary font-bold text-lg">S</span>
+                <span className="text-primary font-bold text-lg">G</span>
               </div>
               <span className="font-bold text-2xl" data-testid="text-footer-brand">
-                SalonBook
+                Grumming
               </span>
             </div>
             <p className="text-white/80 mb-6 max-w-sm" data-testid="text-footer-description">
@@ -103,7 +103,7 @@ export function SalonFooter() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/60 text-sm" data-testid="text-footer-copyright">
-            &copy; {new Date().getFullYear()} SalonBook. All rights reserved.
+            &copy; {new Date().getFullYear()} Grumming. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm">
             <button
