@@ -52,9 +52,8 @@ export function Locations({ locations }: LocationsProps) {
                   data-testid={`card-location-${location.id}`}
                 >
                   <CardContent className="p-0">
-                    <div className={`h-32 sm:h-40 bg-gradient-to-br ${gradient} relative`}>
-                      <div className="absolute inset-0 bg-black/20" />
-                      <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+                    <div className="h-32 sm:h-40 bg-white dark:bg-gray-100 relative">
+                      <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-800">
                         <MapPin className="w-6 h-6 mb-2 opacity-80" />
                         <h3
                           className="font-bold text-lg"
