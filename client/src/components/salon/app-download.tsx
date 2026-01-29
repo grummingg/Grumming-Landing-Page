@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function AppDownload() {
   return (
-    <section id="download" className="py-20 sm:py-24 bg-background">
+    <section id="download" className="py-20 sm:py-24 bg-white dark:bg-gray-950">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
@@ -12,13 +12,13 @@ export function AppDownload() {
             transition={{ duration: 0.6 }}
           >
             <h2
-              className="text-3xl sm:text-4xl font-bold text-foreground mb-4 leading-tight"
+              className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight"
               data-testid="text-download-title"
             >
               Download the app now!
             </h2>
 
-            <p className="text-base text-muted-foreground mb-8 max-w-sm leading-relaxed">
+            <p className="text-base text-gray-600 dark:text-gray-400 mb-8 max-w-sm leading-relaxed">
               Experience seamless booking only on the SalonBook app
             </p>
 
