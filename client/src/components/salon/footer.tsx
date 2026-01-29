@@ -21,10 +21,10 @@ export function SalonFooter() {
   };
 
   const socialLinks = [
-    { icon: SiInstagram, label: "Instagram" },
-    { icon: SiFacebook, label: "Facebook" },
-    { icon: SiX, label: "Twitter" },
-    { icon: SiYoutube, label: "YouTube" },
+    { icon: SiInstagram, label: "Instagram", url: "https://www.instagram.com/grummingindia?igsh=cnVuYmdsbnR6NHlr" },
+    { icon: SiFacebook, label: "Facebook", url: null },
+    { icon: SiX, label: "X", url: "https://x.com/grummingapp?s=21" },
+    { icon: SiYoutube, label: "YouTube", url: null },
   ];
 
   return (
@@ -63,7 +63,13 @@ export function SalonFooter() {
                   size="icon"
                   variant="ghost"
                   className="text-white/60 hover:text-white h-8 w-8"
-                  onClick={() => handleComingSoonLink(social.label)}
+                  onClick={() => {
+                    if (social.url) {
+                      window.open(social.url, "_blank", "noopener,noreferrer");
+                    } else {
+                      handleComingSoonLink(social.label);
+                    }
+                  }}
                   aria-label={social.label}
                   data-testid={`link-social-${social.label.toLowerCase()}`}
                 >
