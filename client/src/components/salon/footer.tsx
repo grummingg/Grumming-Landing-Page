@@ -44,7 +44,7 @@ export function SalonFooter() {
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3 text-white/80">
                 <Mail className="w-5 h-5" />
-                <span data-testid="text-footer-email">support@salonbook.com</span>
+                <span data-testid="text-footer-email">support@grumming.com</span>
               </div>
               <div className="flex items-center gap-3 text-white/80">
                 <Phone className="w-5 h-5" />
