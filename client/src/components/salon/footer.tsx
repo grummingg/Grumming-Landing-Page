@@ -33,7 +33,7 @@ export function SalonFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2">
             <div className="mb-4">
-              <span className="font-bold text-2xl" data-testid="text-footer-brand">
+              <span className="font-extrabold text-3xl tracking-tight" data-testid="text-footer-brand">
                 Grumming
               </span>
             </div>
