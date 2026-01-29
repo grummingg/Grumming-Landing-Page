@@ -158,7 +158,7 @@ export default function TermsOfService() {
             </p>
             <div className="bg-muted p-4 rounded-md">
               <p className="text-foreground font-medium">Grumming Legal Team</p>
-              <p className="text-muted-foreground">Email: legal@grumming.com</p>
+              <p className="text-muted-foreground">Email: support@grumming.com</p>
               <p className="text-muted-foreground">Phone: +91 1800-123-4567</p>
               <p className="text-muted-foreground">Address: Mumbai, Maharashtra, India</p>
             </div>
