@@ -20,7 +20,7 @@ export function AppDownload() {
             </h2>
 
             <p className="text-base text-gray-500 mb-8 max-w-sm leading-relaxed">
-              Experience seamless booking only on the SalonBook app
+              Experience seamless booking only on the Grooming app
             </p>
 
             <div className="flex flex-wrap gap-3">
