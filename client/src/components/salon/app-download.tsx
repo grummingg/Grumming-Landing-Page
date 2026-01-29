@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function AppDownload() {
   return (
-    <section id="download" className="py-16 sm:py-20 bg-gradient-to-b from-purple-50 to-white">
+    <section id="download" className="py-16 sm:py-20 bg-gradient-to-b from-purple-50 to-background dark:from-purple-950/30 dark:to-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <motion.div
@@ -13,13 +13,13 @@ export function AppDownload() {
             className="lg:pr-8"
           >
             <h2
-              className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-gray-900 mb-4 leading-tight tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-foreground mb-4 leading-tight tracking-tight"
               data-testid="text-download-title"
             >
               Download the app now!
             </h2>
 
-            <p className="text-base text-gray-500 mb-8 max-w-sm leading-relaxed">
+            <p className="text-base text-muted-foreground mb-8 max-w-sm leading-relaxed">
               Experience seamless booking only on the Grumming app
             </p>
 
@@ -66,13 +66,13 @@ export function AppDownload() {
           >
             <div className="relative">
               {/* Phone mockup - sleek silver/white design */}
-              <div className="w-44 h-[340px] bg-gradient-to-b from-gray-100 to-gray-200 rounded-[2rem] p-1.5 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] relative border border-gray-300/50">
+              <div className="w-44 h-[340px] bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-[2rem] p-1.5 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.4)] relative border border-gray-300/50 dark:border-gray-600/50">
                 {/* Phone screen */}
-                <div className="w-full h-full bg-white rounded-[1.75rem] flex flex-col items-center justify-center px-4 py-6 relative">
+                <div className="w-full h-full bg-white dark:bg-gray-900 rounded-[1.75rem] flex flex-col items-center justify-center px-4 py-6 relative">
                   {/* Notch */}
-                  <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-gray-800 rounded-full" />
+                  <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-gray-800 dark:bg-black rounded-full" />
                   
-                  <p className="text-gray-500 text-center text-[10px] mb-4 font-medium mt-4 leading-relaxed">
+                  <p className="text-gray-500 dark:text-gray-400 text-center text-[10px] mb-4 font-medium mt-4 leading-relaxed">
                     Scan the QR code to<br />download the app
                   </p>
                   
@@ -156,7 +156,7 @@ export function AppDownload() {
                 </div>
                 
                 {/* Home indicator */}
-                <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-16 h-1 bg-gray-400 rounded-full" />
+                <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-16 h-1 bg-gray-400 dark:bg-gray-600 rounded-full" />
               </div>
             </div>
           </motion.div>
