@@ -48,26 +48,22 @@ export function Locations({ locations }: LocationsProps) {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card
-                  className="group cursor-pointer overflow-hidden hover-elevate transition-all duration-300"
+                  className="group cursor-pointer overflow-hidden hover-elevate transition-all duration-300 border border-gray-200 shadow-sm hover:shadow-md"
                   data-testid={`card-location-${location.id}`}
                 >
-                  <CardContent className="p-0">
-                    <div className="h-32 sm:h-40 bg-gray-50 relative">
-                      <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-800">
-                        <MapPin className="w-6 h-6 mb-2 opacity-80" />
-                        <h3
-                          className="font-bold text-lg"
-                          data-testid={`text-location-name-${location.id}`}
-                        >
-                          {location.name}
-                        </h3>
-                      </div>
+                  <CardContent className="p-6 flex flex-col items-center text-center">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                      <MapPin className="w-6 h-6 text-primary" />
                     </div>
-                    <div className="p-3 text-center">
-                      <Badge variant="secondary" data-testid={`badge-location-count-${location.id}`}>
-                        {location.salonCount}+ Salons
-                      </Badge>
-                    </div>
+                    <h3
+                      className="font-semibold text-lg text-gray-900 mb-2"
+                      data-testid={`text-location-name-${location.id}`}
+                    >
+                      {location.name}
+                    </h3>
+                    <p className="text-sm text-gray-500" data-testid={`badge-location-count-${location.id}`}>
+                      {location.salonCount}+ Salons
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
