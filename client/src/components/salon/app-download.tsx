@@ -30,14 +30,6 @@ export function AppDownload() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
-                data-testid="text-download-title"
-              >
-                Get the App for a
-                <br />
-                <span className="text-accent">Better Experience</span>
-              </h2>
               <p
                 className="text-lg text-white/90 mb-8"
                 data-testid="text-download-description"
