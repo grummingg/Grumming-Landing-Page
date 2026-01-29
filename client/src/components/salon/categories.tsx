@@ -80,17 +80,15 @@ interface CategoriesProps {
 
 function VideoPlayer({ src, testId }: { src: string; testId: string }) {
   return (
-    <div className="relative w-full h-full bg-gradient-to-br from-purple-500/30 to-pink-500/30">
-      <video
-        src={src}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-full h-full object-cover"
-        data-testid={testId}
-      />
-    </div>
+    <video
+      src={src}
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="w-full h-full object-cover bg-gray-900"
+      data-testid={testId}
+    />
   );
 }
 
