@@ -9,12 +9,12 @@ interface LocationsProps {
 }
 
 const cityGradients: Record<string, string> = {
-  delhi: "from-rose-500 to-orange-500",
-  mumbai: "from-blue-500 to-cyan-500",
-  bangalore: "from-green-500 to-emerald-500",
-  chennai: "from-purple-500 to-pink-500",
-  hyderabad: "from-amber-500 to-yellow-500",
-  pune: "from-teal-500 to-green-500",
+  delhi: "from-slate-700 to-slate-800",
+  mumbai: "from-indigo-700 to-indigo-800",
+  bangalore: "from-emerald-700 to-emerald-800",
+  chennai: "from-violet-700 to-violet-800",
+  hyderabad: "from-cyan-700 to-cyan-800",
+  pune: "from-teal-700 to-teal-800",
 };
 
 export function Locations({ locations }: LocationsProps) {
