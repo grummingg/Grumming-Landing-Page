@@ -75,16 +75,16 @@ export function SalonFooter() {
 
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-semibold text-lg mb-4" data-testid={`text-footer-category-${category.toLowerCase()}`}>
+              <h4 className="font-semibold text-sm uppercase tracking-wider text-white/90 mb-4" data-testid={`text-footer-category-${category.toLowerCase()}`}>
                 {category}
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link}>
                     <button
                       type="button"
                       onClick={() => handleComingSoonLink(link)}
-                      className="text-white/70 hover:text-white transition-colors text-left"
+                      className="text-white/60 hover:text-white transition-colors text-left text-sm"
                       data-testid={`link-footer-${link.toLowerCase().replace(/\s+/g, "-")}`}
                     >
                       {link}
