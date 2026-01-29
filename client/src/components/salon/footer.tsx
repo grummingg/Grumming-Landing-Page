@@ -22,7 +22,6 @@ export function SalonFooter() {
       { name: "Facial", url: null },
       { name: "Makeup", url: null },
       { name: "Nail Art", url: null },
-      { name: "Waxing", url: null },
     ],
     Company: [
       { name: "About Us", url: "/about-us" },
