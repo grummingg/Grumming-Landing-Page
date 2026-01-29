@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
-import { Scissors, Bath, Brush, Palette, type LucideIcon } from "lucide-react";
+import { Scissors, Bath, Brush, type LucideIcon } from "lucide-react";
 import type { Category } from "@shared/schema";
 
 function SkincareIcon({ className, strokeWidth }: { className?: string; strokeWidth?: number }) {
@@ -40,6 +40,24 @@ function NailsIcon({ className, strokeWidth }: { className?: string; strokeWidth
   );
 }
 
+function HairColourIcon({ className, strokeWidth }: { className?: string; strokeWidth?: number }) {
+  return (
+    <svg 
+      viewBox="0 0 24 24" 
+      className={className} 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth={strokeWidth || 2}
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      <path d="M12 2C8 2 5 5 5 9c0 3 1.5 5 3 6.5V22h8v-6.5c1.5-1.5 3-3.5 3-6.5 0-4-3-7-7-7z" />
+      <path d="M9 12c0-2 1.5-4 3-4s3 2 3 4" />
+      <path d="M8 8c1-2 2.5-3 4-3s3 1 4 3" />
+    </svg>
+  );
+}
+
 import haircutMale from "../../assets/videos/haircut-male.mp4";
 import haircutFemale from "../../assets/videos/haircut-female.mp4";
 import spaMale from "../../assets/videos/spa-male.mp4";
@@ -64,12 +82,12 @@ const serviceVideosByName: Record<string, string[]> = {
 
 const allVideos: string[] = Object.values(serviceVideosByName).flat();
 
-const iconMap: Record<string, LucideIcon | typeof SkincareIcon | typeof NailsIcon> = {
+const iconMap: Record<string, LucideIcon | typeof SkincareIcon | typeof NailsIcon | typeof HairColourIcon> = {
   Scissors,
   Bath,
   Sparkles: SkincareIcon,
   Brush,
-  Palette,
+  Palette: HairColourIcon,
   Fingerprint: NailsIcon,
 };
 
