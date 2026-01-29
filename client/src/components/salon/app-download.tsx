@@ -30,12 +30,12 @@ export function AppDownload() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <p
-                className="text-lg text-white/90 mb-8"
-                data-testid="text-download-description"
+              <h2
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8"
+                data-testid="text-download-title"
               >
-                Download our mobile app for seamless booking, exclusive offers, and a personalized salon experience.
-              </p>
+                Download App
+              </h2>
 
               <ul className="space-y-3 mb-8">
                 {features.map((feature, index) => (
