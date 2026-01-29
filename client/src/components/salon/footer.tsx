@@ -25,7 +25,7 @@ export function SalonFooter() {
       { name: "Waxing", url: null },
     ],
     Company: [
-      { name: "About Us", url: null },
+      { name: "About Us", url: "/about-us" },
       { name: "Careers", url: null },
       { name: "Blog", url: null },
       { name: "Press", url: null },

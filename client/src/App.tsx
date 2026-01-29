@@ -10,6 +10,7 @@ import TermsOfService from "@/pages/terms-of-service";
 import CookiePolicy from "@/pages/cookie-policy";
 import CancellationPolicy from "@/pages/cancellation-policy";
 import Safety from "@/pages/safety";
+import AboutUs from "@/pages/about-us";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/cookie-policy" component={CookiePolicy} />
       <Route path="/cancellation-policy" component={CancellationPolicy} />
       <Route path="/safety" component={Safety} />
+      <Route path="/about-us" component={AboutUs} />
       <Route component={NotFound} />
     </Switch>
   );
