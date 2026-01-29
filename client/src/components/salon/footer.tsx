@@ -16,9 +16,27 @@ export function SalonFooter() {
   };
 
   const footerLinks = {
-    Services: ["Haircut", "Spa & Massage", "Facial", "Makeup", "Nail Art", "Waxing"],
-    Company: ["About Us", "Careers", "Blog", "Press", "Partner with Us"],
-    Support: ["Help Center", "Safety", "Cancellation Policy", "Report an Issue"],
+    Services: [
+      { name: "Haircut", url: null },
+      { name: "Spa & Massage", url: null },
+      { name: "Facial", url: null },
+      { name: "Makeup", url: null },
+      { name: "Nail Art", url: null },
+      { name: "Waxing", url: null },
+    ],
+    Company: [
+      { name: "About Us", url: null },
+      { name: "Careers", url: null },
+      { name: "Blog", url: null },
+      { name: "Press", url: null },
+      { name: "Partner with Us", url: null },
+    ],
+    Support: [
+      { name: "Help Center", url: null },
+      { name: "Safety", url: null },
+      { name: "Cancellation Policy", url: "/cancellation-policy" },
+      { name: "Report an Issue", url: null },
+    ],
   };
 
   const socialLinks = [
@@ -87,15 +105,25 @@ export function SalonFooter() {
               </h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
-                  <li key={link}>
-                    <button
-                      type="button"
-                      onClick={() => handleComingSoonLink(link)}
-                      className="text-white/60 hover:text-white transition-colors text-left text-sm"
-                      data-testid={`link-footer-${link.toLowerCase().replace(/\s+/g, "-")}`}
-                    >
-                      {link}
-                    </button>
+                  <li key={link.name}>
+                    {link.url ? (
+                      <Link
+                        href={link.url}
+                        className="text-white/60 hover:text-white transition-colors text-left text-sm"
+                        data-testid={`link-footer-${link.name.toLowerCase().replace(/\s+/g, "-")}`}
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => handleComingSoonLink(link.name)}
+                        className="text-white/60 hover:text-white transition-colors text-left text-sm"
+                        data-testid={`link-footer-${link.name.toLowerCase().replace(/\s+/g, "-")}`}
+                      >
+                        {link.name}
+                      </button>
+                    )}
                   </li>
                 ))}
               </ul>
