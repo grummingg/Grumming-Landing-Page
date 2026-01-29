@@ -86,120 +86,98 @@ export function AppDownload() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="relative">
-                {/* Phone mockup - Professional iPhone style */}
-                <div className="w-72 h-[560px] bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3.5rem] p-3 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] relative border border-gray-700/50">
-                  {/* Side buttons */}
-                  <div className="absolute -left-0.5 top-28 w-1 h-8 bg-gray-700 rounded-l-sm" />
-                  <div className="absolute -left-0.5 top-44 w-1 h-12 bg-gray-700 rounded-l-sm" />
-                  <div className="absolute -left-0.5 top-60 w-1 h-12 bg-gray-700 rounded-l-sm" />
-                  <div className="absolute -right-0.5 top-36 w-1 h-16 bg-gray-700 rounded-r-sm" />
-                  
-                  {/* Phone screen */}
-                  <div className="w-full h-full bg-white rounded-[2.75rem] flex flex-col items-center justify-center p-8 relative overflow-hidden">
-                    {/* Dynamic Island */}
-                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-8 bg-gray-900 rounded-full flex items-center justify-center">
-                      <div className="w-3 h-3 rounded-full bg-gray-800 border border-gray-700 mr-4" />
-                    </div>
+                {/* Phone mockup */}
+                <div className="w-64 h-[480px] bg-gray-900 rounded-[3rem] p-2 shadow-2xl relative">
+                  {/* Phone screen with QR code */}
+                  <div className="w-full h-full bg-white dark:bg-gray-100 rounded-[2.5rem] flex flex-col items-center justify-center p-6">
+                    {/* Notch */}
+                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-gray-900 rounded-full" />
                     
-                    <p className="text-gray-600 text-center text-base mb-8 font-medium tracking-wide mt-8">
+                    <p className="text-gray-700 text-center text-sm mb-6 font-medium mt-8">
                       Scan the QR code to<br />download the app
                     </p>
                     
-                    {/* QR Code - Clean professional design */}
-                    <div className="w-48 h-48 bg-white p-2 rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)]">
+                    {/* QR Code */}
+                    <div className="w-44 h-44 bg-white p-3 rounded-lg">
                       <svg viewBox="0 0 100 100" className="w-full h-full">
                         <rect x="0" y="0" width="100" height="100" fill="white"/>
                         
-                        {/* Position detection patterns - corners */}
-                        <rect x="4" y="4" width="22" height="22" fill="#1a1a1a"/>
-                        <rect x="7" y="7" width="16" height="16" fill="white"/>
-                        <rect x="10" y="10" width="10" height="10" fill="#1a1a1a"/>
+                        {/* Corner squares */}
+                        <rect x="5" y="5" width="25" height="25" fill="black"/>
+                        <rect x="8" y="8" width="19" height="19" fill="white"/>
+                        <rect x="11" y="11" width="13" height="13" fill="black"/>
                         
-                        <rect x="74" y="4" width="22" height="22" fill="#1a1a1a"/>
-                        <rect x="77" y="7" width="16" height="16" fill="white"/>
-                        <rect x="80" y="10" width="10" height="10" fill="#1a1a1a"/>
+                        <rect x="70" y="5" width="25" height="25" fill="black"/>
+                        <rect x="73" y="8" width="19" height="19" fill="white"/>
+                        <rect x="76" y="11" width="13" height="13" fill="black"/>
                         
-                        <rect x="4" y="74" width="22" height="22" fill="#1a1a1a"/>
-                        <rect x="7" y="77" width="16" height="16" fill="white"/>
-                        <rect x="10" y="80" width="10" height="10" fill="#1a1a1a"/>
+                        <rect x="5" y="70" width="25" height="25" fill="black"/>
+                        <rect x="8" y="73" width="19" height="19" fill="white"/>
+                        <rect x="11" y="76" width="13" height="13" fill="black"/>
                         
-                        {/* Timing patterns */}
-                        <rect x="30" y="10" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="38" y="10" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="46" y="10" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="54" y="10" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="62" y="10" width="4" height="4" fill="#1a1a1a"/>
+                        {/* Data modules */}
+                        <rect x="35" y="5" width="5" height="5" fill="black"/>
+                        <rect x="45" y="5" width="5" height="5" fill="black"/>
+                        <rect x="55" y="5" width="5" height="5" fill="black"/>
+                        <rect x="35" y="15" width="5" height="5" fill="black"/>
+                        <rect x="50" y="15" width="5" height="5" fill="black"/>
+                        <rect x="60" y="15" width="5" height="5" fill="black"/>
+                        <rect x="40" y="25" width="5" height="5" fill="black"/>
+                        <rect x="55" y="25" width="5" height="5" fill="black"/>
                         
-                        <rect x="10" y="30" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="10" y="38" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="10" y="46" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="10" y="54" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="10" y="62" width="4" height="4" fill="#1a1a1a"/>
+                        <rect x="5" y="35" width="5" height="5" fill="black"/>
+                        <rect x="15" y="35" width="5" height="5" fill="black"/>
+                        <rect x="25" y="35" width="5" height="5" fill="black"/>
+                        <rect x="40" y="35" width="5" height="5" fill="black"/>
+                        <rect x="50" y="35" width="5" height="5" fill="black"/>
+                        <rect x="65" y="35" width="5" height="5" fill="black"/>
+                        <rect x="80" y="35" width="5" height="5" fill="black"/>
+                        <rect x="90" y="35" width="5" height="5" fill="black"/>
                         
-                        {/* Data modules - professional pattern */}
-                        <rect x="30" y="30" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="38" y="30" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="50" y="30" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="62" y="30" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="74" y="30" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="86" y="30" width="4" height="4" fill="#1a1a1a"/>
+                        <rect x="5" y="45" width="5" height="5" fill="black"/>
+                        <rect x="20" y="45" width="5" height="5" fill="black"/>
+                        <rect x="35" y="45" width="5" height="5" fill="black"/>
+                        <rect x="45" y="45" width="5" height="5" fill="black"/>
+                        <rect x="55" y="45" width="5" height="5" fill="black"/>
+                        <rect x="70" y="45" width="5" height="5" fill="black"/>
+                        <rect x="85" y="45" width="5" height="5" fill="black"/>
                         
-                        <rect x="30" y="38" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="42" y="38" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="54" y="38" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="66" y="38" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="78" y="38" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="90" y="38" width="4" height="4" fill="#1a1a1a"/>
+                        <rect x="10" y="55" width="5" height="5" fill="black"/>
+                        <rect x="25" y="55" width="5" height="5" fill="black"/>
+                        <rect x="40" y="55" width="5" height="5" fill="black"/>
+                        <rect x="60" y="55" width="5" height="5" fill="black"/>
+                        <rect x="75" y="55" width="5" height="5" fill="black"/>
+                        <rect x="90" y="55" width="5" height="5" fill="black"/>
                         
-                        <rect x="30" y="46" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="38" y="46" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="46" y="46" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="58" y="46" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="70" y="46" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="82" y="46" width="4" height="4" fill="#1a1a1a"/>
+                        <rect x="35" y="65" width="5" height="5" fill="black"/>
+                        <rect x="50" y="65" width="5" height="5" fill="black"/>
+                        <rect x="60" y="65" width="5" height="5" fill="black"/>
+                        <rect x="80" y="65" width="5" height="5" fill="black"/>
                         
-                        <rect x="30" y="54" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="46" y="54" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="54" y="54" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="62" y="54" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="74" y="54" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="86" y="54" width="4" height="4" fill="#1a1a1a"/>
+                        <rect x="35" y="75" width="5" height="5" fill="black"/>
+                        <rect x="45" y="75" width="5" height="5" fill="black"/>
+                        <rect x="55" y="75" width="5" height="5" fill="black"/>
+                        <rect x="70" y="75" width="5" height="5" fill="black"/>
+                        <rect x="85" y="75" width="5" height="5" fill="black"/>
                         
-                        <rect x="30" y="62" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="42" y="62" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="50" y="62" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="66" y="62" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="78" y="62" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="90" y="62" width="4" height="4" fill="#1a1a1a"/>
+                        <rect x="40" y="85" width="5" height="5" fill="black"/>
+                        <rect x="55" y="85" width="5" height="5" fill="black"/>
+                        <rect x="65" y="85" width="5" height="5" fill="black"/>
+                        <rect x="80" y="85" width="5" height="5" fill="black"/>
+                        <rect x="90" y="85" width="5" height="5" fill="black"/>
                         
-                        <rect x="30" y="74" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="38" y="74" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="54" y="74" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="62" y="74" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="70" y="74" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="86" y="74" width="4" height="4" fill="#1a1a1a"/>
+                        <rect x="35" y="90" width="5" height="5" fill="black"/>
+                        <rect x="50" y="90" width="5" height="5" fill="black"/>
+                        <rect x="70" y="90" width="5" height="5" fill="black"/>
                         
-                        <rect x="30" y="82" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="46" y="82" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="58" y="82" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="74" y="82" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="82" y="82" width="4" height="4" fill="#1a1a1a"/>
-                        
-                        <rect x="30" y="90" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="42" y="90" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="50" y="90" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="66" y="90" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="78" y="90" width="4" height="4" fill="#1a1a1a"/>
-                        <rect x="90" y="90" width="4" height="4" fill="#1a1a1a"/>
-                        
-                        {/* Brand accent - small colored square */}
-                        <rect x="74" y="74" width="8" height="8" rx="1" fill="hsl(177, 35%, 27%)"/>
+                        {/* Accent square */}
+                        <rect x="70" y="70" width="10" height="10" fill="#E11D48" rx="1"/>
                       </svg>
                     </div>
-                    
-                    {/* Home indicator */}
-                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-32 h-1 bg-gray-300 rounded-full" />
                   </div>
+                  
+                  {/* Home indicator */}
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-gray-700 rounded-full" />
                 </div>
               </div>
             </motion.div>
