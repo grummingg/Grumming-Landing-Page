@@ -187,10 +187,8 @@ export default function CookiePolicy() {
               If you have questions about our use of cookies, please contact us at:
             </p>
             <div className="bg-muted p-4 rounded-md">
-              <p className="text-foreground font-medium">Grumming Privacy Team</p>
-              <p className="text-muted-foreground">Email: privacy@grumming.com</p>
-              <p className="text-muted-foreground">Phone: +91 1800-123-4567</p>
-              <p className="text-muted-foreground">Address: Mumbai, Maharashtra, India</p>
+              <p className="text-foreground font-medium">Grumming Support Team</p>
+              <p className="text-muted-foreground">Email: support@grumming.com</p>
             </div>
           </section>
         </div>
