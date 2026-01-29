@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
-import { Scissors, Bath, Sparkles, Brush, Palette, Fingerprint, type LucideIcon, Loader2 } from "lucide-react";
+import { Scissors, Bath, Sparkles, Brush, Palette, Fingerprint, type LucideIcon } from "lucide-react";
 import type { Category } from "@shared/schema";
 
 import haircutMale from "../../assets/videos/haircut-male.mp4";
@@ -79,25 +79,16 @@ interface CategoriesProps {
 }
 
 function VideoPlayer({ src, testId }: { src: string; testId: string }) {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
-    <div className="relative w-full h-full">
-      {isLoading && (
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-pink-500/30 flex items-center justify-center">
-          <Loader2 className="w-8 h-8 text-white animate-spin" />
-        </div>
-      )}
+    <div className="relative w-full h-full bg-gradient-to-br from-purple-500/30 to-pink-500/30">
       <video
         src={src}
         autoPlay
         loop
         muted
         playsInline
-        className={`w-full h-full object-cover transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+        className="w-full h-full object-cover"
         data-testid={testId}
-        onLoadedData={() => setIsLoading(false)}
-        onCanPlay={() => setIsLoading(false)}
       />
     </div>
   );
