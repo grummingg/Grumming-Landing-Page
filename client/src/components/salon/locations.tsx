@@ -19,7 +19,7 @@ const cityGradients: Record<string, string> = {
 
 export function Locations({ locations }: LocationsProps) {
   return (
-    <section id="locations" className="py-20 sm:py-24 bg-muted/30">
+    <section id="locations" className="py-20 sm:py-24 bg-white dark:bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-12"
@@ -28,10 +28,10 @@ export function Locations({ locations }: LocationsProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-locations-title">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900" data-testid="text-locations-title">
             Popular Locations
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-locations-description">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto" data-testid="text-locations-description">
             Find the best salons in your city
           </p>
         </motion.div>
@@ -52,7 +52,7 @@ export function Locations({ locations }: LocationsProps) {
                   data-testid={`card-location-${location.id}`}
                 >
                   <CardContent className="p-0">
-                    <div className="h-32 sm:h-40 bg-white dark:bg-gray-100 relative">
+                    <div className="h-32 sm:h-40 bg-gray-50 relative">
                       <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-800">
                         <MapPin className="w-6 h-6 mb-2 opacity-80" />
                         <h3
