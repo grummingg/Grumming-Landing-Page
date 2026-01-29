@@ -3,6 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import { SiInstagram, SiFacebook, SiX, SiYoutube } from "react-icons/si";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "wouter";
 
 export function SalonFooter() {
   const { toast } = useToast();
@@ -109,30 +110,27 @@ export function SalonFooter() {
             &copy; {new Date().getFullYear()} Grumming. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm">
-            <button
-              type="button"
-              onClick={() => handleComingSoonLink("Privacy Policy")}
+            <Link
+              href="/privacy-policy"
               className="text-white/60 hover:text-white transition-colors"
               data-testid="link-footer-privacy"
             >
               Privacy Policy
-            </button>
-            <button
-              type="button"
-              onClick={() => handleComingSoonLink("Terms of Service")}
+            </Link>
+            <Link
+              href="/terms-of-service"
               className="text-white/60 hover:text-white transition-colors"
               data-testid="link-footer-terms"
             >
               Terms of Service
-            </button>
-            <button
-              type="button"
-              onClick={() => handleComingSoonLink("Cookie Policy")}
+            </Link>
+            <Link
+              href="/cookie-policy"
               className="text-white/60 hover:text-white transition-colors"
               data-testid="link-footer-cookies"
             >
               Cookie Policy
-            </button>
+            </Link>
           </div>
         </div>
       </div>
