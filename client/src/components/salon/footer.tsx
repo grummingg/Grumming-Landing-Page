@@ -79,8 +79,8 @@ export function SalonFooter() {
                 <Button
                   key={social.label}
                   size="icon"
-                  variant="ghost"
-                  className="text-white/60 hover:text-white h-8 w-8"
+                  variant={social.url ? "outline" : "ghost"}
+                  className={social.url ? "text-white border-white/40" : "text-white/30"}
                   onClick={() => {
                     if (social.url) {
                       window.open(social.url, "_blank", "noopener,noreferrer");
