@@ -22,13 +22,6 @@ export function SalonFooter() {
   };
 
   const footerLinks = {
-    Services: [
-      { name: "Haircut", url: null, scrollTo: "categories" },
-      { name: "Spa & Massage", url: null, scrollTo: "categories" },
-      { name: "Facial", url: null, scrollTo: "categories" },
-      { name: "Makeup", url: null, scrollTo: "categories" },
-      { name: "Nail Art", url: null, scrollTo: "categories" },
-    ],
     Company: [
       { name: "About Us", url: "/about-us", scrollTo: null },
       { name: "Careers", url: null, scrollTo: null },
@@ -112,7 +105,7 @@ export function SalonFooter() {
             </div>
           </div>
 
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div className="lg:col-span-8 grid grid-cols-2 gap-8">
             {Object.entries(footerLinks).map(([category, links]) => (
               <div key={category}>
                 <h4 className="font-semibold text-xs uppercase tracking-widest text-white/40 mb-5" data-testid={`text-footer-category-${category.toLowerCase()}`}>
