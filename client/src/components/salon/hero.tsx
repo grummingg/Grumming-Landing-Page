@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import heroVideo from "../../assets/videos/hero-background.mp4";
 
 export function SalonHero() {
@@ -85,23 +84,22 @@ export function SalonHero() {
         </motion.div>
       </div>
 
-      {/* Scroll Down Indicator */}
+      {/* Scroll Down Indicator - Mouse Icon */}
       <motion.div
-        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 sm:gap-2 cursor-pointer z-10 p-3 sm:p-2"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
+        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
         onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
         data-testid="button-scroll-down"
       >
-        <span className="text-white/90 text-xs sm:text-sm font-medium tracking-wide">Scroll down</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-white/90" strokeWidth={2} />
-          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-white/70 -mt-2.5 sm:-mt-3" strokeWidth={2} />
-        </motion.div>
+        <div className="w-6 h-10 rounded-full border-2 border-white/60 flex justify-center pt-2">
+          <motion.div
+            className="w-1.5 h-1.5 rounded-full bg-white/80"
+            animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
       </motion.div>
     </section>
   );
