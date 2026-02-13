@@ -5,7 +5,6 @@ import { Categories } from "@/components/salon/categories";
 import { Locations } from "@/components/salon/locations";
 import { HowItWorks } from "@/components/salon/how-it-works";
 import { ContactForm } from "@/components/salon/contact-form";
-import { FAQ } from "@/components/salon/faq";
 import { AppDownload } from "@/components/salon/app-download";
 import { SalonFooter } from "@/components/salon/footer";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -165,7 +164,6 @@ export default function SalonLanding() {
         <Categories categories={salonData.categories} />
         <Locations locations={salonData.locations} />
         <HowItWorks />
-        <FAQ />
         <ContactForm />
         <AppDownload />
       </main>
