@@ -53,6 +53,20 @@ export type Location = z.infer<typeof locationSchema>;
 export type Salon = z.infer<typeof salonSchema>;
 export type SalonConfig = z.infer<typeof salonConfigSchema>;
 
+// Contact Form
+export const contactMessageSchema = z.object({
+  id: z.string(),
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Please enter a valid email"),
+  subject: z.string().min(1, "Subject is required"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+export const insertContactMessageSchema = contactMessageSchema.omit({ id: true });
+
+export type ContactMessage = z.infer<typeof contactMessageSchema>;
+export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
+
 // Default salon data
 export const defaultSalonConfig: SalonConfig = {
   categories: [
