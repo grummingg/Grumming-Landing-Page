@@ -15,26 +15,33 @@ export function SalonFooter() {
     });
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const footerLinks = {
     Services: [
-      { name: "Haircut", url: null },
-      { name: "Spa & Massage", url: null },
-      { name: "Facial", url: null },
-      { name: "Makeup", url: null },
-      { name: "Nail Art", url: null },
+      { name: "Haircut", url: null, scrollTo: "categories" },
+      { name: "Spa & Massage", url: null, scrollTo: "categories" },
+      { name: "Facial", url: null, scrollTo: "categories" },
+      { name: "Makeup", url: null, scrollTo: "categories" },
+      { name: "Nail Art", url: null, scrollTo: "categories" },
     ],
     Company: [
-      { name: "About Us", url: "/about-us" },
-      { name: "Careers", url: null },
-      { name: "Blog", url: null },
-      { name: "Press", url: null },
-      { name: "Partner with Us", url: null },
+      { name: "About Us", url: "/about-us", scrollTo: null },
+      { name: "Careers", url: null, scrollTo: null },
+      { name: "Blog", url: null, scrollTo: null },
+      { name: "Press", url: null, scrollTo: null },
+      { name: "Partner with Us", url: null, scrollTo: "contact" },
     ],
     Support: [
-      { name: "Help Center", url: null },
-      { name: "Safety", url: "/safety" },
-      { name: "Cancellation Policy", url: "/cancellation-policy" },
-      { name: "Report an Issue", url: null },
+      { name: "Help Center", url: null, scrollTo: "contact" },
+      { name: "Safety", url: "/safety", scrollTo: null },
+      { name: "Cancellation Policy", url: "/cancellation-policy", scrollTo: null },
+      { name: "Report an Issue", url: null, scrollTo: "contact" },
     ],
   };
 
@@ -116,7 +123,13 @@ export function SalonFooter() {
                     ) : (
                       <button
                         type="button"
-                        onClick={() => handleComingSoonLink(link.name)}
+                        onClick={() => {
+                          if (link.scrollTo) {
+                            scrollToSection(link.scrollTo);
+                          } else {
+                            handleComingSoonLink(link.name);
+                          }
+                        }}
                         className="text-white/60 hover:text-white transition-colors text-left text-sm"
                         data-testid={`link-footer-${link.name.toLowerCase().replace(/\s+/g, "-")}`}
                       >
