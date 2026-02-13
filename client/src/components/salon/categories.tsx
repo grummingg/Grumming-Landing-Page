@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
-import { Scissors, Bath, Sparkles, Paintbrush, Palette, Hand, type LucideIcon } from "lucide-react";
+import { Scissors, Bath, Droplets, PaintbrushVertical, Pipette, Gem, type LucideIcon } from "lucide-react";
 import type { Category } from "@shared/schema";
 
 import haircutMale from "../../assets/videos/haircut-male.mp4";
@@ -30,10 +30,10 @@ const allVideos: string[] = Object.values(serviceVideosByName).flat();
 const iconMap: Record<string, LucideIcon> = {
   Scissors,
   Bath,
-  Sparkles,
-  Brush: Paintbrush,
-  Palette,
-  Fingerprint: Hand,
+  Sparkles: Droplets,
+  Brush: PaintbrushVertical,
+  Palette: Pipette,
+  Fingerprint: Gem,
 };
 
 const categoryColorsByIcon: Record<string, string> = {
