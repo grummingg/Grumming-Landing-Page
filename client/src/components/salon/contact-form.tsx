@@ -71,7 +71,7 @@ export function ContactForm() {
               Get in Touch
             </h2>
             <p className="text-lg text-muted-foreground mb-8" data-testid="text-contact-description">
-              Have a question or want to partner with us? We'd love to hear from you. Fill out the form and we'll get back to you as soon as possible.
+              Have questions or want to learn more about Grumming? We'd love to hear from you.
             </p>
 
             <div className="space-y-6">
