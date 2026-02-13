@@ -24,11 +24,10 @@ export function AppDownload() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <a
-                href="#"
-                className="inline-flex items-center gap-3 bg-gray-900 rounded-xl px-5 py-3 hover-elevate transition-all shadow-sm"
+              <div
+                className="inline-flex items-center gap-3 bg-gray-900 rounded-xl px-5 py-3 opacity-70 cursor-not-allowed shadow-sm"
                 data-testid="button-play-store"
-                aria-label="Get it on Google Play"
+                aria-label="Google Play - Coming Soon"
               >
                 <svg viewBox="0 0 512 512" className="w-6 h-6">
                   <path d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z" fill="#2196F3"/>
@@ -37,10 +36,10 @@ export function AppDownload() {
                   <path d="M289.12 262L97.47 453.58a8 8 0 006.69-.63l241.08-139.28L289.12 262z" fill="#F44336"/>
                 </svg>
                 <div className="text-left">
-                  <div className="text-[9px] text-white/70 uppercase tracking-wider font-medium">Get it on</div>
+                  <div className="text-[9px] text-amber-400 uppercase tracking-wider font-medium">Coming Soon</div>
                   <div className="text-sm font-semibold text-white -mt-0.5">Google Play</div>
                 </div>
-              </a>
+              </div>
               <div
                 className="inline-flex items-center gap-3 bg-gray-900 rounded-xl px-5 py-3 opacity-70 cursor-not-allowed shadow-sm"
                 data-testid="button-app-store"

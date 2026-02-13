@@ -51,11 +51,10 @@ export function SalonHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <a
-            href="#"
-            className="inline-flex items-center gap-3 bg-black rounded-lg px-4 py-2.5 border border-white/20 hover-elevate"
+          <div
+            className="inline-flex items-center gap-3 bg-black rounded-lg px-4 py-2.5 border border-white/20 opacity-70 cursor-not-allowed"
             data-testid="link-hero-google-play"
-            aria-label="Get it on Google Play"
+            aria-label="Google Play - Coming Soon"
           >
             <svg viewBox="0 0 512 512" className="w-7 h-7">
               <path d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z" fill="#2196F3"/>
@@ -64,10 +63,10 @@ export function SalonHero() {
               <path d="M289.12 262L97.47 453.58a8 8 0 006.69-.63l241.08-139.28L289.12 262z" fill="#F44336"/>
             </svg>
             <div className="text-left">
-              <div className="text-[10px] text-white/80 uppercase tracking-wide">Get it on</div>
+              <div className="text-[10px] text-amber-400 uppercase tracking-wide">Coming Soon</div>
               <div className="text-lg font-semibold text-white -mt-0.5">Google Play</div>
             </div>
-          </a>
+          </div>
           <div
             className="inline-flex items-center gap-3 bg-black rounded-lg px-4 py-2.5 border border-white/20 opacity-70 cursor-not-allowed"
             data-testid="link-hero-app-store"
