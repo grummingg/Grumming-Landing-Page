@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { SalonHero } from "@/components/salon/hero";
 import { Categories } from "@/components/salon/categories";
 import { Locations } from "@/components/salon/locations";
-import { HowItWorks } from "@/components/salon/how-it-works";
+
 import { AppDownload } from "@/components/salon/app-download";
 import { SalonFooter } from "@/components/salon/footer";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -105,30 +105,6 @@ function LoadingSkeleton() {
         </div>
       </motion.section>
 
-      {/* How It Works skeleton */}
-      <motion.section
-        className="py-20 sm:py-24 bg-background"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.3 }}
-      >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 space-y-3">
-            <ShimmerSkeleton className="h-9 w-48 mx-auto" />
-            <ShimmerSkeleton className="h-5 w-64 mx-auto" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            {[0, 1, 2].map((i) => (
-              <div key={i} className="rounded-3xl bg-muted/40 p-8 flex flex-col items-center gap-4">
-                <ShimmerSkeleton className="w-16 h-16 !rounded-2xl" />
-                <ShimmerSkeleton className="h-6 w-24" />
-                <ShimmerSkeleton className="h-4 w-full max-w-[200px]" />
-                <ShimmerSkeleton className="h-4 w-full max-w-[160px]" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
     </div>
   );
 }
@@ -162,7 +138,6 @@ export default function SalonLanding() {
         <SalonHero />
         <Categories categories={salonData.categories} />
         <Locations locations={salonData.locations} />
-        <HowItWorks />
         <AppDownload />
       </main>
       <SalonFooter />
