@@ -1,82 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
-import { Scissors, Bath, type LucideIcon } from "lucide-react";
+import { Scissors, Bath, Sparkles, Paintbrush, Palette, Hand, type LucideIcon } from "lucide-react";
 import type { Category } from "@shared/schema";
-
-function SkincareIcon({ className, strokeWidth }: { className?: string; strokeWidth?: number }) {
-  return (
-    <svg 
-      viewBox="0 0 24 24" 
-      className={className} 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth={strokeWidth || 2}
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d="M12 3v4m0 14v-4m9-5h-4M7 12H3m15.364-6.364l-2.828 2.828M8.464 15.536l-2.828 2.828m12.728 0l-2.828-2.828M8.464 8.464L5.636 5.636" />
-      <circle cx="12" cy="12" r="3" />
-      <path d="M16 8l1.5-1.5M8 16l-1.5 1.5" strokeWidth={(strokeWidth || 2) * 0.8} />
-    </svg>
-  );
-}
-
-function NailsIcon({ className, strokeWidth }: { className?: string; strokeWidth?: number }) {
-  return (
-    <svg 
-      viewBox="0 0 24 24" 
-      className={className} 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth={strokeWidth || 2}
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d="M12 3C9.5 3 7.5 5 7.5 8v6c0 2 1.5 4 4.5 4s4.5-2 4.5-4V8c0-3-2-5-4.5-5z" />
-      <path d="M7.5 10h9" />
-      <path d="M9 6c0 0 1.5-1 3-1s3 1 3 1" />
-      <path d="M12 18v3" />
-    </svg>
-  );
-}
-
-function HairColourIcon({ className, strokeWidth }: { className?: string; strokeWidth?: number }) {
-  return (
-    <svg 
-      viewBox="0 0 24 24" 
-      className={className} 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth={strokeWidth || 2}
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d="M12 2C8 2 5 5 5 9c0 3 1.5 5 3 6.5V22h8v-6.5c1.5-1.5 3-3.5 3-6.5 0-4-3-7-7-7z" />
-      <path d="M9 12c0-2 1.5-4 3-4s3 2 3 4" />
-      <path d="M8 8c1-2 2.5-3 4-3s3 1 4 3" />
-    </svg>
-  );
-}
-
-function MakeupIcon({ className, strokeWidth }: { className?: string; strokeWidth?: number }) {
-  return (
-    <svg 
-      viewBox="0 0 24 24" 
-      className={className} 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth={strokeWidth || 2}
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d="M12 2a5 5 0 0 1 5 5v2a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z" />
-      <path d="M12 14v8" />
-      <circle cx="10" cy="7" r="1" fill="currentColor" />
-      <circle cx="14" cy="7" r="1" fill="currentColor" />
-      <path d="M10 10c.5.5 1.5 1 2 1s1.5-.5 2-1" />
-    </svg>
-  );
-}
 
 import haircutMale from "../../assets/videos/haircut-male.mp4";
 import haircutFemale from "../../assets/videos/haircut-female.mp4";
@@ -102,13 +27,13 @@ const serviceVideosByName: Record<string, string[]> = {
 
 const allVideos: string[] = Object.values(serviceVideosByName).flat();
 
-const iconMap: Record<string, LucideIcon | typeof SkincareIcon | typeof NailsIcon | typeof HairColourIcon | typeof MakeupIcon> = {
+const iconMap: Record<string, LucideIcon> = {
   Scissors,
   Bath,
-  Sparkles: SkincareIcon,
-  Brush: MakeupIcon,
-  Palette: HairColourIcon,
-  Fingerprint: NailsIcon,
+  Sparkles,
+  Brush: Paintbrush,
+  Palette,
+  Fingerprint: Hand,
 };
 
 const categoryColorsByIcon: Record<string, string> = {
@@ -486,7 +411,7 @@ export function Categories({ categories }: CategoriesProps) {
                         <Icon className="w-7 h-7 text-white" strokeWidth={2} />
                       </div>
                       <span
-                        className={`text-sm font-semibold transition-colors ${isSelected ? 'text-primary' : 'text-foreground'}`}
+                        className={`text-sm font-semibold transition-colors ${isSelected ? 'text-accent-foreground font-bold' : 'text-foreground'}`}
                         data-testid={`text-category-name-${category.id}`}
                       >
                         {category.name}
@@ -545,7 +470,7 @@ export function Categories({ categories }: CategoriesProps) {
                         <Icon className="w-7 h-7 text-white" strokeWidth={2} />
                       </div>
                       <span
-                        className={`text-sm font-semibold transition-colors ${isSelected ? 'text-primary' : 'text-foreground'}`}
+                        className={`text-sm font-semibold transition-colors ${isSelected ? 'text-accent-foreground font-bold' : 'text-foreground'}`}
                         data-testid={`text-category-name-${category.id}`}
                       >
                         {category.name}
@@ -597,7 +522,7 @@ export function Categories({ categories }: CategoriesProps) {
                       <div className={`w-14 h-14 rounded-[1rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-2 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30' : ''}`}>
                         <Icon className="w-6 h-6 text-white" strokeWidth={2} />
                       </div>
-                      <span className={`text-xs font-semibold transition-colors ${isSelected ? 'text-primary' : 'text-foreground'}`}>
+                      <span className={`text-xs font-semibold transition-colors ${isSelected ? 'text-accent-foreground font-bold' : 'text-foreground'}`}>
                         {category.name}
                       </span>
                     </div>
