@@ -12,6 +12,7 @@ import CancellationPolicy from "@/pages/cancellation-policy";
 import Safety from "@/pages/safety";
 import AboutUs from "@/pages/about-us";
 import FAQPage from "@/pages/faq";
+import ContactPage from "@/pages/contact";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -25,6 +26,7 @@ function Router() {
       <Route path="/safety" component={Safety} />
       <Route path="/about-us" component={AboutUs} />
       <Route path="/faq" component={FAQPage} />
+      <Route path="/contact" component={ContactPage} />
       <Route component={NotFound} />
     </Switch>
   );

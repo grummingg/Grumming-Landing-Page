@@ -35,14 +35,14 @@ export function SalonFooter() {
       { name: "Careers", url: null, scrollTo: null },
       { name: "Blog", url: null, scrollTo: null },
       { name: "Press", url: null, scrollTo: null },
-      { name: "Partner with Us", url: null, scrollTo: "contact" },
+      { name: "Partner with Us", url: "/contact", scrollTo: null },
     ],
     Support: [
-      { name: "Help Center", url: null, scrollTo: "contact" },
+      { name: "Help Center", url: "/contact", scrollTo: null },
       { name: "FAQ", url: "/faq", scrollTo: null },
       { name: "Safety", url: "/safety", scrollTo: null },
       { name: "Cancellation Policy", url: "/cancellation-policy", scrollTo: null },
-      { name: "Report an Issue", url: null, scrollTo: "contact" },
+      { name: "Report an Issue", url: "/contact", scrollTo: null },
     ],
   };
 
