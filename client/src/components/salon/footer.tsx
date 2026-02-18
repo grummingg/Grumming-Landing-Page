@@ -48,25 +48,25 @@ export function SalonFooter() {
   ];
 
   return (
-    <footer className="bg-[#0f172a] text-white">
+    <footer className="bg-white dark:bg-[#0f172a] text-foreground dark:text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-14 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           <div className="lg:col-span-4">
             <div className="space-y-3 mb-8">
-              <a href="mailto:support@grumming.com" className="flex items-center gap-3 text-white/50 hover:text-white/80 transition-colors group">
-                <div className="w-8 h-8 rounded-md bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+              <a href="mailto:support@grumming.com" className="flex items-center gap-3 text-muted-foreground dark:text-white/50 transition-colors group">
+                <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center transition-colors">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm" data-testid="text-footer-email">support@grumming.com</span>
               </a>
-              <a href="tel:+911800123456" className="flex items-center gap-3 text-white/50 hover:text-white/80 transition-colors group">
-                <div className="w-8 h-8 rounded-md bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+              <a href="tel:+911800123456" className="flex items-center gap-3 text-muted-foreground dark:text-white/50 transition-colors group">
+                <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center transition-colors">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm" data-testid="text-footer-phone">+91 1800-123-4567</span>
               </a>
-              <div className="flex items-center gap-3 text-white/50">
-                <div className="w-8 h-8 rounded-md bg-white/5 flex items-center justify-center">
+              <div className="flex items-center gap-3 text-muted-foreground dark:text-white/50">
+                <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm" data-testid="text-footer-address">Mumbai, Maharashtra, India</span>
@@ -79,8 +79,8 @@ export function SalonFooter() {
                   key={social.label}
                   className={`w-9 h-9 rounded-md flex items-center justify-center transition-colors ${
                     social.url
-                      ? "bg-white/10 text-white/80 hover:bg-white/20 hover:text-white"
-                      : "bg-white/5 text-white/25 cursor-not-allowed"
+                      ? "bg-black/10 text-foreground/80 dark:bg-white/10 dark:text-white/80 hover-elevate"
+                      : "bg-black/5 text-foreground/25 dark:bg-white/5 dark:text-white/25 cursor-not-allowed"
                   }`}
                   onClick={() => {
                     if (social.url) {
@@ -98,10 +98,10 @@ export function SalonFooter() {
             </div>
 
             <div className="flex items-center gap-3 mt-4">
-              <span className="text-sm font-medium text-white/70">Theme</span>
+              <span className="text-sm font-medium text-muted-foreground dark:text-white/70">Theme</span>
               <button
                 onClick={toggleTheme}
-                className="relative w-12 h-6 rounded-full transition-colors bg-white/10"
+                className="relative w-12 h-6 rounded-full transition-colors bg-black/15 dark:bg-white/10"
                 aria-label="Toggle theme"
                 data-testid="button-theme-toggle-footer"
               >
@@ -109,7 +109,7 @@ export function SalonFooter() {
                   className={`absolute top-0.5 w-5 h-5 rounded-full flex items-center justify-center transition-all ${
                     theme === "dark"
                       ? "left-6 bg-[#1e293b]"
-                      : "left-0.5 bg-white"
+                      : "left-0.5 bg-white shadow-sm"
                   }`}
                 >
                   {theme === "dark" ? (
@@ -125,7 +125,7 @@ export function SalonFooter() {
           <div className="lg:col-span-8 grid grid-cols-2 gap-8">
             {Object.entries(footerLinks).map(([category, links]) => (
               <div key={category}>
-                <h4 className="font-semibold text-xs uppercase tracking-widest text-white/40 mb-5" data-testid={`text-footer-category-${category.toLowerCase()}`}>
+                <h4 className="font-semibold text-xs uppercase tracking-widest text-muted-foreground dark:text-white/40 mb-5" data-testid={`text-footer-category-${category.toLowerCase()}`}>
                   {category}
                 </h4>
                 <ul className="space-y-3">
@@ -134,7 +134,7 @@ export function SalonFooter() {
                       {link.url ? (
                         <Link
                           href={link.url}
-                          className="text-white/60 hover:text-white transition-colors text-sm inline-flex items-center gap-1 group"
+                          className="text-muted-foreground dark:text-white/60 transition-colors text-sm inline-flex items-center gap-1 group"
                           data-testid={`link-footer-${link.name.toLowerCase().replace(/\s+/g, "-")}`}
                         >
                           {link.name}
@@ -150,7 +150,7 @@ export function SalonFooter() {
                               handleComingSoonLink(link.name);
                             }
                           }}
-                          className="text-white/60 hover:text-white transition-colors text-left text-sm"
+                          className="text-muted-foreground dark:text-white/60 transition-colors text-left text-sm"
                           data-testid={`link-footer-${link.name.toLowerCase().replace(/\s+/g, "-")}`}
                         >
                           {link.name}
@@ -164,28 +164,28 @@ export function SalonFooter() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/35 text-xs" data-testid="text-footer-copyright">
+        <div className="border-t border-black/10 dark:border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-muted-foreground dark:text-white/35 text-xs" data-testid="text-footer-copyright">
             &copy; {new Date().getFullYear()} Grumming. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-xs">
             <Link
               href="/privacy-policy"
-              className="text-white/35 hover:text-white/70 transition-colors"
+              className="text-muted-foreground dark:text-white/35 transition-colors"
               data-testid="link-footer-privacy"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms-of-service"
-              className="text-white/35 hover:text-white/70 transition-colors"
+              className="text-muted-foreground dark:text-white/35 transition-colors"
               data-testid="link-footer-terms"
             >
               Terms of Service
             </Link>
             <Link
               href="/cookie-policy"
-              className="text-white/35 hover:text-white/70 transition-colors"
+              className="text-muted-foreground dark:text-white/35 transition-colors"
               data-testid="link-footer-cookies"
             >
               Cookie Policy
