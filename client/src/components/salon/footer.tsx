@@ -85,7 +85,7 @@ export function SalonFooter() {
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-sm" data-testid="text-footer-address">Mumbai, Maharashtra, India</span>
+                <span className="text-sm" data-testid="text-footer-address">India</span>
               </div>
             </div>
 
