@@ -8,7 +8,6 @@ import {
   Users,
   Globe,
   Coffee,
-  Send,
   Code,
   Palette,
   Megaphone,
@@ -303,30 +302,6 @@ export default function HiringPage() {
                 </div>
               );
             })}
-          </div>
-        </section>
-
-        <section className="mt-16">
-          <div className="border border-dashed border-white/20 rounded-md p-6 sm:p-8 text-center" data-testid="card-general-apply">
-            <div className="w-12 h-12 rounded-md bg-white/10 flex items-center justify-center mx-auto mb-4">
-              <Send className="w-6 h-6 text-white/90" />
-            </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Don't see the right role?</h3>
-            <p className="text-sm text-white/60 max-w-md mx-auto mb-5 leading-relaxed">
-              We're always looking for talented people. Send us your resume and tell us how you'd like to contribute to Grumming.
-            </p>
-            <Button
-              className="bg-accent text-accent-foreground border-accent-border"
-              onClick={() => {
-                const subject = encodeURIComponent("General Application - Grumming");
-                const body = encodeURIComponent("Hi Grumming Team,\n\nI'd love to explore opportunities at Grumming. Here are my details:\n\nName: \nExperience: \nArea of interest: \nPortfolio/LinkedIn: \n\nBest regards");
-                window.open(`mailto:careers@grumming.com?subject=${subject}&body=${body}`, "_blank");
-              }}
-              data-testid="button-general-apply"
-            >
-              <Send className="w-4 h-4 mr-2" />
-              Send Your Resume
-            </Button>
           </div>
         </section>
       </div>
