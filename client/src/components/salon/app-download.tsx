@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function AppDownload() {
   return (
-    <section id="download" className="py-16 sm:py-20 bg-gradient-to-b from-purple-50 to-background dark:from-purple-950/30 dark:to-background">
+    <section id="download" className="py-16 sm:py-20 bg-gradient-to-b from-muted/50 to-background dark:from-[#0f172a]/50 dark:to-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <motion.div
@@ -25,7 +25,7 @@ export function AppDownload() {
 
             <div className="flex flex-wrap gap-3">
               <div
-                className="inline-flex items-center gap-3 bg-gray-900 rounded-xl px-5 py-3 opacity-70 cursor-not-allowed shadow-sm"
+                className="inline-flex items-center gap-3 bg-[#0f172a] rounded-xl px-5 py-3 opacity-70 cursor-not-allowed shadow-sm"
                 data-testid="button-play-store"
                 aria-label="Google Play - Coming Soon"
               >
@@ -41,7 +41,7 @@ export function AppDownload() {
                 </div>
               </div>
               <div
-                className="inline-flex items-center gap-3 bg-gray-900 rounded-xl px-5 py-3 opacity-70 cursor-not-allowed shadow-sm"
+                className="inline-flex items-center gap-3 bg-[#0f172a] rounded-xl px-5 py-3 opacity-70 cursor-not-allowed shadow-sm"
                 data-testid="button-app-store"
                 aria-label="App Store - Coming Soon"
               >
@@ -67,7 +67,7 @@ export function AppDownload() {
               {/* Phone mockup - sleek silver/white design */}
               <div className="w-44 h-[340px] bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-[2rem] p-1.5 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.4)] relative border border-gray-300/50 dark:border-gray-600/50">
                 {/* Phone screen */}
-                <div className="w-full h-full bg-white dark:bg-gray-900 rounded-[1.75rem] flex flex-col items-center justify-center px-4 py-6 relative">
+                <div className="w-full h-full bg-white dark:bg-[#0f172a] rounded-[1.75rem] flex flex-col items-center justify-center px-4 py-6 relative">
                   {/* Notch */}
                   <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-gray-800 dark:bg-black rounded-full" />
                   

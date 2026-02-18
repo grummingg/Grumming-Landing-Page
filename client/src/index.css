@@ -125,52 +125,54 @@
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
 
-  --background: 171 30% 6%;
+  /* #0f172a - Deep navy matching the Grumming app */
+  --background: 222 47% 11%;
 
-  --foreground: 171 10% 95%;
+  --foreground: 213 31% 91%;
 
-  --border: 171 20% 16%;
+  --border: 217 33% 18%;
 
-  --card: 171 25% 9%;
+  /* #1e293b - Slightly lighter navy for cards */
+  --card: 217 33% 17%;
 
-  --card-foreground: 171 10% 95%;
+  --card-foreground: 213 31% 91%;
 
-  --card-border: 171 20% 16%;
+  --card-border: 217 33% 22%;
 
-  --sidebar: 171 25% 7%;
+  --sidebar: 222 47% 10%;
 
-  --sidebar-foreground: 171 10% 95%;
+  --sidebar-foreground: 213 31% 91%;
 
-  --sidebar-border: 171 20% 16%;
+  --sidebar-border: 217 33% 18%;
 
   --sidebar-primary: 177 45% 45%;
 
   --sidebar-primary-foreground: 0 0% 100%;
 
-  --sidebar-accent: 171 20% 14%;
+  --sidebar-accent: 217 33% 15%;
 
-  --sidebar-accent-foreground: 171 10% 95%;
+  --sidebar-accent-foreground: 213 31% 91%;
 
   --sidebar-ring: 177 45% 45%;
 
-  --popover: 171 25% 9%;
+  --popover: 217 33% 17%;
 
-  --popover-foreground: 171 10% 95%;
+  --popover-foreground: 213 31% 91%;
 
-  --popover-border: 171 20% 16%;
+  --popover-border: 217 33% 22%;
 
-  /* Deep teal for dark mode */
+  /* Teal primary for dark mode */
   --primary: 177 45% 45%;
 
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 171 20% 14%;
+  --secondary: 217 33% 15%;
 
-  --secondary-foreground: 171 10% 95%;
+  --secondary-foreground: 213 31% 91%;
 
-  --muted: 171 20% 14%;
+  --muted: 217 33% 15%;
 
-  --muted-foreground: 171 15% 55%;
+  --muted-foreground: 215 20% 55%;
 
   /* Warm gold for dark mode */
   --accent: 28 55% 55%;
@@ -181,7 +183,7 @@
 
   --destructive-foreground: 0 0% 100%;
 
-  --input: 171 20% 20%;
+  --input: 217 33% 22%;
   --ring: 177 45% 45%;
   --chart-1: 177 45% 45%;
   --chart-2: 28 55% 55%;

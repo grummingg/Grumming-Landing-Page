@@ -23,12 +23,12 @@ function LoadingSkeleton() {
     <div className="min-h-screen bg-background">
       {/* Hero skeleton */}
       <motion.section
-        className="relative min-h-screen flex items-center justify-center bg-gray-900"
+        className="relative min-h-screen flex items-center justify-center bg-[#0f172a]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1e293b] to-[#0f172a]" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-6">
           <ShimmerSkeleton className="h-14 sm:h-16 w-full max-w-lg mx-auto !bg-white/10" />
           <ShimmerSkeleton className="h-10 sm:h-12 w-full max-w-sm mx-auto !bg-white/10" />

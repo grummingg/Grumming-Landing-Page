@@ -27,7 +27,8 @@ The frontend follows a component-based architecture with:
 ### Color Theme
 - **Primary**: Deep teal (#2D5F5D / hsl(177, 35%, 27%))
 - **Accent**: Warm gold (#D4A574 / hsl(28, 52%, 64%))
-- **Cards**: White with subtle shadows
+- **Dark Mode Background**: Deep navy (#0f172a) matching the Grumming mobile app
+- **Cards**: White with subtle shadows (light), Navy blue #1e293b (dark)
 - **Font**: Inter
 
 ### Backend Architecture

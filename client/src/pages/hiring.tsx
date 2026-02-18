@@ -118,7 +118,7 @@ export default function HiringPage() {
 
   return (
     <div className="min-h-screen bg-muted/30 dark:bg-background">
-      <div className="bg-gradient-to-br from-primary to-primary/80 text-white">
+      <div className="bg-[#0f172a] text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24 sm:pb-28">
           <Link href="/">
             <Button variant="ghost" className="mb-6 text-white/80" data-testid="button-back-home">

@@ -121,7 +121,7 @@ function CrossfadeVideoPlayer({ src, testId }: { src: string; testId: string }) 
   }, []);
 
   return (
-    <div className="relative w-full h-full bg-gray-900 overflow-hidden">
+    <div className="relative w-full h-full bg-[#0f172a] overflow-hidden">
       <video
         src={videoASrc}
         autoPlay
@@ -431,14 +431,14 @@ export function Categories({ categories }: CategoriesProps) {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-pink-400/20 blur-3xl rounded-full scale-150" />
               
-              <div className="w-72 h-[520px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl relative">
+              <div className="w-72 h-[520px] bg-[#0f172a] rounded-[3rem] p-3 shadow-2xl relative">
                 <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative">
                   <CrossfadeVideoPlayer
                     src={currentVideo}
                     testId="video-salon-services"
                   />
                 </div>
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-7 bg-gray-900 rounded-full" />
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-7 bg-[#0f172a] rounded-full" />
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-gray-700 rounded-full" />
               </div>
             </motion.div>
@@ -490,14 +490,14 @@ export function Categories({ categories }: CategoriesProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="w-56 h-[400px] bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl relative">
+              <div className="w-56 h-[400px] bg-[#0f172a] rounded-[2.5rem] p-2 shadow-2xl relative">
                 <div className="w-full h-full rounded-[2rem] overflow-hidden relative">
                   <CrossfadeVideoPlayer
                     src={currentVideo}
                     testId="video-salon-services-mobile"
                   />
                 </div>
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-gray-900 rounded-full" />
+                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-[#0f172a] rounded-full" />
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-gray-700 rounded-full" />
               </div>
             </motion.div>
