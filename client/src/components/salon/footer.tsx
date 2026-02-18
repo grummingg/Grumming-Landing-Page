@@ -38,6 +38,20 @@ export function SalonFooter() {
       { name: "Cancellation Policy", url: "/cancellation-policy", scrollTo: null },
       { name: "Report an Issue", url: "/contact", scrollTo: null },
     ],
+    Legal: [
+      { name: "Privacy Policy", url: "/privacy-policy", scrollTo: null },
+      { name: "Terms of Service", url: "/terms-of-service", scrollTo: null },
+      { name: "Cookie Policy", url: "/cookie-policy", scrollTo: null },
+      { name: "Refund Policy", url: "/refund-policy", scrollTo: null },
+      { name: "Disclaimer", url: "/disclaimer", scrollTo: null },
+    ],
+    Business: [
+      { name: "For Salon Owners", url: null, scrollTo: null },
+      { name: "Partner with Us", url: "/contact", scrollTo: null },
+      { name: "Advertise", url: null, scrollTo: null },
+      { name: "Franchise", url: null, scrollTo: null },
+      { name: "Bulk Bookings", url: null, scrollTo: null },
+    ],
   };
 
   const socialLinks = [
@@ -128,7 +142,7 @@ export function SalonFooter() {
             </div>
           </div>
 
-          <div className="lg:col-span-8 grid grid-cols-2 gap-8">
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {Object.entries(footerLinks).map(([category, links]) => (
               <div key={category}>
                 <h4 className="font-semibold text-xs uppercase tracking-widest text-black dark:text-white mb-5" data-testid={`text-footer-category-${category.toLowerCase()}`}>
