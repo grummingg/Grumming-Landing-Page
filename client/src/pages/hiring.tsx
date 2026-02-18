@@ -245,7 +245,7 @@ export default function HiringPage() {
             {perks.map((perk) => (
               <div
                 key={perk.title}
-                className="bg-[#1e293b] rounded-md p-3.5"
+                className="rounded-md p-3.5"
                 data-testid={`card-perk-${perk.title.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center mb-2.5">
