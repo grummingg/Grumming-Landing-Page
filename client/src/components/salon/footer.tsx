@@ -56,19 +56,19 @@ export function SalonFooter() {
               Contact
             </h4>
             <div className="space-y-3 mb-8">
-              <a href="mailto:support@grumming.com" className="flex items-center gap-3 text-foreground/70 dark:text-white/50 transition-colors group">
+              <a href="mailto:support@grumming.com" className="flex items-center gap-3 text-black dark:text-white/80 transition-colors group">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center transition-colors">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm" data-testid="text-footer-email">support@grumming.com</span>
               </a>
-              <a href="tel:+911800123456" className="flex items-center gap-3 text-foreground/70 dark:text-white/50 transition-colors group">
+              <a href="tel:+911800123456" className="flex items-center gap-3 text-black dark:text-white/80 transition-colors group">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center transition-colors">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm" data-testid="text-footer-phone">+91 1800-123-4567</span>
               </a>
-              <div className="flex items-center gap-3 text-foreground/70 dark:text-white/50">
+              <div className="flex items-center gap-3 text-black dark:text-white/80">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
