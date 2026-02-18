@@ -234,11 +234,8 @@ export default function HiringPage() {
             We're hiring
           </Badge>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3" data-testid="text-hiring-title">
-            Build the Future of Beauty & Wellness
+            Why Should You Apply?
           </h1>
-          <p className="text-base sm:text-lg text-white/70 leading-relaxed" data-testid="text-hiring-description">
-            Join our team and help transform how millions of people discover and book salon services across India.
-          </p>
         </div>
       </div>
 
