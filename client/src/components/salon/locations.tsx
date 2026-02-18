@@ -8,12 +8,12 @@ interface LocationsProps {
 }
 
 const cityColors: Record<string, { bg: string; icon: string; accent: string }> = {
-  delhi: { bg: "bg-white dark:bg-gradient-to-br dark:from-rose-950/40 dark:to-rose-900/30", icon: "text-rose-500", accent: "bg-rose-500" },
-  mumbai: { bg: "bg-white dark:bg-gradient-to-br dark:from-blue-950/40 dark:to-blue-900/30", icon: "text-blue-500", accent: "bg-blue-500" },
-  bangalore: { bg: "bg-white dark:bg-gradient-to-br dark:from-emerald-950/40 dark:to-emerald-900/30", icon: "text-emerald-500", accent: "bg-emerald-500" },
-  chennai: { bg: "bg-white dark:bg-gradient-to-br dark:from-violet-950/40 dark:to-violet-900/30", icon: "text-violet-500", accent: "bg-violet-500" },
-  hyderabad: { bg: "bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-amber-900/30", icon: "text-amber-500", accent: "bg-amber-500" },
-  pune: { bg: "bg-white dark:bg-gradient-to-br dark:from-cyan-950/40 dark:to-cyan-900/30", icon: "text-cyan-500", accent: "bg-cyan-500" },
+  delhi: { bg: "bg-white dark:bg-[#1e293b]", icon: "text-rose-500", accent: "bg-rose-500" },
+  mumbai: { bg: "bg-white dark:bg-[#1e293b]", icon: "text-blue-500", accent: "bg-blue-500" },
+  bangalore: { bg: "bg-white dark:bg-[#1e293b]", icon: "text-emerald-500", accent: "bg-emerald-500" },
+  chennai: { bg: "bg-white dark:bg-[#1e293b]", icon: "text-violet-500", accent: "bg-violet-500" },
+  hyderabad: { bg: "bg-white dark:bg-[#1e293b]", icon: "text-amber-500", accent: "bg-amber-500" },
+  pune: { bg: "bg-white dark:bg-[#1e293b]", icon: "text-cyan-500", accent: "bg-cyan-500" },
 };
 
 export function Locations({ locations }: LocationsProps) {
@@ -37,7 +37,7 @@ export function Locations({ locations }: LocationsProps) {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
           {locations.map((location, index) => {
-            const colors = cityColors[location.image] || { bg: "bg-white dark:bg-gradient-to-br dark:from-gray-800/40 dark:to-gray-700/30", icon: "text-gray-500", accent: "bg-gray-500" };
+            const colors = cityColors[location.image] || { bg: "bg-white dark:bg-[#1e293b]", icon: "text-gray-500", accent: "bg-gray-500" };
             return (
               <motion.div
                 key={location.id}
