@@ -24,7 +24,7 @@ export function SalonFooter() {
   const footerLinks = {
     Company: [
       { name: "About Us", url: "/about-us", scrollTo: null },
-      { name: "Careers", url: null, scrollTo: null },
+      { name: "Careers", url: "/hiring", scrollTo: null },
       { name: "Blog", url: null, scrollTo: null },
       { name: "Press", url: null, scrollTo: null },
       { name: "Partner with Us", url: "/contact", scrollTo: null },

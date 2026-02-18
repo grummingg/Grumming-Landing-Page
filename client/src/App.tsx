@@ -22,6 +22,7 @@ import Safety from "@/pages/safety";
 import AboutUs from "@/pages/about-us";
 import FAQPage from "@/pages/faq";
 import ContactPage from "@/pages/contact";
+import HiringPage from "@/pages/hiring";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -36,6 +37,7 @@ function Router() {
       <Route path="/about-us" component={AboutUs} />
       <Route path="/faq" component={FAQPage} />
       <Route path="/contact" component={ContactPage} />
+      <Route path="/hiring" component={HiringPage} />
       <Route component={NotFound} />
     </Switch>
   );
