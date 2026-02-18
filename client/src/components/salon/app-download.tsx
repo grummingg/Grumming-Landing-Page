@@ -25,7 +25,7 @@ export function AppDownload() {
 
             <div className="flex flex-wrap gap-3">
               <div
-                className="inline-flex items-center gap-3 bg-[#0f172a] rounded-xl px-5 py-3 opacity-70 cursor-not-allowed shadow-sm"
+                className="inline-flex items-center gap-3 bg-[#0f172a] dark:border dark:border-white/20 rounded-xl px-5 py-3 opacity-70 cursor-not-allowed shadow-sm"
                 data-testid="button-play-store"
                 aria-label="Google Play - Coming Soon"
               >
@@ -41,7 +41,7 @@ export function AppDownload() {
                 </div>
               </div>
               <div
-                className="inline-flex items-center gap-3 bg-[#0f172a] rounded-xl px-5 py-3 opacity-70 cursor-not-allowed shadow-sm"
+                className="inline-flex items-center gap-3 bg-[#0f172a] dark:border dark:border-white/20 rounded-xl px-5 py-3 opacity-70 cursor-not-allowed shadow-sm"
                 data-testid="button-app-store"
                 aria-label="App Store - Coming Soon"
               >
