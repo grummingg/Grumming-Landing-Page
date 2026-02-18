@@ -7,7 +7,6 @@ import {
   MapPin,
   Clock,
   Zap,
-  Heart,
   TrendingUp,
   Users,
   Globe,
@@ -22,11 +21,6 @@ const perks = [
     icon: Zap,
     title: "Fast Growth",
     description: "Join an early-stage startup where your work has a direct, visible impact from day one.",
-  },
-  {
-    icon: Heart,
-    title: "Health & Wellness",
-    description: "Comprehensive health coverage and wellness benefits for you and your family.",
   },
   {
     icon: Globe,
