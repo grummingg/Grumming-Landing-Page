@@ -137,15 +137,15 @@ export default function HiringPage() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-14 sm:-mt-16 pb-16">
         <section className="mb-16" data-testid="section-why-grumming">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
             {perks.map((perk) => (
               <Card key={perk.title} data-testid={`card-perk-${perk.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                <CardContent className="p-5 sm:p-6">
-                  <div className="w-10 h-10 rounded-md bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4">
-                    <perk.icon className="w-5 h-5 text-foreground" />
+                <CardContent className="p-3.5">
+                  <div className="w-8 h-8 rounded-md bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-2.5">
+                    <perk.icon className="w-4 h-4 text-foreground" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-1.5">{perk.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{perk.description}</p>
+                  <h3 className="text-sm font-semibold text-foreground mb-1">{perk.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{perk.description}</p>
                 </CardContent>
               </Card>
             ))}
