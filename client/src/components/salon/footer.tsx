@@ -75,11 +75,11 @@ export function SalonFooter() {
                 </div>
                 <span className="text-sm" data-testid="text-footer-email">support@grumming.com</span>
               </a>
-              <a href="tel:+911800123456" className="flex items-center gap-3 text-black/70 dark:text-white/70 transition-colors group">
+              <a href="tel:+919229506624" className="flex items-center gap-3 text-black/70 dark:text-white/70 transition-colors group">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center transition-colors">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-sm" data-testid="text-footer-phone">+91 1800-123-4567</span>
+                <span className="text-sm" data-testid="text-footer-phone">+91 9229506624</span>
               </a>
               <div className="flex items-center gap-3 text-black/70 dark:text-white/70">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center">
