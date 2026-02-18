@@ -52,15 +52,6 @@ export function SalonFooter() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-14 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           <div className="lg:col-span-4">
-            <div className="mb-5">
-              <span className="font-extrabold text-2xl tracking-tight" data-testid="text-footer-brand">
-                Grumming
-              </span>
-            </div>
-            <p className="text-white/50 mb-8 max-w-xs text-sm leading-relaxed" data-testid="text-footer-description">
-              Discover and book appointments at the best salons near you. Your trusted partner for all beauty and wellness needs.
-            </p>
-
             <div className="space-y-3 mb-8">
               <a href="mailto:support@grumming.com" className="flex items-center gap-3 text-white/50 hover:text-white/80 transition-colors group">
                 <div className="w-8 h-8 rounded-md bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
