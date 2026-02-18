@@ -56,19 +56,19 @@ export function SalonFooter() {
               Contact
             </h4>
             <div className="space-y-3 mb-8">
-              <a href="mailto:support@grumming.com" className="flex items-center gap-3 text-black dark:text-white/80 transition-colors group">
+              <a href="mailto:support@grumming.com" className="flex items-center gap-3 text-black dark:text-white transition-colors group">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center transition-colors">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm" data-testid="text-footer-email">support@grumming.com</span>
               </a>
-              <a href="tel:+911800123456" className="flex items-center gap-3 text-black dark:text-white/80 transition-colors group">
+              <a href="tel:+911800123456" className="flex items-center gap-3 text-black dark:text-white transition-colors group">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center transition-colors">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm" data-testid="text-footer-phone">+91 1800-123-4567</span>
               </a>
-              <div className="flex items-center gap-3 text-black dark:text-white/80">
+              <div className="flex items-center gap-3 text-black dark:text-white">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
@@ -85,7 +85,7 @@ export function SalonFooter() {
                   key={social.label}
                   className={`w-9 h-9 rounded-md flex items-center justify-center transition-colors ${
                     social.url
-                      ? "bg-foreground/10 text-foreground/70 dark:bg-white/10 dark:text-white/80 hover-elevate"
+                      ? "bg-foreground/10 text-foreground/70 dark:bg-white/10 dark:text-white hover-elevate"
                       : "bg-foreground/5 text-foreground/20 dark:bg-white/5 dark:text-white/25 cursor-not-allowed"
                   }`}
                   onClick={() => {
