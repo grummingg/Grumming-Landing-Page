@@ -75,7 +75,7 @@ export function SalonFooter() {
                 </div>
                 <span className="text-sm" data-testid="text-footer-email">support@grumming.com</span>
               </a>
-              <a href="tel:+919229506624" className="flex items-center gap-3 text-black/70 dark:text-white/70 transition-colors group">
+              <a href="https://wa.me/919229506624" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-black/70 dark:text-white/70 transition-colors group">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center transition-colors">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
