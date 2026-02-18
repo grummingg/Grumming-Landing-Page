@@ -29,7 +29,6 @@ export function SalonFooter() {
       { name: "Careers", url: "/hiring", scrollTo: null },
       { name: "Blog", url: null, scrollTo: null },
       { name: "Press", url: null, scrollTo: null },
-      { name: "Partner with Us", url: "/contact", scrollTo: null },
     ],
     Support: [
       { name: "Help Center", url: "/contact", scrollTo: null },
