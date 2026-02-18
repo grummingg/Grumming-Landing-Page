@@ -1,4 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -221,43 +220,43 @@ export default function HiringPage() {
   };
 
   return (
-    <div className="min-h-screen bg-muted/30 dark:bg-background">
-      <div className="bg-[#0f172a] text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24 sm:pb-28">
-          <Link href="/">
-            <Button variant="ghost" className="mb-6 text-white/80" data-testid="button-back-home">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
-            </Button>
-          </Link>
+    <div className="min-h-screen bg-[#0f172a] text-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-10">
+        <Link href="/">
+          <Button variant="ghost" className="mb-6 text-white/80" data-testid="button-back-home">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Home
+          </Button>
+        </Link>
 
-          <div className="max-w-2xl">
-            <Badge className="mb-4 bg-white/20 text-white border-0 no-default-hover-elevate no-default-active-elevate" data-testid="badge-hiring">
-              We're hiring
-            </Badge>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3" data-testid="text-hiring-title">
-              Build the Future of Beauty & Wellness
-            </h1>
-            <p className="text-base sm:text-lg text-white/80 leading-relaxed" data-testid="text-hiring-description">
-              Join our team and help transform how millions of people discover and book salon services across India.
-            </p>
-          </div>
+        <div className="max-w-2xl">
+          <Badge className="mb-4 bg-white/15 text-white border-0 no-default-hover-elevate no-default-active-elevate" data-testid="badge-hiring">
+            We're hiring
+          </Badge>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3" data-testid="text-hiring-title">
+            Build the Future of Beauty & Wellness
+          </h1>
+          <p className="text-base sm:text-lg text-white/70 leading-relaxed" data-testid="text-hiring-description">
+            Join our team and help transform how millions of people discover and book salon services across India.
+          </p>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-14 sm:-mt-16 pb-16">
-        <section className="mb-16" data-testid="section-why-grumming">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <section className="mb-14" data-testid="section-why-grumming">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
             {perks.map((perk) => (
-              <Card key={perk.title} data-testid={`card-perk-${perk.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                <CardContent className="p-3.5">
-                  <div className="w-8 h-8 rounded-md bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-2.5">
-                    <perk.icon className="w-4 h-4 text-foreground" />
-                  </div>
-                  <h3 className="text-sm font-semibold text-foreground mb-1">{perk.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{perk.description}</p>
-                </CardContent>
-              </Card>
+              <div
+                key={perk.title}
+                className="bg-[#1e293b] rounded-md p-3.5"
+                data-testid={`card-perk-${perk.title.toLowerCase().replace(/\s+/g, "-")}`}
+              >
+                <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center mb-2.5">
+                  <perk.icon className="w-4 h-4 text-white/90" />
+                </div>
+                <h3 className="text-sm font-semibold text-white mb-1">{perk.title}</h3>
+                <p className="text-xs text-white/60 leading-relaxed">{perk.description}</p>
+              </div>
             ))}
           </div>
         </section>
@@ -265,8 +264,8 @@ export default function HiringPage() {
         <section data-testid="section-open-positions">
           <div className="flex items-center justify-between gap-4 flex-wrap mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-foreground" data-testid="text-open-positions">Open Positions</h2>
-              <p className="text-sm text-muted-foreground mt-1">{openPositions.length} roles available</p>
+              <h2 className="text-2xl font-bold text-white" data-testid="text-open-positions">Open Positions</h2>
+              <p className="text-sm text-white/60 mt-1">{openPositions.length} roles available</p>
             </div>
           </div>
 
@@ -276,20 +275,20 @@ export default function HiringPage() {
               return (
                 <div key={dept} data-testid={`section-dept-${dept.toLowerCase().replace(/\s+/g, "-")}`}>
                   <div className="flex items-center gap-2.5 mb-4">
-                    <DeptIcon className="w-5 h-5 text-foreground" />
-                    <h3 className="text-lg font-bold text-foreground">{dept}</h3>
+                    <DeptIcon className="w-5 h-5 text-white" />
+                    <h3 className="text-lg font-bold text-white">{dept}</h3>
                   </div>
 
                   <div className="space-y-2.5">
                     {jobs.map((job) => (
                       <div
                         key={job.id}
-                        className="flex items-center justify-between gap-4 border border-border rounded-md px-5 py-4 hover-elevate"
+                        className="flex items-center justify-between gap-4 border border-white/10 rounded-md px-5 py-4 hover-elevate"
                         data-testid={`card-job-${job.id}`}
                       >
                         <div className="min-w-0">
-                          <p className="font-medium text-foreground text-sm sm:text-base">{job.title}</p>
-                          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                          <p className="font-medium text-white text-sm sm:text-base">{job.title}</p>
+                          <p className="text-xs sm:text-sm text-white/50 mt-0.5">
                             {job.location} / {job.type}
                           </p>
                         </div>
@@ -311,28 +310,27 @@ export default function HiringPage() {
         </section>
 
         <section className="mt-16">
-          <Card className="border-dashed" data-testid="card-general-apply">
-            <CardContent className="p-6 sm:p-8 text-center">
-              <div className="w-12 h-12 rounded-md bg-primary/10 dark:bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                <Send className="w-6 h-6 text-foreground" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Don't see the right role?</h3>
-              <p className="text-sm text-muted-foreground max-w-md mx-auto mb-5 leading-relaxed">
-                We're always looking for talented people. Send us your resume and tell us how you'd like to contribute to Grumming.
-              </p>
-              <Button
-                onClick={() => {
-                  const subject = encodeURIComponent("General Application - Grumming");
-                  const body = encodeURIComponent("Hi Grumming Team,\n\nI'd love to explore opportunities at Grumming. Here are my details:\n\nName: \nExperience: \nArea of interest: \nPortfolio/LinkedIn: \n\nBest regards");
-                  window.open(`mailto:careers@grumming.com?subject=${subject}&body=${body}`, "_blank");
-                }}
-                data-testid="button-general-apply"
-              >
-                <Send className="w-4 h-4 mr-2" />
-                Send Your Resume
-              </Button>
-            </CardContent>
-          </Card>
+          <div className="border border-dashed border-white/20 rounded-md p-6 sm:p-8 text-center" data-testid="card-general-apply">
+            <div className="w-12 h-12 rounded-md bg-white/10 flex items-center justify-center mx-auto mb-4">
+              <Send className="w-6 h-6 text-white/90" />
+            </div>
+            <h3 className="text-lg font-semibold text-white mb-2">Don't see the right role?</h3>
+            <p className="text-sm text-white/60 max-w-md mx-auto mb-5 leading-relaxed">
+              We're always looking for talented people. Send us your resume and tell us how you'd like to contribute to Grumming.
+            </p>
+            <Button
+              className="bg-accent text-accent-foreground border-accent-border"
+              onClick={() => {
+                const subject = encodeURIComponent("General Application - Grumming");
+                const body = encodeURIComponent("Hi Grumming Team,\n\nI'd love to explore opportunities at Grumming. Here are my details:\n\nName: \nExperience: \nArea of interest: \nPortfolio/LinkedIn: \n\nBest regards");
+                window.open(`mailto:careers@grumming.com?subject=${subject}&body=${body}`, "_blank");
+              }}
+              data-testid="button-general-apply"
+            >
+              <Send className="w-4 h-4 mr-2" />
+              Send Your Resume
+            </Button>
+          </div>
         </section>
       </div>
     </div>
