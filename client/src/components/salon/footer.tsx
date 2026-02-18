@@ -104,7 +104,7 @@ export function SalonFooter() {
             </div>
 
             <div className="flex items-center gap-3 mt-4">
-              <span className="text-sm font-medium text-foreground/60 dark:text-white/70">Theme</span>
+              <span className="text-sm font-medium text-black dark:text-white">Theme</span>
               <button
                 onClick={toggleTheme}
                 className="relative w-12 h-6 rounded-full transition-colors bg-black/15 dark:bg-white/10"
@@ -119,7 +119,7 @@ export function SalonFooter() {
                   }`}
                 >
                   {theme === "dark" ? (
-                    <Moon className="w-3 h-3 text-white/80" />
+                    <Moon className="w-3 h-3 text-white" />
                   ) : (
                     <Sun className="w-3 h-3 text-amber-500" />
                   )}
