@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { SiInstagram, SiFacebook, SiX, SiYoutube } from "react-icons/si";
+import { SiInstagram, SiFacebook, SiX, SiYoutube, SiWhatsapp } from "react-icons/si";
 import { Mail, Phone, MapPin, ArrowUpRight, Sun, Moon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "@/components/theme-provider";
@@ -77,7 +77,7 @@ export function SalonFooter() {
               </a>
               <a href="https://wa.me/919229506624" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-black/70 dark:text-white/70 transition-colors group">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center transition-colors">
-                  <Phone className="w-3.5 h-3.5" />
+                  <SiWhatsapp className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm" data-testid="text-footer-phone">+91 9229506624</span>
               </a>
