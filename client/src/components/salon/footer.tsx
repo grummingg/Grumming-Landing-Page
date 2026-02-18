@@ -98,8 +98,8 @@ export function SalonFooter() {
                   key={social.label}
                   className={`w-9 h-9 rounded-md flex items-center justify-center transition-colors ${
                     social.url
-                      ? "bg-foreground/10 text-foreground/70 dark:bg-white/10 dark:text-white hover-elevate"
-                      : "bg-foreground/5 text-foreground/20 dark:bg-white/5 dark:text-white/25 cursor-not-allowed"
+                      ? "text-foreground/70 dark:text-white/70 hover-elevate"
+                      : "text-foreground/20 dark:text-white/25 cursor-not-allowed"
                   }`}
                   onClick={() => {
                     if (social.url) {
