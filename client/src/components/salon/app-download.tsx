@@ -71,86 +71,18 @@ export function AppDownload() {
                   {/* Notch */}
                   <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-gray-800 dark:bg-black rounded-full" />
                   
-                  <p className="text-gray-500 dark:text-gray-400 text-center text-[10px] mb-4 font-medium mt-4 leading-relaxed">
-                    Scan the QR code to<br />download the app
-                  </p>
-                  
-                  {/* QR Code */}
-                  <div className="w-28 h-28 bg-white">
-                    <svg viewBox="0 0 100 100" className="w-full h-full">
-                      <rect x="0" y="0" width="100" height="100" fill="white"/>
-                      
-                      {/* Corner squares */}
-                      <rect x="5" y="5" width="25" height="25" fill="#1a1a1a"/>
-                      <rect x="8" y="8" width="19" height="19" fill="white"/>
-                      <rect x="11" y="11" width="13" height="13" fill="#1a1a1a"/>
-                      
-                      <rect x="70" y="5" width="25" height="25" fill="#1a1a1a"/>
-                      <rect x="73" y="8" width="19" height="19" fill="white"/>
-                      <rect x="76" y="11" width="13" height="13" fill="#1a1a1a"/>
-                      
-                      <rect x="5" y="70" width="25" height="25" fill="#1a1a1a"/>
-                      <rect x="8" y="73" width="19" height="19" fill="white"/>
-                      <rect x="11" y="76" width="13" height="13" fill="#1a1a1a"/>
-                      
-                      {/* Data modules */}
-                      <rect x="35" y="5" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="45" y="5" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="55" y="5" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="35" y="15" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="50" y="15" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="60" y="15" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="40" y="25" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="55" y="25" width="5" height="5" fill="#1a1a1a"/>
-                      
-                      <rect x="5" y="35" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="15" y="35" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="25" y="35" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="40" y="35" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="50" y="35" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="65" y="35" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="80" y="35" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="90" y="35" width="5" height="5" fill="#1a1a1a"/>
-                      
-                      <rect x="5" y="45" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="20" y="45" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="35" y="45" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="45" y="45" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="55" y="45" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="70" y="45" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="85" y="45" width="5" height="5" fill="#1a1a1a"/>
-                      
-                      <rect x="10" y="55" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="25" y="55" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="40" y="55" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="60" y="55" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="75" y="55" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="90" y="55" width="5" height="5" fill="#1a1a1a"/>
-                      
-                      <rect x="35" y="65" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="50" y="65" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="60" y="65" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="80" y="65" width="5" height="5" fill="#1a1a1a"/>
-                      
-                      <rect x="35" y="75" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="45" y="75" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="55" y="75" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="70" y="75" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="85" y="75" width="5" height="5" fill="#1a1a1a"/>
-                      
-                      <rect x="40" y="85" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="55" y="85" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="65" y="85" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="80" y="85" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="90" y="85" width="5" height="5" fill="#1a1a1a"/>
-                      
-                      <rect x="35" y="90" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="50" y="90" width="5" height="5" fill="#1a1a1a"/>
-                      <rect x="70" y="90" width="5" height="5" fill="#1a1a1a"/>
-                      
-                      {/* Accent square */}
-                      <rect x="70" y="70" width="10" height="10" fill="#E11D48" rx="1"/>
-                    </svg>
+                  <div className="flex flex-col items-center justify-center text-center gap-3">
+                    <div className="w-12 h-12 rounded-2xl bg-[#0f172a] dark:bg-white/10 flex items-center justify-center">
+                      <svg viewBox="0 0 24 24" className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                      </svg>
+                    </div>
+                    <p className="text-foreground dark:text-white text-xs font-semibold">
+                      Coming Soon
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-400 text-[10px] leading-relaxed">
+                      We're building<br />something amazing
+                    </p>
                   </div>
                 </div>
                 
