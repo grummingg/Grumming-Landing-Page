@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function AppDownload() {
   return (
-    <section id="download" className="py-16 sm:py-20 bg-gradient-to-b from-muted/50 to-background dark:from-[#0f172a]/50 dark:to-background">
+    <section id="download" className="py-16 sm:py-20 bg-white dark:bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <motion.div
