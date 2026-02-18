@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
-import { Scissors, Bath, Droplets, PaintbrushVertical, Pipette, Gem, type LucideIcon } from "lucide-react";
 import type { Category } from "@shared/schema";
 
 import haircutMale from "../../assets/videos/haircut-male.mp4";
@@ -16,6 +15,13 @@ import haircolourFemale from "../../assets/videos/haircolour-female.mp4";
 import nailsMale from "../../assets/videos/nails-male.mp4";
 import nailsFemale from "../../assets/videos/nails-female.mp4";
 
+import haircutIcon from "../../assets/icons/haircut-icon.png";
+import spaIcon from "../../assets/icons/spa-icon.png";
+import skincareIcon from "../../assets/icons/skincare-icon.png";
+import makeupIcon from "../../assets/icons/makeup-icon.png";
+import hairColourIcon from "../../assets/icons/hair-colour-icon.png";
+import nailsIcon from "../../assets/icons/nails-icon.png";
+
 const serviceVideosByName: Record<string, string[]> = {
   haircut: [haircutMale, haircutFemale],
   spa: [spaMale, spaFemale],
@@ -27,13 +33,13 @@ const serviceVideosByName: Record<string, string[]> = {
 
 const allVideos: string[] = Object.values(serviceVideosByName).flat();
 
-const iconMap: Record<string, LucideIcon> = {
-  Scissors,
-  Bath,
-  Sparkles: Droplets,
-  Brush: PaintbrushVertical,
-  Palette: Pipette,
-  Fingerprint: Gem,
+const illustratedIconMap: Record<string, string> = {
+  Scissors: haircutIcon,
+  Bath: spaIcon,
+  Sparkles: skincareIcon,
+  Brush: makeupIcon,
+  Palette: hairColourIcon,
+  Fingerprint: nailsIcon,
 };
 
 const categoryColorsByIcon: Record<string, string> = {
@@ -386,7 +392,7 @@ export function Categories({ categories }: CategoriesProps) {
           <div className="hidden lg:flex items-center justify-between w-full max-w-6xl relative z-10">
             <div className="flex flex-col gap-8 items-end">
               {leftCategories.map((category, index) => {
-                const Icon = iconMap[category.icon] || Scissors;
+                const iconSrc = illustratedIconMap[category.icon] || haircutIcon;
                 const offsets = [
                   { x: 160, y: -10 },
                   { x: 200, y: 0 },
@@ -408,7 +414,7 @@ export function Categories({ categories }: CategoriesProps) {
                       onClick={() => handleCategoryClick(category)}
                     >
                       <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30 shadow-[0_12px_40px_-6px_rgba(0,0,0,0.3)]' : ''}`}>
-                        <Icon className="w-7 h-7 text-white" strokeWidth={2} />
+                        <img src={iconSrc} alt={category.name} className="w-9 h-9 object-contain" />
                       </div>
                       <span
                         className={`text-sm font-semibold transition-colors ${isSelected ? 'text-accent-foreground font-bold' : 'text-foreground'}`}
@@ -445,7 +451,7 @@ export function Categories({ categories }: CategoriesProps) {
 
             <div className="flex flex-col gap-8 items-start">
               {rightCategories.map((category, index) => {
-                const Icon = iconMap[category.icon] || Scissors;
+                const iconSrc = illustratedIconMap[category.icon] || haircutIcon;
                 const offsets = [
                   { x: -160, y: -10 },
                   { x: -200, y: 0 },
@@ -467,7 +473,7 @@ export function Categories({ categories }: CategoriesProps) {
                       onClick={() => handleCategoryClick(category)}
                     >
                       <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30 shadow-[0_12px_40px_-6px_rgba(0,0,0,0.3)]' : ''}`}>
-                        <Icon className="w-7 h-7 text-white" strokeWidth={2} />
+                        <img src={iconSrc} alt={category.name} className="w-9 h-9 object-contain" />
                       </div>
                       <span
                         className={`text-sm font-semibold transition-colors ${isSelected ? 'text-accent-foreground font-bold' : 'text-foreground'}`}
@@ -504,7 +510,7 @@ export function Categories({ categories }: CategoriesProps) {
 
             <div className="grid grid-cols-3 gap-4">
               {categories.map((category, index) => {
-                const Icon = iconMap[category.icon] || Scissors;
+                const iconSrc = illustratedIconMap[category.icon] || haircutIcon;
                 const isSelected = selectedCategory.id === category.id;
                 return (
                   <motion.div
@@ -520,7 +526,7 @@ export function Categories({ categories }: CategoriesProps) {
                       onClick={() => handleCategoryClick(category)}
                     >
                       <div className={`w-14 h-14 rounded-[1rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-2 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30' : ''}`}>
-                        <Icon className="w-6 h-6 text-white" strokeWidth={2} />
+                        <img src={iconSrc} alt={category.name} className="w-8 h-8 object-contain" />
                       </div>
                       <span className={`text-xs font-semibold transition-colors ${isSelected ? 'text-accent-foreground font-bold' : 'text-foreground'}`}>
                         {category.name}
