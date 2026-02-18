@@ -52,7 +52,7 @@ export function SalonFooter() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-14 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           <div className="lg:col-span-4">
-            <h4 className="font-semibold text-xs uppercase tracking-widest text-foreground/50 dark:text-white/40 mb-5" data-testid="text-footer-category-contact">
+            <h4 className="font-semibold text-xs uppercase tracking-widest text-foreground/70 dark:text-white/60 mb-5" data-testid="text-footer-category-contact">
               Contact
             </h4>
             <div className="space-y-3 mb-8">
@@ -76,7 +76,7 @@ export function SalonFooter() {
               </div>
             </div>
 
-            <h4 className="font-semibold text-xs uppercase tracking-widest text-foreground/50 dark:text-white/40 mb-4" data-testid="text-footer-category-socials">
+            <h4 className="font-semibold text-xs uppercase tracking-widest text-foreground/70 dark:text-white/60 mb-4" data-testid="text-footer-category-socials">
               Socials
             </h4>
             <div className="flex items-center gap-2">
@@ -131,7 +131,7 @@ export function SalonFooter() {
           <div className="lg:col-span-8 grid grid-cols-2 gap-8">
             {Object.entries(footerLinks).map(([category, links]) => (
               <div key={category}>
-                <h4 className="font-semibold text-xs uppercase tracking-widest text-foreground/50 dark:text-white/40 mb-5" data-testid={`text-footer-category-${category.toLowerCase()}`}>
+                <h4 className="font-semibold text-xs uppercase tracking-widest text-foreground/70 dark:text-white/60 mb-5" data-testid={`text-footer-category-${category.toLowerCase()}`}>
                   {category}
                 </h4>
                 <ul className="space-y-3">
