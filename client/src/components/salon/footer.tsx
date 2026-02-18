@@ -56,19 +56,19 @@ export function SalonFooter() {
               Contact
             </h4>
             <div className="space-y-3 mb-8">
-              <a href="mailto:support@grumming.com" className="flex items-center gap-3 text-black dark:text-white transition-colors group">
+              <a href="mailto:support@grumming.com" className="flex items-center gap-3 text-black/70 dark:text-white/70 transition-colors group">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center transition-colors">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm" data-testid="text-footer-email">support@grumming.com</span>
               </a>
-              <a href="tel:+911800123456" className="flex items-center gap-3 text-black dark:text-white transition-colors group">
+              <a href="tel:+911800123456" className="flex items-center gap-3 text-black/70 dark:text-white/70 transition-colors group">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center transition-colors">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-sm" data-testid="text-footer-phone">+91 1800-123-4567</span>
               </a>
-              <div className="flex items-center gap-3 text-black dark:text-white">
+              <div className="flex items-center gap-3 text-black/70 dark:text-white/70">
                 <div className="w-8 h-8 rounded-md bg-black/5 dark:bg-white/5 flex items-center justify-center">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
@@ -140,7 +140,7 @@ export function SalonFooter() {
                       {link.url ? (
                         <Link
                           href={link.url}
-                          className="text-black dark:text-white transition-colors text-sm inline-flex items-center gap-1 group"
+                          className="text-black/70 dark:text-white/70 transition-colors text-sm inline-flex items-center gap-1 group"
                           data-testid={`link-footer-${link.name.toLowerCase().replace(/\s+/g, "-")}`}
                         >
                           {link.name}
@@ -156,7 +156,7 @@ export function SalonFooter() {
                               handleComingSoonLink(link.name);
                             }
                           }}
-                          className="text-black dark:text-white transition-colors text-left text-sm"
+                          className="text-black/70 dark:text-white/70 transition-colors text-left text-sm"
                           data-testid={`link-footer-${link.name.toLowerCase().replace(/\s+/g, "-")}`}
                         >
                           {link.name}
