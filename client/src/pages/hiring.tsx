@@ -4,15 +4,18 @@ import { Badge } from "@/components/ui/badge";
 import {
   ArrowLeft,
   Briefcase,
-  MapPin,
-  Clock,
   Zap,
   TrendingUp,
   Users,
   Globe,
   Coffee,
   Send,
-  ArrowUpRight,
+  Code,
+  Palette,
+  Megaphone,
+  Settings,
+  Handshake,
+  PackageSearch,
 } from "lucide-react";
 import { Link } from "wouter";
 
@@ -183,14 +186,32 @@ const openPositions = [
   },
 ];
 
-const departmentColors: Record<string, string> = {
-  Engineering: "bg-primary/10 text-primary dark:bg-primary/20",
-  Design: "bg-accent/10 text-accent-foreground dark:bg-accent/20",
-  "Growth & Marketing": "bg-primary/10 text-primary dark:bg-primary/20",
-  Operations: "bg-muted text-muted-foreground",
-  "Sales & Partnerships": "bg-accent/10 text-accent-foreground dark:bg-accent/20",
-  Product: "bg-primary/10 text-primary dark:bg-primary/20",
+const departmentIcons: Record<string, typeof Code> = {
+  Engineering: Code,
+  Design: Palette,
+  "Growth & Marketing": Megaphone,
+  Operations: Settings,
+  "Sales & Partnerships": Handshake,
+  Product: PackageSearch,
 };
+
+const departmentOrder = [
+  "Engineering",
+  "Design",
+  "Growth & Marketing",
+  "Operations",
+  "Sales & Partnerships",
+  "Product",
+];
+
+function getGroupedPositions() {
+  const grouped: Record<string, typeof openPositions> = {};
+  for (const dept of departmentOrder) {
+    const jobs = openPositions.filter((j) => j.department === dept);
+    if (jobs.length > 0) grouped[dept] = jobs;
+  }
+  return grouped;
+}
 
 export default function HiringPage() {
   const handleApply = (jobTitle: string) => {
@@ -242,57 +263,50 @@ export default function HiringPage() {
         </section>
 
         <section data-testid="section-open-positions">
-          <div className="flex items-center justify-between gap-4 flex-wrap mb-6">
+          <div className="flex items-center justify-between gap-4 flex-wrap mb-8">
             <div>
               <h2 className="text-2xl font-bold text-foreground" data-testid="text-open-positions">Open Positions</h2>
               <p className="text-sm text-muted-foreground mt-1">{openPositions.length} roles available</p>
             </div>
-            <Badge variant="secondary" className="no-default-hover-elevate no-default-active-elevate">
-              <Briefcase className="w-3.5 h-3.5 mr-1.5" />
-              {openPositions.length} openings
-            </Badge>
           </div>
 
-          <div className="space-y-3">
-            {openPositions.map((job) => (
-              <Card key={job.id} className="hover-elevate overflow-visible" data-testid={`card-job-${job.id}`}>
-                <CardContent className="p-5 sm:p-6">
-                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 flex-wrap mb-2">
-                        <h3 className="font-semibold text-foreground text-base">{job.title}</h3>
-                        <Badge
-                          variant="secondary"
-                          className={`text-xs no-default-hover-elevate no-default-active-elevate ${departmentColors[job.department] || ""}`}
-                        >
-                          {job.department}
-                        </Badge>
-                      </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-3">{job.description}</p>
-                      <div className="flex items-center gap-4 flex-wrap text-xs text-muted-foreground">
-                        <span className="inline-flex items-center gap-1">
-                          <MapPin className="w-3.5 h-3.5" />
-                          {job.location}
-                        </span>
-                        <span className="inline-flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5" />
-                          {job.type}
-                        </span>
-                      </div>
-                    </div>
-                    <Button
-                      size="sm"
-                      className="flex-shrink-0 self-start"
-                      onClick={() => handleApply(job.title)}
-                      data-testid={`button-apply-${job.id}`}
-                    >
-                      Apply
-                      <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
-                    </Button>
+          <div className="space-y-10">
+            {Object.entries(getGroupedPositions()).map(([dept, jobs]) => {
+              const DeptIcon = departmentIcons[dept] || Briefcase;
+              return (
+                <div key={dept} data-testid={`section-dept-${dept.toLowerCase().replace(/\s+/g, "-")}`}>
+                  <div className="flex items-center gap-2.5 mb-4">
+                    <DeptIcon className="w-5 h-5 text-foreground" />
+                    <h3 className="text-lg font-bold text-foreground">{dept}</h3>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+
+                  <div className="space-y-2.5">
+                    {jobs.map((job) => (
+                      <div
+                        key={job.id}
+                        className="flex items-center justify-between gap-4 border border-border rounded-md px-5 py-4 hover-elevate"
+                        data-testid={`card-job-${job.id}`}
+                      >
+                        <div className="min-w-0">
+                          <p className="font-medium text-foreground text-sm sm:text-base">{job.title}</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                            {job.location} / {job.type}
+                          </p>
+                        </div>
+                        <Button
+                          size="sm"
+                          className="flex-shrink-0 bg-accent text-accent-foreground border-accent-border"
+                          onClick={() => handleApply(job.title)}
+                          data-testid={`button-apply-${job.id}`}
+                        >
+                          Apply
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
