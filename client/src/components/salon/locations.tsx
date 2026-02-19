@@ -155,10 +155,12 @@ const MAX_SPECIAL = 5;
 const MAX_GRID_CELLS_EXTRA = 12;
 
 const LONG_PRESS_MS = 1000;
+const MOBILE_BREAKPOINT = 640;
 
 export function Locations({ locations }: LocationsProps) {
   const [order, setOrder] = useState<Location[]>([]);
   const [sizeMap, setSizeMap] = useState<Map<string, CardSize>>(new Map());
+  const [isMobile, setIsMobile] = useState(false);
   const hoverPausedRef = useRef(false);
   const isVisibleRef = useRef(false);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -175,6 +177,13 @@ export function Locations({ locations }: LocationsProps) {
   const pressStartPos = useRef<{ x: number; y: number } | null>(null);
 
   const shouldAnimate = () => isVisibleRef.current && !hoverPausedRef.current;
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -414,16 +423,16 @@ export function Locations({ locations }: LocationsProps) {
 
         <div
           ref={gridRef}
-          className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1.5 sm:gap-2"
+          className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1.5 sm:gap-2"
           style={{
-            gridAutoRows: "70px",
+            gridAutoRows: isMobile ? "65px" : "70px",
             gridAutoFlow: "dense",
             touchAction: dragActiveId ? "none" : "auto",
           }}
         >
           {order.map((location) => {
             const image = cityImages[location.image];
-            const size: CardSize = sizeMap.get(location.id) || "1x1";
+            const size: CardSize = isMobile ? "1x1" : (sizeMap.get(location.id) || "1x1");
             const { col, row } = getSpan(size);
             const isSpecial = size !== "1x1";
             const textSize = getTextSize(size);
