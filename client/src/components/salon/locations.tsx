@@ -130,9 +130,30 @@ const cityImages: Record<string, string> = {
   srinagar: citySrinagar,
 };
 
+type CardSize = "1x1" | "1x2" | "2x1" | "2x2";
+const SPECIAL_SIZES: CardSize[] = ["1x2", "2x1", "2x2"];
+
+function getSpan(size: CardSize): { col: number; row: number } {
+  switch (size) {
+    case "1x2": return { col: 2, row: 1 };
+    case "2x1": return { col: 1, row: 2 };
+    case "2x2": return { col: 2, row: 2 };
+    default: return { col: 1, row: 1 };
+  }
+}
+
+function getTextSize(size: CardSize): string {
+  switch (size) {
+    case "2x2": return "text-xs sm:text-sm font-bold";
+    case "1x2":
+    case "2x1": return "text-[9px] sm:text-xs font-bold";
+    default: return "text-[8px] sm:text-[10px] font-semibold";
+  }
+}
+
 export function Locations({ locations }: LocationsProps) {
   const [order, setOrder] = useState<Location[]>([]);
-  const [largeIds, setLargeIds] = useState<Set<string>>(new Set());
+  const [sizeMap, setSizeMap] = useState<Map<string, CardSize>>(new Map());
   const hoverPausedRef = useRef(false);
   const isVisibleRef = useRef(false);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -159,11 +180,14 @@ export function Locations({ locations }: LocationsProps) {
     const initial = [...locations].sort(() => Math.random() - 0.5);
     setOrder(initial);
     locationsRef.current = initial;
-    const largeCount = Math.max(3, Math.floor(locations.length / 12));
-    const ids = new Set<string>();
+    const specialCount = Math.max(4, Math.floor(locations.length / 10));
+    const map = new Map<string, CardSize>();
     const shuffledInit = [...initial].sort(() => Math.random() - 0.5);
-    for (let i = 0; i < largeCount; i++) ids.add(shuffledInit[i].id);
-    setLargeIds(ids);
+    for (let i = 0; i < specialCount; i++) {
+      const sz = SPECIAL_SIZES[Math.floor(Math.random() * SPECIAL_SIZES.length)];
+      map.set(shuffledInit[i].id, sz);
+    }
+    setSizeMap(map);
   }, [locations]);
 
   useEffect(() => {
@@ -196,16 +220,18 @@ export function Locations({ locations }: LocationsProps) {
         if (shouldAnimate()) {
           const currentOrder = locationsRef.current;
           if (currentOrder.length > 0) {
-            setLargeIds(prev => {
-              const currentArr = Array.from(prev);
-              if (currentArr.length === 0) return prev;
-              const removeId = currentArr[Math.floor(Math.random() * currentArr.length)];
-              const next = new Set(prev);
-              next.delete(removeId);
+            setSizeMap(prev => {
+              const next = new Map(prev);
+              const specialIds = Array.from(next.keys());
+              if (specialIds.length > 0) {
+                const removeId = specialIds[Math.floor(Math.random() * specialIds.length)];
+                next.delete(removeId);
+              }
               const available = currentOrder.filter(l => !next.has(l.id));
               if (available.length > 0) {
                 const addLoc = available[Math.floor(Math.random() * available.length)];
-                next.add(addLoc.id);
+                const newSize = SPECIAL_SIZES[Math.floor(Math.random() * SPECIAL_SIZES.length)];
+                next.set(addLoc.id, newSize);
               }
               return next;
             });
@@ -261,12 +287,10 @@ export function Locations({ locations }: LocationsProps) {
         >
           {order.map((location) => {
             const image = cityImages[location.image];
-            const isLarge = largeIds.has(location.id);
-            const colSpan = isLarge ? 2 : 1;
-            const rowSpan = isLarge ? 2 : 1;
-            const textSize = isLarge
-              ? "text-xs sm:text-sm font-bold"
-              : "text-[8px] sm:text-[10px] font-semibold";
+            const size: CardSize = sizeMap.get(location.id) || "1x1";
+            const { col, row } = getSpan(size);
+            const isSpecial = size !== "1x1";
+            const textSize = getTextSize(size);
             return (
               <motion.div
                 key={location.id}
@@ -274,16 +298,16 @@ export function Locations({ locations }: LocationsProps) {
                 transition={{ type: "spring", stiffness: 200, damping: 28, mass: 0.8 }}
                 className="relative cursor-pointer"
                 style={{
-                  gridColumn: `span ${colSpan}`,
-                  gridRow: `span ${rowSpan}`,
-                  zIndex: isLarge ? 5 : 1,
+                  gridColumn: `span ${col}`,
+                  gridRow: `span ${row}`,
+                  zIndex: isSpecial ? 5 : 1,
                 }}
                 onMouseEnter={pauseRotation}
                 onMouseLeave={scheduleResume}
               >
                 <div
                   className={`relative w-full h-full rounded-lg overflow-hidden shadow-sm ring-1 ring-black/5 dark:ring-white/10 ${
-                    isLarge ? "ring-2 ring-primary/40 shadow-lg" : ""
+                    isSpecial ? "ring-2 ring-primary/40 shadow-lg" : ""
                   }`}
                   data-testid={`card-location-${location.id}`}
                 >
