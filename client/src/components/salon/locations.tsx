@@ -32,6 +32,12 @@ import cityNashik from "../../assets/images/city-nashik.jpg";
 import cityRanchi from "../../assets/images/city-ranchi.jpg";
 import cityGuwahati from "../../assets/images/city-guwahati.jpg";
 import cityBhubaneswar from "../../assets/images/city-bhubaneswar.jpg";
+import cityUdaipur from "../../assets/images/city-udaipur.jpg";
+import cityAmritsar from "../../assets/images/city-amritsar.jpg";
+import cityHampi from "../../assets/images/city-hampi.jpg";
+import cityRishikesh from "../../assets/images/city-rishikesh.jpg";
+import cityDeoghar from "../../assets/images/city-deoghar.jpg";
+import cityGaya from "../../assets/images/city-gaya.jpg";
 
 interface LocationsProps {
   locations: Location[];
@@ -68,6 +74,12 @@ const cityImages: Record<string, string> = {
   ranchi: cityRanchi,
   guwahati: cityGuwahati,
   bhubaneswar: cityBhubaneswar,
+  udaipur: cityUdaipur,
+  amritsar: cityAmritsar,
+  hampi: cityHampi,
+  rishikesh: cityRishikesh,
+  deoghar: cityDeoghar,
+  gaya: cityGaya,
 };
 
 export function Locations({ locations }: LocationsProps) {

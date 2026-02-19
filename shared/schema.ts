@@ -108,6 +108,12 @@ export const defaultSalonConfig: SalonConfig = {
     { id: "28", name: "Ranchi", image: "ranchi", salonCount: 35 },
     { id: "29", name: "Guwahati", image: "guwahati", salonCount: 40 },
     { id: "30", name: "Bhubaneswar", image: "bhubaneswar", salonCount: 35 },
+    { id: "31", name: "Udaipur", image: "udaipur", salonCount: 45 },
+    { id: "32", name: "Amritsar", image: "amritsar", salonCount: 55 },
+    { id: "33", name: "Hampi", image: "hampi", salonCount: 20 },
+    { id: "34", name: "Rishikesh", image: "rishikesh", salonCount: 30 },
+    { id: "35", name: "Deoghar", image: "deoghar", salonCount: 15 },
+    { id: "36", name: "Gaya", image: "gaya", salonCount: 20 },
   ],
   featuredSalons: [
     {
