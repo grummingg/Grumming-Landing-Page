@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
-import { Send, Mail, User, MessageSquare, FileText, Phone, MapPin, Clock } from "lucide-react";
+import { Send, Mail, User, MessageSquare, FileText, Phone, MapPin, Clock, Scissors } from "lucide-react";
+import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -88,6 +89,12 @@ export default function ContactPage() {
     <div className="min-h-screen bg-muted/30 dark:bg-background">
       <div className="bg-[#0f172a] text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24 sm:pb-28">
+          <Link href="/">
+            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
+              <Scissors className="w-5 h-5" />
+              <span className="text-lg font-bold tracking-tight">Grumming</span>
+            </span>
+          </Link>
           <div className="max-w-2xl">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3" data-testid="text-contact-title">
               Get in Touch

@@ -54,6 +54,12 @@ export default function AboutUs() {
       <section className="relative bg-[#0f172a] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <Link href="/">
+            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
+              <Scissors className="w-5 h-5" />
+              <span className="text-lg font-bold tracking-tight">Grumming</span>
+            </span>
+          </Link>
           <motion.div {...fadeUp}>
             <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-3">About Grumming</p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6" data-testid="text-about-title">

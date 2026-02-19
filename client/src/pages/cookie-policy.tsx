@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Cookie, Shield, Settings, BarChart, Megaphone, Eye, ToggleLeft } from "lucide-react";
+import { Cookie, Shield, Settings, BarChart, Megaphone, Eye, ToggleLeft, Scissors } from "lucide-react";
+import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
 
 const fadeUp = {
@@ -98,6 +99,12 @@ export default function CookiePolicy() {
       <section className="relative bg-[#0f172a] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+          <Link href="/">
+            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
+              <Scissors className="w-5 h-5" />
+              <span className="text-lg font-bold tracking-tight">Grumming</span>
+            </span>
+          </Link>
           <motion.div {...fadeUp}>
             <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase">Cookie Policy</span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4">How we use cookies</h1>

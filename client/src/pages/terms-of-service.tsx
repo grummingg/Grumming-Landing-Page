@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { UserCheck, BookOpen, CreditCard, Shield, Building, Scale, AlertTriangle, Gavel, Mail } from "lucide-react";
+import { UserCheck, BookOpen, CreditCard, Shield, Building, Scale, AlertTriangle, Gavel, Mail, Scissors } from "lucide-react";
+import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
 
 const fadeUp = {
@@ -205,6 +206,12 @@ export default function TermsOfService() {
       <section className="relative bg-[#0f172a] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+          <Link href="/">
+            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
+              <Scissors className="w-5 h-5" />
+              <span className="text-lg font-bold tracking-tight">Grumming</span>
+            </span>
+          </Link>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-terms-label">Terms of Service</span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4" data-testid="text-terms-title">Terms and conditions</h1>

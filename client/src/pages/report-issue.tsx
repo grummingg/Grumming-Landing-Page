@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Star, Shield, CreditCard, AlertTriangle, Smartphone, MessageSquare } from "lucide-react";
+import { Star, Shield, CreditCard, AlertTriangle, Smartphone, MessageSquare, Scissors } from "lucide-react";
+import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -127,6 +128,12 @@ export default function ReportIssue() {
       <section className="relative bg-[#0f172a] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <Link href="/">
+            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
+              <Scissors className="w-5 h-5" />
+              <span className="text-lg font-bold tracking-tight">Grumming</span>
+            </span>
+          </Link>
           <motion.div {...fadeUp}>
             <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-3" data-testid="text-hero-label">
               Report an Issue
