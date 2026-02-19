@@ -130,37 +130,39 @@ const cityImages: Record<string, string> = {
   srinagar: citySrinagar,
 };
 
-function pickRandomIndices(total: number, count: number, exclude: Set<number>): Set<number> {
-  const result = new Set<number>();
-  const available = Array.from({ length: total }, (_, i) => i).filter(i => !exclude.has(i));
-  const shuffled = available.sort(() => Math.random() - 0.5);
-  for (let i = 0; i < Math.min(count, shuffled.length); i++) {
-    result.add(shuffled[i]);
+function shuffleArray<T>(arr: T[]): T[] {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  return result;
+  return shuffled;
 }
 
 export function Locations({ locations }: LocationsProps) {
-  const [largeIndices, setLargeIndices] = useState<Set<number>>(new Set());
-  const [mediumIndices, setMediumIndices] = useState<Set<number>>(new Set());
+  const [shuffledLocations, setShuffledLocations] = useState<Location[]>([]);
+  const [largeIds, setLargeIds] = useState<Set<string>>(new Set());
   const isPausedRef = useRef(false);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const shuffleSizes = useCallback(() => {
+  const doShuffle = useCallback(() => {
     if (isPausedRef.current) return;
-    const largeCount = Math.max(2, Math.floor(locations.length / 15));
-    const mediumCount = Math.max(3, Math.floor(locations.length / 10));
-    const newLarge = pickRandomIndices(locations.length, largeCount, new Set());
-    const newMedium = pickRandomIndices(locations.length, mediumCount, newLarge);
-    setLargeIndices(newLarge);
-    setMediumIndices(newMedium);
-  }, [locations.length]);
+    const shuffled = shuffleArray(locations);
+    setShuffledLocations(shuffled);
+    const largeCount = Math.max(3, Math.floor(locations.length / 12));
+    const picked = new Set<string>();
+    const indices = shuffleArray(Array.from({ length: shuffled.length }, (_, i) => i));
+    for (let i = 0; i < Math.min(largeCount, indices.length); i++) {
+      picked.add(shuffled[indices[i]].id);
+    }
+    setLargeIds(picked);
+  }, [locations]);
 
   useEffect(() => {
-    shuffleSizes();
-    const timer = setInterval(shuffleSizes, 3000);
+    doShuffle();
+    const timer = setInterval(doShuffle, 3500);
     return () => clearInterval(timer);
-  }, [shuffleSizes]);
+  }, [doShuffle]);
 
   const pauseRotation = () => {
     isPausedRef.current = true;
@@ -199,24 +201,19 @@ export function Locations({ locations }: LocationsProps) {
             gridAutoRows: "70px",
           }}
         >
-          {locations.map((location, index) => {
+          {shuffledLocations.map((location) => {
             const image = cityImages[location.image];
-            const isLarge = largeIndices.has(index);
-            const isMedium = mediumIndices.has(index);
+            const isLarge = largeIds.has(location.id);
             const colSpan = isLarge ? 2 : 1;
-            const rowSpan = isLarge ? 2 : isMedium ? 1 : 1;
+            const rowSpan = isLarge ? 2 : 1;
             const textSize = isLarge
-              ? "text-sm sm:text-base font-bold"
-              : isMedium
-              ? "text-[10px] sm:text-xs font-semibold"
+              ? "text-xs sm:text-sm font-bold"
               : "text-[8px] sm:text-[10px] font-semibold";
             return (
               <motion.div
                 key={location.id}
                 layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                transition={{ type: "spring", stiffness: 200, damping: 25, mass: 0.8 }}
                 className="relative cursor-pointer"
                 style={{
                   gridColumn: `span ${colSpan}`,
