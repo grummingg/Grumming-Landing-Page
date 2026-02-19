@@ -130,35 +130,40 @@ const cityImages: Record<string, string> = {
   srinagar: citySrinagar,
 };
 
+function pickRandomIndices(total: number, count: number, exclude: Set<number>): Set<number> {
+  const result = new Set<number>();
+  const available = Array.from({ length: total }, (_, i) => i).filter(i => !exclude.has(i));
+  const shuffled = available.sort(() => Math.random() - 0.5);
+  for (let i = 0; i < Math.min(count, shuffled.length); i++) {
+    result.add(shuffled[i]);
+  }
+  return result;
+}
+
 export function Locations({ locations }: LocationsProps) {
-  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+  const [largeIndices, setLargeIndices] = useState<Set<number>>(new Set());
+  const [mediumIndices, setMediumIndices] = useState<Set<number>>(new Set());
   const isPausedRef = useRef(false);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const pickRandom = useCallback(() => {
-    if (locations.length <= 1) return;
+  const shuffleSizes = useCallback(() => {
     if (isPausedRef.current) return;
-    const available = locations.filter((l) => l.id !== highlightedId);
-    if (available.length === 0) return;
-    const pick = available[Math.floor(Math.random() * available.length)];
-    setHighlightedId(pick.id);
-  }, [locations, highlightedId]);
+    const largeCount = Math.max(2, Math.floor(locations.length / 15));
+    const mediumCount = Math.max(3, Math.floor(locations.length / 10));
+    const newLarge = pickRandomIndices(locations.length, largeCount, new Set());
+    const newMedium = pickRandomIndices(locations.length, mediumCount, newLarge);
+    setLargeIndices(newLarge);
+    setMediumIndices(newMedium);
+  }, [locations.length]);
 
   useEffect(() => {
-    const timer = setInterval(pickRandom, 2500);
+    shuffleSizes();
+    const timer = setInterval(shuffleSizes, 3000);
     return () => clearInterval(timer);
-  }, [pickRandom]);
+  }, [shuffleSizes]);
 
-  useEffect(() => {
-    if (locations.length > 0 && highlightedId === null) {
-      const pick = locations[Math.floor(Math.random() * locations.length)];
-      setHighlightedId(pick.id);
-    }
-  }, [locations]);
-
-  const pauseAndHighlight = (id: string) => {
+  const pauseRotation = () => {
     isPausedRef.current = true;
-    setHighlightedId(id);
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
   };
 
@@ -166,7 +171,7 @@ export function Locations({ locations }: LocationsProps) {
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     resumeTimerRef.current = setTimeout(() => {
       isPausedRef.current = false;
-    }, 3000);
+    }, 4000);
   };
 
   return (
@@ -187,26 +192,44 @@ export function Locations({ locations }: LocationsProps) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1.5 sm:gap-2">
+        <div
+          className="grid gap-1.5 sm:gap-2"
+          style={{
+            gridTemplateColumns: "repeat(auto-fill, minmax(70px, 1fr))",
+            gridAutoRows: "70px",
+          }}
+        >
           {locations.map((location, index) => {
             const image = cityImages[location.image];
-            const isHighlighted = location.id === highlightedId;
+            const isLarge = largeIndices.has(index);
+            const isMedium = mediumIndices.has(index);
+            const colSpan = isLarge ? 2 : 1;
+            const rowSpan = isLarge ? 2 : isMedium ? 1 : 1;
+            const textSize = isLarge
+              ? "text-sm sm:text-base font-bold"
+              : isMedium
+              ? "text-[10px] sm:text-xs font-semibold"
+              : "text-[8px] sm:text-[10px] font-semibold";
             return (
               <motion.div
                 key={location.id}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.03 }}
-                className="relative"
-                style={{ zIndex: isHighlighted ? 10 : 1 }}
-                onMouseEnter={() => pauseAndHighlight(location.id)}
-                onMouseLeave={() => scheduleResume()}
-                onClick={() => pauseAndHighlight(location.id)}
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="relative cursor-pointer"
+                style={{
+                  gridColumn: `span ${colSpan}`,
+                  gridRow: `span ${rowSpan}`,
+                  zIndex: isLarge ? 5 : 1,
+                }}
+                onMouseEnter={pauseRotation}
+                onMouseLeave={scheduleResume}
               >
                 <div
-                  className="cursor-pointer relative rounded-lg overflow-hidden shadow-sm ring-1 ring-black/5 dark:ring-white/10"
-                  style={{ aspectRatio: "1 / 1" }}
+                  className={`relative w-full h-full rounded-lg overflow-hidden shadow-sm ring-1 ring-black/5 dark:ring-white/10 ${
+                    isLarge ? "ring-2 ring-primary/40 shadow-lg" : ""
+                  }`}
                   data-testid={`card-location-${location.id}`}
                 >
                   {image && (
@@ -220,39 +243,13 @@ export function Locations({ locations }: LocationsProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-1 sm:p-1.5">
                     <span
-                      className="text-white font-semibold text-[8px] sm:text-[10px] leading-tight drop-shadow-md truncate block"
+                      className={`text-white ${textSize} leading-tight drop-shadow-md truncate block`}
                       data-testid={`text-location-name-${location.id}`}
                     >
                       {location.name}
                     </span>
                   </div>
                 </div>
-
-                <AnimatePresence>
-                  {isHighlighted && (
-                    <motion.div
-                      className="absolute -inset-2 sm:-inset-3 rounded-xl overflow-hidden shadow-2xl ring-2 ring-primary/50 cursor-pointer"
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.85 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                    >
-                      {image && (
-                        <img
-                          src={image}
-                          alt={location.name}
-                          className="absolute inset-0 w-full h-full object-cover"
-                        />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
-                        <span className="inline-block px-2 py-0.5 rounded bg-white/20 backdrop-blur-md text-white font-bold text-xs sm:text-sm tracking-wide">
-                          {location.name}
-                        </span>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </motion.div>
             );
           })}
