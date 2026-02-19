@@ -35,15 +35,6 @@ export function SalonHero() {
           </h1>
         </motion.div>
 
-        <motion.p
-          className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8 font-semibold font-display"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          data-testid="text-hero-subheadline"
-        >
-          Premium beauty services at your fingertips
-        </motion.p>
 
         <motion.div
           className="flex flex-wrap justify-center gap-4"
