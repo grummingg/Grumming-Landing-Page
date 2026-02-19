@@ -13,7 +13,7 @@ const benefits = [
   {
     icon: Users,
     title: "Reach More Customers",
-    description: "Get discovered by thousands of customers actively looking for salon services in your area.",
+    description: "Get discovered by thousands of customers actively looking for beauty and grooming services in your area.",
     color: "text-blue-500",
     bg: "bg-blue-500/10",
   },
@@ -55,14 +55,14 @@ const benefits = [
 ];
 
 const steps = [
-  { step: "1", title: "Sign Up", description: "Fill out the partner form with your salon details and contact information." },
-  { step: "2", title: "Verification", description: "Our team verifies your business credentials and visits your salon." },
+  { step: "1", title: "Sign Up", description: "Fill out the partner form with your business details and contact information." },
+  { step: "2", title: "Verification", description: "Our team verifies your business credentials and visits your location." },
   { step: "3", title: "Profile Setup", description: "We help you create a professional profile with services, pricing, and photos." },
   { step: "4", title: "Go Live", description: "Start receiving bookings from customers in your area and grow your business." },
 ];
 
 const stats = [
-  { value: "500+", label: "Partner Salons" },
+  { value: "500+", label: "Partner Businesses" },
   { value: "15+", label: "Cities" },
   { value: "10,000+", label: "Monthly Bookings" },
   { value: "4.8", label: "Avg. Partner Rating" },
@@ -83,10 +83,10 @@ export default function PartnerWithUs() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-partner-label">Partner with Us</span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4" data-testid="text-partner-title">
-              Grow your salon with Grumming
+              Grow your business with Grumming
             </h1>
             <p className="text-white/60 mt-4 text-lg max-w-2xl" data-testid="text-partner-subtitle">
-              Join India's fastest-growing salon booking platform and connect with thousands of customers looking for your services.
+              Join India's fastest-growing beauty & grooming booking platform and connect with thousands of customers looking for your services.
             </p>
           </motion.div>
         </div>
@@ -168,7 +168,7 @@ export default function PartnerWithUs() {
                 {[
                   "Valid business license or shop registration",
                   "Government-issued ID proof",
-                  "Photos of your salon interior and services",
+                  "Photos of your business interior and services",
                   "Service menu with pricing",
                   "GST registration (if applicable)",
                   "Bank account details for payouts",
@@ -191,14 +191,14 @@ export default function PartnerWithUs() {
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mx-auto mb-4">
                 <Building className="w-6 h-6 text-amber-500" />
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-3" data-testid="text-ready-to-partner">Ready to grow your salon?</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-3" data-testid="text-ready-to-partner">Ready to grow your business?</h2>
               <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
                 Get in touch with our partnership team and we'll help you get started on Grumming.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Button
                   className="bg-accent text-accent-foreground border-accent-border"
-                  onClick={() => window.open("mailto:partners@grumming.com?subject=Salon%20Partnership%20Inquiry", "_blank")}
+                  onClick={() => window.open("mailto:partners@grumming.com?subject=Partnership%20Inquiry", "_blank")}
                   data-testid="button-email-partner"
                 >
                   <Mail className="w-4 h-4 mr-2" />

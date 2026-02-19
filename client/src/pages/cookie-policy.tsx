@@ -32,7 +32,7 @@ const cookieTypes = [
     description: "These cookies enable enhanced functionality and personalization.",
     items: [
       "Remembering your language and region preferences",
-      "Saving your search history and recent salons",
+      "Saving your search history and recent salons, spas, and studios",
       "Storing your booking preferences",
       "Enabling dark/light mode preferences",
     ],
@@ -46,7 +46,7 @@ const cookieTypes = [
     items: [
       "Tracking page views and navigation patterns",
       "Measuring the effectiveness of features",
-      "Identifying popular services and salons",
+      "Identifying popular services and businesses",
       "Analyzing booking completion rates",
     ],
   },

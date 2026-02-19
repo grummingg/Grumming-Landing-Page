@@ -249,10 +249,10 @@ export default function ContactPage() {
                   <div className="w-10 h-10 rounded-md bg-accent/20 dark:bg-accent/30 flex items-center justify-center flex-shrink-0">
                     <MessageSquare className="w-5 h-5 text-foreground" />
                   </div>
-                  <h3 className="font-semibold text-foreground">For Salon Owners</h3>
+                  <h3 className="font-semibold text-foreground">For Business Owners</h3>
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Want to list your salon on Grumming? Fill out the form with your salon details and our partnerships team will reach out within 48 hours to help you get started.
+                  Want to list your business on Grumming? Fill out the form with your business details and our partnerships team will reach out within 48 hours to help you get started.
                 </p>
               </CardContent>
             </Card>

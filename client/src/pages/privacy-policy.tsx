@@ -15,10 +15,10 @@ const sections = [
     icon: Database,
     color: "text-blue-500",
     bgColor: "bg-blue-500/10",
-    content: "At Grumming, we collect information to provide you with the best salon booking experience. The types of information we collect include:",
+    content: "At Grumming, we collect information to provide you with the best booking experience. The types of information we collect include:",
     items: [
       { label: "Personal Information", text: "Your name, email address, and phone number when you create an account." },
-      { label: "Location Data", text: "Your location to show nearby salons and service providers." },
+      { label: "Location Data", text: "Your location to show nearby salons, spas, and studios." },
       { label: "Payment Information", text: "Credit/debit card details and billing address for processing payments securely through our payment partners." },
       { label: "Booking History", text: "Records of your appointments, preferences, and service history." },
       { label: "Device Information", text: "Device type, operating system, and app version for troubleshooting and optimization." }
@@ -32,7 +32,7 @@ const sections = [
     bgColor: "bg-emerald-500/10",
     content: "We use your information for the following purposes:",
     items: [
-      { label: "Booking Services", text: "To facilitate appointment scheduling with salons and beauty professionals." },
+      { label: "Booking Services", text: "To facilitate appointment scheduling with salons, spas, studios, and beauty professionals." },
       { label: "Notifications", text: "To send booking confirmations, reminders, and updates about your appointments." },
       { label: "Customer Support", text: "To respond to your inquiries and resolve any issues." },
       { label: "Marketing", text: "To send promotional offers, new service announcements, and personalized recommendations (with your consent)." },
@@ -47,7 +47,7 @@ const sections = [
     bgColor: "bg-purple-500/10",
     content: "We share your information with the following parties:",
     items: [
-      { label: "Partner Salons", text: "We share your booking details (name, contact, appointment time) with the salon you book with to fulfill your appointment." },
+      { label: "Partner Businesses", text: "We share your booking details (name, contact, appointment time) with the business you book with to fulfill your appointment." },
       { label: "Payment Processors", text: "Your payment information is securely shared with our payment partners (such as Razorpay, Stripe) to process transactions." },
       { label: "Service Providers", text: "We may share data with third-party service providers who assist us in operating our platform, such as cloud hosting and analytics services." },
       { label: "Legal Requirements", text: "We may disclose information when required by law or to protect our rights and safety." }

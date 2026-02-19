@@ -16,28 +16,28 @@ const sections = [
     icon: Info,
     color: "text-blue-500",
     bg: "bg-blue-500/10",
-    content: "Grumming is an intermediary platform connecting customers with salons. We do not directly provide salon services. All information on the platform is provided for general informational purposes only. Users access and use the platform at their own risk.",
+    content: "Grumming is an intermediary platform connecting customers with salons, spas, and studios. We do not directly provide beauty or grooming services. All information on the platform is provided for general informational purposes only. Users access and use the platform at their own risk.",
   },
   {
     title: "No Professional Advice",
     icon: AlertTriangle,
     color: "text-amber-500",
     bg: "bg-amber-500/10",
-    content: "Content provided on Grumming does not constitute professional beauty, medical, or health advice. Always consult qualified professionals and licensed practitioners for any skin, hair, or health-related concerns before undergoing any salon services.",
+    content: "Content provided on Grumming does not constitute professional beauty, medical, or health advice. Always consult qualified professionals and licensed practitioners for any skin, hair, or health-related concerns before undergoing any beauty or grooming services.",
   },
   {
     title: "Service Quality",
     icon: Shield,
     color: "text-emerald-500",
     bg: "bg-emerald-500/10",
-    content: "While we verify partner salons to maintain quality standards, Grumming does not guarantee the quality, safety, or outcome of any services. Salons are independent businesses responsible for their own services, staff qualifications, and service delivery. Results may vary based on individual factors.",
+    content: "While we verify partner businesses to maintain quality standards, Grumming does not guarantee the quality, safety, or outcome of any services. Partners are independent businesses responsible for their own services, staff qualifications, and service delivery. Results may vary based on individual factors.",
   },
   {
     title: "Pricing & Availability",
     icon: IndianRupee,
     color: "text-green-500",
     bg: "bg-green-500/10",
-    content: "Prices displayed on Grumming are set by individual partner salons and may change without notice. Service availability is subject to salon schedules and capacity. Promotional prices and discounts may have specific terms and conditions that users must review before booking.",
+    content: "Prices displayed on Grumming are set by individual partner businesses and may change without notice. Service availability is subject to provider schedules and capacity. Promotional prices and discounts may have specific terms and conditions that users must review before booking.",
   },
   {
     title: "Third-Party Content",
@@ -100,7 +100,7 @@ export default function Disclaimer() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-8">
             <p className="text-muted-foreground leading-relaxed">
-              Grumming ("we," "us," "our," or "Company") operates an online salon booking platform. This Legal Disclaimer ("Disclaimer") governs your access to and use of the Grumming platform, website, and services. By accessing or using Grumming, you acknowledge that you have read, understood, and agree to be bound by this Disclaimer.
+              Grumming ("we," "us," "our," or "Company") operates an online beauty and grooming booking platform. This Legal Disclaimer ("Disclaimer") governs your access to and use of the Grumming platform, website, and services. By accessing or using Grumming, you acknowledge that you have read, understood, and agree to be bound by this Disclaimer.
             </p>
           </motion.div>
         </div>

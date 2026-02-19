@@ -21,7 +21,7 @@ const useCases = [
   {
     icon: Heart,
     title: "Weddings & Celebrations",
-    description: "Book grooming sessions for the entire bridal party — hair, makeup, spa, and more across multiple salons if needed.",
+    description: "Book grooming sessions for the entire bridal party — hair, makeup, spa, and more across multiple locations if needed.",
     color: "text-rose-500",
     bg: "bg-rose-500/10",
   },
@@ -69,19 +69,19 @@ const benefits = [
   {
     icon: Clock,
     title: "Flexible Scheduling",
-    description: "Choose your preferred dates, times, and even split bookings across multiple salons and days.",
+    description: "Choose your preferred dates, times, and even split bookings across multiple locations and days.",
   },
   {
     icon: Shield,
     title: "Quality Guaranteed",
-    description: "All services are delivered by verified Grumming partner salons with quality assurance on every booking.",
+    description: "All services are delivered by verified Grumming partners with quality assurance on every booking.",
   },
 ];
 
 const steps = [
   { step: "1", title: "Tell Us Your Needs", description: "Share the number of people, services required, preferred dates, and location." },
   { step: "2", title: "Get a Custom Quote", description: "Our team curates the best options and sends you a tailored quote within 24 hours." },
-  { step: "3", title: "Confirm & Relax", description: "Lock in your bookings with one payment. We handle all salon coordination for you." },
+  { step: "3", title: "Confirm & Relax", description: "Lock in your bookings with one payment. We handle all booking coordination for you." },
 ];
 
 export default function BulkBookings() {
@@ -102,7 +102,7 @@ export default function BulkBookings() {
               Group bookings<br />made simple
             </h1>
             <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed mb-8">
-              Book salon services for your team, wedding party, or any group event — with special rates and a dedicated coordinator.
+              Book beauty & grooming services for your team, wedding party, or any group event — with special rates and a dedicated coordinator.
             </p>
             <a href="mailto:bookings@grumming.com">
               <Button className="bg-amber-500 border-amber-600 text-white" data-testid="button-request-quote">

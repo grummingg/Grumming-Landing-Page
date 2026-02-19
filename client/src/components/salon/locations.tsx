@@ -31,7 +31,7 @@ export function Locations({ locations }: LocationsProps) {
             Popular Locations
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-locations-description">
-            Find the best salons in your city
+            Find the best services in your city
           </p>
         </motion.div>
 

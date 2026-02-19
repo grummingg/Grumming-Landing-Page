@@ -29,7 +29,7 @@ const features = [
   {
     icon: Eye,
     title: "Verified Reviews",
-    description: "All reviews come from verified customers who have actually visited the salon, ensuring authentic feedback.",
+    description: "All reviews come from verified customers who have actually visited the business, ensuring authentic feedback.",
     color: "text-amber-500",
     bg: "bg-amber-500/10",
   },
@@ -43,11 +43,11 @@ const features = [
 ];
 
 const verificationSteps = [
-  "Business License Verification: We verify that all salons hold valid business licenses and permits",
-  "Hygiene Standards: Salons must meet our hygiene and cleanliness standards",
+  "Business License Verification: We verify that all businesses hold valid business licenses and permits",
+  "Hygiene Standards: Businesses must meet our hygiene and cleanliness standards",
   "Professional Staff: We ensure staff are trained and certified for the services they offer",
-  "Regular Audits: Partner salons undergo periodic reviews to maintain quality standards",
-  "Customer Ratings: Salons with consistently low ratings are reviewed and may be removed",
+  "Regular Audits: Partner businesses undergo periodic reviews to maintain quality standards",
+  "Customer Ratings: Businesses with consistently low ratings are reviewed and may be removed",
 ];
 
 const hygieneStandards = [
@@ -61,14 +61,14 @@ const hygieneStandards = [
 
 const dataProtectionMeasures = [
   { label: "Encryption", desc: "All data is encrypted in transit and at rest" },
-  { label: "Limited Access", desc: "Salons only see information necessary for your appointment" },
+  { label: "Limited Access", desc: "Providers only see information necessary for your appointment" },
   { label: "No Data Selling", desc: "We never sell your personal information to third parties" },
   { label: "Secure Storage", desc: "Your data is stored on secure, industry-standard servers" },
   { label: "Privacy Controls", desc: "You can manage what information is visible in your profile" },
 ];
 
 const reportingConcerns = [
-  "Inappropriate behavior by salon staff",
+  "Inappropriate behavior by staff",
   "Unhygienic conditions or practices",
   "Misrepresentation of services",
   "Safety hazards at the location",
@@ -84,8 +84,8 @@ const emergencyContacts = [
 ];
 
 const safetyTips = [
-  "Read salon reviews before booking",
-  "Check the salon's ratings and verification status",
+  "Read reviews before booking",
+  "Check the provider's ratings and verification status",
   "Communicate any allergies or sensitivities before your appointment",
   "Trust your instincts - if something feels wrong, leave and report",
   "Share your booking details with someone you trust",
@@ -118,7 +118,7 @@ export default function Safety() {
               Your safety is our top priority
             </h1>
             <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed">
-              At Grumming, we are committed to creating a safe and trustworthy environment for both customers and salon partners. We have implemented comprehensive safety measures to ensure every booking experience is secure and reliable.
+              At Grumming, we are committed to creating a safe and trustworthy environment for both customers and partners. We have implemented comprehensive safety measures to ensure every booking experience is secure and reliable.
             </p>
           </motion.div>
         </div>
@@ -128,9 +128,9 @@ export default function Safety() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12">
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Verified Partners</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-6">Every salon is thoroughly verified</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-6">Every partner is thoroughly verified</h2>
             <p className="text-muted-foreground mb-8 max-w-2xl">
-              Every salon on Grumming goes through a verification process before being listed. We ensure quality, trust, and safety at every step.
+              Every business on Grumming goes through a verification process before being listed. We ensure quality, trust, and safety at every step.
             </p>
           </motion.div>
 
@@ -190,7 +190,7 @@ export default function Safety() {
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Cleanliness Standards</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-6">Hygiene & Cleanliness</h2>
             <p className="text-muted-foreground mb-8 max-w-2xl">
-              Our partner salons are required to maintain high hygiene standards to ensure your safety and comfort.
+              Our partner businesses are required to maintain high hygiene standards to ensure your safety and comfort.
             </p>
           </motion.div>
 
@@ -335,7 +335,7 @@ export default function Safety() {
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Best Practices</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-6">Safety Tips</h2>
             <p className="text-muted-foreground mb-8 max-w-2xl">
-              Help us maintain a safe community by following these practical tips for a secure salon experience.
+              Help us maintain a safe community by following these practical tips for a secure booking experience.
             </p>
           </motion.div>
 

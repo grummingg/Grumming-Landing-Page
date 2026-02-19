@@ -70,7 +70,7 @@ export default function CancellationPolicy() {
               <div className="max-w-3xl">
                 <h2 className="text-2xl font-semibold text-foreground mb-4">Overview</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  At Grumming, we understand that plans can change. Our cancellation policy is designed to be fair to both customers and salon partners while maintaining a reliable booking experience for everyone.
+                  At Grumming, we understand that plans can change. Our cancellation policy is designed to be fair to both customers and partners while maintaining a reliable booking experience for everyone.
                 </p>
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function CancellationPolicy() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Clock className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Salon-Specific Policies</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Provider-Specific Policies</h2>
             </div>
           </motion.div>
 
@@ -97,7 +97,7 @@ export default function CancellationPolicy() {
               transition={{ duration: 0.5 }}
             >
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Cancellation policies vary by salon and are displayed at the time of booking. Each salon sets their own cancellation terms based on their business needs. Before confirming your booking, you will see:
+                Cancellation policies vary by provider and are displayed at the time of booking. Each salon, spa, or studio sets their own cancellation terms based on their business needs. Before confirming your booking, you will see:
               </p>
             </motion.div>
 
@@ -127,7 +127,7 @@ export default function CancellationPolicy() {
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-foreground block">Rescheduling options</strong>
-                      <p className="text-muted-foreground text-sm">Whether the salon allows rescheduling instead of cancellation</p>
+                      <p className="text-muted-foreground text-sm">Whether the provider allows rescheduling instead of cancellation</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
@@ -149,7 +149,7 @@ export default function CancellationPolicy() {
             >
               <Card className="bg-blue-50 dark:bg-blue-950/20 rounded-md p-6 shadow-sm border border-blue-200/50 dark:border-blue-900/30">
                 <p className="text-sm text-foreground">
-                  <strong>Important:</strong> Always review the salon's specific cancellation policy before confirming your booking. The policy terms are binding once you complete the booking.
+                  <strong>Important:</strong> Always review the provider's specific cancellation policy before confirming your booking. The policy terms are binding once you complete the booking.
                 </p>
               </Card>
             </motion.div>
@@ -213,7 +213,7 @@ export default function CancellationPolicy() {
                     </div>
                     <div>
                       <strong className="text-foreground block">No restrictions</strong>
-                      <p className="text-muted-foreground text-sm">Free cancellation applies to all participating salons</p>
+                      <p className="text-muted-foreground text-sm">Free cancellation applies to all participating salons, spas, and studios</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
@@ -236,7 +236,7 @@ export default function CancellationPolicy() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Note: While Grumming Pass members enjoy free cancellations, we encourage responsible booking to support our salon partners.
+                Note: While Grumming Pass members enjoy free cancellations, we encourage responsible booking to support our partners.
               </p>
             </motion.div>
           </div>
@@ -262,7 +262,7 @@ export default function CancellationPolicy() {
               transition={{ duration: 0.5 }}
             >
               <p className="text-muted-foreground leading-relaxed mb-4">
-                To maintain a fair and reliable platform for our salon partners, we monitor cancellation patterns. Excessive cancellations may result in account restrictions.
+                To maintain a fair and reliable platform for our partners, we monitor cancellation patterns. Excessive cancellations may result in account restrictions.
               </p>
             </motion.div>
 
@@ -334,11 +334,11 @@ export default function CancellationPolicy() {
                 <ul className="space-y-2">
                   <li className="flex gap-3">
                     <span className="text-primary font-semibold flex-shrink-0">•</span>
-                    <span className="text-muted-foreground text-sm">Cancellations made within the salon's free cancellation window</span>
+                    <span className="text-muted-foreground text-sm">Cancellations made within the provider's free cancellation window</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-primary font-semibold flex-shrink-0">•</span>
-                    <span className="text-muted-foreground text-sm">Cancellations due to salon-initiated changes</span>
+                    <span className="text-muted-foreground text-sm">Cancellations due to provider-initiated changes</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-primary font-semibold flex-shrink-0">•</span>
@@ -469,7 +469,7 @@ export default function CancellationPolicy() {
                   </li>
                   <li className="flex gap-3">
                     <span className="text-primary font-semibold flex-shrink-0">•</span>
-                    <span className="text-muted-foreground text-sm">Notifications if a salon cancels your booking</span>
+                    <span className="text-muted-foreground text-sm">Notifications if a provider cancels your booking</span>
                   </li>
                 </ul>
               </Card>

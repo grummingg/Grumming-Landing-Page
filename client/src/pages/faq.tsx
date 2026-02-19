@@ -23,7 +23,7 @@ const faqCategories = [
       {
         question: "How do I book an appointment on Grumming?",
         answer:
-          "Simply search for salons near you, browse available services and time slots, then confirm your booking with just a few taps. You'll receive an instant confirmation with all the details.",
+          "Simply search for salons, spas, and studios near you, browse available services and time slots, then confirm your booking with just a few taps. You'll receive an instant confirmation with all the details.",
       },
       {
         question: "Can I cancel or reschedule my appointment?",
@@ -31,9 +31,9 @@ const faqCategories = [
           "Absolutely. You can cancel or reschedule your appointment up to 2 hours before the scheduled time through the app. Just go to your bookings and select the appointment you'd like to modify.",
       },
       {
-        question: "How do I find the best salon near me?",
+        question: "How do I find the best salon, spa, or studio near me?",
         answer:
-          "Use the search feature to find salons in your area. You can filter by service type, ratings, price range, and distance. Each salon has detailed profiles with photos, reviews, and service menus to help you choose.",
+          "Use the search feature to find salons, spas, and studios in your area. You can filter by service type, ratings, price range, and distance. Each business has detailed profiles with photos, reviews, and service menus to help you choose.",
       },
       {
         question: "Can I book for someone else?",
@@ -48,12 +48,12 @@ const faqCategories = [
       {
         question: "Is Grumming free to use?",
         answer:
-          "Yes, Grumming is completely free for customers. You can browse salons, compare prices, read reviews, and book appointments without any charges. You only pay the salon directly for the services you receive.",
+          "Yes, Grumming is completely free for customers. You can browse salons, spas, and studios, compare prices, read reviews, and book appointments without any charges. You only pay the business directly for the services you receive.",
       },
       {
         question: "What payment methods are accepted?",
         answer:
-          "Payment is handled directly at the salon. Most salons accept cash, UPI, credit/debit cards, and digital wallets. The accepted payment methods are listed on each salon's profile page.",
+          "Payment is handled directly at the business. Most businesses accept cash, UPI, credit/debit cards, and digital wallets. The accepted payment methods are listed on each business's profile page.",
       },
     ],
   },
@@ -61,14 +61,14 @@ const faqCategories = [
     title: "Account & App",
     faqs: [
       {
-        question: "Are the salons on Grumming verified?",
+        question: "Are the businesses on Grumming verified?",
         answer:
-          "Yes, every salon on Grumming goes through a verification process. We check their business credentials, visit the premises, and ensure they meet our quality standards before listing them on our platform.",
+          "Yes, every business on Grumming goes through a verification process. We check their business credentials, visit the premises, and ensure they meet our quality standards before listing them on our platform.",
       },
       {
-        question: "How can I become a salon partner?",
+        question: "How can I become a business partner?",
         answer:
-          "If you own or manage a salon, you can join Grumming by filling out the contact form on our website or reaching out through the app. Our team will guide you through the onboarding process and help you set up your profile.",
+          "If you own or manage a salon, spa, or studio, you can join Grumming by filling out the contact form on our website or reaching out through the app. Our team will guide you through the onboarding process and help you set up your profile.",
       },
     ],
   },
@@ -98,7 +98,7 @@ export default function FAQPage() {
             </h1>
             <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed">
               Everything you need to know about Grumming and how to get the most
-              out of your salon experience.
+              out of your booking experience.
             </p>
           </motion.div>
         </div>

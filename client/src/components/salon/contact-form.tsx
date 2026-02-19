@@ -89,8 +89,8 @@ export function ContactForm() {
                   <MessageSquare className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">For Salon Owners</h3>
-                  <p className="text-muted-foreground text-sm">Want to list your salon? Reach out and we'll help you get started.</p>
+                  <h3 className="font-semibold text-foreground mb-1">For Business Owners</h3>
+                  <p className="text-muted-foreground text-sm">Want to list your business? Reach out and we'll help you get started.</p>
                 </div>
               </div>
             </div>

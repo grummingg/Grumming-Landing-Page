@@ -49,8 +49,8 @@ const helpTopics = [
   },
   {
     icon: Building2,
-    title: "For Salon Partners",
-    description: "Resources for salon owners and partners on the platform",
+    title: "For Business Partners",
+    description: "Resources for business owners and partners on the platform",
     color: "text-cyan-500",
     bg: "bg-cyan-500/10",
   },
@@ -59,15 +59,15 @@ const helpTopics = [
 const faqs = [
   {
     question: "How do I book an appointment?",
-    answer: "Search for salons in your area, select a service, choose your preferred time slot, and confirm your booking. You'll receive instant confirmation via email and SMS.",
+    answer: "Search for salons, spas, and studios in your area, select a service, choose your preferred time slot, and confirm your booking. You'll receive instant confirmation via email and SMS.",
   },
   {
     question: "Can I cancel my booking?",
-    answer: "Yes, you can cancel your booking anytime. Check the salon's cancellation policy in your booking details to understand any potential fees.",
+    answer: "Yes, you can cancel your booking anytime. Check the provider's cancellation policy in your booking details to understand any potential fees.",
   },
   {
-    question: "How are salons verified?",
-    answer: "Every salon on Grumming goes through a rigorous verification process including business license check, hygiene audit, and staff certification review to ensure quality service.",
+    question: "How are businesses verified?",
+    answer: "Every business on Grumming goes through a rigorous verification process including business license check, hygiene audit, and staff certification review to ensure quality service.",
   },
   {
     question: "Is my data safe?",

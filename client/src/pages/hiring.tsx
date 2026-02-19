@@ -143,7 +143,7 @@ const openPositions = [
     department: "Operations",
     location: "Mumbai",
     type: "Full-time",
-    description: "Lead the onboarding experience for new salon partners. Ensure a smooth transition from sign-up to going live on the Grumming platform.",
+    description: "Lead the onboarding experience for new business partners. Ensure a smooth transition from sign-up to going live on the Grumming platform.",
   },
   {
     id: 11,
@@ -151,7 +151,7 @@ const openPositions = [
     department: "Operations",
     location: "Multiple Cities",
     type: "Full-time",
-    description: "Spearhead Grumming's expansion into new cities. Plan and execute launch strategies, build local salon networks, and establish market presence.",
+    description: "Spearhead Grumming's expansion into new cities. Plan and execute launch strategies, build local business networks, and establish market presence.",
   },
   {
     id: 12,
@@ -159,7 +159,7 @@ const openPositions = [
     department: "Operations",
     location: "Remote / Mumbai",
     type: "Full-time",
-    description: "Be the voice of Grumming for our users and salon partners. Resolve queries, gather feedback, and ensure an exceptional support experience.",
+    description: "Be the voice of Grumming for our users and business partners. Resolve queries, gather feedback, and ensure an exceptional support experience.",
   },
   {
     id: 13,
@@ -175,7 +175,7 @@ const openPositions = [
     department: "Sales & Partnerships",
     location: "Mumbai",
     type: "Full-time",
-    description: "Identify and close new business opportunities. Build relationships with salon owners and negotiate partnerships that grow our network.",
+    description: "Identify and close new business opportunities. Build relationships with business owners and negotiate partnerships that grow our network.",
   },
   {
     id: 15,
@@ -266,7 +266,7 @@ export default function HiringPage() {
               Join the Grumming team
             </h1>
             <p className="text-white/60 mt-4 text-lg max-w-2xl" data-testid="text-hiring-subtitle">
-              Help us transform how India discovers and books salon services. We're looking for passionate people to shape the future of beauty tech.
+              Help us transform how India discovers and books beauty & grooming services. We're looking for passionate people to shape the future of beauty tech.
             </p>
             <div className="flex items-center gap-3 mt-6">
               <Badge className="bg-white/15 text-white border-0 no-default-hover-elevate no-default-active-elevate" data-testid="badge-hiring">

@@ -49,7 +49,7 @@ const benefits = [
   {
     icon: Banknote,
     title: "Revenue Sharing",
-    description: "Earn through commissions on every booking in your territory, plus advertising revenue from local salons.",
+    description: "Earn through commissions on every booking in your territory, plus advertising revenue from local partners.",
     color: "text-rose-500",
     bg: "bg-rose-500/10",
   },
@@ -58,7 +58,7 @@ const benefits = [
 const stats = [
   { value: "15+", label: "Cities Live" },
   { value: "50+", label: "Cities Planned" },
-  { value: "500+", label: "Partner Salons" },
+  { value: "500+", label: "Partner Businesses" },
   { value: "15%+", label: "Market Growth" },
 ];
 
@@ -75,7 +75,7 @@ const steps = [
   { step: "1", title: "Apply", description: "Fill out the franchise inquiry form with your background and preferred location." },
   { step: "2", title: "Evaluation", description: "Our team evaluates your application and schedules a discovery call." },
   { step: "3", title: "Agreement", description: "Review the franchise agreement, investment details, and territory allocation." },
-  { step: "4", title: "Launch", description: "Complete training, onboard local salons, and launch Grumming in your city." },
+  { step: "4", title: "Launch", description: "Complete training, onboard local businesses, and launch Grumming in your city." },
 ];
 
 export default function Franchise() {
@@ -96,7 +96,7 @@ export default function Franchise() {
               Bring Grumming<br />to your city
             </h1>
             <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed mb-8">
-              Own a piece of India's fastest-growing salon booking platform. Launch and operate Grumming in your region.
+              Own a piece of India's fastest-growing beauty & grooming booking platform. Launch and operate Grumming in your region.
             </p>
             <a href="mailto:franchise@grumming.com">
               <Button className="bg-amber-500 border-amber-600 text-white" data-testid="button-inquire-franchise">

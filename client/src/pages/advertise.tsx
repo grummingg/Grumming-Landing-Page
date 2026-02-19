@@ -14,7 +14,7 @@ const adFormats = [
   {
     icon: Eye,
     title: "Featured Listings",
-    description: "Boost your salon's visibility by appearing at the top of search results in your city. Get noticed by customers actively looking for services.",
+    description: "Boost your business's visibility by appearing at the top of search results in your city. Get noticed by customers actively looking for services.",
     color: "text-blue-500",
     bg: "bg-blue-500/10",
   },
@@ -86,7 +86,7 @@ export default function Advertise() {
               Reach customers who<br />are ready to book
             </h1>
             <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed mb-8">
-              Put your brand in front of thousands of beauty-conscious customers actively searching for salon services.
+              Put your brand in front of thousands of beauty-conscious customers actively searching for beauty and grooming services.
             </p>
             <a href="mailto:ads@grumming.com">
               <Button className="bg-amber-500 border-amber-600 text-white" data-testid="button-get-started-ads">

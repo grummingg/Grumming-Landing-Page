@@ -6,7 +6,7 @@ export function HowItWorks() {
     {
       icon: Search,
       title: "Search",
-      description: "Find salons near you by service, location, or name",
+      description: "Find top-rated spots near you by service, location, or name",
       gradient: "from-blue-500 to-blue-600",
       lightBg: "bg-blue-50 dark:bg-blue-950/40",
     },
@@ -20,7 +20,7 @@ export function HowItWorks() {
     {
       icon: Sparkles,
       title: "Enjoy",
-      description: "Visit the salon and enjoy premium beauty services",
+      description: "Visit and enjoy premium beauty & grooming services",
       gradient: "from-amber-500 to-orange-500",
       lightBg: "bg-amber-50 dark:bg-amber-950/40",
     },
@@ -40,7 +40,7 @@ export function HowItWorks() {
             How It Works
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-howitworks-description">
-            Book your favorite salon in 3 simple steps
+            Book your favourite spot in 3 simple steps
           </p>
         </motion.div>
 

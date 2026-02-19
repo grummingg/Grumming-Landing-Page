@@ -14,21 +14,21 @@ const eligibilityReasons = [
   {
     icon: XCircle,
     title: "Service not rendered",
-    description: "Full refund if salon fails to provide the booked service",
+    description: "Full refund if the provider fails to provide the booked service",
     color: "text-red-500",
     bg: "bg-red-500/10",
   },
   {
     icon: CheckCircle,
-    title: "Salon cancellation",
-    description: "Full refund if the salon cancels your appointment",
+    title: "Provider cancellation",
+    description: "Full refund if the provider cancels your appointment",
     color: "text-green-500",
     bg: "bg-green-500/10",
   },
   {
     icon: Clock,
     title: "Significant delay",
-    description: "Refund or credit if salon delays more than 30 minutes without notice",
+    description: "Refund or credit if the provider delays more than 30 minutes without notice",
     color: "text-blue-500",
     bg: "bg-blue-500/10",
   },
@@ -50,7 +50,7 @@ const eligibilityReasons = [
 
 const nonRefundableSituations = [
   "No-shows without prior cancellation",
-  "Late cancellations outside the salon's free cancellation window",
+  "Late cancellations outside the provider's free cancellation window",
   "Completed services where the customer was satisfied at the time",
   "Personal preference changes after service completion",
   "Promotional or discounted bookings (unless otherwise stated)",
@@ -136,7 +136,7 @@ export default function RefundPolicy() {
               Overview
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl" data-testid="text-overview-content">
-              Grumming is committed to fair refund practices. Refunds depend on the salon's individual policy and the circumstances of each booking. We believe in transparency and work diligently to ensure every customer receives the service they paid for or a fair refund when things don't go as planned.
+              Grumming is committed to fair refund practices. Refunds depend on the provider's individual policy and the circumstances of each booking. We believe in transparency and work diligently to ensure every customer receives the service they paid for or a fair refund when things don't go as planned.
             </p>
           </motion.div>
         </div>

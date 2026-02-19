@@ -12,7 +12,7 @@ const fadeUp = {
 
 const stats = [
   { value: "10,000+", label: "Happy Customers", icon: Users },
-  { value: "500+", label: "Partner Salons", icon: Scissors },
+  { value: "500+", label: "Partner Businesses", icon: Scissors },
   { value: "15+", label: "Cities Covered", icon: MapPin },
   { value: "4.8", label: "Average Rating", icon: Sparkles },
 ];
@@ -21,21 +21,21 @@ const values = [
   {
     icon: Zap,
     title: "Convenience First",
-    description: "Booking a salon appointment should take seconds, not minutes. We obsess over simplicity so you can focus on looking your best.",
+    description: "Booking an appointment should take seconds, not minutes. We obsess over simplicity so you can focus on looking your best.",
     color: "text-amber-500",
     bg: "bg-amber-500/10",
   },
   {
     icon: Shield,
     title: "Verified Quality",
-    description: "Every partner salon is carefully vetted to meet our quality standards. Real reviews from real customers help you choose with confidence.",
+    description: "Every partner business is carefully vetted to meet our quality standards. Real reviews from real customers help you choose with confidence.",
     color: "text-blue-500",
     bg: "bg-blue-500/10",
   },
   {
     icon: HeartHandshake,
-    title: "Empowering Local Salons",
-    description: "We help neighbourhood salons compete in the digital age with tools for booking, reputation management, and customer insights.",
+    title: "Empowering Local Businesses",
+    description: "We help neighbourhood businesses compete in the digital age with tools for booking, reputation management, and customer insights.",
     color: "text-rose-500",
     bg: "bg-rose-500/10",
   },
@@ -66,7 +66,7 @@ export default function AboutUs() {
               Making self-care<br />effortless for everyone
             </h1>
             <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed">
-              We connect you with the best salons and grooming experts near you, turning what used to be a hassle into something you actually look forward to.
+              We connect you with the best salons, spas, studios, and grooming experts near you, turning what used to be a hassle into something you actually look forward to.
             </p>
           </motion.div>
         </div>
@@ -98,13 +98,13 @@ export default function AboutUs() {
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 tracking-tight">Born from a simple frustration</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  In 2019, we noticed something that bothered us: finding and booking a quality salon was needlessly difficult. Endless phone calls, long hold times, showing up only to discover a two-hour wait. It didn't make sense in an age where you could book flights in seconds.
+                  In 2019, we noticed something that bothered us: finding and booking a quality beauty or grooming service was needlessly difficult. Endless phone calls, long hold times, showing up only to discover a two-hour wait. It didn't make sense in an age where you could book flights in seconds.
                 </p>
                 <p>
-                  Salon owners had it just as rough. Juggling phone bookings, managing walk-ins, and trying to attract new clients with no digital presence. Great service was going unnoticed because discovery was broken.
+                  Business owners had it just as rough. Juggling phone bookings, managing walk-ins, and trying to attract new clients with no digital presence. Great service was going unnoticed because discovery was broken.
                 </p>
                 <p>
-                  That's when Grumming was born. We set out to build a platform that makes salon booking as effortless as ordering food online, while giving local salons the tools they need to grow and thrive.
+                  That's when Grumming was born. We set out to build a platform that makes booking as effortless as ordering food online, while giving local businesses the tools they need to grow and thrive.
                 </p>
               </div>
             </motion.div>
@@ -117,9 +117,9 @@ export default function AboutUs() {
             >
               <div className="bg-white dark:bg-[#1e293b] rounded-md p-8 shadow-sm">
                 <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Our Vision</p>
-                <h3 className="text-xl font-bold text-foreground mb-4">India's most trusted salon platform</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">India's most trusted beauty and grooming platform</h3>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  We envision a future where anyone, anywhere in India, can discover, compare, and book salon services in under 30 seconds. Where local salons have access to the same digital tools as big brands. Where self-care is accessible, affordable, and enjoyable for everyone.
+                  We envision a future where anyone, anywhere in India, can discover, compare, and book beauty and grooming services in under 30 seconds. Where local businesses have access to the same digital tools as big brands. Where self-care is accessible, affordable, and enjoyable for everyone.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-muted/50 dark:bg-white/5 rounded-md p-4">
@@ -127,7 +127,7 @@ export default function AboutUs() {
                     <p className="text-xs text-muted-foreground">Discover, book, and enjoy premium grooming services effortlessly</p>
                   </div>
                   <div className="bg-muted/50 dark:bg-white/5 rounded-md p-4">
-                    <p className="text-sm font-semibold text-foreground mb-1">For Salons</p>
+                    <p className="text-sm font-semibold text-foreground mb-1">For Businesses</p>
                     <p className="text-xs text-muted-foreground">Grow your business with smart booking and customer management</p>
                   </div>
                 </div>
