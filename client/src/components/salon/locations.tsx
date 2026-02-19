@@ -49,6 +49,33 @@ import citySambalpur from "../../assets/images/city-sambalpur.jpg";
 import cityShimoga from "../../assets/images/city-shimoga.jpg";
 import cityMysore from "../../assets/images/city-mysore.jpg";
 import cityMangalore from "../../assets/images/city-mangalore.jpg";
+import cityRaipur from "../../assets/images/city-raipur.jpg";
+import cityDehradun from "../../assets/images/city-dehradun.jpg";
+import cityPanaji from "../../assets/images/city-panaji.jpg";
+import cityGangtok from "../../assets/images/city-gangtok.jpg";
+import cityImphal from "../../assets/images/city-imphal.jpg";
+import cityShillong from "../../assets/images/city-shillong.jpg";
+import cityAgartala from "../../assets/images/city-agartala.jpg";
+import cityThane from "../../assets/images/city-thane.jpg";
+import cityNaviMumbai from "../../assets/images/city-navimumbai.jpg";
+import cityPrayagraj from "../../assets/images/city-prayagraj.jpg";
+import cityMeerut from "../../assets/images/city-meerut.jpg";
+import cityJodhpur from "../../assets/images/city-jodhpur.jpg";
+import cityRajkot from "../../assets/images/city-rajkot.jpg";
+import cityJabalpur from "../../assets/images/city-jabalpur.jpg";
+import cityVijayawada from "../../assets/images/city-vijayawada.jpg";
+import citySambhajiNagar from "../../assets/images/city-sambhajinagar.jpg";
+import cityJamshedpur from "../../assets/images/city-jamshedpur.jpg";
+import cityDhanbad from "../../assets/images/city-dhanbad.jpg";
+import cityJalandhar from "../../assets/images/city-jalandhar.jpg";
+import cityTrichy from "../../assets/images/city-trichy.jpg";
+import cityHubliDharwad from "../../assets/images/city-hublidharwad.jpg";
+import cityKolhapur from "../../assets/images/city-kolhapur.jpg";
+import citySiliguri from "../../assets/images/city-siliguri.jpg";
+import cityPondicherry from "../../assets/images/city-pondicherry.jpg";
+import cityAjmer from "../../assets/images/city-ajmer.jpg";
+import citySrinagar from "../../assets/images/city-srinagar.jpg";
+import cityLeh from "../../assets/images/city-leh.jpg";
 
 interface LocationsProps {
   locations: Location[];
@@ -102,6 +129,33 @@ const cityImages: Record<string, string> = {
   shimoga: cityShimoga,
   mysore: cityMysore,
   mangalore: cityMangalore,
+  raipur: cityRaipur,
+  dehradun: cityDehradun,
+  panaji: cityPanaji,
+  gangtok: cityGangtok,
+  imphal: cityImphal,
+  shillong: cityShillong,
+  agartala: cityAgartala,
+  thane: cityThane,
+  navimumbai: cityNaviMumbai,
+  prayagraj: cityPrayagraj,
+  meerut: cityMeerut,
+  jodhpur: cityJodhpur,
+  rajkot: cityRajkot,
+  jabalpur: cityJabalpur,
+  vijayawada: cityVijayawada,
+  sambhajinagar: citySambhajiNagar,
+  jamshedpur: cityJamshedpur,
+  dhanbad: cityDhanbad,
+  jalandhar: cityJalandhar,
+  trichy: cityTrichy,
+  hublidharwad: cityHubliDharwad,
+  kolhapur: cityKolhapur,
+  siliguri: citySiliguri,
+  pondicherry: cityPondicherry,
+  ajmer: cityAjmer,
+  srinagar: citySrinagar,
+  leh: cityLeh,
 };
 
 export function Locations({ locations }: LocationsProps) {
@@ -161,7 +215,7 @@ export function Locations({ locations }: LocationsProps) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-10 gap-2 sm:gap-3">
+        <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2 sm:gap-3">
           {locations.map((location, index) => {
             const image = cityImages[location.image];
             const isHighlighted = location.id === highlightedId;
