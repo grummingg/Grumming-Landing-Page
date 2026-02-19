@@ -154,6 +154,8 @@ function getTextSize(size: CardSize): string {
 const MAX_SPECIAL = 5;
 const MAX_GRID_CELLS_EXTRA = 12;
 
+const LONG_PRESS_MS = 1500;
+
 export function Locations({ locations }: LocationsProps) {
   const [order, setOrder] = useState<Location[]>([]);
   const [sizeMap, setSizeMap] = useState<Map<string, CardSize>>(new Map());
@@ -164,6 +166,13 @@ export function Locations({ locations }: LocationsProps) {
   const sizeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const locationsRef = useRef<Location[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  const [dragActiveId, setDragActiveId] = useState<string | null>(null);
+  const longPressTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pressStartIdRef = useRef<string | null>(null);
+  const lastSwapRef = useRef<string | null>(null);
+  const pressStartPos = useRef<{ x: number; y: number } | null>(null);
 
   const shouldAnimate = () => isVisibleRef.current && !hoverPausedRef.current;
 
@@ -266,6 +275,8 @@ export function Locations({ locations }: LocationsProps) {
     return () => {
       if (swapTimerRef.current) clearTimeout(swapTimerRef.current);
       if (sizeTimerRef.current) clearTimeout(sizeTimerRef.current);
+      if (longPressTimerRef.current) clearTimeout(longPressTimerRef.current);
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     };
   }, [locations.length]);
 
@@ -281,6 +292,110 @@ export function Locations({ locations }: LocationsProps) {
       hoverPausedRef.current = false;
     }, resumeDelay);
   };
+
+  const cancelLongPress = useCallback(() => {
+    if (longPressTimerRef.current) {
+      clearTimeout(longPressTimerRef.current);
+      longPressTimerRef.current = null;
+    }
+    pressStartIdRef.current = null;
+  }, []);
+
+  const endDrag = useCallback(() => {
+    cancelLongPress();
+    setDragActiveId(null);
+    lastSwapRef.current = null;
+    scheduleResume();
+  }, [cancelLongPress]);
+
+  const findCardIdAtPoint = useCallback((x: number, y: number): string | null => {
+    const grid = gridRef.current;
+    if (!grid) return null;
+    const els = grid.querySelectorAll<HTMLElement>("[data-loc-id]");
+    for (const el of els) {
+      const rect = el.getBoundingClientRect();
+      if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
+        return el.getAttribute("data-loc-id");
+      }
+    }
+    return null;
+  }, []);
+
+  const handlePointerDown = useCallback((locationId: string, x: number, y: number) => {
+    cancelLongPress();
+    pressStartIdRef.current = locationId;
+    pressStartPos.current = { x, y };
+    pauseRotation();
+    longPressTimerRef.current = setTimeout(() => {
+      setDragActiveId(locationId);
+      lastSwapRef.current = null;
+    }, LONG_PRESS_MS);
+  }, [cancelLongPress]);
+
+  const handlePointerMoveRaw = useCallback((clientX: number, clientY: number) => {
+    if (!dragActiveId && pressStartPos.current && longPressTimerRef.current) {
+      const dx = clientX - pressStartPos.current.x;
+      const dy = clientY - pressStartPos.current.y;
+      if (Math.abs(dx) > 10 || Math.abs(dy) > 10) {
+        cancelLongPress();
+        return;
+      }
+    }
+    if (!dragActiveId) return;
+    const targetId = findCardIdAtPoint(clientX, clientY);
+    if (targetId && targetId !== dragActiveId && targetId !== lastSwapRef.current) {
+      lastSwapRef.current = targetId;
+      setOrder(prev => {
+        const arr = [...prev];
+        const fromIdx = arr.findIndex(l => l.id === dragActiveId);
+        const toIdx = arr.findIndex(l => l.id === targetId);
+        if (fromIdx !== -1 && toIdx !== -1) {
+          [arr[fromIdx], arr[toIdx]] = [arr[toIdx], arr[fromIdx]];
+        }
+        return arr;
+      });
+    }
+  }, [dragActiveId, findCardIdAtPoint, cancelLongPress]);
+
+  const handlePointerUp = useCallback(() => {
+    if (dragActiveId) {
+      endDrag();
+    } else {
+      cancelLongPress();
+      scheduleResume();
+    }
+  }, [dragActiveId, endDrag, cancelLongPress]);
+
+  useEffect(() => {
+    const onPointerMove = (e: PointerEvent) => {
+      handlePointerMoveRaw(e.clientX, e.clientY);
+    };
+    const onUp = () => {
+      if (dragActiveId) {
+        endDrag();
+      } else {
+        cancelLongPress();
+        scheduleResume();
+      }
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      if (dragActiveId) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        if (touch) handlePointerMoveRaw(touch.clientX, touch.clientY);
+      }
+    };
+    window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onUp);
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
+    return () => {
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", onUp);
+      window.removeEventListener("touchmove", onTouchMove);
+    };
+  }, [dragActiveId, endDrag, cancelLongPress, handlePointerMoveRaw]);
 
   return (
     <section ref={sectionRef} id="locations" className="py-20 sm:py-24 bg-white dark:bg-background">
@@ -298,10 +413,12 @@ export function Locations({ locations }: LocationsProps) {
         </motion.div>
 
         <div
+          ref={gridRef}
           className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1.5 sm:gap-2"
           style={{
             gridAutoRows: "70px",
             gridAutoFlow: "dense",
+            touchAction: dragActiveId ? "none" : "auto",
           }}
         >
           {order.map((location) => {
@@ -310,24 +427,34 @@ export function Locations({ locations }: LocationsProps) {
             const { col, row } = getSpan(size);
             const isSpecial = size !== "1x1";
             const textSize = getTextSize(size);
+            const isDragging = dragActiveId === location.id;
             return (
               <motion.div
                 key={location.id}
                 layout
                 transition={{ type: "spring", stiffness: 200, damping: 28, mass: 0.8 }}
-                className="relative cursor-pointer"
+                className={`relative select-none ${dragActiveId ? "cursor-grabbing" : "cursor-pointer"}`}
                 style={{
                   gridColumn: `span ${col}`,
                   gridRow: `span ${row}`,
-                  zIndex: isSpecial ? 5 : 1,
+                  zIndex: isDragging ? 50 : isSpecial ? 5 : 1,
                 }}
-                onMouseEnter={pauseRotation}
-                onMouseLeave={scheduleResume}
+                data-loc-id={location.id}
+                onPointerDown={(e) => {
+                  if (e.pointerType === "touch") {
+                    e.preventDefault();
+                  }
+                  handlePointerDown(location.id, e.clientX, e.clientY);
+                }}
+                onPointerUp={handlePointerUp}
+                onPointerCancel={() => endDrag()}
+                onMouseEnter={() => { if (!dragActiveId) pauseRotation(); }}
+                onMouseLeave={() => { if (!dragActiveId) scheduleResume(); }}
               >
                 <div
-                  className={`relative w-full h-full rounded-lg overflow-hidden shadow-sm ring-1 ring-black/5 dark:ring-white/10 ${
+                  className={`relative w-full h-full rounded-lg overflow-hidden shadow-sm ring-1 ring-black/5 dark:ring-white/10 transition-shadow duration-300 ${
                     isSpecial ? "ring-2 ring-primary/40 shadow-lg" : ""
-                  }`}
+                  } ${isDragging ? "ring-2 ring-amber-400 shadow-xl shadow-amber-400/30" : ""}`}
                   data-testid={`card-location-${location.id}`}
                 >
                   {image && (
@@ -339,6 +466,9 @@ export function Locations({ locations }: LocationsProps) {
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+                  {isDragging && (
+                    <div className="absolute inset-0 bg-amber-400/10 animate-pulse pointer-events-none" />
+                  )}
                   <div className={`absolute bottom-0 left-0 right-0 ${isSpecial ? "p-1.5 sm:p-2" : "p-1 sm:p-1.5"}`}>
                     <span
                       className={`text-white ${textSize} leading-tight drop-shadow-md block ${isSpecial ? "" : "truncate"}`}
