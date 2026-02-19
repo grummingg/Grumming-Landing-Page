@@ -45,6 +45,17 @@ const categoryColorsByIcon: Record<string, string> = {
   Fingerprint: "from-violet-400 to-violet-500",
 };
 
+const categoryPillColors: Record<string, { bg: string; text: string; ring: string }> = {
+  Scissors: { bg: "bg-rose-500", text: "text-white", ring: "ring-rose-300" },
+  Bath: { bg: "bg-emerald-500", text: "text-white", ring: "ring-emerald-300" },
+  Sparkles: { bg: "bg-pink-500", text: "text-white", ring: "ring-pink-300" },
+  Brush: { bg: "bg-amber-500", text: "text-white", ring: "ring-amber-300" },
+  Palette: { bg: "bg-sky-500", text: "text-white", ring: "ring-sky-300" },
+  Fingerprint: { bg: "bg-violet-500", text: "text-white", ring: "ring-violet-300" },
+};
+
+const defaultPillColor = { bg: "bg-gray-500", text: "text-white", ring: "ring-gray-300" };
+
 function getRandomVideoForCategory(category: Category): string {
   const nameLower = category.name.toLowerCase();
   let videos: string[] | undefined;
@@ -392,9 +403,9 @@ export function Categories({ categories }: CategoriesProps) {
           </svg>
 
           <div className="hidden lg:flex items-center justify-between w-full max-w-6xl relative z-10">
-            <div className="flex flex-col gap-8 items-end">
+            <div className="flex flex-col gap-5 items-end">
               {leftCategories.map((category, index) => {
-                const IconComponent = categoryIconComponents[category.icon] || HaircutIcon;
+                const pillColor = categoryPillColors[category.icon] || defaultPillColor;
                 const offsets = [
                   { x: 160, y: -10 },
                   { x: 200, y: 0 },
@@ -411,17 +422,11 @@ export function Categories({ categories }: CategoriesProps) {
                     style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
                   >
                     <div
-                      className={`group cursor-pointer transition-all duration-300 flex flex-col items-center text-center ${isSelected ? 'scale-110' : ''}`}
+                      className={`cursor-pointer transition-all duration-300 rounded-full px-5 py-2.5 font-semibold text-sm shadow-md ${isSelected ? `${pillColor.bg} ${pillColor.text} ring-2 ${pillColor.ring} shadow-lg` : 'bg-muted text-muted-foreground dark:bg-white/10 dark:text-white/70'}`}
                       data-testid={`card-category-${category.id}`}
                       onClick={() => handleCategoryClick(category)}
                     >
-                      <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30 shadow-[0_12px_40px_-6px_rgba(0,0,0,0.3)]' : ''}`}>
-                        <IconComponent className="w-8 h-8 text-white" />
-                      </div>
-                      <span
-                        className={`text-sm font-semibold transition-colors ${isSelected ? 'text-accent-foreground font-bold' : 'text-foreground'}`}
-                        data-testid={`text-category-name-${category.id}`}
-                      >
+                      <span data-testid={`text-category-name-${category.id}`}>
                         {category.name}
                       </span>
                     </div>
@@ -448,13 +453,9 @@ export function Categories({ categories }: CategoriesProps) {
                   {selectedCategory && (
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
                       <div
-                        className="flex items-center gap-1.5 bg-black/60 backdrop-blur-sm rounded-full px-3.5 py-1.5"
+                        className="bg-black/60 backdrop-blur-sm rounded-full px-3.5 py-1.5"
                         data-testid="label-active-category-desktop"
                       >
-                        {(() => {
-                          const Icon = categoryIconComponents[selectedCategory.icon] || HaircutIcon;
-                          return <Icon className="w-4 h-4 text-white" />;
-                        })()}
                         <span className="text-white text-sm font-semibold">{selectedCategory.name}</span>
                       </div>
                     </div>
@@ -465,9 +466,9 @@ export function Categories({ categories }: CategoriesProps) {
               </div>
             </motion.div>
 
-            <div className="flex flex-col gap-8 items-start">
+            <div className="flex flex-col gap-5 items-start">
               {rightCategories.map((category, index) => {
-                const IconComponent = categoryIconComponents[category.icon] || HaircutIcon;
+                const pillColor = categoryPillColors[category.icon] || defaultPillColor;
                 const offsets = [
                   { x: -160, y: -10 },
                   { x: -200, y: 0 },
@@ -484,17 +485,11 @@ export function Categories({ categories }: CategoriesProps) {
                     style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
                   >
                     <div
-                      className={`group cursor-pointer transition-all duration-300 flex flex-col items-center text-center ${isSelected ? 'scale-110' : ''}`}
+                      className={`cursor-pointer transition-all duration-300 rounded-full px-5 py-2.5 font-semibold text-sm shadow-md ${isSelected ? `${pillColor.bg} ${pillColor.text} ring-2 ${pillColor.ring} shadow-lg` : 'bg-muted text-muted-foreground dark:bg-white/10 dark:text-white/70'}`}
                       data-testid={`card-category-${category.id}`}
                       onClick={() => handleCategoryClick(category)}
                     >
-                      <div className={`w-16 h-16 rounded-[1.25rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-3 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30 shadow-[0_12px_40px_-6px_rgba(0,0,0,0.3)]' : ''}`}>
-                        <IconComponent className="w-8 h-8 text-white" />
-                      </div>
-                      <span
-                        className={`text-sm font-semibold transition-colors ${isSelected ? 'text-accent-foreground font-bold' : 'text-foreground'}`}
-                        data-testid={`text-category-name-${category.id}`}
-                      >
+                      <span data-testid={`text-category-name-${category.id}`}>
                         {category.name}
                       </span>
                     </div>
@@ -521,13 +516,9 @@ export function Categories({ categories }: CategoriesProps) {
                   {selectedCategory && (
                     <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20">
                       <div
-                        className="flex items-center gap-1.5 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1.5"
+                        className="bg-black/60 backdrop-blur-sm rounded-full px-3 py-1.5"
                         data-testid="label-active-category-mobile"
                       >
-                        {(() => {
-                          const Icon = categoryIconComponents[selectedCategory.icon] || HaircutIcon;
-                          return <Icon className="w-3.5 h-3.5 text-white" />;
-                        })()}
                         <span className="text-white text-xs font-semibold">{selectedCategory.name}</span>
                       </div>
                     </div>
@@ -538,9 +529,9 @@ export function Categories({ categories }: CategoriesProps) {
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="flex flex-wrap justify-center gap-2.5">
               {categories.map((category, index) => {
-                const IconComponent = categoryIconComponents[category.icon] || HaircutIcon;
+                const pillColor = categoryPillColors[category.icon] || defaultPillColor;
                 const isSelected = selectedCategory.id === category.id;
                 return (
                   <motion.div
@@ -551,16 +542,11 @@ export function Categories({ categories }: CategoriesProps) {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <div
-                      className={`group cursor-pointer transition-all duration-300 p-3 flex flex-col items-center text-center ${isSelected ? 'scale-110' : ''}`}
+                      className={`cursor-pointer transition-all duration-300 rounded-full px-4 py-2 font-semibold text-xs shadow-md ${isSelected ? `${pillColor.bg} ${pillColor.text} ring-2 ${pillColor.ring} shadow-lg` : 'bg-muted text-muted-foreground dark:bg-white/10 dark:text-white/70'}`}
                       data-testid={`card-category-mobile-${category.id}`}
                       onClick={() => handleCategoryClick(category)}
                     >
-                      <div className={`w-14 h-14 rounded-[1rem] bg-gradient-to-br ${getCategoryColor(category)} flex items-center justify-center mb-2 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.15)] group-hover:shadow-[0_12px_40px_-6px_rgba(0,0,0,0.25)] group-hover:scale-105 transition-all duration-300 ${isSelected ? 'ring-4 ring-primary/30' : ''}`}>
-                        <IconComponent className="w-7 h-7 text-white" />
-                      </div>
-                      <span className={`text-xs font-semibold transition-colors ${isSelected ? 'text-accent-foreground font-bold' : 'text-foreground'}`}>
-                        {category.name}
-                      </span>
+                      {category.name}
                     </div>
                   </motion.div>
                 );
