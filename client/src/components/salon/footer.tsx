@@ -63,7 +63,7 @@ export function SalonFooter() {
   return (
     <footer className="bg-white dark:bg-[#0f172a] text-foreground dark:text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="py-14 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+        <div className="py-10 sm:py-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
           <div className="lg:col-span-4">
             <h4 className="font-semibold text-xs uppercase tracking-widest text-black dark:text-white mb-5" data-testid="text-footer-category-contact">
               Contact
