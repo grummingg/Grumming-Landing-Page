@@ -157,6 +157,36 @@ const MAX_GRID_CELLS_EXTRA = 12;
 const LONG_PRESS_MS = 1000;
 const MOBILE_BREAKPOINT = 640;
 
+function CityImage({ src, alt }: { src?: string; alt: string }) {
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+
+  return (
+    <>
+      {(!loaded || !src) && (
+        <div className="absolute inset-0 bg-muted flex items-center justify-center overflow-hidden">
+          {!error && src && (
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/5 to-transparent animate-shimmer" />
+          )}
+          <span className="text-[8px] sm:text-[10px] text-muted-foreground font-medium truncate px-1 relative z-10">
+            {alt}
+          </span>
+        </div>
+      )}
+      {src && !error && (
+        <img
+          src={src}
+          alt={alt}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+          loading="lazy"
+          onLoad={() => setLoaded(true)}
+          onError={() => setError(true)}
+        />
+      )}
+    </>
+  );
+}
+
 export function Locations({ locations }: LocationsProps) {
   const [order, setOrder] = useState<Location[]>([]);
   const [sizeMap, setSizeMap] = useState<Map<string, CardSize>>(new Map());
@@ -466,14 +496,7 @@ export function Locations({ locations }: LocationsProps) {
                   } ${isDragging ? "ring-2 ring-amber-400 shadow-xl shadow-amber-400/30" : ""}`}
                   data-testid={`card-location-${location.id}`}
                 >
-                  {image && (
-                    <img
-                      src={image}
-                      alt={location.name}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  )}
+                  <CityImage src={image} alt={location.name} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
                   {isDragging && (
                     <div className="absolute inset-0 bg-amber-400/10 animate-pulse pointer-events-none" />
