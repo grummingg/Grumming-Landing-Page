@@ -1,19 +1,25 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import type { Location } from "@shared/schema";
+
+import cityDelhi from "../../assets/images/city-delhi.jpg";
+import cityMumbai from "../../assets/images/city-mumbai.jpg";
+import cityBangalore from "../../assets/images/city-bangalore.jpg";
+import cityChennai from "../../assets/images/city-chennai.jpg";
+import cityHyderabad from "../../assets/images/city-hyderabad.jpg";
+import cityPune from "../../assets/images/city-pune.jpg";
 
 interface LocationsProps {
   locations: Location[];
 }
 
-const cityColors: Record<string, { bg: string; icon: string; accent: string }> = {
-  delhi: { bg: "bg-white dark:bg-[#1e293b]", icon: "text-rose-500", accent: "bg-rose-500" },
-  mumbai: { bg: "bg-white dark:bg-[#1e293b]", icon: "text-blue-500", accent: "bg-blue-500" },
-  bangalore: { bg: "bg-white dark:bg-[#1e293b]", icon: "text-emerald-500", accent: "bg-emerald-500" },
-  chennai: { bg: "bg-white dark:bg-[#1e293b]", icon: "text-violet-500", accent: "bg-violet-500" },
-  hyderabad: { bg: "bg-white dark:bg-[#1e293b]", icon: "text-amber-500", accent: "bg-amber-500" },
-  pune: { bg: "bg-white dark:bg-[#1e293b]", icon: "text-cyan-500", accent: "bg-cyan-500" },
+const cityImages: Record<string, string> = {
+  delhi: cityDelhi,
+  mumbai: cityMumbai,
+  bangalore: cityBangalore,
+  chennai: cityChennai,
+  hyderabad: cityHyderabad,
+  pune: cityPune,
 };
 
 export function Locations({ locations }: LocationsProps) {
@@ -35,9 +41,9 @@ export function Locations({ locations }: LocationsProps) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {locations.map((location, index) => {
-            const colors = cityColors[location.image] || { bg: "bg-white dark:bg-[#1e293b]", icon: "text-gray-500", accent: "bg-gray-500" };
+            const image = cityImages[location.image];
             return (
               <motion.div
                 key={location.id}
@@ -46,22 +52,34 @@ export function Locations({ locations }: LocationsProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <Card
-                  className={`group cursor-pointer overflow-hidden hover-elevate transition-all duration-300 border-0 shadow-sm ${colors.bg}`}
+                <div
+                  className="group cursor-pointer relative rounded-xl overflow-hidden aspect-[3/4] shadow-md"
                   data-testid={`card-location-${location.id}`}
                 >
-                  <CardContent className="p-6 flex flex-col items-center text-center">
-                    <div className={`w-14 h-14 rounded-2xl bg-white dark:bg-white/10 shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <MapPin className={`w-7 h-7 ${colors.icon}`} />
-                    </div>
+                  {image && (
+                    <img
+                      src={image}
+                      alt={location.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h3
-                      className="font-bold text-lg text-foreground"
+                      className="font-bold text-lg text-white"
                       data-testid={`text-location-name-${location.id}`}
                     >
                       {location.name}
                     </h3>
-                  </CardContent>
-                </Card>
+                    <div className="flex items-center gap-1 mt-1">
+                      <MapPin className="w-3.5 h-3.5 text-white/70" />
+                      <span className="text-white/70 text-xs font-medium">
+                        {location.salonCount}+ businesses
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             );
           })}
