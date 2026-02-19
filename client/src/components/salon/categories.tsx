@@ -173,10 +173,18 @@ export function Categories({ categories }: CategoriesProps) {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
+    if (categories.length === 0) return;
     intervalRef.current = window.setInterval(() => {
-      setCurrentVideo(getRandomVideo());
+      setSelectedCategory(prev => {
+        const currentIndex = prev ? categories.findIndex(c => c.id === prev.id) : -1;
+        const nextIndex = (currentIndex + 1) % categories.length;
+        const nextCategory = categories[nextIndex];
+        if (!nextCategory) return prev;
+        setCurrentVideo(getRandomVideoForCategory(nextCategory));
+        return nextCategory;
+      });
     }, 5000);
-  }, []);
+  }, [categories]);
 
   const handleCategoryClick = useCallback((category: Category) => {
     setSelectedCategory(category);
@@ -437,6 +445,20 @@ export function Categories({ categories }: CategoriesProps) {
                     src={currentVideo}
                     testId="video-salon-services"
                   />
+                  {selectedCategory && (
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
+                      <div
+                        className="flex items-center gap-1.5 bg-black/60 backdrop-blur-sm rounded-full px-3.5 py-1.5"
+                        data-testid="label-active-category-desktop"
+                      >
+                        {(() => {
+                          const Icon = categoryIconComponents[selectedCategory.icon] || HaircutIcon;
+                          return <Icon className="w-4 h-4 text-white" />;
+                        })()}
+                        <span className="text-white text-sm font-semibold">{selectedCategory.name}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-7 bg-[#0f172a] rounded-full" />
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-gray-700 rounded-full" />
@@ -496,6 +518,20 @@ export function Categories({ categories }: CategoriesProps) {
                     src={currentVideo}
                     testId="video-salon-services-mobile"
                   />
+                  {selectedCategory && (
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20">
+                      <div
+                        className="flex items-center gap-1.5 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1.5"
+                        data-testid="label-active-category-mobile"
+                      >
+                        {(() => {
+                          const Icon = categoryIconComponents[selectedCategory.icon] || HaircutIcon;
+                          return <Icon className="w-3.5 h-3.5 text-white" />;
+                        })()}
+                        <span className="text-white text-xs font-semibold">{selectedCategory.name}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-[#0f172a] rounded-full" />
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-gray-700 rounded-full" />
