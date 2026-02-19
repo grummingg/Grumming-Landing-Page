@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
 import type { Location } from "@shared/schema";
 
 import cityDelhi from "../../assets/images/city-delhi.jpg";
@@ -9,6 +8,12 @@ import cityBangalore from "../../assets/images/city-bangalore.jpg";
 import cityChennai from "../../assets/images/city-chennai.jpg";
 import cityHyderabad from "../../assets/images/city-hyderabad.jpg";
 import cityPune from "../../assets/images/city-pune.jpg";
+import cityJaipur from "../../assets/images/city-jaipur.jpg";
+import cityKolkata from "../../assets/images/city-kolkata.jpg";
+import cityAhmedabad from "../../assets/images/city-ahmedabad.jpg";
+import cityGoa from "../../assets/images/city-goa.jpg";
+import cityLucknow from "../../assets/images/city-lucknow.jpg";
+import cityChandigarh from "../../assets/images/city-chandigarh.jpg";
 
 interface LocationsProps {
   locations: Location[];
@@ -21,12 +26,52 @@ const cityImages: Record<string, string> = {
   chennai: cityChennai,
   hyderabad: cityHyderabad,
   pune: cityPune,
+  jaipur: cityJaipur,
+  kolkata: cityKolkata,
+  ahmedabad: cityAhmedabad,
+  goa: cityGoa,
+  lucknow: cityLucknow,
+  chandigarh: cityChandigarh,
 };
 
 export function Locations({ locations }: LocationsProps) {
-  const [selectedId, setSelectedId] = useState<number | null>(null);
-  const selectedLocation = locations.find((l) => l.id === selectedId);
-  const selectedImage = selectedLocation ? cityImages[selectedLocation.image] : null;
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+  const isPausedRef = useRef(false);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const pickRandom = useCallback(() => {
+    if (locations.length <= 1) return;
+    if (isPausedRef.current) return;
+    const available = locations.filter((l) => l.id !== highlightedId);
+    if (available.length === 0) return;
+    const pick = available[Math.floor(Math.random() * available.length)];
+    setHighlightedId(pick.id);
+  }, [locations, highlightedId]);
+
+  useEffect(() => {
+    const timer = setInterval(pickRandom, 2500);
+    return () => clearInterval(timer);
+  }, [pickRandom]);
+
+  useEffect(() => {
+    if (locations.length > 0 && highlightedId === null) {
+      const pick = locations[Math.floor(Math.random() * locations.length)];
+      setHighlightedId(pick.id);
+    }
+  }, [locations]);
+
+  const pauseAndHighlight = (id: string) => {
+    isPausedRef.current = true;
+    setHighlightedId(id);
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+  };
+
+  const scheduleResume = () => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      isPausedRef.current = false;
+    }, 3000);
+  };
 
   return (
     <section id="locations" className="py-20 sm:py-24 bg-white dark:bg-background">
@@ -46,21 +91,26 @@ export function Locations({ locations }: LocationsProps) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
           {locations.map((location, index) => {
             const image = cityImages[location.image];
+            const isHighlighted = location.id === highlightedId;
             return (
               <motion.div
                 key={location.id}
-                layoutId={`location-card-${location.id}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                onClick={() => setSelectedId(location.id)}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="relative"
+                style={{ zIndex: isHighlighted ? 10 : 1 }}
+                onMouseEnter={() => pauseAndHighlight(location.id)}
+                onMouseLeave={() => scheduleResume()}
+                onClick={() => pauseAndHighlight(location.id)}
               >
                 <div
-                  className="group cursor-pointer relative rounded-2xl overflow-hidden aspect-[4/3] shadow-md ring-1 ring-black/5 dark:ring-white/10"
+                  className="cursor-pointer relative rounded-xl overflow-hidden shadow-md ring-1 ring-black/5 dark:ring-white/10"
+                  style={{ aspectRatio: "1 / 1" }}
                   data-testid={`card-location-${location.id}`}
                 >
                   {image && (
@@ -72,63 +122,46 @@ export function Locations({ locations }: LocationsProps) {
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                  <div className="absolute bottom-0 left-0 right-0 p-2.5">
                     <span
-                      className="inline-block px-3 py-1 rounded-md bg-white/20 backdrop-blur-md text-white font-semibold text-sm sm:text-base tracking-wide"
+                      className="text-white font-semibold text-xs sm:text-sm drop-shadow-sm"
                       data-testid={`text-location-name-${location.id}`}
                     >
                       {location.name}
                     </span>
                   </div>
                 </div>
+
+                <AnimatePresence>
+                  {isHighlighted && (
+                    <motion.div
+                      className="absolute -inset-3 sm:-inset-4 rounded-2xl overflow-hidden shadow-2xl ring-2 ring-primary/50 cursor-pointer"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    >
+                      {image && (
+                        <img
+                          src={image}
+                          alt={location.name}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                        <span className="inline-block px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-white font-bold text-sm sm:text-base tracking-wide">
+                          {location.name}
+                        </span>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             );
           })}
         </div>
       </div>
-
-      <AnimatePresence>
-        {selectedId !== null && selectedLocation && (
-          <>
-            <motion.div
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedId(null)}
-              data-testid="overlay-location-expanded"
-            />
-            <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-8 pointer-events-none">
-              <motion.div
-                layoutId={`location-card-${selectedId}`}
-                className="relative rounded-2xl overflow-hidden shadow-2xl w-full max-w-2xl aspect-[4/3] pointer-events-auto"
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              >
-                {selectedImage && (
-                  <img
-                    src={selectedImage}
-                    alt={selectedLocation.name}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <button
-                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white"
-                  onClick={() => setSelectedId(null)}
-                  data-testid="button-close-location"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                  <span className="inline-block px-4 py-1.5 rounded-md bg-white/20 backdrop-blur-md text-white font-bold text-xl sm:text-2xl tracking-wide">
-                    {selectedLocation.name}
-                  </span>
-                </div>
-              </motion.div>
-            </div>
-          </>
-        )}
-      </AnimatePresence>
     </section>
   );
 }
