@@ -133,11 +133,26 @@ const cityImages: Record<string, string> = {
 export function Locations({ locations }: LocationsProps) {
   const [order, setOrder] = useState<Location[]>([]);
   const [largeIds, setLargeIds] = useState<Set<string>>(new Set());
-  const isPausedRef = useRef(false);
+  const hoverPausedRef = useRef(false);
+  const isVisibleRef = useRef(false);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const swapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const sizeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const locationsRef = useRef<Location[]>([]);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const shouldAnimate = () => isVisibleRef.current && !hoverPausedRef.current;
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisibleRef.current = entry.isIntersecting; },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (locations.length === 0) return;
@@ -161,7 +176,7 @@ export function Locations({ locations }: LocationsProps) {
     const scheduleSwap = () => {
       const delay = 800 + Math.random() * 1200;
       swapTimerRef.current = setTimeout(() => {
-        if (!isPausedRef.current) {
+        if (shouldAnimate()) {
           setOrder(prev => {
             const arr = [...prev];
             const i = Math.floor(Math.random() * arr.length);
@@ -178,7 +193,7 @@ export function Locations({ locations }: LocationsProps) {
     const scheduleSize = () => {
       const delay = 2000 + Math.random() * 2000;
       sizeTimerRef.current = setTimeout(() => {
-        if (!isPausedRef.current) {
+        if (shouldAnimate()) {
           const currentOrder = locationsRef.current;
           if (currentOrder.length > 0) {
             setLargeIds(prev => {
@@ -210,19 +225,19 @@ export function Locations({ locations }: LocationsProps) {
   }, [locations.length]);
 
   const pauseRotation = () => {
-    isPausedRef.current = true;
+    hoverPausedRef.current = true;
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
   };
 
   const scheduleResume = () => {
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     resumeTimerRef.current = setTimeout(() => {
-      isPausedRef.current = false;
+      hoverPausedRef.current = false;
     }, 4000);
   };
 
   return (
-    <section id="locations" className="py-20 sm:py-24 bg-white dark:bg-background">
+    <section ref={sectionRef} id="locations" className="py-20 sm:py-24 bg-white dark:bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-12"
