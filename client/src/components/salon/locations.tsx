@@ -311,7 +311,7 @@ export function Locations({ locations }: LocationsProps) {
   const findCardIdAtPoint = useCallback((x: number, y: number): string | null => {
     const grid = gridRef.current;
     if (!grid) return null;
-    const els = grid.querySelectorAll<HTMLElement>("[data-loc-id]");
+    const els = Array.from(grid.querySelectorAll<HTMLElement>("[data-loc-id]"));
     for (const el of els) {
       const rect = el.getBoundingClientRect();
       if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
