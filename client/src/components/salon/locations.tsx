@@ -135,14 +135,15 @@ export function Locations({ locations }: LocationsProps) {
   const [largeIds, setLargeIds] = useState<Set<string>>(new Set());
   const isPausedRef = useRef(false);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
-  const orderRef = useRef<Location[]>([]);
+  const swapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const sizeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const locationsRef = useRef<Location[]>([]);
 
   useEffect(() => {
     if (locations.length === 0) return;
     const initial = [...locations].sort(() => Math.random() - 0.5);
     setOrder(initial);
-    orderRef.current = initial;
+    locationsRef.current = initial;
     const largeCount = Math.max(3, Math.floor(locations.length / 12));
     const ids = new Set<string>();
     const shuffledInit = [...initial].sort(() => Math.random() - 0.5);
@@ -151,67 +152,60 @@ export function Locations({ locations }: LocationsProps) {
   }, [locations]);
 
   useEffect(() => {
-    if (order.length === 0) return;
-    orderRef.current = order;
+    if (order.length > 0) locationsRef.current = order;
   }, [order]);
 
   useEffect(() => {
     if (locations.length === 0) return;
 
-    const swapTwo = () => {
-      if (isPausedRef.current) return;
-      setOrder(prev => {
-        const arr = [...prev];
-        const i = Math.floor(Math.random() * arr.length);
-        let j = Math.floor(Math.random() * arr.length);
-        while (j === i && arr.length > 1) j = Math.floor(Math.random() * arr.length);
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-        return arr;
-      });
-    };
-
-    const toggleLarge = () => {
-      if (isPausedRef.current) return;
-      const currentOrder = orderRef.current;
-      if (currentOrder.length === 0) return;
-      setLargeIds(prev => {
-        const currentArr = Array.from(prev);
-        if (currentArr.length === 0) return prev;
-        const removeId = currentArr[Math.floor(Math.random() * currentArr.length)];
-        const next = new Set(prev);
-        next.delete(removeId);
-        const available = currentOrder.filter(l => !next.has(l.id));
-        if (available.length > 0) {
-          const addLoc = available[Math.floor(Math.random() * available.length)];
-          next.add(addLoc.id);
+    const scheduleSwap = () => {
+      const delay = 800 + Math.random() * 1200;
+      swapTimerRef.current = setTimeout(() => {
+        if (!isPausedRef.current) {
+          setOrder(prev => {
+            const arr = [...prev];
+            const i = Math.floor(Math.random() * arr.length);
+            let j = Math.floor(Math.random() * arr.length);
+            while (j === i && arr.length > 1) j = Math.floor(Math.random() * arr.length);
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+            return arr;
+          });
         }
-        return next;
-      });
+        scheduleSwap();
+      }, delay);
     };
 
-    timersRef.current.forEach(t => clearTimeout(t));
-    timersRef.current = [];
-
-    const swapLoop = () => {
-      swapTwo();
-      const next = 800 + Math.random() * 1200;
-      const t = setTimeout(swapLoop, next);
-      timersRef.current.push(t);
+    const scheduleSize = () => {
+      const delay = 2000 + Math.random() * 2000;
+      sizeTimerRef.current = setTimeout(() => {
+        if (!isPausedRef.current) {
+          const currentOrder = locationsRef.current;
+          if (currentOrder.length > 0) {
+            setLargeIds(prev => {
+              const currentArr = Array.from(prev);
+              if (currentArr.length === 0) return prev;
+              const removeId = currentArr[Math.floor(Math.random() * currentArr.length)];
+              const next = new Set(prev);
+              next.delete(removeId);
+              const available = currentOrder.filter(l => !next.has(l.id));
+              if (available.length > 0) {
+                const addLoc = available[Math.floor(Math.random() * available.length)];
+                next.add(addLoc.id);
+              }
+              return next;
+            });
+          }
+        }
+        scheduleSize();
+      }, delay);
     };
-    const t1 = setTimeout(swapLoop, 500);
-    timersRef.current.push(t1);
 
-    const sizeLoop = () => {
-      toggleLarge();
-      const next = 2000 + Math.random() * 2000;
-      const t = setTimeout(sizeLoop, next);
-      timersRef.current.push(t);
-    };
-    const t2 = setTimeout(sizeLoop, 1500);
-    timersRef.current.push(t2);
+    scheduleSwap();
+    scheduleSize();
 
     return () => {
-      timersRef.current.forEach(t => clearTimeout(t));
+      if (swapTimerRef.current) clearTimeout(swapTimerRef.current);
+      if (sizeTimerRef.current) clearTimeout(sizeTimerRef.current);
     };
   }, [locations.length]);
 
@@ -246,10 +240,10 @@ export function Locations({ locations }: LocationsProps) {
         </motion.div>
 
         <div
-          className="grid gap-1.5 sm:gap-2"
+          className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1.5 sm:gap-2"
           style={{
-            gridTemplateColumns: "repeat(auto-fill, minmax(70px, 1fr))",
             gridAutoRows: "70px",
+            gridAutoFlow: "dense",
           }}
         >
           {order.map((location) => {
