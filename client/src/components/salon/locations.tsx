@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
 import type { Location } from "@shared/schema";
 
 import cityDelhi from "../../assets/images/city-delhi.jpg";
@@ -74,12 +73,6 @@ export function Locations({ locations }: LocationsProps) {
                       >
                         {location.name}
                       </h3>
-                      <div className="flex items-center gap-1.5 mt-1">
-                        <MapPin className="w-3 h-3 text-amber-400" />
-                        <span className="text-white/80 text-xs font-medium">
-                          businesses
-                        </span>
-                      </div>
                     </div>
                   </div>
                 </div>
