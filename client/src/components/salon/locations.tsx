@@ -130,39 +130,85 @@ const cityImages: Record<string, string> = {
   srinagar: citySrinagar,
 };
 
-function shuffleArray<T>(arr: T[]): T[] {
-  const shuffled = [...arr];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
-
 export function Locations({ locations }: LocationsProps) {
-  const [shuffledLocations, setShuffledLocations] = useState<Location[]>([]);
+  const [order, setOrder] = useState<Location[]>([]);
   const [largeIds, setLargeIds] = useState<Set<string>>(new Set());
   const isPausedRef = useRef(false);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
 
-  const doShuffle = useCallback(() => {
-    if (isPausedRef.current) return;
-    const shuffled = shuffleArray(locations);
-    setShuffledLocations(shuffled);
+  useEffect(() => {
+    if (locations.length === 0) return;
+    const initial = [...locations].sort(() => Math.random() - 0.5);
+    setOrder(initial);
     const largeCount = Math.max(3, Math.floor(locations.length / 12));
-    const picked = new Set<string>();
-    const indices = shuffleArray(Array.from({ length: shuffled.length }, (_, i) => i));
-    for (let i = 0; i < Math.min(largeCount, indices.length); i++) {
-      picked.add(shuffled[indices[i]].id);
-    }
-    setLargeIds(picked);
+    const ids = new Set<string>();
+    const shuffledInit = [...initial].sort(() => Math.random() - 0.5);
+    for (let i = 0; i < largeCount; i++) ids.add(shuffledInit[i].id);
+    setLargeIds(ids);
   }, [locations]);
 
   useEffect(() => {
-    doShuffle();
-    const timer = setInterval(doShuffle, 3500);
-    return () => clearInterval(timer);
-  }, [doShuffle]);
+    if (order.length === 0) return;
+
+    const swapTwo = () => {
+      if (isPausedRef.current) return;
+      setOrder(prev => {
+        const arr = [...prev];
+        const i = Math.floor(Math.random() * arr.length);
+        let j = Math.floor(Math.random() * arr.length);
+        while (j === i && arr.length > 1) j = Math.floor(Math.random() * arr.length);
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+        return arr;
+      });
+    };
+
+    const toggleLarge = () => {
+      if (isPausedRef.current) return;
+      setLargeIds(prev => {
+        const currentArr = Array.from(prev);
+        if (currentArr.length === 0) return prev;
+        const removeId = currentArr[Math.floor(Math.random() * currentArr.length)];
+        const next = new Set(prev);
+        next.delete(removeId);
+        const available = order.filter(l => !next.has(l.id));
+        if (available.length > 0) {
+          const addLoc = available[Math.floor(Math.random() * available.length)];
+          next.add(addLoc.id);
+        }
+        return next;
+      });
+    };
+
+    const startStaggeredTimers = () => {
+      timersRef.current.forEach(t => clearTimeout(t));
+      timersRef.current = [];
+
+      const swapInterval = () => {
+        swapTwo();
+        const next = 800 + Math.random() * 1200;
+        const t = setTimeout(swapInterval, next);
+        timersRef.current.push(t);
+      };
+      const t1 = setTimeout(swapInterval, 500);
+      timersRef.current.push(t1);
+
+      const sizeInterval = () => {
+        toggleLarge();
+        const next = 2000 + Math.random() * 2000;
+        const t = setTimeout(sizeInterval, next);
+        timersRef.current.push(t);
+      };
+      const t2 = setTimeout(sizeInterval, 1500);
+      timersRef.current.push(t2);
+    };
+
+    startStaggeredTimers();
+
+    return () => {
+      timersRef.current.forEach(t => clearTimeout(t));
+    };
+  }, [order.length > 0]);
 
   const pauseRotation = () => {
     isPausedRef.current = true;
@@ -201,7 +247,7 @@ export function Locations({ locations }: LocationsProps) {
             gridAutoRows: "70px",
           }}
         >
-          {shuffledLocations.map((location) => {
+          {order.map((location) => {
             const image = cityImages[location.image];
             const isLarge = largeIds.has(location.id);
             const colSpan = isLarge ? 2 : 1;
@@ -213,7 +259,7 @@ export function Locations({ locations }: LocationsProps) {
               <motion.div
                 key={location.id}
                 layout
-                transition={{ type: "spring", stiffness: 200, damping: 25, mass: 0.8 }}
+                transition={{ type: "spring", stiffness: 200, damping: 28, mass: 0.8 }}
                 className="relative cursor-pointer"
                 style={{
                   gridColumn: `span ${colSpan}`,
