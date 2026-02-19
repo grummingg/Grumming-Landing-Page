@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, IndianRupee, Clock, CheckCircle, XCircle, Crown, CreditCard, Mail } from "lucide-react";
-import { Link } from "wouter";
+import { IndianRupee, Clock, CheckCircle, XCircle, Crown, CreditCard, Mail } from "lucide-react";
 import { SalonFooter } from "@/components/salon/footer";
 
 const fadeUp = {
@@ -109,13 +108,6 @@ export default function RefundPolicy() {
       <section className="relative bg-[#0f172a] text-white overflow-hidden py-16 sm:py-20">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/">
-            <span className="inline-flex items-center text-white/60 hover:text-white text-sm mb-8 cursor-pointer transition-colors" data-testid="link-back-home">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
-            </span>
-          </Link>
-
           <motion.div {...fadeUp}>
             <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-refund-label">
               Refund Policy

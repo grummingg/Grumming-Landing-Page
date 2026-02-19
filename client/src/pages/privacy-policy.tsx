@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Database, Share2, Lock, Shield, Cookie, Mail } from "lucide-react";
+import { Database, Share2, Lock, Shield, Cookie, Mail } from "lucide-react";
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
 
@@ -100,13 +100,6 @@ export default function PrivacyPolicy() {
       <section className="relative bg-[#0f172a] overflow-hidden py-16 sm:py-20">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/">
-            <span className="inline-flex items-center text-white/60 hover:text-white text-sm mb-8 cursor-pointer transition-colors" data-testid="link-back-home">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
-            </span>
-          </Link>
-
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-policy-label">Privacy Policy</span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4" data-testid="text-privacy-title">Your privacy matters to us</h1>

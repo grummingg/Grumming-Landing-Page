@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Building, TrendingUp, Users, BarChart, Headphones, Globe, CheckCircle, Mail, Phone } from "lucide-react";
-import { Link } from "wouter";
+import { Building, TrendingUp, Users, BarChart, Headphones, Globe, CheckCircle, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SalonFooter } from "@/components/salon/footer";
 
@@ -74,12 +73,6 @@ export default function PartnerWithUs() {
       <section className="relative bg-[#0f172a] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <Link href="/">
-            <span className="inline-flex items-center text-white/60 hover:text-white text-sm mb-8 cursor-pointer" data-testid="link-back-home">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
-            </span>
-          </Link>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-partner-label">Partner with Us</span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4" data-testid="text-partner-title">

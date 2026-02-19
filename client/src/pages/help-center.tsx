@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Rocket, Calendar, CreditCard, Settings, Shield, Building2, ChevronDown } from "lucide-react";
+import { Rocket, Calendar, CreditCard, Settings, Shield, Building2, ChevronDown } from "lucide-react";
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
 import { useState } from "react";
@@ -109,16 +109,6 @@ export default function HelpCenter() {
       <section className="relative bg-[#0f172a] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <Link href="/">
-            <button
-              className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm mb-10"
-              data-testid="button-back-home"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </button>
-          </Link>
-
           <motion.div {...fadeUp}>
             <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-3" data-testid="label-help-center">
               Help Center

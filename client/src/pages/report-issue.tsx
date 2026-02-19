@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { ArrowLeft, Star, Shield, CreditCard, AlertTriangle, Smartphone, MessageSquare } from "lucide-react";
-import { Link } from "wouter";
+import { Star, Shield, CreditCard, AlertTriangle, Smartphone, MessageSquare } from "lucide-react";
 import { SalonFooter } from "@/components/salon/footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -128,13 +127,6 @@ export default function ReportIssue() {
       <section className="relative bg-[#0f172a] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <Link href="/">
-            <button className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm mb-10" data-testid="button-back-home">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </button>
-          </Link>
-
           <motion.div {...fadeUp}>
             <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-3" data-testid="text-hero-label">
               Report an Issue
