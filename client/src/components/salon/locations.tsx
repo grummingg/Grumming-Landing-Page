@@ -34,10 +34,6 @@ import cityGuwahati from "../../assets/images/city-guwahati.jpg";
 import cityBhubaneswar from "../../assets/images/city-bhubaneswar.jpg";
 import cityUdaipur from "../../assets/images/city-udaipur.jpg";
 import cityAmritsar from "../../assets/images/city-amritsar.jpg";
-import cityHampi from "../../assets/images/city-hampi.jpg";
-import cityRishikesh from "../../assets/images/city-rishikesh.jpg";
-import cityDeoghar from "../../assets/images/city-deoghar.jpg";
-import cityGaya from "../../assets/images/city-gaya.jpg";
 import cityNoida from "../../assets/images/city-noida.jpg";
 import cityGhaziabad from "../../assets/images/city-ghaziabad.jpg";
 import cityGurugram from "../../assets/images/city-gurugram.jpg";
@@ -114,10 +110,6 @@ const cityImages: Record<string, string> = {
   bhubaneswar: cityBhubaneswar,
   udaipur: cityUdaipur,
   amritsar: cityAmritsar,
-  hampi: cityHampi,
-  rishikesh: cityRishikesh,
-  deoghar: cityDeoghar,
-  gaya: cityGaya,
   noida: cityNoida,
   ghaziabad: cityGhaziabad,
   gurugram: cityGurugram,
