@@ -450,10 +450,10 @@ export function Locations({ locations }: LocationsProps) {
   }, [dragActiveId, endDrag, cancelLongPress, handlePointerMoveRaw]);
 
   return (
-    <section ref={sectionRef} id="locations" className="py-20 sm:py-24 bg-white dark:bg-background">
+    <section ref={sectionRef} id="locations" className="py-10 sm:py-16 bg-white dark:bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

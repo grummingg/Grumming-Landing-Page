@@ -223,7 +223,7 @@ export function Categories({ categories }: CategoriesProps) {
   const rightCategories = categories.slice(3, 6);
 
   return (
-    <section id="categories" className="py-20 sm:py-24 bg-background">
+    <section id="categories" className="py-10 sm:py-16 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
