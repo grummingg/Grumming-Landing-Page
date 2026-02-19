@@ -187,7 +187,7 @@ export function Locations({ locations }: LocationsProps) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2 sm:gap-3">
+        <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1.5 sm:gap-2">
           {locations.map((location, index) => {
             const image = cityImages[location.image];
             const isHighlighted = location.id === highlightedId;
@@ -218,9 +218,9 @@ export function Locations({ locations }: LocationsProps) {
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-1.5 sm:p-2">
+                  <div className="absolute bottom-0 left-0 right-0 p-1 sm:p-1.5">
                     <span
-                      className="text-white font-semibold text-[10px] sm:text-xs leading-tight drop-shadow-md truncate block"
+                      className="text-white font-semibold text-[8px] sm:text-[10px] leading-tight drop-shadow-md truncate block"
                       data-testid={`text-location-name-${location.id}`}
                     >
                       {location.name}
