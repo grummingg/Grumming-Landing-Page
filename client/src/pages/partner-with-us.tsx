@@ -198,7 +198,7 @@ export default function PartnerWithUs() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Button
                   className="bg-accent text-accent-foreground border-accent-border"
-                  onClick={() => window.open("mailto:partners@grumming.com?subject=Partnership%20Inquiry", "_blank")}
+                  onClick={() => window.open("mailto:partners@grumming.com?subject=Partnership%20Inquiry", "_blank", "noopener,noreferrer")}
                   data-testid="button-email-partner"
                 >
                   <Mail className="w-4 h-4 mr-2" />
@@ -206,7 +206,7 @@ export default function PartnerWithUs() {
                 </Button>
                 <Button
                   variant="outline"
-                  onClick={() => window.open("https://wa.me/919229506624?text=Hi%2C%20I'm%20interested%20in%20partnering%20with%20Grumming.", "_blank")}
+                  onClick={() => window.open("https://wa.me/919229506624?text=Hi%2C%20I'm%20interested%20in%20partnering%20with%20Grumming.", "_blank", "noopener,noreferrer")}
                   data-testid="button-whatsapp-partner"
                 >
                   <Phone className="w-4 h-4 mr-2" />
