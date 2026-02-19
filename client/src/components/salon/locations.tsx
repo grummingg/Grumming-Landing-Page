@@ -144,12 +144,15 @@ function getSpan(size: CardSize): { col: number; row: number } {
 
 function getTextSize(size: CardSize): string {
   switch (size) {
-    case "2x2": return "text-xs sm:text-sm font-bold";
-    case "1x2":
-    case "2x1": return "text-[9px] sm:text-xs font-bold";
+    case "2x2": return "text-sm sm:text-base font-bold";
+    case "1x2": return "text-[10px] sm:text-xs font-bold";
+    case "2x1": return "text-[10px] sm:text-xs font-bold";
     default: return "text-[8px] sm:text-[10px] font-semibold";
   }
 }
+
+const MAX_SPECIAL = 5;
+const MAX_GRID_CELLS_EXTRA = 12;
 
 export function Locations({ locations }: LocationsProps) {
   const [order, setOrder] = useState<Location[]>([]);
@@ -180,12 +183,17 @@ export function Locations({ locations }: LocationsProps) {
     const initial = [...locations].sort(() => Math.random() - 0.5);
     setOrder(initial);
     locationsRef.current = initial;
-    const specialCount = Math.max(4, Math.floor(locations.length / 10));
     const map = new Map<string, CardSize>();
     const shuffledInit = [...initial].sort(() => Math.random() - 0.5);
-    for (let i = 0; i < specialCount; i++) {
+    let extraCells = 0;
+    for (let i = 0; i < shuffledInit.length && map.size < MAX_SPECIAL; i++) {
       const sz = SPECIAL_SIZES[Math.floor(Math.random() * SPECIAL_SIZES.length)];
-      map.set(shuffledInit[i].id, sz);
+      const { col, row } = getSpan(sz);
+      const cellsUsed = col * row - 1;
+      if (extraCells + cellsUsed <= MAX_GRID_CELLS_EXTRA) {
+        map.set(shuffledInit[i].id, sz);
+        extraCells += cellsUsed;
+      }
     }
     setSizeMap(map);
   }, [locations]);
@@ -227,11 +235,22 @@ export function Locations({ locations }: LocationsProps) {
                 const removeId = specialIds[Math.floor(Math.random() * specialIds.length)];
                 next.delete(removeId);
               }
-              const available = currentOrder.filter(l => !next.has(l.id));
-              if (available.length > 0) {
-                const addLoc = available[Math.floor(Math.random() * available.length)];
-                const newSize = SPECIAL_SIZES[Math.floor(Math.random() * SPECIAL_SIZES.length)];
-                next.set(addLoc.id, newSize);
+              let extraCells = 0;
+              next.forEach((sz) => {
+                const { col, row } = getSpan(sz);
+                extraCells += col * row - 1;
+              });
+              if (next.size < MAX_SPECIAL) {
+                const available = currentOrder.filter(l => !next.has(l.id));
+                if (available.length > 0) {
+                  const addLoc = available[Math.floor(Math.random() * available.length)];
+                  const newSize = SPECIAL_SIZES[Math.floor(Math.random() * SPECIAL_SIZES.length)];
+                  const { col, row } = getSpan(newSize);
+                  const newExtra = col * row - 1;
+                  if (extraCells + newExtra <= MAX_GRID_CELLS_EXTRA) {
+                    next.set(addLoc.id, newSize);
+                  }
+                }
               }
               return next;
             });
@@ -320,9 +339,9 @@ export function Locations({ locations }: LocationsProps) {
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-1 sm:p-1.5">
+                  <div className={`absolute bottom-0 left-0 right-0 ${isSpecial ? "p-1.5 sm:p-2" : "p-1 sm:p-1.5"}`}>
                     <span
-                      className={`text-white ${textSize} leading-tight drop-shadow-md truncate block`}
+                      className={`text-white ${textSize} leading-tight drop-shadow-md block ${isSpecial ? "" : "truncate"}`}
                       data-testid={`text-location-name-${location.id}`}
                     >
                       {location.name}
