@@ -27,6 +27,7 @@ import HelpCenter from "@/pages/help-center";
 import ReportIssue from "@/pages/report-issue";
 import RefundPolicy from "@/pages/refund-policy";
 import Disclaimer from "@/pages/disclaimer";
+import PartnerWithUs from "@/pages/partner-with-us";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -46,6 +47,7 @@ function Router() {
       <Route path="/report-issue" component={ReportIssue} />
       <Route path="/refund-policy" component={RefundPolicy} />
       <Route path="/disclaimer" component={Disclaimer} />
+      <Route path="/partner-with-us" component={PartnerWithUs} />
       <Route component={NotFound} />
     </Switch>
   );
