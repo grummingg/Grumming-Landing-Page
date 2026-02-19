@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Location } from "@shared/schema";
 
@@ -157,6 +157,14 @@ const MAX_GRID_CELLS_EXTRA = 12;
 const LONG_PRESS_MS = 1000;
 const MOBILE_BREAKPOINT = 640;
 
+const MOBILE_CITY_IDS = new Set([
+  "delhi", "mumbai", "bangalore", "chennai", "hyderabad",
+  "pune", "jaipur", "kolkata", "ahmedabad", "lucknow",
+  "chandigarh", "surat", "kochi", "indore", "agra",
+  "varanasi", "guwahati", "udaipur", "amritsar", "noida",
+  "mysore", "dehradun", "panaji", "jodhpur", "bhopal",
+]);
+
 function CityImage({ src, alt }: { src?: string; alt: string }) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
@@ -207,6 +215,11 @@ export function Locations({ locations }: LocationsProps) {
   const pressStartPos = useRef<{ x: number; y: number } | null>(null);
 
   const shouldAnimate = () => isVisibleRef.current && !hoverPausedRef.current;
+
+  const visibleOrder = useMemo(() => {
+    if (!isMobile) return order;
+    return order.filter(loc => MOBILE_CITY_IDS.has(loc.image));
+  }, [order, isMobile]);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -460,7 +473,7 @@ export function Locations({ locations }: LocationsProps) {
             touchAction: dragActiveId ? "none" : "auto",
           }}
         >
-          {order.map((location) => {
+          {visibleOrder.map((location) => {
             const image = cityImages[location.image];
             const size: CardSize = isMobile ? "1x1" : (sizeMap.get(location.id) || "1x1");
             const { col, row } = getSpan(size);
