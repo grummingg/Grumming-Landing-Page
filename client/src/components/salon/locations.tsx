@@ -53,7 +53,7 @@ export function Locations({ locations }: LocationsProps) {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
                 <div
-                  className="group cursor-pointer relative rounded-xl overflow-hidden aspect-[3/4] shadow-md"
+                  className="group cursor-pointer relative rounded-xl overflow-hidden aspect-[3/4] shadow-lg transition-shadow duration-300 ring-1 ring-black/5 dark:ring-white/10"
                   data-testid={`card-location-${location.id}`}
                 >
                   {image && (
@@ -64,19 +64,22 @@ export function Locations({ locations }: LocationsProps) {
                       loading="lazy"
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3
-                      className="font-bold text-lg text-white"
-                      data-testid={`text-location-name-${location.id}`}
-                    >
-                      {location.name}
-                    </h3>
-                    <div className="flex items-center gap-1 mt-1">
-                      <MapPin className="w-3.5 h-3.5 text-white/70" />
-                      <span className="text-white/70 text-xs font-medium">
-                        {location.salonCount}+ businesses
-                      </span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+                  <div className="absolute bottom-0 left-0 right-0">
+                    <div className="h-[3px] w-full bg-gradient-to-r from-primary via-accent to-primary opacity-80" />
+                    <div className="p-4 pt-3">
+                      <h3
+                        className="font-bold text-lg text-white drop-shadow-sm"
+                        data-testid={`text-location-name-${location.id}`}
+                      >
+                        {location.name}
+                      </h3>
+                      <div className="flex items-center gap-1.5 mt-1">
+                        <MapPin className="w-3 h-3 text-amber-400" />
+                        <span className="text-white/80 text-xs font-medium">
+                          {location.salonCount}+ businesses
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
