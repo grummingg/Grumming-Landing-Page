@@ -154,7 +154,7 @@ function getTextSize(size: CardSize): string {
 const MAX_SPECIAL = 5;
 const MAX_GRID_CELLS_EXTRA = 12;
 
-const LONG_PRESS_MS = 1500;
+const LONG_PRESS_MS = 1000;
 
 export function Locations({ locations }: LocationsProps) {
   const [order, setOrder] = useState<Location[]>([]);
