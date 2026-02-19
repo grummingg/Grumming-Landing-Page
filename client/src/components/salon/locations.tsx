@@ -174,7 +174,7 @@ export function Locations({ locations }: LocationsProps) {
     if (locations.length === 0) return;
 
     const scheduleSwap = () => {
-      const delay = 800 + Math.random() * 1200;
+      const delay = 100 + Math.random() * 1900;
       swapTimerRef.current = setTimeout(() => {
         if (shouldAnimate()) {
           setOrder(prev => {
@@ -191,7 +191,7 @@ export function Locations({ locations }: LocationsProps) {
     };
 
     const scheduleSize = () => {
-      const delay = 2000 + Math.random() * 2000;
+      const delay = 200 + Math.random() * 2300;
       sizeTimerRef.current = setTimeout(() => {
         if (shouldAnimate()) {
           const currentOrder = locationsRef.current;
@@ -231,9 +231,10 @@ export function Locations({ locations }: LocationsProps) {
 
   const scheduleResume = () => {
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    const resumeDelay = 100 + Math.random() * 1900;
     resumeTimerRef.current = setTimeout(() => {
       hoverPausedRef.current = false;
-    }, 4000);
+    }, resumeDelay);
   };
 
   return (
