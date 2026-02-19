@@ -38,19 +38,11 @@ import cityNoida from "../../assets/images/city-noida.jpg";
 import cityGhaziabad from "../../assets/images/city-ghaziabad.jpg";
 import cityGurugram from "../../assets/images/city-gurugram.jpg";
 import cityFaridabad from "../../assets/images/city-faridabad.jpg";
-import cityAmravati from "../../assets/images/city-amravati.jpg";
-import cityBhavnagar from "../../assets/images/city-bhavnagar.jpg";
-import citySambalpur from "../../assets/images/city-sambalpur.jpg";
-import cityShimoga from "../../assets/images/city-shimoga.jpg";
 import cityMysore from "../../assets/images/city-mysore.jpg";
 import cityMangalore from "../../assets/images/city-mangalore.jpg";
 import cityRaipur from "../../assets/images/city-raipur.jpg";
 import cityDehradun from "../../assets/images/city-dehradun.jpg";
 import cityPanaji from "../../assets/images/city-panaji.jpg";
-import cityGangtok from "../../assets/images/city-gangtok.jpg";
-import cityImphal from "../../assets/images/city-imphal.jpg";
-import cityShillong from "../../assets/images/city-shillong.jpg";
-import cityAgartala from "../../assets/images/city-agartala.jpg";
 import cityThane from "../../assets/images/city-thane.jpg";
 import cityNaviMumbai from "../../assets/images/city-navimumbai.jpg";
 import cityPrayagraj from "../../assets/images/city-prayagraj.jpg";
@@ -70,7 +62,6 @@ import citySiliguri from "../../assets/images/city-siliguri.jpg";
 import cityPondicherry from "../../assets/images/city-pondicherry.jpg";
 import cityAjmer from "../../assets/images/city-ajmer.jpg";
 import citySrinagar from "../../assets/images/city-srinagar.jpg";
-import cityLeh from "../../assets/images/city-leh.jpg";
 
 interface LocationsProps {
   locations: Location[];
@@ -113,19 +104,11 @@ const cityImages: Record<string, string> = {
   ghaziabad: cityGhaziabad,
   gurugram: cityGurugram,
   faridabad: cityFaridabad,
-  amravati: cityAmravati,
-  bhavnagar: cityBhavnagar,
-  sambalpur: citySambalpur,
-  shimoga: cityShimoga,
   mysore: cityMysore,
   mangalore: cityMangalore,
   raipur: cityRaipur,
   dehradun: cityDehradun,
   panaji: cityPanaji,
-  gangtok: cityGangtok,
-  imphal: cityImphal,
-  shillong: cityShillong,
-  agartala: cityAgartala,
   thane: cityThane,
   navimumbai: cityNaviMumbai,
   prayagraj: cityPrayagraj,
@@ -145,7 +128,6 @@ const cityImages: Record<string, string> = {
   pondicherry: cityPondicherry,
   ajmer: cityAjmer,
   srinagar: citySrinagar,
-  leh: cityLeh,
 };
 
 export function Locations({ locations }: LocationsProps) {
