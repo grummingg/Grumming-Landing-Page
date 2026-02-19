@@ -77,7 +77,7 @@ export function Locations({ locations }: LocationsProps) {
                       <div className="flex items-center gap-1.5 mt-1">
                         <MapPin className="w-3 h-3 text-amber-400" />
                         <span className="text-white/80 text-xs font-medium">
-                          {location.salonCount}+ businesses
+                          businesses
                         </span>
                       </div>
                     </div>
