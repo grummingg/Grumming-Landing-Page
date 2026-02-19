@@ -19,6 +19,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { insertContactMessageSchema, type InsertContactMessage } from "@shared/schema";
+import { SalonFooter } from "@/components/salon/footer";
 
 const contactInfo = [
   {
@@ -279,6 +280,8 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+
+      <SalonFooter />
     </div>
   );
 }
