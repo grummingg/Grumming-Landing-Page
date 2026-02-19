@@ -11,9 +11,27 @@ import cityPune from "../../assets/images/city-pune.jpg";
 import cityJaipur from "../../assets/images/city-jaipur.jpg";
 import cityKolkata from "../../assets/images/city-kolkata.jpg";
 import cityAhmedabad from "../../assets/images/city-ahmedabad.jpg";
-import cityGoa from "../../assets/images/city-goa.jpg";
 import cityLucknow from "../../assets/images/city-lucknow.jpg";
 import cityChandigarh from "../../assets/images/city-chandigarh.jpg";
+import citySurat from "../../assets/images/city-surat.jpg";
+import cityKanpur from "../../assets/images/city-kanpur.jpg";
+import cityNagpur from "../../assets/images/city-nagpur.jpg";
+import cityVisakhapatnam from "../../assets/images/city-visakhapatnam.jpg";
+import cityPatna from "../../assets/images/city-patna.jpg";
+import cityBhopal from "../../assets/images/city-bhopal.jpg";
+import cityIndore from "../../assets/images/city-indore.jpg";
+import cityVadodara from "../../assets/images/city-vadodara.jpg";
+import cityLudhiana from "../../assets/images/city-ludhiana.jpg";
+import cityAgra from "../../assets/images/city-agra.jpg";
+import cityVaranasi from "../../assets/images/city-varanasi.jpg";
+import cityCoimbatore from "../../assets/images/city-coimbatore.jpg";
+import cityKochi from "../../assets/images/city-kochi.jpg";
+import cityThiruvananthapuram from "../../assets/images/city-thiruvananthapuram.jpg";
+import cityMadurai from "../../assets/images/city-madurai.jpg";
+import cityNashik from "../../assets/images/city-nashik.jpg";
+import cityRanchi from "../../assets/images/city-ranchi.jpg";
+import cityGuwahati from "../../assets/images/city-guwahati.jpg";
+import cityBhubaneswar from "../../assets/images/city-bhubaneswar.jpg";
 
 interface LocationsProps {
   locations: Location[];
@@ -29,9 +47,27 @@ const cityImages: Record<string, string> = {
   jaipur: cityJaipur,
   kolkata: cityKolkata,
   ahmedabad: cityAhmedabad,
-  goa: cityGoa,
   lucknow: cityLucknow,
   chandigarh: cityChandigarh,
+  surat: citySurat,
+  kanpur: cityKanpur,
+  nagpur: cityNagpur,
+  visakhapatnam: cityVisakhapatnam,
+  patna: cityPatna,
+  bhopal: cityBhopal,
+  indore: cityIndore,
+  vadodara: cityVadodara,
+  ludhiana: cityLudhiana,
+  agra: cityAgra,
+  varanasi: cityVaranasi,
+  coimbatore: cityCoimbatore,
+  kochi: cityKochi,
+  thiruvananthapuram: cityThiruvananthapuram,
+  madurai: cityMadurai,
+  nashik: cityNashik,
+  ranchi: cityRanchi,
+  guwahati: cityGuwahati,
+  bhubaneswar: cityBhubaneswar,
 };
 
 export function Locations({ locations }: LocationsProps) {
@@ -77,7 +113,7 @@ export function Locations({ locations }: LocationsProps) {
     <section id="locations" className="py-20 sm:py-24 bg-white dark:bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-14"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -91,17 +127,17 @@ export function Locations({ locations }: LocationsProps) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
+        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-10 gap-2 sm:gap-3">
           {locations.map((location, index) => {
             const image = cityImages[location.image];
             const isHighlighted = location.id === highlightedId;
             return (
               <motion.div
                 key={location.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                transition={{ duration: 0.3, delay: index * 0.03 }}
                 className="relative"
                 style={{ zIndex: isHighlighted ? 10 : 1 }}
                 onMouseEnter={() => pauseAndHighlight(location.id)}
@@ -109,7 +145,7 @@ export function Locations({ locations }: LocationsProps) {
                 onClick={() => pauseAndHighlight(location.id)}
               >
                 <div
-                  className="cursor-pointer relative rounded-xl overflow-hidden shadow-md ring-1 ring-black/5 dark:ring-white/10"
+                  className="cursor-pointer relative rounded-lg overflow-hidden shadow-sm ring-1 ring-black/5 dark:ring-white/10"
                   style={{ aspectRatio: "1 / 1" }}
                   data-testid={`card-location-${location.id}`}
                 >
@@ -121,10 +157,10 @@ export function Locations({ locations }: LocationsProps) {
                       loading="lazy"
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-2.5">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-1.5 sm:p-2">
                     <span
-                      className="text-white font-semibold text-xs sm:text-sm drop-shadow-sm"
+                      className="text-white font-semibold text-[10px] sm:text-xs leading-tight drop-shadow-md truncate block"
                       data-testid={`text-location-name-${location.id}`}
                     >
                       {location.name}
@@ -135,10 +171,10 @@ export function Locations({ locations }: LocationsProps) {
                 <AnimatePresence>
                   {isHighlighted && (
                     <motion.div
-                      className="absolute -inset-3 sm:-inset-4 rounded-2xl overflow-hidden shadow-2xl ring-2 ring-primary/50 cursor-pointer"
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      className="absolute -inset-2 sm:-inset-3 rounded-xl overflow-hidden shadow-2xl ring-2 ring-primary/50 cursor-pointer"
+                      initial={{ opacity: 0, scale: 0.85 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.8 }}
+                      exit={{ opacity: 0, scale: 0.85 }}
                       transition={{ type: "spring", stiffness: 400, damping: 25 }}
                     >
                       {image && (
@@ -149,8 +185,8 @@ export function Locations({ locations }: LocationsProps) {
                         />
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-                        <span className="inline-block px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md text-white font-bold text-sm sm:text-base tracking-wide">
+                      <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
+                        <span className="inline-block px-2 py-0.5 rounded bg-white/20 backdrop-blur-md text-white font-bold text-xs sm:text-sm tracking-wide">
                           {location.name}
                         </span>
                       </div>
