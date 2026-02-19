@@ -34,7 +34,7 @@ const features = [
   },
   {
     icon: Smartphone,
-    title: "Salon Dashboard App",
+    title: "Business Dashboard App",
     description: "Manage everything from your phone — accept bookings, update services, respond to reviews, and more.",
     color: "text-purple-500",
     bg: "bg-purple-500/10",
@@ -57,15 +57,15 @@ const features = [
 
 const stats = [
   { value: "3x", label: "More Bookings" },
-  { value: "500+", label: "Salons Onboard" },
+  { value: "500+", label: "Businesses Onboard" },
   { value: "40%", label: "Revenue Growth" },
   { value: "Free", label: "To Get Started" },
 ];
 
 const steps = [
-  { step: "1", title: "Register Your Salon", description: "Sign up with your business details — it takes less than 5 minutes." },
+  { step: "1", title: "Register Your Business", description: "Sign up with your business details — it takes less than 5 minutes." },
   { step: "2", title: "Set Up Your Profile", description: "Add services, pricing, photos, and set your working hours." },
-  { step: "3", title: "Get Verified", description: "Our team reviews your salon and grants a verified badge." },
+  { step: "3", title: "Get Verified", description: "Our team reviews your business and grants a verified badge." },
   { step: "4", title: "Start Earning", description: "Go live and receive bookings from customers in your area." },
 ];
 
@@ -82,9 +82,9 @@ export default function ForSalonOwners() {
             </span>
           </Link>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-3">For Salon Owners</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6" data-testid="text-salon-owners-title">
-              Your salon deserves<br />more customers
+            <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-3">For Business Owners</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6" data-testid="text-business-owners-title">
+              Your business deserves<br />more customers
             </h1>
             <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed mb-8">
               Join Grumming and let thousands of customers discover, book, and love your services — all for free.
@@ -115,7 +115,7 @@ export default function ForSalonOwners() {
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-2">Why Grumming</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Everything you need to grow</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mb-12">
-              Powerful tools designed specifically for salon businesses to attract customers, manage bookings, and increase revenue.
+              Powerful tools designed specifically for beauty and grooming businesses to attract customers, manage bookings, and increase revenue.
             </p>
           </motion.div>
 
@@ -166,9 +166,9 @@ export default function ForSalonOwners() {
             <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
               <Store className="w-7 h-7 text-primary" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Ready to grow your salon?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Ready to grow your business?</h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-              Join 500+ salon partners already using Grumming to attract new customers and grow their business.
+              Join 500+ partners already using Grumming to attract new customers and grow their business.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/partner-with-us">

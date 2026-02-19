@@ -45,7 +45,7 @@ export function SalonFooter() {
       { name: "Disclaimer", url: "/disclaimer", scrollTo: null },
     ],
     Business: [
-      { name: "For Salon Owners", url: "/for-salon-owners", scrollTo: null },
+      { name: "For Business Owners", url: "/for-salon-owners", scrollTo: null },
       { name: "Partner with Us", url: "/partner-with-us", scrollTo: null },
       { name: "Advertise", url: "/advertise", scrollTo: null },
       { name: "Franchise", url: "/franchise", scrollTo: null },
