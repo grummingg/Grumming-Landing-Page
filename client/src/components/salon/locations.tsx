@@ -38,6 +38,17 @@ import cityHampi from "../../assets/images/city-hampi.jpg";
 import cityRishikesh from "../../assets/images/city-rishikesh.jpg";
 import cityDeoghar from "../../assets/images/city-deoghar.jpg";
 import cityGaya from "../../assets/images/city-gaya.jpg";
+import cityNoida from "../../assets/images/city-noida.jpg";
+import cityGhaziabad from "../../assets/images/city-ghaziabad.jpg";
+import cityGurugram from "../../assets/images/city-gurugram.jpg";
+import cityFaridabad from "../../assets/images/city-faridabad.jpg";
+import cityAmravati from "../../assets/images/city-amravati.jpg";
+import cityBhavnagar from "../../assets/images/city-bhavnagar.jpg";
+import cityHaldia from "../../assets/images/city-haldia.jpg";
+import citySambalpur from "../../assets/images/city-sambalpur.jpg";
+import cityShimoga from "../../assets/images/city-shimoga.jpg";
+import cityMysore from "../../assets/images/city-mysore.jpg";
+import cityMangalore from "../../assets/images/city-mangalore.jpg";
 
 interface LocationsProps {
   locations: Location[];
@@ -80,6 +91,17 @@ const cityImages: Record<string, string> = {
   rishikesh: cityRishikesh,
   deoghar: cityDeoghar,
   gaya: cityGaya,
+  noida: cityNoida,
+  ghaziabad: cityGhaziabad,
+  gurugram: cityGurugram,
+  faridabad: cityFaridabad,
+  amravati: cityAmravati,
+  bhavnagar: cityBhavnagar,
+  haldia: cityHaldia,
+  sambalpur: citySambalpur,
+  shimoga: cityShimoga,
+  mysore: cityMysore,
+  mangalore: cityMangalore,
 };
 
 export function Locations({ locations }: LocationsProps) {

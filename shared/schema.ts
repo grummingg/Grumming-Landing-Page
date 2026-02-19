@@ -114,6 +114,17 @@ export const defaultSalonConfig: SalonConfig = {
     { id: "34", name: "Rishikesh", image: "rishikesh", salonCount: 30 },
     { id: "35", name: "Deoghar", image: "deoghar", salonCount: 15 },
     { id: "36", name: "Gaya", image: "gaya", salonCount: 20 },
+    { id: "37", name: "Noida", image: "noida", salonCount: 90 },
+    { id: "38", name: "Ghaziabad", image: "ghaziabad", salonCount: 65 },
+    { id: "39", name: "Gurugram", image: "gurugram", salonCount: 110 },
+    { id: "40", name: "Faridabad", image: "faridabad", salonCount: 50 },
+    { id: "41", name: "Amravati", image: "amravati", salonCount: 30 },
+    { id: "42", name: "Bhavnagar", image: "bhavnagar", salonCount: 25 },
+    { id: "43", name: "Haldia", image: "haldia", salonCount: 15 },
+    { id: "44", name: "Sambalpur", image: "sambalpur", salonCount: 20 },
+    { id: "45", name: "Shimoga", image: "shimoga", salonCount: 25 },
+    { id: "46", name: "Mysore", image: "mysore", salonCount: 70 },
+    { id: "47", name: "Mangalore", image: "mangalore", salonCount: 55 },
   ],
   featuredSalons: [
     {
