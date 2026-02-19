@@ -450,16 +450,6 @@ export function Categories({ categories }: CategoriesProps) {
                     src={currentVideo}
                     testId="video-salon-services"
                   />
-                  {selectedCategory && (
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
-                      <div
-                        className="bg-black/60 backdrop-blur-sm rounded-full px-3.5 py-1.5"
-                        data-testid="label-active-category-desktop"
-                      >
-                        <span className="text-white text-sm font-semibold">{selectedCategory.name}</span>
-                      </div>
-                    </div>
-                  )}
                 </div>
                 <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-7 bg-[#0f172a] rounded-full" />
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-gray-700 rounded-full" />
@@ -513,16 +503,6 @@ export function Categories({ categories }: CategoriesProps) {
                     src={currentVideo}
                     testId="video-salon-services-mobile"
                   />
-                  {selectedCategory && (
-                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20">
-                      <div
-                        className="bg-black/60 backdrop-blur-sm rounded-full px-3 py-1.5"
-                        data-testid="label-active-category-mobile"
-                      >
-                        <span className="text-white text-xs font-semibold">{selectedCategory.name}</span>
-                      </div>
-                    </div>
-                  )}
                 </div>
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-[#0f172a] rounded-full" />
                 <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-gray-700 rounded-full" />
