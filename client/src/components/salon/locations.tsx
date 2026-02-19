@@ -40,7 +40,7 @@ export function Locations({ locations }: LocationsProps) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
           {locations.map((location, index) => {
             const image = cityImages[location.image];
             return (
@@ -52,7 +52,7 @@ export function Locations({ locations }: LocationsProps) {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
                 <div
-                  className="group cursor-pointer relative rounded-xl overflow-hidden aspect-[3/4] shadow-lg transition-shadow duration-300 ring-1 ring-black/5 dark:ring-white/10"
+                  className="group cursor-pointer relative rounded-2xl overflow-hidden aspect-[4/3] shadow-md ring-1 ring-black/5 dark:ring-white/10"
                   data-testid={`card-location-${location.id}`}
                 >
                   {image && (
@@ -63,17 +63,14 @@ export function Locations({ locations }: LocationsProps) {
                       loading="lazy"
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
-                  <div className="absolute bottom-0 left-0 right-0">
-                    <div className="h-[3px] w-full bg-gradient-to-r from-primary via-accent to-primary opacity-80" />
-                    <div className="p-4 pt-3">
-                      <h3
-                        className="font-bold text-lg text-white drop-shadow-sm"
-                        data-testid={`text-location-name-${location.id}`}
-                      >
-                        {location.name}
-                      </h3>
-                    </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                    <span
+                      className="inline-block px-3 py-1 rounded-md bg-white/20 backdrop-blur-md text-white font-semibold text-sm sm:text-base tracking-wide"
+                      data-testid={`text-location-name-${location.id}`}
+                    >
+                      {location.name}
+                    </span>
                   </div>
                 </div>
               </motion.div>
