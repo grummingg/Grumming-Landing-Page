@@ -40,7 +40,6 @@ import cityGurugram from "../../assets/images/city-gurugram.jpg";
 import cityFaridabad from "../../assets/images/city-faridabad.jpg";
 import cityAmravati from "../../assets/images/city-amravati.jpg";
 import cityBhavnagar from "../../assets/images/city-bhavnagar.jpg";
-import cityHaldia from "../../assets/images/city-haldia.jpg";
 import citySambalpur from "../../assets/images/city-sambalpur.jpg";
 import cityShimoga from "../../assets/images/city-shimoga.jpg";
 import cityMysore from "../../assets/images/city-mysore.jpg";
@@ -116,7 +115,6 @@ const cityImages: Record<string, string> = {
   faridabad: cityFaridabad,
   amravati: cityAmravati,
   bhavnagar: cityBhavnagar,
-  haldia: cityHaldia,
   sambalpur: citySambalpur,
   shimoga: cityShimoga,
   mysore: cityMysore,

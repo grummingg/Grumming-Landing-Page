@@ -116,7 +116,6 @@ export const defaultSalonConfig: SalonConfig = {
     { id: "40", name: "Faridabad", image: "faridabad", salonCount: 50 },
     { id: "41", name: "Amravati", image: "amravati", salonCount: 30 },
     { id: "42", name: "Bhavnagar", image: "bhavnagar", salonCount: 25 },
-    { id: "43", name: "Haldia", image: "haldia", salonCount: 15 },
     { id: "44", name: "Sambalpur", image: "sambalpur", salonCount: 20 },
     { id: "45", name: "Shimoga", image: "shimoga", salonCount: 25 },
     { id: "46", name: "Mysore", image: "mysore", salonCount: 70 },
