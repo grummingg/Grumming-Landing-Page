@@ -28,6 +28,10 @@ import ReportIssue from "@/pages/report-issue";
 import RefundPolicy from "@/pages/refund-policy";
 import Disclaimer from "@/pages/disclaimer";
 import PartnerWithUs from "@/pages/partner-with-us";
+import ForSalonOwners from "@/pages/for-salon-owners";
+import Advertise from "@/pages/advertise";
+import Franchise from "@/pages/franchise";
+import BulkBookings from "@/pages/bulk-bookings";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -48,6 +52,10 @@ function Router() {
       <Route path="/refund-policy" component={RefundPolicy} />
       <Route path="/disclaimer" component={Disclaimer} />
       <Route path="/partner-with-us" component={PartnerWithUs} />
+      <Route path="/for-salon-owners" component={ForSalonOwners} />
+      <Route path="/advertise" component={Advertise} />
+      <Route path="/franchise" component={Franchise} />
+      <Route path="/bulk-bookings" component={BulkBookings} />
       <Route component={NotFound} />
     </Switch>
   );
