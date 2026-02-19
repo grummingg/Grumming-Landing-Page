@@ -1,200 +1,386 @@
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, Shield, UserCheck, AlertCircle, Phone, Eye, Lock } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowLeft, Shield, UserCheck, AlertCircle, Phone, Eye, Lock, CheckCircle2, MessageSquare, MapPin, Mail } from "lucide-react";
 import { Link } from "wouter";
+import { SalonFooter } from "@/components/salon/footer";
+import { Card } from "@/components/ui/card";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5 },
+};
+
+const features = [
+  {
+    icon: CheckCircle2,
+    title: "Real-Time Booking Tracking",
+    description: "Share your booking details with trusted contacts so they know where you are and when to expect you back.",
+    color: "text-blue-500",
+    bg: "bg-blue-500/10",
+  },
+  {
+    icon: MessageSquare,
+    title: "In-App Support",
+    description: "Access 24/7 customer support directly from the app if you encounter any issues during your visit.",
+    color: "text-green-500",
+    bg: "bg-green-500/10",
+  },
+  {
+    icon: Eye,
+    title: "Verified Reviews",
+    description: "All reviews come from verified customers who have actually visited the salon, ensuring authentic feedback.",
+    color: "text-amber-500",
+    bg: "bg-amber-500/10",
+  },
+  {
+    icon: Lock,
+    title: "Secure Payments",
+    description: "All transactions are encrypted and processed through secure payment gateways. We never store your full card details.",
+    color: "text-purple-500",
+    bg: "bg-purple-500/10",
+  },
+];
+
+const verificationSteps = [
+  "Business License Verification: We verify that all salons hold valid business licenses and permits",
+  "Hygiene Standards: Salons must meet our hygiene and cleanliness standards",
+  "Professional Staff: We ensure staff are trained and certified for the services they offer",
+  "Regular Audits: Partner salons undergo periodic reviews to maintain quality standards",
+  "Customer Ratings: Salons with consistently low ratings are reviewed and may be removed",
+];
+
+const hygieneStandards = [
+  "Sanitized tools and equipment between each customer",
+  "Clean and well-maintained facilities",
+  "Proper disposal of single-use items",
+  "Regular deep cleaning schedules",
+  "Staff trained in hygiene protocols",
+  "Use of quality, tested products",
+];
+
+const dataProtectionMeasures = [
+  { label: "Encryption", desc: "All data is encrypted in transit and at rest" },
+  { label: "Limited Access", desc: "Salons only see information necessary for your appointment" },
+  { label: "No Data Selling", desc: "We never sell your personal information to third parties" },
+  { label: "Secure Storage", desc: "Your data is stored on secure, industry-standard servers" },
+  { label: "Privacy Controls", desc: "You can manage what information is visible in your profile" },
+];
+
+const reportingConcerns = [
+  "Inappropriate behavior by salon staff",
+  "Unhygienic conditions or practices",
+  "Misrepresentation of services",
+  "Safety hazards at the location",
+  "Billing disputes or fraud",
+  "Any other concerning situations",
+];
+
+const emergencyContacts = [
+  { title: "Police Emergency", number: "100" },
+  { title: "Women Helpline", number: "1091" },
+  { title: "Medical Emergency", number: "108" },
+  { title: "Grumming Support", number: "support@grumming.com" },
+];
+
+const safetyTips = [
+  "Read salon reviews before booking",
+  "Check the salon's ratings and verification status",
+  "Communicate any allergies or sensitivities before your appointment",
+  "Trust your instincts - if something feels wrong, leave and report",
+  "Share your booking details with someone you trust",
+  "Keep your app updated for the latest safety features",
+];
+
+const reportingSteps = [
+  "Open the Grumming app and go to your booking history",
+  "Select the relevant booking",
+  "Tap \"Report an Issue\"",
+  "Describe your concern in detail",
+  "Our safety team will review and respond within 24 hours",
+];
 
 export default function Safety() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <Link href="/">
-          <Button variant="ghost" className="mb-8" data-testid="button-back-home">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </Button>
-        </Link>
+      <section className="relative bg-[#0f172a] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <Link href="/">
+            <button className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm mb-10" data-testid="button-back-home">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </button>
+          </Link>
 
-        <h1 className="text-4xl font-bold mb-2" data-testid="text-safety-title">Safety</h1>
-        <p className="text-muted-foreground mb-8">Your safety is our priority</p>
-
-        <div className="prose prose-gray dark:prose-invert max-w-none space-y-8">
-          <section>
-            <h2 className="text-2xl font-semibold mb-4">Our Commitment to Safety</h2>
-            <p className="text-muted-foreground mb-4">
+          <motion.div {...fadeUp}>
+            <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-3">Safety</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6" data-testid="text-safety-title">
+              Your safety is our top priority
+            </h1>
+            <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed">
               At Grumming, we are committed to creating a safe and trustworthy environment for both customers and salon partners. We have implemented comprehensive safety measures to ensure every booking experience is secure and reliable.
             </p>
-          </section>
-
-          <section>
-            <div className="flex items-center gap-3 mb-4">
-              <UserCheck className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold">Verified Salons</h2>
-            </div>
-            <p className="text-muted-foreground mb-4">
-              Every salon on Grumming goes through a verification process before being listed:
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-              <li><strong className="text-foreground">Business License Verification:</strong> We verify that all salons hold valid business licenses and permits</li>
-              <li><strong className="text-foreground">Hygiene Standards:</strong> Salons must meet our hygiene and cleanliness standards</li>
-              <li><strong className="text-foreground">Professional Staff:</strong> We ensure staff are trained and certified for the services they offer</li>
-              <li><strong className="text-foreground">Regular Audits:</strong> Partner salons undergo periodic reviews to maintain quality standards</li>
-              <li><strong className="text-foreground">Customer Ratings:</strong> Salons with consistently low ratings are reviewed and may be removed</li>
-            </ul>
-          </section>
-
-          <section>
-            <div className="flex items-center gap-3 mb-4">
-              <Shield className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold">Safety Features</h2>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="bg-muted p-4 rounded-md">
-                <h3 className="font-semibold text-foreground mb-2">Real-Time Booking Tracking</h3>
-                <p className="text-muted-foreground text-sm">Share your booking details with trusted contacts so they know where you are and when to expect you back.</p>
-              </div>
-
-              <div className="bg-muted p-4 rounded-md">
-                <h3 className="font-semibold text-foreground mb-2">In-App Support</h3>
-                <p className="text-muted-foreground text-sm">Access 24/7 customer support directly from the app if you encounter any issues during your visit.</p>
-              </div>
-
-              <div className="bg-muted p-4 rounded-md">
-                <h3 className="font-semibold text-foreground mb-2">Verified Reviews</h3>
-                <p className="text-muted-foreground text-sm">All reviews come from verified customers who have actually visited the salon, ensuring authentic feedback.</p>
-              </div>
-
-              <div className="bg-muted p-4 rounded-md">
-                <h3 className="font-semibold text-foreground mb-2">Secure Payments</h3>
-                <p className="text-muted-foreground text-sm">All transactions are encrypted and processed through secure payment gateways. We never store your full card details.</p>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <div className="flex items-center gap-3 mb-4">
-              <Eye className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold">Hygiene & Cleanliness</h2>
-            </div>
-            <p className="text-muted-foreground mb-4">
-              Our partner salons are required to maintain high hygiene standards:
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-              <li>Sanitized tools and equipment between each customer</li>
-              <li>Clean and well-maintained facilities</li>
-              <li>Proper disposal of single-use items</li>
-              <li>Regular deep cleaning schedules</li>
-              <li>Staff trained in hygiene protocols</li>
-              <li>Use of quality, tested products</li>
-            </ul>
-          </section>
-
-          <section>
-            <div className="flex items-center gap-3 mb-4">
-              <Lock className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold">Data Protection</h2>
-            </div>
-            <p className="text-muted-foreground mb-4">
-              Your personal information is protected through:
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-              <li><strong className="text-foreground">Encryption:</strong> All data is encrypted in transit and at rest</li>
-              <li><strong className="text-foreground">Limited Access:</strong> Salons only see information necessary for your appointment</li>
-              <li><strong className="text-foreground">No Data Selling:</strong> We never sell your personal information to third parties</li>
-              <li><strong className="text-foreground">Secure Storage:</strong> Your data is stored on secure, industry-standard servers</li>
-              <li><strong className="text-foreground">Privacy Controls:</strong> You can manage what information is visible in your profile</li>
-            </ul>
-          </section>
-
-          <section>
-            <div className="flex items-center gap-3 mb-4">
-              <AlertCircle className="w-6 h-6 text-orange-500" />
-              <h2 className="text-2xl font-semibold">Reporting Concerns</h2>
-            </div>
-            <p className="text-muted-foreground mb-4">
-              If you experience any safety concerns, please report them immediately:
-            </p>
-            
-            <div className="space-y-4">
-              <div className="bg-orange-50 dark:bg-orange-950/30 p-4 rounded-md border border-orange-200 dark:border-orange-800">
-                <h3 className="font-semibold text-foreground mb-2">What You Can Report</h3>
-                <ul className="list-disc pl-6 space-y-1 text-muted-foreground text-sm">
-                  <li>Inappropriate behavior by salon staff</li>
-                  <li>Unhygienic conditions or practices</li>
-                  <li>Misrepresentation of services</li>
-                  <li>Safety hazards at the location</li>
-                  <li>Billing disputes or fraud</li>
-                  <li>Any other concerning situations</li>
-                </ul>
-              </div>
-
-              <div className="bg-muted p-4 rounded-md">
-                <h3 className="font-semibold text-foreground mb-2">How to Report</h3>
-                <ol className="list-decimal pl-6 space-y-1 text-muted-foreground text-sm">
-                  <li>Open the Grumming app and go to your booking history</li>
-                  <li>Select the relevant booking</li>
-                  <li>Tap "Report an Issue"</li>
-                  <li>Describe your concern in detail</li>
-                  <li>Our safety team will review and respond within 24 hours</li>
-                </ol>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <div className="flex items-center gap-3 mb-4">
-              <Phone className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-semibold">Emergency Contacts</h2>
-            </div>
-            <p className="text-muted-foreground mb-4">
-              In case of emergencies, please contact:
-            </p>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="bg-muted p-4 rounded-md">
-                <p className="font-semibold text-foreground">Police Emergency</p>
-                <p className="text-2xl font-bold text-primary">100</p>
-              </div>
-              <div className="bg-muted p-4 rounded-md">
-                <p className="font-semibold text-foreground">Women Helpline</p>
-                <p className="text-2xl font-bold text-primary">1091</p>
-              </div>
-              <div className="bg-muted p-4 rounded-md">
-                <p className="font-semibold text-foreground">Medical Emergency</p>
-                <p className="text-2xl font-bold text-primary">108</p>
-              </div>
-              <div className="bg-muted p-4 rounded-md">
-                <p className="font-semibold text-foreground">Grumming Support</p>
-                <p className="text-lg font-medium text-primary">support@grumming.com</p>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4">Safety Tips</h2>
-            <p className="text-muted-foreground mb-4">
-              Help us maintain a safe community by following these tips:
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-              <li>Read salon reviews before booking</li>
-              <li>Check the salon's ratings and verification status</li>
-              <li>Communicate any allergies or sensitivities before your appointment</li>
-              <li>Trust your instincts - if something feels wrong, leave and report</li>
-              <li>Share your booking details with someone you trust</li>
-              <li>Keep your app updated for the latest safety features</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
-            <p className="text-muted-foreground mb-4">
-              For safety-related inquiries or concerns, please reach out:
-            </p>
-            <div className="bg-muted p-4 rounded-md">
-              <p className="text-foreground font-medium">Grumming Safety Team</p>
-              <p className="text-muted-foreground">Email: support@grumming.com</p>
-            </div>
-          </section>
+          </motion.div>
         </div>
-      </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="mb-12">
+            <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Verified Partners</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-6">Every salon is thoroughly verified</h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl">
+              Every salon on Grumming goes through a verification process before being listed. We ensure quality, trust, and safety at every step.
+            </p>
+          </motion.div>
+
+          <div className="space-y-3">
+            {verificationSteps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+              >
+                <div className="flex gap-4 p-4 rounded-md bg-muted/30 dark:bg-white/5" data-testid={`item-verification-${index}`}>
+                  <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <p className="text-foreground text-sm">{step}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="mb-12">
+            <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Built-In Protection</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight">Safety features you can trust</h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="bg-white dark:bg-[#1e293b] p-6 h-full" data-testid={`card-feature-${index}`}>
+                  <div className={`w-10 h-10 rounded-xl ${feature.bg} flex items-center justify-center mb-4`}>
+                    <feature.icon className={`w-5 h-5 ${feature.color}`} />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="mb-12">
+            <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Cleanliness Standards</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-6">Hygiene & Cleanliness</h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl">
+              Our partner salons are required to maintain high hygiene standards to ensure your safety and comfort.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {hygieneStandards.map((standard, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.07 }}
+              >
+                <Card className="bg-muted/40 dark:bg-[#1e293b] p-4 h-full flex items-center gap-3" data-testid={`card-hygiene-${index}`}>
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                  <p className="text-foreground text-sm">{standard}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="mb-12">
+            <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Your Information</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-6">Data Protection</h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl">
+              Your personal information is protected through industry-leading security measures and strict privacy policies.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            {dataProtectionMeasures.map((measure, index) => (
+              <motion.div
+                key={measure.label}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+              >
+                <Card className="bg-white dark:bg-[#1e293b] p-6 h-full" data-testid={`card-data-protection-${index}`}>
+                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
+                    <Lock className="w-5 h-5 text-purple-500" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{measure.label}</h3>
+                  <p className="text-muted-foreground text-sm">{measure.desc}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="mb-12">
+            <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Report Issues</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight">Reporting Concerns</h2>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <Card className="bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800 p-6 h-full" data-testid="card-what-to-report">
+                <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4">
+                  <AlertCircle className="w-5 h-5 text-orange-500" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-4">What You Can Report</h3>
+                <ul className="space-y-2">
+                  {reportingConcerns.map((concern, index) => (
+                    <li key={index} className="flex gap-3 text-sm text-foreground/70">
+                      <span className="text-orange-500 font-bold mt-0.5">•</span>
+                      <span>{concern}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <Card className="bg-white dark:bg-[#1e293b] p-6 h-full" data-testid="card-how-to-report">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
+                  <MessageSquare className="w-5 h-5 text-blue-500" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-4">How to Report</h3>
+                <ol className="space-y-2">
+                  {reportingSteps.map((step, index) => (
+                    <li key={index} className="flex gap-3 text-sm text-foreground/70">
+                      <span className="font-semibold text-blue-500 min-w-fit">{index + 1}.</span>
+                      <span>{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="mb-12">
+            <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Emergency Numbers</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight">Emergency Contacts</h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            {emergencyContacts.map((contact, index) => (
+              <motion.div
+                key={contact.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+              >
+                <Card className="bg-white dark:bg-[#1e293b] p-6 h-full" data-testid={`card-emergency-${index}`}>
+                  <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center mb-4">
+                    <Phone className="w-5 h-5 text-red-500" />
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-2">{contact.title}</p>
+                  <p className="text-2xl font-bold text-foreground">{contact.number}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="mb-12">
+            <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Best Practices</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-6">Safety Tips</h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl">
+              Help us maintain a safe community by following these practical tips for a secure salon experience.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {safetyTips.map((tip, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.07 }}
+              >
+                <Card className="bg-muted/40 dark:bg-[#1e293b] p-4 h-full flex items-center gap-3" data-testid={`card-safety-tip-${index}`}>
+                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <p className="text-foreground text-sm">{tip}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto">
+            <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Get in Touch</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 tracking-tight">Safety-Related Questions?</h2>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              For safety-related inquiries or concerns, our team is here to help. Reach out to us anytime.
+            </p>
+            <Card className="bg-white dark:bg-[#1e293b] p-6 inline-block" data-testid="card-contact-info">
+              <div className="flex items-center gap-3 mb-2">
+                <Mail className="w-5 h-5 text-foreground/60" />
+                <span className="text-foreground font-medium">Grumming Safety Team</span>
+              </div>
+              <a href="mailto:support@grumming.com" className="text-amber-500 hover:text-amber-600 transition-colors">
+                support@grumming.com
+              </a>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
+      <SalonFooter />
     </div>
   );
 }

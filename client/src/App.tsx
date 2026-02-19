@@ -23,6 +23,8 @@ import AboutUs from "@/pages/about-us";
 import FAQPage from "@/pages/faq";
 import ContactPage from "@/pages/contact";
 import HiringPage from "@/pages/hiring";
+import HelpCenter from "@/pages/help-center";
+import ReportIssue from "@/pages/report-issue";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -35,9 +37,11 @@ function Router() {
       <Route path="/cancellation-policy" component={CancellationPolicy} />
       <Route path="/safety" component={Safety} />
       <Route path="/about-us" component={AboutUs} />
+      <Route path="/help-center" component={HelpCenter} />
       <Route path="/faq" component={FAQPage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/hiring" component={HiringPage} />
+      <Route path="/report-issue" component={ReportIssue} />
       <Route component={NotFound} />
     </Switch>
   );

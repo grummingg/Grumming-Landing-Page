@@ -31,11 +31,11 @@ export function SalonFooter() {
       { name: "Press", url: null, scrollTo: null },
     ],
     Support: [
-      { name: "Help Center", url: "/contact", scrollTo: null },
+      { name: "Help Center", url: "/help-center", scrollTo: null },
       { name: "FAQ", url: "/faq", scrollTo: null },
       { name: "Safety", url: "/safety", scrollTo: null },
       { name: "Cancellation Policy", url: "/cancellation-policy", scrollTo: null },
-      { name: "Report an Issue", url: "/contact", scrollTo: null },
+      { name: "Report an Issue", url: "/report-issue", scrollTo: null },
     ],
     Legal: [
       { name: "Privacy Policy", url: "/privacy-policy", scrollTo: null },
