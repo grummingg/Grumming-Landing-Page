@@ -234,9 +234,6 @@ export function Locations({ locations }: LocationsProps) {
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground" data-testid="text-locations-title">
             Popular Locations
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-locations-description">
-            Find the best services in your city
-          </p>
         </motion.div>
 
         <div
