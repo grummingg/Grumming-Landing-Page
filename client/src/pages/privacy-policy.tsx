@@ -208,7 +208,7 @@ export default function PrivacyPolicy() {
                     </h2>
                   </div>
 
-                  <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm">
+                  <div className="rounded-md p-6">
                     <p className="text-muted-foreground mb-4" data-testid={`text-section-${section.number}-intro`}>
                       {section.content}
                     </p>
@@ -256,7 +256,7 @@ export default function PrivacyPolicy() {
                 </h2>
               </div>
 
-              <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm mb-6">
+              <div className="rounded-md p-6 mb-6">
                 <p className="text-muted-foreground mb-6" data-testid="text-contact-intro">
                   In accordance with the Information Technology Act, 2000, and the rules made thereunder, if you have any questions, concerns, or grievances regarding this Privacy Policy, the processing of your personal data, or wish to exercise any of your rights, you may contact our Grievance Officer:
                 </p>

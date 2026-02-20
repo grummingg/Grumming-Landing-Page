@@ -138,7 +138,7 @@ export default function CookiePolicy() {
                 <h2 className="text-2xl font-bold text-foreground">1. What Are Cookies?</h2>
               </div>
             </div>
-            <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm">
+            <div className="rounded-md p-6">
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Cookies are small text files that are placed on your device (computer, smartphone, or tablet) when you visit a website or use an application. They are widely used to make websites and apps work more efficiently, provide a better user experience, and supply information to the owners of the site or app.
               </p>
@@ -172,7 +172,7 @@ export default function CookiePolicy() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm h-full" data-testid={`card-cookie-type-${index}`}>
+                <div className="rounded-md p-6 h-full" data-testid={`card-cookie-type-${index}`}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`w-10 h-10 rounded-xl ${cookie.bg} flex items-center justify-center`}>
                       <cookie.icon className={`w-5 h-5 ${cookie.color}`} />
@@ -271,7 +271,7 @@ export default function CookiePolicy() {
             </div>
           </motion.div>
 
-          <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm">
+          <div className="rounded-md p-6">
             <p className="text-muted-foreground mb-6 leading-relaxed">
               You have the right to control how cookies are used on your device. Here are the ways you can manage your preferences:
             </p>
@@ -321,7 +321,7 @@ export default function CookiePolicy() {
             </div>
           </motion.div>
 
-          <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm">
+          <div className="rounded-md p-6">
             <p className="text-muted-foreground mb-4 leading-relaxed">
               Disabling certain cookies may affect your experience on our platform. Here is what to expect:
             </p>
@@ -360,7 +360,7 @@ export default function CookiePolicy() {
             </div>
           </motion.div>
 
-          <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm">
+          <div className="rounded-md p-6">
             <p className="text-muted-foreground leading-relaxed mb-4">
               We may update this Cookie Policy from time to time to reflect changes in technology, legislation, our business operations, or cookie practices. When we make material changes:
             </p>
@@ -393,7 +393,7 @@ export default function CookiePolicy() {
                 <h2 className="text-2xl font-bold text-foreground">7. Contact Us</h2>
               </div>
             </div>
-            <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm">
+            <div className="rounded-md p-6">
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 If you have any questions about our use of cookies or this Cookie Policy, or if you wish to exercise your rights regarding cookie data, please contact us:
               </p>

@@ -144,7 +144,7 @@ export default function PartnerWithUs() {
                 viewport={{ once: true }}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.1 } } }}
               >
-                <div className="bg-white dark:bg-[#1e293b] rounded-md p-5 shadow-sm" data-testid={`card-step-${s.step}`}>
+                <div className="rounded-md p-5" data-testid={`card-step-${s.step}`}>
                   <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mb-3">
                     <span className="text-sm font-bold text-primary">{s.step}</span>
                   </div>
@@ -187,7 +187,7 @@ export default function PartnerWithUs() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <div className="bg-white dark:bg-[#1e293b] rounded-md p-8 shadow-sm text-center">
+            <div className="rounded-md p-8 text-center">
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mx-auto mb-4">
                 <Building className="w-6 h-6 text-amber-500" />
               </div>

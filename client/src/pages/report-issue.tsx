@@ -346,7 +346,7 @@ export default function ReportIssue() {
 
       <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeUp} className="bg-white dark:bg-[#1e293b] rounded-md p-8 border border-amber-500/20">
+          <motion.div {...fadeUp} className="rounded-md p-8 border border-amber-500/20">
             <h3 className="text-xl font-semibold text-foreground mb-3" data-testid="text-emergency-title">
               For Urgent Safety Concerns
             </h3>

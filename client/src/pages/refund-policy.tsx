@@ -151,7 +151,7 @@ export default function RefundPolicy() {
                 <h2 className="text-2xl font-bold text-foreground">1. Overview</h2>
               </div>
             </div>
-            <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm">
+            <div className="rounded-md p-6">
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Grumming acts as an intermediary platform connecting users with independent salons, spas, studios, and beauty professionals. Refund eligibility depends on the specific circumstances of each booking and the individual cancellation policies set by service providers.
               </p>
@@ -192,7 +192,7 @@ export default function RefundPolicy() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 data-testid={`card-eligibility-${index}`}
               >
-                <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 h-full shadow-sm">
+                <div className="rounded-md p-6 h-full">
                   <div className={`w-10 h-10 rounded-xl ${reason.bg} flex items-center justify-center mb-4`}>
                     <reason.icon className={`w-5 h-5 ${reason.color}`} />
                   </div>
@@ -276,7 +276,7 @@ export default function RefundPolicy() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 data-testid={`card-process-${index}`}
               >
-                <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 h-full shadow-sm">
+                <div className="rounded-md p-6 h-full">
                   <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center mb-4">
                     <span className="text-sm font-bold text-amber-500">{step.number}</span>
                   </div>
@@ -319,7 +319,7 @@ export default function RefundPolicy() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 data-testid={`card-method-${index}`}
               >
-                <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 h-full shadow-sm">
+                <div className="rounded-md p-6 h-full">
                   <div className={`w-10 h-10 rounded-xl ${method.bg} flex items-center justify-center mb-4`}>
                     <method.icon className={`w-5 h-5 ${method.color}`} />
                   </div>
@@ -397,7 +397,7 @@ export default function RefundPolicy() {
                 <h2 className="text-2xl font-bold text-foreground">7. Disputes and Escalation</h2>
               </div>
             </div>
-            <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm">
+            <div className="rounded-md p-6">
               <p className="text-muted-foreground leading-relaxed mb-4">
                 If you are dissatisfied with the outcome of your refund request, you have the following options:
               </p>
@@ -431,7 +431,7 @@ export default function RefundPolicy() {
                 <h2 className="text-2xl font-bold text-foreground">8. Contact Us</h2>
               </div>
             </div>
-            <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm">
+            <div className="rounded-md p-6">
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 For any questions about this Refund Policy or to submit a refund request, please contact our support team:
               </p>

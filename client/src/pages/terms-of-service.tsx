@@ -209,7 +209,7 @@ const sections = [
 function SectionCard({ section, delay }: { section: typeof sections[0]; delay: number }) {
   return (
     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay } } }}>
-      <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm" data-testid={`card-terms-section-${section.number}`}>
+      <div className="rounded-md p-6" data-testid={`card-terms-section-${section.number}`}>
         <div className="flex items-start gap-4">
           <div className={`w-10 h-10 rounded-xl ${section.bg} flex items-center justify-center flex-shrink-0`}>
             <section.icon className={`w-5 h-5 ${section.color}`} />
@@ -277,7 +277,7 @@ export default function TermsOfService() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm" data-testid="card-terms-contact">
+            <div className="rounded-md p-6" data-testid="card-terms-contact">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-rose-500" />

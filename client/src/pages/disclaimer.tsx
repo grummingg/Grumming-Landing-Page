@@ -118,7 +118,7 @@ export default function Disclaimer() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: (index % 2) * 0.1 }}
             >
-              <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm" data-testid={`card-section-${index}`}>
+              <div className="rounded-md p-6" data-testid={`card-section-${index}`}>
                 <div className="flex items-start gap-4">
                   <div className={`w-10 h-10 rounded-xl ${section.bg} flex items-center justify-center flex-shrink-0`}>
                     <section.icon className={`w-5 h-5 ${section.color}`} />
@@ -137,7 +137,7 @@ export default function Disclaimer() {
       <section className="py-16 sm:py-20 bg-white dark:bg-background">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp}>
-            <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm" data-testid="card-contact-section">
+            <div className="rounded-md p-6" data-testid="card-contact-section">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-amber-500" />

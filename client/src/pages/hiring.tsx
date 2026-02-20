@@ -366,7 +366,7 @@ export default function HiringPage() {
                 viewport={{ once: true }}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.1 } } }}
               >
-                <div className="bg-white dark:bg-[#1e293b] rounded-md p-5 shadow-sm h-full" data-testid={`card-process-${index}`}>
+                <div className="rounded-md p-5 h-full" data-testid={`card-process-${index}`}>
                   <div className="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center mb-3">
                     <span className="text-xs font-bold text-amber-500">{item.step}</span>
                   </div>
@@ -405,7 +405,7 @@ export default function HiringPage() {
                     viewport={{ once: true }}
                     variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: ji * 0.05 } } }}
                   >
-                    <div className="bg-white dark:bg-[#1e293b] rounded-md p-5 shadow-sm" data-testid={`card-job-${job.id}`}>
+                    <div className="rounded-md p-5" data-testid={`card-job-${job.id}`}>
                       <div className="flex items-start justify-between gap-4 flex-wrap">
                         <div className="min-w-0 flex-1">
                           <h3 className="font-semibold text-foreground">{job.title}</h3>
@@ -433,7 +433,7 @@ export default function HiringPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <div className="bg-white dark:bg-[#1e293b] rounded-md p-8 shadow-sm text-center">
+            <div className="rounded-md p-8 text-center">
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-6 h-6 text-amber-500" />
               </div>

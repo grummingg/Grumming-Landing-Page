@@ -141,7 +141,7 @@ export default function AboutUs() {
               transition={{ duration: 0.5, delay: 0.15 }}
             >
               <div className="space-y-6">
-                <div className="bg-white dark:bg-[#1e293b] rounded-md p-8 shadow-sm">
+                <div className="rounded-md p-8">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
                       <Target className="w-5 h-5 text-amber-500" />
@@ -155,7 +155,7 @@ export default function AboutUs() {
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#1e293b] rounded-md p-8 shadow-sm">
+                <div className="rounded-md p-8">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center flex-shrink-0">
                       <Eye className="w-5 h-5 text-blue-500" />
@@ -243,7 +243,7 @@ export default function AboutUs() {
                   <div className="absolute left-0 sm:left-1.5 top-1 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-amber-500/20 flex items-center justify-center z-10">
                     <span className="text-[10px] sm:text-xs font-bold text-amber-500">{milestone.year}</span>
                   </div>
-                  <div className="bg-white dark:bg-[#1e293b] rounded-md p-5 shadow-sm">
+                  <div className="rounded-md p-5">
                     <h3 className="font-semibold text-foreground mb-1">{milestone.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{milestone.description}</p>
                   </div>

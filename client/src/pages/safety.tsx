@@ -171,7 +171,7 @@ export default function Safety() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="bg-white dark:bg-[#1e293b] p-6 h-full" data-testid={`card-feature-${index}`}>
+                <Card className="p-6 h-full" data-testid={`card-feature-${index}`}>
                   <div className={`w-10 h-10 rounded-xl ${feature.bg} flex items-center justify-center mb-4`}>
                     <feature.icon className={`w-5 h-5 ${feature.color}`} />
                   </div>
@@ -232,7 +232,7 @@ export default function Safety() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <Card className="bg-white dark:bg-[#1e293b] p-6 h-full" data-testid={`card-data-protection-${index}`}>
+                <Card className="p-6 h-full" data-testid={`card-data-protection-${index}`}>
                   <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
                     <Lock className="w-5 h-5 text-purple-500" />
                   </div>
@@ -281,7 +281,7 @@ export default function Safety() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Card className="bg-white dark:bg-[#1e293b] p-6 h-full" data-testid="card-how-to-report">
+              <Card className="p-6 h-full" data-testid="card-how-to-report">
                 <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
                   <MessageSquare className="w-5 h-5 text-blue-500" />
                 </div>
@@ -316,7 +316,7 @@ export default function Safety() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <Card className="bg-white dark:bg-[#1e293b] p-6 h-full" data-testid={`card-emergency-${index}`}>
+                <Card className="p-6 h-full" data-testid={`card-emergency-${index}`}>
                   <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center mb-4">
                     <Phone className="w-5 h-5 text-red-500" />
                   </div>
@@ -366,7 +366,7 @@ export default function Safety() {
             <p className="text-muted-foreground leading-relaxed mb-8">
               For safety-related inquiries or concerns, our team is here to help. Reach out to us anytime.
             </p>
-            <Card className="bg-white dark:bg-[#1e293b] p-6 inline-block" data-testid="card-contact-info">
+            <Card className="p-6 inline-block" data-testid="card-contact-info">
               <div className="flex items-center gap-3 mb-2">
                 <Mail className="w-5 h-5 text-foreground/60" />
                 <span className="text-foreground font-medium">Grumming Safety Team</span>
