@@ -204,7 +204,7 @@ export default function AboutUs() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <div className="bg-muted/40 dark:bg-[#1e293b] rounded-md p-6 h-full" data-testid={`card-value-${index}`}>
+                <div className="rounded-md p-6 h-full" data-testid={`card-value-${index}`}>
                   <div className={`w-10 h-10 rounded-xl ${value.bg} flex items-center justify-center mb-4`}>
                     <value.icon className={`w-5 h-5 ${value.color}`} />
                   </div>
