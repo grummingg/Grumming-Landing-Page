@@ -18,6 +18,9 @@ import {
   Heart,
   Mail,
   Scissors,
+  GraduationCap,
+  Rocket,
+  Shield,
 } from "lucide-react";
 import { SalonFooter } from "@/components/salon/footer";
 
@@ -29,38 +32,59 @@ const fadeUp = {
 const perks = [
   {
     icon: Zap,
-    title: "Fast Growth",
-    description: "Join an early-stage startup where your work has a direct, visible impact from day one.",
+    title: "High Impact Work",
+    description: "Join an early-stage startup where your contributions have a direct, measurable impact on millions of users from day one.",
     color: "text-amber-500",
     bg: "bg-amber-500/10",
   },
   {
     icon: Globe,
     title: "Remote Friendly",
-    description: "Work from anywhere in India. We believe great talent isn't limited by geography.",
+    description: "Work from anywhere in India. We believe great talent isn't limited by geography. Flexible work arrangements that fit your life.",
     color: "text-blue-500",
     bg: "bg-blue-500/10",
   },
   {
-    icon: TrendingUp,
-    title: "Learning Budget",
-    description: "Annual learning stipend for courses, conferences, and skill development.",
+    icon: GraduationCap,
+    title: "Learning & Growth",
+    description: "Annual learning stipend for courses, certifications, and conferences. Regular knowledge-sharing sessions and mentorship programmes.",
     color: "text-green-500",
     bg: "bg-green-500/10",
   },
   {
     icon: Users,
-    title: "Great Team",
-    description: "Collaborate with passionate, talented people who care about building something meaningful.",
+    title: "Exceptional Team",
+    description: "Collaborate with passionate, talented people who care deeply about building something meaningful and pushing boundaries.",
     color: "text-purple-500",
     bg: "bg-purple-500/10",
   },
   {
     icon: Coffee,
     title: "Work-Life Balance",
-    description: "Flexible hours, generous PTO, and a culture that respects your personal time.",
+    description: "Flexible working hours, generous paid time off, mental health days, and a culture that genuinely respects your personal time.",
     color: "text-rose-500",
     bg: "bg-rose-500/10",
+  },
+  {
+    icon: Rocket,
+    title: "Career Advancement",
+    description: "Clear growth paths, regular performance reviews, and opportunities to take on leadership roles as the company scales.",
+    color: "text-indigo-500",
+    bg: "bg-indigo-500/10",
+  },
+  {
+    icon: Shield,
+    title: "Health & Wellness",
+    description: "Comprehensive health insurance for you and your family. Wellness benefits including grooming credits on the Grumming platform.",
+    color: "text-teal-500",
+    bg: "bg-teal-500/10",
+  },
+  {
+    icon: TrendingUp,
+    title: "Competitive Compensation",
+    description: "Market-competitive salary packages with performance bonuses. Early-stage equity options for key roles to share in our success.",
+    color: "text-orange-500",
+    bg: "bg-orange-500/10",
   },
 ];
 
@@ -69,9 +93,9 @@ const openPositions = [
     id: 1,
     title: "Full Stack Developer",
     department: "Engineering",
-    location: "Remote / Mumbai",
+    location: "Remote / Indore",
     type: "Full-time",
-    description: "Build and scale our core platform end-to-end. Work across React, Node.js, and cloud infrastructure to deliver features that power the Grumming experience.",
+    description: "Build and scale our core platform end-to-end. Work across React, Node.js, and cloud infrastructure to deliver features that power the Grumming experience for thousands of users.",
   },
   {
     id: 2,
@@ -79,31 +103,31 @@ const openPositions = [
     department: "Engineering",
     location: "Remote",
     type: "Full-time",
-    description: "Own our mobile app development across iOS and Android. Build a seamless, high-performance booking experience using React Native.",
+    description: "Own our mobile app development across iOS and Android. Build a seamless, high-performance booking experience that delights users on every device.",
   },
   {
     id: 3,
     title: "UI/UX Designer",
     department: "Design",
-    location: "Remote / Mumbai",
+    location: "Remote / Indore",
     type: "Full-time",
-    description: "Shape the look and feel of Grumming. Design intuitive, delightful interfaces for web and mobile that millions of users will love.",
+    description: "Shape the look and feel of Grumming. Design intuitive, accessible interfaces for web and mobile that make booking beauty services a pleasure.",
   },
   {
     id: 4,
     title: "Graphic Designer",
     department: "Design",
-    location: "Remote / Mumbai",
+    location: "Remote / Indore",
     type: "Full-time",
-    description: "Create stunning visual assets across brand, marketing, and product. From social media creatives to in-app graphics, you'll define our visual identity.",
+    description: "Create stunning visual assets across brand, marketing, and product. From social media creatives to in-app graphics, you'll define and evolve our visual identity.",
   },
   {
     id: 5,
     title: "Growth Manager",
     department: "Growth & Marketing",
-    location: "Remote / Mumbai",
+    location: "Remote / Indore",
     type: "Full-time",
-    description: "Drive user acquisition and retention strategies. Experiment with growth channels, analyze metrics, and scale what works to grow Grumming's user base.",
+    description: "Drive user acquisition and retention strategies across channels. Design experiments, analyse metrics, and scale what works to accelerate Grumming's growth.",
   },
   {
     id: 6,
@@ -111,15 +135,15 @@ const openPositions = [
     department: "Growth & Marketing",
     location: "Remote",
     type: "Full-time",
-    description: "Own Grumming's social media presence across Instagram, YouTube, and other platforms. Create engaging content calendars and build a loyal community.",
+    description: "Own Grumming's social media presence across Instagram, YouTube, and emerging platforms. Build community, create content calendars, and grow a loyal following.",
   },
   {
     id: 7,
     title: "Content Creator",
     department: "Growth & Marketing",
     location: "Remote",
-    type: "Full-time",
-    description: "Produce compelling written and visual content that tells the Grumming story. From blog posts and newsletters to video scripts and ad copy.",
+    type: "Full-time / Part-time",
+    description: "Produce compelling written and visual content that tells the Grumming story. Blog posts, newsletters, video scripts, ad copy, and everything in between.",
   },
   {
     id: 8,
@@ -127,7 +151,7 @@ const openPositions = [
     department: "Growth & Marketing",
     location: "Remote",
     type: "Full-time",
-    description: "Turn trends into viral moments for Grumming. Create relatable, shareable meme content that resonates with our audience and boosts brand awareness.",
+    description: "Turn trends into viral moments for Grumming. Create relatable, shareable meme content that resonates with our audience and drives organic brand awareness.",
   },
   {
     id: 9,
@@ -135,15 +159,15 @@ const openPositions = [
     department: "Growth & Marketing",
     location: "Remote",
     type: "Full-time",
-    description: "Improve our organic search visibility and drive qualified traffic. Develop keyword strategies, optimize content, and track ranking performance.",
+    description: "Improve organic search visibility and drive qualified traffic. Develop keyword strategies, optimise content architecture, and track ranking performance across markets.",
   },
   {
     id: 10,
     title: "Business Onboarding Manager",
     department: "Operations",
-    location: "Mumbai",
+    location: "Indore",
     type: "Full-time",
-    description: "Lead the onboarding experience for new business partners. Ensure a smooth transition from sign-up to going live on the Grumming platform.",
+    description: "Lead the onboarding experience for new business partners. Ensure a smooth, efficient transition from sign-up to going live on the Grumming platform.",
   },
   {
     id: 11,
@@ -151,47 +175,47 @@ const openPositions = [
     department: "Operations",
     location: "Multiple Cities",
     type: "Full-time",
-    description: "Spearhead Grumming's expansion into new cities. Plan and execute launch strategies, build local business networks, and establish market presence.",
+    description: "Spearhead Grumming's expansion into new cities across India. Plan and execute launch strategies, build local business networks, and establish market presence.",
   },
   {
     id: 12,
     title: "Customer Support Executive",
     department: "Operations",
-    location: "Remote / Mumbai",
+    location: "Remote / Indore",
     type: "Full-time",
-    description: "Be the voice of Grumming for our users and business partners. Resolve queries, gather feedback, and ensure an exceptional support experience.",
+    description: "Be the voice of Grumming for our users and business partners. Resolve queries with empathy, gather actionable feedback, and ensure an exceptional support experience.",
   },
   {
     id: 13,
     title: "Operations Coordinator",
     department: "Operations",
-    location: "Mumbai",
+    location: "Indore",
     type: "Full-time",
-    description: "Keep day-to-day operations running smoothly. Coordinate across teams, manage workflows, and optimize internal processes for efficiency.",
+    description: "Keep day-to-day operations running smoothly. Coordinate across teams, manage workflows, optimise internal processes, and ensure operational excellence.",
   },
   {
     id: 14,
     title: "Business Development Executive",
     department: "Sales & Partnerships",
-    location: "Mumbai",
+    location: "Indore / Field",
     type: "Full-time",
-    description: "Identify and close new business opportunities. Build relationships with business owners and negotiate partnerships that grow our network.",
+    description: "Identify and close new business opportunities. Build relationships with salon, spa, and studio owners and negotiate partnerships that expand our network.",
   },
   {
     id: 15,
     title: "Business Partnership Manager",
     department: "Sales & Partnerships",
-    location: "Remote / Mumbai",
+    location: "Remote / Indore",
     type: "Full-time",
-    description: "Manage and grow strategic partnerships with salons, brands, and service providers. Drive mutual value and long-term collaboration.",
+    description: "Manage and grow strategic partnerships with service providers, brands, and industry stakeholders. Drive mutual value and foster long-term collaboration.",
   },
   {
     id: 16,
     title: "Product Manager",
     department: "Product",
-    location: "Remote / Mumbai",
+    location: "Remote / Indore",
     type: "Full-time",
-    description: "Define the product roadmap and prioritize features that matter most. Work closely with engineering and design to ship impactful product updates.",
+    description: "Define the product roadmap and prioritise features that matter most. Work closely with engineering, design, and data to ship impactful product updates.",
   },
   {
     id: 17,
@@ -199,7 +223,7 @@ const openPositions = [
     department: "Product",
     location: "Remote",
     type: "Full-time",
-    description: "Turn data into actionable insights. Analyze user behavior, track key metrics, and help the team make informed decisions to improve the product.",
+    description: "Turn raw data into actionable insights. Analyse user behaviour, track key metrics, build dashboards, and help the team make data-informed decisions.",
   },
 ];
 
@@ -228,6 +252,13 @@ const departmentOrder = [
   "Operations",
   "Sales & Partnerships",
   "Product",
+];
+
+const hiringProcess = [
+  { step: 1, title: "Application", description: "Submit your application via email with your resume and a brief note on why you're excited about Grumming." },
+  { step: 2, title: "Initial Screening", description: "Our team reviews your application and responds within 5 business days. Short-listed candidates are invited for a conversation." },
+  { step: 3, title: "Interview Rounds", description: "1-2 rounds depending on the role. We focus on problem-solving, culture fit, and your potential to grow with us." },
+  { step: 4, title: "Offer & Onboarding", description: "Successful candidates receive an offer within 48 hours. Our onboarding programme ensures you hit the ground running." },
 ];
 
 function getGroupedPositions() {
@@ -261,18 +292,18 @@ export default function HiringPage() {
             </span>
           </Link>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-careers-label">Careers</span>
+            <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-careers-label">Careers at Grumming</span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4" data-testid="text-hiring-title">
-              Join the Grumming team
+              Build the future of beauty tech
             </h1>
             <p className="text-white/60 mt-4 text-lg max-w-2xl" data-testid="text-hiring-subtitle">
-              Help us transform how India discovers and books beauty & grooming services. We're looking for passionate people to shape the future of beauty tech.
+              We're on a mission to transform how India discovers and books beauty and grooming services. Join our team of passionate builders, creators, and problem-solvers.
             </p>
             <div className="flex items-center gap-3 mt-6">
               <Badge className="bg-white/15 text-white border-0 no-default-hover-elevate no-default-active-elevate" data-testid="badge-hiring">
                 We're hiring
               </Badge>
-              <span className="text-white/50 text-sm">{openPositions.length} open roles</span>
+              <span className="text-white/50 text-sm">{openPositions.length} open roles across {departmentOrder.length} departments</span>
             </div>
           </motion.div>
         </div>
@@ -281,28 +312,66 @@ export default function HiringPage() {
       <section className="bg-white dark:bg-background py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center">
                 <Heart className="w-5 h-5 text-rose-500" />
               </div>
               <h2 className="text-2xl font-bold text-foreground" data-testid="text-why-grumming">Why Grumming?</h2>
             </div>
+            <p className="text-muted-foreground mb-8 max-w-2xl">
+              We're building more than a product — we're building a team that values ownership, creativity, and impact. Here's what you can expect when you join us.
+            </p>
           </motion.div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {perks.map((perk, index) => (
               <motion.div
                 key={perk.title}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.1 } } }}
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.06 } } }}
               >
-                <div className="bg-muted/40 dark:bg-[#1e293b] rounded-md p-4" data-testid={`card-perk-${perk.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                <div className="bg-muted/40 dark:bg-[#1e293b] rounded-md p-4 h-full" data-testid={`card-perk-${index}`}>
                   <div className={`w-8 h-8 rounded-lg ${perk.bg} flex items-center justify-center mb-3`}>
                     <perk.icon className={`w-4 h-4 ${perk.color}`} />
                   </div>
                   <h3 className="text-sm font-semibold text-foreground mb-1">{perk.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">{perk.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-muted/30 dark:bg-[#0f172a]/50 py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center">
+                <Briefcase className="w-5 h-5 text-indigo-500" />
+              </div>
+              <h2 className="text-2xl font-bold text-foreground" data-testid="text-hiring-process">Our Hiring Process</h2>
+            </div>
+            <p className="text-muted-foreground mb-8 max-w-2xl">
+              We've designed a straightforward, respectful hiring process. No trick questions, no marathon interviews — just genuine conversations to find the right fit.
+            </p>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {hiringProcess.map((item, index) => (
+              <motion.div
+                key={item.step}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.1 } } }}
+              >
+                <div className="bg-white dark:bg-[#1e293b] rounded-md p-5 shadow-sm h-full" data-testid={`card-process-${index}`}>
+                  <div className="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center mb-3">
+                    <span className="text-xs font-bold text-amber-500">{item.step}</span>
+                  </div>
+                  <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -316,7 +385,7 @@ export default function HiringPage() {
         const isAlt = gi % 2 === 0;
 
         return (
-          <section key={dept} className={isAlt ? "bg-muted/30 dark:bg-[#0f172a]/50 py-16" : "bg-white dark:bg-background py-16"}>
+          <section key={dept} className={isAlt ? "bg-white dark:bg-background py-16" : "bg-muted/30 dark:bg-[#0f172a]/50 py-16"}>
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
                 <div className="flex items-center gap-3 mb-6">
@@ -369,8 +438,11 @@ export default function HiringPage() {
                 <Mail className="w-6 h-6 text-amber-500" />
               </div>
               <h2 className="text-2xl font-bold text-foreground mb-3" data-testid="text-dont-see-role">Don't see your role?</h2>
-              <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                We're always looking for talented people. Send us your resume and tell us how you'd like to contribute to Grumming.
+              <p className="text-muted-foreground mb-3 max-w-lg mx-auto">
+                We're always looking for talented people who share our passion for building great products. If you think you'd be a great fit for Grumming but don't see a matching role, we'd still love to hear from you.
+              </p>
+              <p className="text-muted-foreground text-sm mb-6 max-w-lg mx-auto">
+                Send your resume along with a brief note about what excites you about Grumming and how you'd like to contribute.
               </p>
               <Button
                 className="bg-accent text-accent-foreground border-accent-border"
