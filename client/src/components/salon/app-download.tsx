@@ -19,10 +19,6 @@ export function AppDownload() {
               Download the app now!
             </h2>
 
-            <p className="text-base text-muted-foreground mb-8 max-w-sm leading-relaxed">
-              Experience seamless booking only on the Grumming app
-            </p>
-
             <div className="flex flex-wrap gap-3">
               <div
                 className="inline-flex items-center gap-3 bg-[#0f172a] dark:border dark:border-white/20 rounded-xl px-5 py-3 opacity-70 cursor-not-allowed shadow-sm"
