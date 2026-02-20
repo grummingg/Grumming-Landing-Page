@@ -19,7 +19,7 @@ const sections = [
     items: [
       { label: "Personal Information", text: "Your name, email address, and phone number when you create an account." },
       { label: "Location Data", text: "Your location to show nearby salons, spas, and studios." },
-      { label: "Payment Information", text: "Credit/debit card details and billing address for processing payments securely through our payment partners." },
+      { label: "Payment Information", text: "We do not store your credit/debit card details. All payments are processed securely by our trusted payment partners (such as Razorpay). We only receive transaction confirmations and basic billing information." },
       { label: "Booking History", text: "Records of your appointments, preferences, and service history." },
       { label: "Device Information", text: "Device type, operating system, and app version for troubleshooting and optimization." }
     ]
