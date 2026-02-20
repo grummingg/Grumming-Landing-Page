@@ -265,7 +265,7 @@ export default function TermsOfService() {
       </section>
 
       {groups.map((group, gi) => (
-        <section key={gi} className={group.alt ? "bg-muted/30 dark:bg-[#0f172a]/50 py-16" : "bg-white dark:bg-background py-16"}>
+        <section key={gi} className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             {group.items.map((s, i) => (
               <SectionCard key={s.number} section={s} delay={i * 0.1} />
@@ -274,7 +274,7 @@ export default function TermsOfService() {
         </section>
       ))}
 
-      <section className="bg-muted/30 dark:bg-[#0f172a]/50 py-16">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <div className="bg-white dark:bg-[#1e293b] rounded-md p-6 shadow-sm" data-testid="card-terms-contact">
@@ -287,7 +287,7 @@ export default function TermsOfService() {
                   <p className="text-muted-foreground text-sm mb-4">
                     If you have any questions, concerns, or feedback regarding these Terms of Service, please contact us:
                   </p>
-                  <div className="bg-muted/30 dark:bg-white/5 p-5 rounded-md space-y-1.5">
+                  <div className="p-5 rounded-md space-y-1.5">
                     <p className="text-foreground font-medium text-sm">Grumming Legal Team</p>
                     <p className="text-muted-foreground text-sm">Email: support@grumming.com</p>
                     <p className="text-muted-foreground text-sm">Response Time: We will acknowledge your query within 48 hours.</p>

@@ -112,7 +112,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <motion.div {...fadeUp}>
@@ -170,11 +170,11 @@ export default function AboutUs() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-muted/50 dark:bg-white/5 rounded-md p-4">
+                  <div className="rounded-md p-4">
                     <p className="text-sm font-semibold text-foreground mb-1" data-testid="text-for-customers">For Customers</p>
                     <p className="text-xs text-muted-foreground">Discover, book, and enjoy premium grooming services effortlessly</p>
                   </div>
-                  <div className="bg-muted/50 dark:bg-white/5 rounded-md p-4">
+                  <div className="rounded-md p-4">
                     <p className="text-sm font-semibold text-foreground mb-1" data-testid="text-for-businesses">For Businesses</p>
                     <p className="text-xs text-muted-foreground">Grow with smart booking, analytics, and customer management tools</p>
                   </div>
@@ -217,7 +217,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12">
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Our Journey</p>

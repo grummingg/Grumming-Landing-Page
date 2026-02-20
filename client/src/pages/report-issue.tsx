@@ -168,7 +168,7 @@ export default function ReportIssue() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="bg-muted/40 dark:bg-[#1e293b] rounded-md p-6 h-full" data-testid={`card-issue-category-${category.id}`}>
+                <div className="rounded-md p-6 h-full" data-testid={`card-issue-category-${category.id}`}>
                   <div className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4">
                     <category.icon className="w-5 h-5 text-primary" />
                   </div>
@@ -181,7 +181,7 @@ export default function ReportIssue() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12 text-center">
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3" data-testid="text-how-it-works-label">
@@ -344,7 +344,7 @@ export default function ReportIssue() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="bg-white dark:bg-[#1e293b] rounded-md p-8 border border-amber-500/20">
             <h3 className="text-xl font-semibold text-foreground mb-3" data-testid="text-emergency-title">
@@ -354,15 +354,15 @@ export default function ReportIssue() {
               If you're experiencing a life-threatening emergency or urgent safety issue, please contact emergency services immediately:
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
-              <div className="bg-muted/40 dark:bg-white/5 rounded-md p-4" data-testid="emergency-police">
+              <div className="rounded-md p-4" data-testid="emergency-police">
                 <p className="font-semibold text-foreground">Police</p>
                 <p className="text-lg font-bold text-primary">100</p>
               </div>
-              <div className="bg-muted/40 dark:bg-white/5 rounded-md p-4" data-testid="emergency-women">
+              <div className="rounded-md p-4" data-testid="emergency-women">
                 <p className="font-semibold text-foreground">Women Helpline</p>
                 <p className="text-lg font-bold text-primary">1091</p>
               </div>
-              <div className="bg-muted/40 dark:bg-white/5 rounded-md p-4" data-testid="emergency-medical">
+              <div className="rounded-md p-4" data-testid="emergency-medical">
                 <p className="font-semibold text-foreground">Medical</p>
                 <p className="text-lg font-bold text-primary">108</p>
               </div>

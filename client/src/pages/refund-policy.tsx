@@ -166,7 +166,7 @@ export default function RefundPolicy() {
         </div>
       </section>
 
-      <section className="py-16 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-start gap-4 mb-4">
@@ -230,7 +230,7 @@ export default function RefundPolicy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-muted/40 dark:bg-[#1e293b] rounded-md p-8"
+            className="rounded-md p-8"
             data-testid="card-non-refundable"
           >
             <ul className="space-y-5">
@@ -250,7 +250,7 @@ export default function RefundPolicy() {
         </div>
       </section>
 
-      <section className="py-16 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-start gap-4 mb-4">
@@ -336,7 +336,7 @@ export default function RefundPolicy() {
         </div>
       </section>
 
-      <section className="py-16 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp}>
             <div className="flex items-start gap-4 mb-6">
@@ -420,7 +420,7 @@ export default function RefundPolicy() {
         </div>
       </section>
 
-      <section className="py-16 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp}>
             <div className="flex items-start gap-4 mb-6">
@@ -435,7 +435,7 @@ export default function RefundPolicy() {
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 For any questions about this Refund Policy or to submit a refund request, please contact our support team:
               </p>
-              <div className="border border-border rounded-md p-5 bg-muted/50 dark:bg-white/5 space-y-1.5 mb-6">
+              <div className="border border-border rounded-md p-5 space-y-1.5 mb-6">
                 <p className="text-foreground font-medium">Grumming Support Team</p>
                 <p className="text-muted-foreground text-sm">Email: support@grumming.com</p>
                 <p className="text-muted-foreground text-sm">WhatsApp: +91 9229506624</p>

@@ -146,7 +146,7 @@ export default function Franchise() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-2">Investment Overview</p>
@@ -193,7 +193,7 @@ export default function Franchise() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">

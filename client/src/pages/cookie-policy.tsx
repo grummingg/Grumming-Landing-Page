@@ -150,7 +150,7 @@ export default function CookiePolicy() {
         </div>
       </section>
 
-      <section className="py-16 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-start gap-4 mb-4">
@@ -230,7 +230,7 @@ export default function CookiePolicy() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="bg-muted/40 dark:bg-[#1e293b] rounded-md p-6" data-testid={`card-third-party-${index}`}>
+                <div className="rounded-md p-6" data-testid={`card-third-party-${index}`}>
                   <div className="grid sm:grid-cols-4 gap-4">
                     <div>
                       <p className="text-xs text-muted-foreground mb-1">Provider</p>
@@ -258,7 +258,7 @@ export default function CookiePolicy() {
         </div>
       </section>
 
-      <section className="py-16 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-start gap-4 mb-4">
@@ -347,7 +347,7 @@ export default function CookiePolicy() {
         </div>
       </section>
 
-      <section className="py-16 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-start gap-4 mb-4">
@@ -397,7 +397,7 @@ export default function CookiePolicy() {
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 If you have any questions about our use of cookies or this Cookie Policy, or if you wish to exercise your rights regarding cookie data, please contact us:
               </p>
-              <div className="border border-border rounded-md p-5 bg-muted/50 dark:bg-white/5 space-y-1.5">
+              <div className="border border-border rounded-md p-5 space-y-1.5">
                 <p className="text-foreground font-medium">Grumming Support Team</p>
                 <p className="text-muted-foreground text-sm">Email: support@grumming.com</p>
                 <p className="text-muted-foreground text-sm">We will respond to your inquiry within 48 hours.</p>

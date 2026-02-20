@@ -143,7 +143,7 @@ export default function Safety() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <div className="flex gap-4 p-4 rounded-md bg-muted/30 dark:bg-white/5" data-testid={`item-verification-${index}`}>
+                <div className="flex gap-4 p-4 rounded-md" data-testid={`item-verification-${index}`}>
                   <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <CheckCircle2 className="w-4 h-4 text-white" />
                   </div>
@@ -155,7 +155,7 @@ export default function Safety() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12">
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Built-In Protection</p>
@@ -203,7 +203,7 @@ export default function Safety() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.07 }}
               >
-                <Card className="bg-muted/40 dark:bg-[#1e293b] p-4 h-full flex items-center gap-3" data-testid={`card-hygiene-${index}`}>
+                <Card className="p-4 h-full flex items-center gap-3" data-testid={`card-hygiene-${index}`}>
                   <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                   <p className="text-foreground text-sm">{standard}</p>
                 </Card>
@@ -213,7 +213,7 @@ export default function Safety() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12">
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Your Information</p>
@@ -300,7 +300,7 @@ export default function Safety() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12">
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Emergency Numbers</p>
@@ -348,7 +348,7 @@ export default function Safety() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.07 }}
               >
-                <Card className="bg-muted/40 dark:bg-[#1e293b] p-4 h-full flex items-center gap-3" data-testid={`card-safety-tip-${index}`}>
+                <Card className="p-4 h-full flex items-center gap-3" data-testid={`card-safety-tip-${index}`}>
                   <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
                   <p className="text-foreground text-sm">{tip}</p>
                 </Card>
@@ -358,7 +358,7 @@ export default function Safety() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto">
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Get in Touch</p>

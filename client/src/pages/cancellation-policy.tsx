@@ -78,7 +78,7 @@ export default function CancellationPolicy() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-8">
             <div className="flex items-center gap-3 mb-6">
@@ -243,7 +243,7 @@ export default function CancellationPolicy() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-8">
             <div className="flex items-center gap-3 mb-6">
@@ -408,7 +408,7 @@ export default function CancellationPolicy() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div {...fadeUp}>

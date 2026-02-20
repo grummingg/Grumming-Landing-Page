@@ -144,7 +144,7 @@ export default function HelpCenter() {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
                 <div
-                  className="bg-muted/40 dark:bg-[#1e293b] rounded-md p-6 h-full cursor-pointer hover-elevate transition-all"
+                  className="rounded-md p-6 h-full cursor-pointer hover-elevate transition-all"
                   data-testid={`card-help-topic-${topic.title.toLowerCase().replace(/\s+/g, "-")}`}
                 >
                   <div className={`w-10 h-10 rounded-xl ${topic.bg} flex items-center justify-center mb-4`}>
@@ -159,7 +159,7 @@ export default function HelpCenter() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12">
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3" data-testid="label-popular-questions">
@@ -204,7 +204,7 @@ export default function HelpCenter() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="grid sm:grid-cols-2 gap-8 mb-12"
           >
-            <div className="bg-muted/40 dark:bg-[#1e293b] rounded-md p-8 text-center" data-testid="card-contact-email">
+            <div className="rounded-md p-8 text-center" data-testid="card-contact-email">
               <p className="text-sm font-medium text-amber-500 uppercase tracking-wide mb-3">Email Support</p>
               <a
                 href="mailto:support@grumming.com"
@@ -214,7 +214,7 @@ export default function HelpCenter() {
                 support@grumming.com
               </a>
             </div>
-            <div className="bg-muted/40 dark:bg-[#1e293b] rounded-md p-8 text-center" data-testid="card-contact-whatsapp">
+            <div className="rounded-md p-8 text-center" data-testid="card-contact-whatsapp">
               <p className="text-sm font-medium text-amber-500 uppercase tracking-wide mb-3">WhatsApp Support</p>
               <a
                 href="https://wa.me/919229506624"

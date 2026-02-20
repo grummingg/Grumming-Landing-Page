@@ -117,7 +117,7 @@ export default function PartnerWithUs() {
                 viewport={{ once: true }}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.08 } } }}
               >
-                <div className="bg-muted/40 dark:bg-[#1e293b] rounded-md p-5" data-testid={`card-benefit-${index}`}>
+                <div className="rounded-md p-5" data-testid={`card-benefit-${index}`}>
                   <div className={`w-10 h-10 rounded-xl ${benefit.bg} flex items-center justify-center mb-3`}>
                     <benefit.icon className={`w-5 h-5 ${benefit.color}`} />
                   </div>
@@ -130,7 +130,7 @@ export default function PartnerWithUs() {
         </div>
       </section>
 
-      <section className="bg-muted/30 dark:bg-[#0f172a]/50 py-16">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="text-2xl font-bold text-foreground mb-8" data-testid="text-how-it-works">How it works</h2>
@@ -163,7 +163,7 @@ export default function PartnerWithUs() {
             <h2 className="text-2xl font-bold text-foreground mb-6" data-testid="text-what-you-need">What you need to get started</h2>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <div className="bg-muted/40 dark:bg-[#1e293b] rounded-md p-6">
+            <div className="rounded-md p-6">
               <div className="grid sm:grid-cols-2 gap-3">
                 {[
                   "Valid business license or shop registration",
@@ -184,7 +184,7 @@ export default function PartnerWithUs() {
         </div>
       </section>
 
-      <section className="bg-muted/30 dark:bg-[#0f172a]/50 py-16">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <div className="bg-white dark:bg-[#1e293b] rounded-md p-8 shadow-sm text-center">

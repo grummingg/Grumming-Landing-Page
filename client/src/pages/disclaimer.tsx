@@ -109,7 +109,7 @@ export default function Disclaimer() {
       {sections.map((section, index) => (
         <section
           key={section.title}
-          className={index % 2 === 0 ? "py-16 sm:py-20 bg-white dark:bg-background" : "py-16 sm:py-20 bg-muted/30 dark:bg-[#0f172a]/50"}
+          className="py-16 sm:py-20"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div

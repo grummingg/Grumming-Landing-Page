@@ -331,7 +331,7 @@ export default function HiringPage() {
                 viewport={{ once: true }}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: index * 0.06 } } }}
               >
-                <div className="bg-muted/40 dark:bg-[#1e293b] rounded-md p-4 h-full" data-testid={`card-perk-${index}`}>
+                <div className="rounded-md p-4 h-full" data-testid={`card-perk-${index}`}>
                   <div className={`w-8 h-8 rounded-lg ${perk.bg} flex items-center justify-center mb-3`}>
                     <perk.icon className={`w-4 h-4 ${perk.color}`} />
                   </div>
@@ -344,7 +344,7 @@ export default function HiringPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 dark:bg-[#0f172a]/50 py-16">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <div className="flex items-center gap-3 mb-3">
@@ -385,7 +385,7 @@ export default function HiringPage() {
         const isAlt = gi % 2 === 0;
 
         return (
-          <section key={dept} className={isAlt ? "bg-white dark:bg-background py-16" : "bg-muted/30 dark:bg-[#0f172a]/50 py-16"}>
+          <section key={dept} className="py-16">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
                 <div className="flex items-center gap-3 mb-6">
@@ -430,7 +430,7 @@ export default function HiringPage() {
         );
       })}
 
-      <section className="bg-muted/30 dark:bg-[#0f172a]/50 py-16">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <div className="bg-white dark:bg-[#1e293b] rounded-md p-8 shadow-sm text-center">

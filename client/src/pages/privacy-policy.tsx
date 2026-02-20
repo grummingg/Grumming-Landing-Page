@@ -186,7 +186,7 @@ export default function PrivacyPolicy() {
 
       {sections.map((section, index) => {
         const isEvenSection = index % 2 === 0;
-        const bgClass = isEvenSection ? "bg-white dark:bg-background" : "bg-muted/30 dark:bg-[#0f172a]/50";
+        const bgClass = "bg-white dark:bg-background";
         const IconComponent = section.icon;
 
         return (
@@ -260,7 +260,7 @@ export default function PrivacyPolicy() {
                 <p className="text-muted-foreground mb-6" data-testid="text-contact-intro">
                   In accordance with the Information Technology Act, 2000, and the rules made thereunder, if you have any questions, concerns, or grievances regarding this Privacy Policy, the processing of your personal data, or wish to exercise any of your rights, you may contact our Grievance Officer:
                 </p>
-                <div className="border border-border rounded-md p-5 bg-muted/50 dark:bg-white/5 space-y-1.5">
+                <div className="border border-border rounded-md p-5 space-y-1.5">
                   <p className="text-foreground font-medium" data-testid="text-company-name">Grumming Grievance Officer</p>
                   <p className="text-muted-foreground text-sm" data-testid="text-support-email">Email: support@grumming.com</p>
                   <p className="text-muted-foreground text-sm">Response Time: We will acknowledge your complaint within 24 hours and endeavour to resolve it within 15 days of receipt.</p>
