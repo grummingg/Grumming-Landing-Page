@@ -27,22 +27,17 @@ export function SalonFooter() {
     Company: [
       { name: "About Us", url: "/about-us", scrollTo: null },
       { name: "Careers", url: "/hiring", scrollTo: null },
-      { name: "Blog", url: null, scrollTo: null },
-      { name: "Press", url: null, scrollTo: null },
     ],
     Support: [
       { name: "Help Center", url: "/help-center", scrollTo: null },
       { name: "FAQ", url: "/faq", scrollTo: null },
       { name: "Safety", url: "/safety", scrollTo: null },
-      { name: "Cancellation Policy", url: "/cancellation-policy", scrollTo: null },
-      { name: "Report an Issue", url: "/report-issue", scrollTo: null },
     ],
     Legal: [
       { name: "Privacy Policy", url: "/privacy-policy", scrollTo: null },
       { name: "Terms of Service", url: "/terms-of-service", scrollTo: null },
       { name: "Cookie Policy", url: "/cookie-policy", scrollTo: null },
       { name: "Refund Policy", url: "/refund-policy", scrollTo: null },
-      { name: "Disclaimer", url: "/disclaimer", scrollTo: null },
     ],
     Business: [
       { name: "For Business Owners", url: "/for-salon-owners", scrollTo: null },
