@@ -176,33 +176,10 @@ export function SalonFooter() {
           </div>
         </div>
 
-        <div className="border-t border-black/10 dark:border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-black/10 dark:border-white/10 py-6 flex items-center justify-center">
           <p className="text-foreground/40 dark:text-white/35 text-xs" data-testid="text-footer-copyright">
             &copy; {new Date().getFullYear()} Grumming. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-xs">
-            <Link
-              href="/privacy-policy"
-              className="text-foreground/40 dark:text-white/35 transition-colors"
-              data-testid="link-footer-privacy"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms-of-service"
-              className="text-foreground/40 dark:text-white/35 transition-colors"
-              data-testid="link-footer-terms"
-            >
-              Terms of Service
-            </Link>
-            <Link
-              href="/cookie-policy"
-              className="text-foreground/40 dark:text-white/35 transition-colors"
-              data-testid="link-footer-cookies"
-            >
-              Cookie Policy
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
