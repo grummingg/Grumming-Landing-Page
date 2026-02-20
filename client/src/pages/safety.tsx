@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Shield, UserCheck, AlertCircle, Phone, Eye, Lock, CheckCircle2, MessageSquare, MapPin, Mail, Scissors } from "lucide-react";
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
-import { Card } from "@/components/ui/card";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -171,13 +170,13 @@ export default function Safety() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="p-6 h-full" data-testid={`card-feature-${index}`}>
+                <div className="p-6 h-full" data-testid={`card-feature-${index}`}>
                   <div className={`w-10 h-10 rounded-xl ${feature.bg} flex items-center justify-center mb-4`}>
                     <feature.icon className={`w-5 h-5 ${feature.color}`} />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -203,10 +202,10 @@ export default function Safety() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.07 }}
               >
-                <Card className="p-4 h-full flex items-center gap-3" data-testid={`card-hygiene-${index}`}>
+                <div className="p-4 h-full flex items-center gap-3" data-testid={`card-hygiene-${index}`}>
                   <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0" />
                   <p className="text-foreground text-sm">{standard}</p>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -232,13 +231,13 @@ export default function Safety() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <Card className="p-6 h-full" data-testid={`card-data-protection-${index}`}>
+                <div className="p-6 h-full" data-testid={`card-data-protection-${index}`}>
                   <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
                     <Lock className="w-5 h-5 text-purple-500" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{measure.label}</h3>
                   <p className="text-muted-foreground text-sm">{measure.desc}</p>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -259,7 +258,7 @@ export default function Safety() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <Card className="bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800 p-6 h-full" data-testid="card-what-to-report">
+              <div className="p-6 h-full" data-testid="card-what-to-report">
                 <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center mb-4">
                   <AlertCircle className="w-5 h-5 text-orange-500" />
                 </div>
@@ -272,7 +271,7 @@ export default function Safety() {
                     </li>
                   ))}
                 </ul>
-              </Card>
+              </div>
             </motion.div>
 
             <motion.div
@@ -281,7 +280,7 @@ export default function Safety() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Card className="p-6 h-full" data-testid="card-how-to-report">
+              <div className="p-6 h-full" data-testid="card-how-to-report">
                 <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
                   <MessageSquare className="w-5 h-5 text-blue-500" />
                 </div>
@@ -294,7 +293,7 @@ export default function Safety() {
                     </li>
                   ))}
                 </ol>
-              </Card>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -316,13 +315,13 @@ export default function Safety() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <Card className="p-6 h-full" data-testid={`card-emergency-${index}`}>
+                <div className="p-6 h-full" data-testid={`card-emergency-${index}`}>
                   <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center mb-4">
                     <Phone className="w-5 h-5 text-red-500" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-2">{contact.title}</p>
                   <p className="text-2xl font-bold text-foreground">{contact.number}</p>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -348,10 +347,10 @@ export default function Safety() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.07 }}
               >
-                <Card className="p-4 h-full flex items-center gap-3" data-testid={`card-safety-tip-${index}`}>
+                <div className="p-4 h-full flex items-center gap-3" data-testid={`card-safety-tip-${index}`}>
                   <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
                   <p className="text-foreground text-sm">{tip}</p>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -366,7 +365,7 @@ export default function Safety() {
             <p className="text-muted-foreground leading-relaxed mb-8">
               For safety-related inquiries or concerns, our team is here to help. Reach out to us anytime.
             </p>
-            <Card className="p-6 inline-block" data-testid="card-contact-info">
+            <div className="p-6 inline-block" data-testid="card-contact-info">
               <div className="flex items-center gap-3 mb-2">
                 <Mail className="w-5 h-5 text-foreground/60" />
                 <span className="text-foreground font-medium">Grumming Safety Team</span>
@@ -374,7 +373,7 @@ export default function Safety() {
               <a href="mailto:support@grumming.com" className="text-amber-500 hover:text-amber-600 transition-colors">
                 support@grumming.com
               </a>
-            </Card>
+            </div>
           </motion.div>
         </div>
       </section>

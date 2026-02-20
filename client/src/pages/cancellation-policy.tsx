@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { AlertTriangle, Crown, Clock, Bell, CheckCircle, Scissors } from "lucide-react";
 import { Link } from "wouter";
-import { Card } from "@/components/ui/card";
 import { SalonFooter } from "@/components/salon/footer";
 
 const fadeUp = {
@@ -107,7 +106,7 @@ export default function CancellationPolicy() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Card className="rounded-md p-6">
+              <div className="rounded-md p-6">
                 <ul className="space-y-3">
                   <li className="flex gap-3">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -138,7 +137,7 @@ export default function CancellationPolicy() {
                     </div>
                   </li>
                 </ul>
-              </Card>
+              </div>
             </motion.div>
 
             <motion.div
@@ -147,11 +146,11 @@ export default function CancellationPolicy() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Card className="bg-blue-50 dark:bg-blue-950/20 rounded-md p-6 border border-blue-200/50 dark:border-blue-900/30">
+              <div className="rounded-md p-6">
                 <p className="text-sm text-foreground">
                   <strong>Important:</strong> Always review the provider's specific cancellation policy before confirming your booking. The policy terms are binding once you complete the booking.
                 </p>
-              </Card>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -186,7 +185,7 @@ export default function CancellationPolicy() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Card className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-md p-6 border border-amber-200 dark:border-amber-800">
+              <div className="rounded-md p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">Free Cancellation Benefit</h3>
                 <ul className="space-y-3">
                   <li className="flex gap-3">
@@ -226,7 +225,7 @@ export default function CancellationPolicy() {
                     </div>
                   </li>
                 </ul>
-              </Card>
+              </div>
             </motion.div>
 
             <motion.div
@@ -272,7 +271,7 @@ export default function CancellationPolicy() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Card className="bg-orange-50 dark:bg-orange-950/20 rounded-md p-6 border border-orange-200 dark:border-orange-900/30">
+              <div className="rounded-md p-6">
                 <h3 className="font-semibold text-foreground mb-4">Flagging Thresholds</h3>
                 <ul className="space-y-2">
                   <li className="flex gap-3">
@@ -290,7 +289,7 @@ export default function CancellationPolicy() {
                     </div>
                   </li>
                 </ul>
-              </Card>
+              </div>
             </motion.div>
 
             <motion.div
@@ -299,7 +298,7 @@ export default function CancellationPolicy() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Card className="rounded-md p-6">
+              <div className="rounded-md p-6">
                 <h3 className="font-semibold text-foreground mb-4">What Happens When Flagged?</h3>
                 <ul className="space-y-2">
                   <li className="flex gap-3">
@@ -319,7 +318,7 @@ export default function CancellationPolicy() {
                     <span className="text-muted-foreground text-sm">In severe cases, your account may be suspended</span>
                   </li>
                 </ul>
-              </Card>
+              </div>
             </motion.div>
 
             <motion.div
@@ -328,7 +327,7 @@ export default function CancellationPolicy() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Card className="rounded-md p-6">
+              <div className="rounded-md p-6">
                 <h3 className="font-semibold text-foreground mb-4">Exceptions</h3>
                 <p className="text-muted-foreground text-sm mb-4">The following cancellations are not counted toward your limit:</p>
                 <ul className="space-y-2">
@@ -349,7 +348,7 @@ export default function CancellationPolicy() {
                     <span className="text-muted-foreground text-sm">Grumming Pass member cancellations (subject to fair use policy)</span>
                   </li>
                 </ul>
-              </Card>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -416,7 +415,7 @@ export default function CancellationPolicy() {
               <p className="text-muted-foreground leading-relaxed mb-4">
                 All cancellations are recorded in your booking history for your reference:
               </p>
-              <Card className="rounded-md p-6">
+              <div className="rounded-md p-6">
                 <ul className="space-y-3">
                   <li className="flex gap-3">
                     <span className="text-primary font-semibold flex-shrink-0">•</span>
@@ -440,7 +439,7 @@ export default function CancellationPolicy() {
                     </div>
                   </li>
                 </ul>
-              </Card>
+              </div>
             </motion.div>
 
             <motion.div
@@ -453,7 +452,7 @@ export default function CancellationPolicy() {
               <p className="text-muted-foreground leading-relaxed mb-4">
                 You will receive notifications for all cancellation-related events:
               </p>
-              <Card className="rounded-md p-6">
+              <div className="rounded-md p-6">
                 <ul className="space-y-3">
                   <li className="flex gap-3">
                     <span className="text-primary font-semibold flex-shrink-0">•</span>
@@ -472,7 +471,7 @@ export default function CancellationPolicy() {
                     <span className="text-muted-foreground text-sm">Notifications if a provider cancels your booking</span>
                   </li>
                 </ul>
-              </Card>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -482,7 +481,7 @@ export default function CancellationPolicy() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp}>
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">Have Questions?</h2>
-            <Card className="bg-blue-50 dark:bg-blue-950/20 rounded-md p-8 border border-blue-200/50 dark:border-blue-900/30">
+            <div className="rounded-md p-8">
               <p className="text-foreground mb-4">
                 If you have questions about our cancellation policy or need assistance with a specific situation, please contact us:
               </p>
@@ -490,7 +489,7 @@ export default function CancellationPolicy() {
                 <p className="font-semibold text-foreground">Grumming Support Team</p>
                 <p className="text-muted-foreground">Email: support@grumming.com</p>
               </div>
-            </Card>
+            </div>
           </motion.div>
         </div>
       </section>

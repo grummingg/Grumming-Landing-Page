@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Scissors, Store, CalendarCheck, Star, BarChart3, Smartphone, Shield, Users, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { SalonFooter } from "@/components/salon/footer";
 
 const fadeUp = {
@@ -122,15 +121,15 @@ export default function ForSalonOwners() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, i) => (
               <motion.div key={feature.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ ...fadeUp.visible, transition: { duration: 0.5, delay: i * 0.08 } }} >
-                <Card className="h-full" data-testid={`card-feature-${feature.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                  <CardContent className="p-6">
+                <div className="h-full" data-testid={`card-feature-${feature.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                  <div className="p-6">
                     <div className={`w-10 h-10 rounded-xl ${feature.bg} flex items-center justify-center mb-4`}>
                       <feature.icon className={`w-5 h-5 ${feature.color}`} />
                     </div>
                     <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

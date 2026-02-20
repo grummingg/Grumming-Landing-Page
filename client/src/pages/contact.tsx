@@ -3,7 +3,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { Send, Mail, User, MessageSquare, FileText, Phone, MapPin, Clock, Scissors } from "lucide-react";
 import { Link } from "wouter";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -110,23 +109,23 @@ export default function ContactPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 pb-16">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-10">
           {contactInfo.map((item) => (
-            <Card key={item.title} data-testid={`card-contact-${item.title.toLowerCase()}`}>
-              <CardContent className="p-4 sm:p-5 text-center">
+            <div key={item.title} data-testid={`card-contact-${item.title.toLowerCase()}`}>
+              <div className="p-4 sm:p-5 text-center">
                 <div className="w-10 h-10 rounded-md bg-primary/10 dark:bg-primary/20 flex items-center justify-center mx-auto mb-3">
                   <item.icon className="w-5 h-5 text-foreground" />
                 </div>
                 <h3 className="font-semibold text-foreground text-sm mb-0.5">{item.title}</h3>
                 <p className="text-foreground text-xs sm:text-sm">{item.detail}</p>
                 <p className="text-muted-foreground text-[11px] sm:text-xs mt-1 hidden sm:block">{item.sub}</p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10">
           <div className="lg:col-span-3 order-2 lg:order-1">
-            <Card data-testid="card-contact-form">
-              <CardContent className="p-6 sm:p-8">
+            <div data-testid="card-contact-form">
+              <div className="p-6 sm:p-8">
                 <h2 className="text-xl font-semibold text-foreground mb-1">Send us a message</h2>
                 <p className="text-sm text-muted-foreground mb-6">Fill out the form below and we'll get back to you shortly.</p>
 
@@ -239,13 +238,13 @@ export default function ContactPage() {
                     </Button>
                   </form>
                 </Form>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
           <div className="lg:col-span-2 order-1 lg:order-2 space-y-4">
-            <Card className="border-dashed" data-testid="card-salon-owners">
-              <CardContent className="p-5 sm:p-6">
+            <div data-testid="card-salon-owners">
+              <div className="p-5 sm:p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-10 h-10 rounded-md bg-accent/20 dark:bg-accent/30 flex items-center justify-center flex-shrink-0">
                     <MessageSquare className="w-5 h-5 text-foreground" />
@@ -255,11 +254,11 @@ export default function ContactPage() {
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Want to list your business on Grumming? Fill out the form with your business details and our partnerships team will reach out within 48 hours to help you get started.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card data-testid="card-response-time">
-              <CardContent className="p-5 sm:p-6">
+            <div data-testid="card-response-time">
+              <div className="p-5 sm:p-6">
                 <h3 className="font-semibold text-foreground mb-3">What to expect</h3>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
@@ -275,8 +274,8 @@ export default function ContactPage() {
                     <span>Partnership onboarding in 48 hours</span>
                   </li>
                 </ul>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </div>

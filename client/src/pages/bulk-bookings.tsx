@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Scissors, Users, Building, PartyPopper, GraduationCap, Heart, Calendar, Clock, Shield, Percent, Headphones, ArrowRight, Mail } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { SalonFooter } from "@/components/salon/footer";
 
 const fadeUp = {
@@ -126,15 +125,15 @@ export default function BulkBookings() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {useCases.map((useCase, i) => (
               <motion.div key={useCase.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ ...fadeUp.visible, transition: { duration: 0.5, delay: i * 0.08 } }}>
-                <Card className="h-full" data-testid={`card-usecase-${useCase.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                  <CardContent className="p-6">
+                <div className="h-full" data-testid={`card-usecase-${useCase.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                  <div className="p-6">
                     <div className={`w-10 h-10 rounded-xl ${useCase.bg} flex items-center justify-center mb-4`}>
                       <useCase.icon className={`w-5 h-5 ${useCase.color}`} />
                     </div>
                     <h3 className="font-semibold text-foreground mb-2">{useCase.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{useCase.description}</p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -151,8 +150,8 @@ export default function BulkBookings() {
           <div className="grid sm:grid-cols-2 gap-6">
             {benefits.map((benefit, i) => (
               <motion.div key={benefit.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ ...fadeUp.visible, transition: { duration: 0.5, delay: i * 0.1 } }}>
-                <Card className="h-full" data-testid={`card-benefit-${benefit.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                  <CardContent className="p-6 flex gap-4">
+                <div className="h-full" data-testid={`card-benefit-${benefit.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                  <div className="p-6 flex gap-4">
                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                       <benefit.icon className="w-5 h-5 text-primary" />
                     </div>
@@ -160,8 +159,8 @@ export default function BulkBookings() {
                       <h3 className="font-semibold text-foreground mb-1">{benefit.title}</h3>
                       <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

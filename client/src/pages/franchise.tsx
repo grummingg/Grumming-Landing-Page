@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Scissors, Building2, TrendingUp, Headphones, Shield, BookOpen, Banknote, Award, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { SalonFooter } from "@/components/salon/footer";
 
 const fadeUp = {
@@ -131,15 +130,15 @@ export default function Franchise() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, i) => (
               <motion.div key={benefit.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ ...fadeUp.visible, transition: { duration: 0.5, delay: i * 0.08 } }}>
-                <Card className="h-full" data-testid={`card-benefit-${benefit.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                  <CardContent className="p-6">
+                <div className="h-full" data-testid={`card-benefit-${benefit.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                  <div className="p-6">
                     <div className={`w-10 h-10 rounded-xl ${benefit.bg} flex items-center justify-center mb-4`}>
                       <benefit.icon className={`w-5 h-5 ${benefit.color}`} />
                     </div>
                     <h3 className="font-semibold text-foreground mb-2">{benefit.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -154,8 +153,8 @@ export default function Franchise() {
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <Card>
-              <CardContent className="p-6 sm:p-8">
+            <div>
+              <div className="p-6 sm:p-8">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {investmentDetails.map((detail) => (
                     <div key={detail.label} data-testid={`detail-${detail.label.toLowerCase().replace(/\s+/g, "-")}`}>
@@ -164,8 +163,8 @@ export default function Franchise() {
                     </div>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

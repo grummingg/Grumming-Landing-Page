@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Scissors, Megaphone, Eye, Target, BarChart3, Palette, Smartphone, ArrowRight, Mail } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { SalonFooter } from "@/components/salon/footer";
 
 const fadeUp = {
@@ -121,15 +120,15 @@ export default function Advertise() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {adFormats.map((format, i) => (
               <motion.div key={format.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ ...fadeUp.visible, transition: { duration: 0.5, delay: i * 0.08 } }}>
-                <Card className="h-full" data-testid={`card-ad-${format.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                  <CardContent className="p-6">
+                <div className="h-full" data-testid={`card-ad-${format.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                  <div className="p-6">
                     <div className={`w-10 h-10 rounded-xl ${format.bg} flex items-center justify-center mb-4`}>
                       <format.icon className={`w-5 h-5 ${format.color}`} />
                     </div>
                     <h3 className="font-semibold text-foreground mb-2">{format.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{format.description}</p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -149,13 +148,13 @@ export default function Advertise() {
           <div className="grid sm:grid-cols-3 gap-6">
             {pricingTiers.map((tier, i) => (
               <motion.div key={tier.name} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ ...fadeUp.visible, transition: { duration: 0.5, delay: i * 0.1 } }}>
-                <Card className={`h-full relative ${tier.popular ? "ring-2 ring-primary" : ""}`} data-testid={`card-pricing-${tier.name.toLowerCase()}`}>
+                <div className={`h-full relative ${tier.popular ? "ring-2 ring-primary" : ""}`} data-testid={`card-pricing-${tier.name.toLowerCase()}`}>
                   {tier.popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                       <span className="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">Most Popular</span>
                     </div>
                   )}
-                  <CardContent className="p-6">
+                  <div className="p-6">
                     <h3 className="font-semibold text-foreground text-lg mb-2">{tier.name}</h3>
                     <div className="flex items-baseline gap-1 mb-6">
                       <span className="text-3xl font-bold text-foreground">{tier.price === "Custom" ? "" : "\u20B9"}{tier.price}</span>
@@ -169,8 +168,8 @@ export default function Advertise() {
                         </li>
                       ))}
                     </ul>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

@@ -5,7 +5,6 @@ import { z } from "zod";
 import { Star, Shield, CreditCard, AlertTriangle, Smartphone, MessageSquare, Scissors } from "lucide-react";
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -225,8 +224,8 @@ export default function ReportIssue() {
             </h2>
           </motion.div>
 
-          <Card data-testid="card-report-form">
-            <CardContent className="p-6 sm:p-8">
+          <div data-testid="card-report-form">
+            <div className="p-6 sm:p-8">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -339,8 +338,8 @@ export default function ReportIssue() {
                   </Button>
                 </form>
               </Form>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </section>
 
