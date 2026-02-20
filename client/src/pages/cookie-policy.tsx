@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Cookie, Shield, Settings, BarChart, Eye, Scissors, Clock, Bell, Mail } from "lucide-react";
+import { Cookie, Shield, Settings, BarChart, Eye, Scissors, Clock, Bell, Mail, Megaphone } from "lucide-react";
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
 
