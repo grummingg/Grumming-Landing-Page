@@ -94,7 +94,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp}>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
@@ -185,7 +185,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="text-center mb-12">
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">What We Stand For</p>
@@ -254,7 +254,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto">
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Join Us</p>

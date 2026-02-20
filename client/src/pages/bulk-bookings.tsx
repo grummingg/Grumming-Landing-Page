@@ -113,7 +113,7 @@ export default function BulkBookings() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-2">Use Cases</p>
@@ -168,7 +168,7 @@ export default function BulkBookings() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-2">How It Works</p>

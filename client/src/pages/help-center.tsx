@@ -95,7 +95,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         />
       </button>
       {isOpen && (
-        <div className="px-6 py-4 bg-muted/20 dark:bg-white/5 border-t border-muted-foreground/10">
+        <div className="px-6 py-4 border-t border-muted-foreground/10">
           <p className="text-muted-foreground text-sm leading-relaxed">{answer}</p>
         </div>
       )}
@@ -132,7 +132,7 @@ export default function HelpCenter() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {helpTopics.map((topic, index) => (
@@ -186,7 +186,7 @@ export default function HelpCenter() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 tracking-tight" data-testid="text-contact-heading">

@@ -148,7 +148,7 @@ export default function ReportIssue() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12">
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3" data-testid="text-categories-label">
@@ -214,7 +214,7 @@ export default function ReportIssue() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12">
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3" data-testid="text-form-label">

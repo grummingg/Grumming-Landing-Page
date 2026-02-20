@@ -309,7 +309,7 @@ export default function HiringPage() {
         </div>
       </section>
 
-      <section className="bg-white dark:bg-background py-16">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <div className="flex items-center gap-3 mb-3">

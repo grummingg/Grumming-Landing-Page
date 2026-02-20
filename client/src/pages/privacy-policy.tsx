@@ -186,7 +186,7 @@ export default function PrivacyPolicy() {
 
       {sections.map((section, index) => {
         const isEvenSection = index % 2 === 0;
-        const bgClass = "bg-white dark:bg-background";
+        const bgClass = "";
         const IconComponent = section.icon;
 
         return (
@@ -238,7 +238,7 @@ export default function PrivacyPolicy() {
         );
       })}
 
-      <section className="bg-white dark:bg-background py-16">
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"

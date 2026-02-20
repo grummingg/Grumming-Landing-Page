@@ -140,7 +140,7 @@ export default function RefundPolicy() {
         </div>
       </section>
 
-      <section className="py-16 bg-white dark:bg-background">
+      <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp}>
             <div className="flex items-start gap-4 mb-6">
@@ -209,7 +209,7 @@ export default function RefundPolicy() {
         </div>
       </section>
 
-      <section className="py-16 bg-white dark:bg-background">
+      <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-start gap-4 mb-4">
@@ -293,7 +293,7 @@ export default function RefundPolicy() {
         </div>
       </section>
 
-      <section className="py-16 bg-white dark:bg-background">
+      <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-start gap-4 mb-4">
@@ -386,7 +386,7 @@ export default function RefundPolicy() {
         </div>
       </section>
 
-      <section className="py-16 bg-white dark:bg-background">
+      <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp}>
             <div className="flex items-start gap-4 mb-6">

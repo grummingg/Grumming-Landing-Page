@@ -97,7 +97,7 @@ export default function Advertise() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-16">
@@ -177,7 +177,7 @@ export default function Advertise() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <div className="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center mx-auto mb-6">

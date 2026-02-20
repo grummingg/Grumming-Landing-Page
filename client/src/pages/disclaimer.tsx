@@ -96,7 +96,7 @@ export default function Disclaimer() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-8">
             <p className="text-muted-foreground leading-relaxed">
@@ -134,7 +134,7 @@ export default function Disclaimer() {
         </section>
       ))}
 
-      <section className="py-16 sm:py-20 bg-white dark:bg-background">
+      <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp}>
             <div className="rounded-md p-6" data-testid="card-contact-section">
