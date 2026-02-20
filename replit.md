@@ -80,7 +80,7 @@ All sub-pages follow consistent design: dark hero banner (bg-[#0f172a]) with amb
 - **Help Center** (`/help`)
 - **Report Issue** (`/report-issue`)
 - **Legal**: Privacy (`/privacy`), Terms (`/terms`), Cookie Policy (`/cookie-policy`), Refund Policy (`/refund-policy`), Cancellation (`/cancellation-policy`), Disclaimer (`/disclaimer`)
-- **Business**: For Business Owners (`/for-salon-owners`), Advertise (`/advertise`), Franchise (`/franchise`), Bulk Bookings (`/bulk-bookings`)
+- **Business**: For Business Owners (`/business`), Advertise (`/advertise`), Franchise (`/franchise`), Bulk Bookings (`/bulk-bookings`)
 
 ## Business Contact Emails
 - partners@grumming.com (general)

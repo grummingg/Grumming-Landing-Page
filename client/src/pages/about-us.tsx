@@ -228,7 +228,7 @@ export default function AboutUs() {
           </motion.div>
 
           <div className="relative">
-            <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-border" />
+            <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-0.5 bg-border rounded-full" />
             <div className="space-y-8">
               {milestones.map((milestone, index) => (
                 <motion.div

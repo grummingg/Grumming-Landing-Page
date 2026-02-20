@@ -52,7 +52,7 @@ function Router() {
       <Route path="/refund-policy" component={RefundPolicy} />
       <Route path="/disclaimer" component={Disclaimer} />
       <Route path="/partner-with-us" component={PartnerWithUs} />
-      <Route path="/for-salon-owners" component={ForSalonOwners} />
+      <Route path="/business" component={ForSalonOwners} />
       <Route path="/advertise" component={Advertise} />
       <Route path="/franchise" component={Franchise} />
       <Route path="/bulk-bookings" component={BulkBookings} />

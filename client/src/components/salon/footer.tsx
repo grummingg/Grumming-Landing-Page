@@ -40,7 +40,7 @@ export function SalonFooter() {
       { name: "Refund Policy", url: "/refund-policy", scrollTo: null },
     ],
     Business: [
-      { name: "For Business Owners", url: "/for-salon-owners", scrollTo: null },
+      { name: "For Business Owners", url: "/business", scrollTo: null },
       { name: "Partner with Us", url: "/partner-with-us", scrollTo: null },
       { name: "Bulk Bookings", url: "/bulk-bookings", scrollTo: null },
     ],
