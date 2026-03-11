@@ -105,11 +105,9 @@ export default function BulkBookings() {
             <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed mb-8">
               Book beauty & grooming services for your team, wedding party, or any group event — with special rates and a dedicated coordinator.
             </p>
-            <a href="mailto:bookings@grumming.com">
-              <Button className="bg-amber-500 border-amber-600 text-white" data-testid="button-request-quote">
-                Request a Quote <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </a>
+            <Button className="bg-amber-500 border-amber-600 text-white" asChild data-testid="button-request-quote">
+              <a href="mailto:bookings@grumming.com">Request a Quote <ArrowRight className="w-4 h-4 ml-2" /></a>
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -202,11 +200,9 @@ export default function BulkBookings() {
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
               Tell us about your event and we'll put together the perfect grooming package for your group.
             </p>
-            <a href="mailto:bookings@grumming.com">
-              <Button className="bg-primary border-primary-border text-white" data-testid="button-email-bookings">
-                Get a Custom Quote
-              </Button>
-            </a>
+            <Button className="bg-primary border-primary-border text-white" asChild data-testid="button-email-bookings">
+              <a href="mailto:bookings@grumming.com">Get a Custom Quote</a>
+            </Button>
             <p className="text-muted-foreground text-sm mt-4">
               Email us at <a href="mailto:bookings@grumming.com" className="text-primary hover:underline">bookings@grumming.com</a>
             </p>

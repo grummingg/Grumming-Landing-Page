@@ -99,11 +99,9 @@ export default function Franchise() {
             <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed mb-8">
               Own a piece of India's fastest-growing beauty & grooming booking platform. Launch and operate Grumming in your region.
             </p>
-            <a href="mailto:franchise@grumming.com">
-              <Button className="bg-amber-500 border-amber-600 text-white" data-testid="button-inquire-franchise">
-                Inquire Now <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </a>
+            <Button className="bg-amber-500 border-amber-600 text-white" asChild data-testid="button-inquire-franchise">
+              <a href="mailto:franchise@grumming.com">Inquire Now <ArrowRight className="w-4 h-4 ml-2" /></a>
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -204,11 +202,9 @@ export default function Franchise() {
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
               We're expanding to 50+ cities and looking for driven entrepreneurs to join our journey.
             </p>
-            <a href="mailto:franchise@grumming.com">
-              <Button className="bg-primary border-primary-border text-white" data-testid="button-franchise-inquiry">
-                Send Franchise Inquiry
-              </Button>
-            </a>
+            <Button className="bg-primary border-primary-border text-white" asChild data-testid="button-franchise-inquiry">
+              <a href="mailto:franchise@grumming.com">Send Franchise Inquiry</a>
+            </Button>
             <p className="text-muted-foreground text-sm mt-4">
               Email us at <a href="mailto:franchise@grumming.com" className="text-primary hover:underline">franchise@grumming.com</a>
             </p>

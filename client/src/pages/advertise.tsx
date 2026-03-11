@@ -89,11 +89,9 @@ export default function Advertise() {
             <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed mb-8">
               Put your brand in front of thousands of beauty-conscious customers actively searching for beauty and grooming services.
             </p>
-            <a href="mailto:ads@grumming.com">
-              <Button className="bg-amber-500 border-amber-600 text-white" data-testid="button-get-started-ads">
-                Get Started <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </a>
+            <Button className="bg-amber-500 border-amber-600 text-white" asChild data-testid="button-get-started-ads">
+              <a href="mailto:ads@grumming.com">Get Started <ArrowRight className="w-4 h-4 ml-2" /></a>
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -188,11 +186,9 @@ export default function Advertise() {
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
               Get in touch with our advertising team to discuss the best plan for your business goals.
             </p>
-            <a href="mailto:ads@grumming.com">
-              <Button className="bg-primary border-primary-border text-white" data-testid="button-contact-ads">
-                Contact Advertising Team
-              </Button>
-            </a>
+            <Button className="bg-primary border-primary-border text-white" asChild data-testid="button-contact-ads">
+              <a href="mailto:ads@grumming.com">Contact Advertising Team</a>
+            </Button>
             <p className="text-muted-foreground text-sm mt-4">
               Email us at <a href="mailto:ads@grumming.com" className="text-primary hover:underline">ads@grumming.com</a>
             </p>
