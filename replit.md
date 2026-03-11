@@ -25,7 +25,7 @@ Grumming is a modern beauty & grooming booking landing page built as a fully sta
 - **Code Splitting**: All pages lazy-loaded via React.lazy() with Suspense fallback
 - **Error Handling**: ErrorBoundary wraps all routes; shows reload UI on chunk load failures
 - **SEO**: Per-page document titles via useDocumentTitle hook; OG/Twitter meta images; JSON-LD Organization schema; web manifest for PWA
-- **Theme**: FOUC prevention via inline script in index.html; ThemeProvider validates localStorage
+- **Theme**: FOUC prevention via inline script in index.html; ThemeProvider reads/writes localStorage with try-catch for storage-disabled environments
 
 The frontend follows a component-based architecture with:
 - Landing page sections as separate components (Hero, Categories, Stats, Locations, App Download, Footer)
@@ -62,6 +62,12 @@ The `shared/` directory contains:
 4. **Locations** - 60+ Indian cities with dynamic masonry grid and animated card swapping
 5. **App Download** - Mobile app promotion with Coming Soon store links
 6. **Footer** - 4 columns (Company, Support, Legal, Business), contact info, social links, theme toggle
+
+## Shared Frontend Utilities (`client/src/lib/`)
+
+- **`constants.ts`** — Named exports for all contact info (SUPPORT_EMAIL, SUPPORT_PHONE, SUPPORT_WHATSAPP_NUMBER, SUPPORT_WHATSAPP_DISPLAY, PARTNERS_EMAIL, ADS_EMAIL, FRANCHISE_EMAIL, BOOKINGS_EMAIL, CAREERS_EMAIL, INSTAGRAM_URL, TWITTER_URL). Imported by footer.tsx and contact.tsx.
+- **`animations.ts`** — Shared Framer Motion variants: `fadeUp` (spread pattern with `initial/whileInView/viewport/transition`) and `fadeUpVariants` (variant pattern with `hidden/visible`). All 17 sub-pages import from here — no local `const fadeUp` definitions.
+- **`utils.ts`** — shadcn `cn()` helper.
 
 ## Sub-Pages
 

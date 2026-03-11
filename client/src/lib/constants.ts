@@ -1,0 +1,11 @@
+export const SUPPORT_EMAIL = "support@grumming.com";
+export const SUPPORT_WHATSAPP_NUMBER = "919229506624";
+export const SUPPORT_WHATSAPP_DISPLAY = "+91 9229506624";
+export const SUPPORT_PHONE = "+91 1800-123-4567";
+export const PARTNERS_EMAIL = "partners@grumming.com";
+export const ADS_EMAIL = "ads@grumming.com";
+export const FRANCHISE_EMAIL = "franchise@grumming.com";
+export const BOOKINGS_EMAIL = "bookings@grumming.com";
+export const CAREERS_EMAIL = "careers@grumming.com";
+export const INSTAGRAM_URL = "https://www.instagram.com/grummingindia";
+export const TWITTER_URL = "https://x.com/grummingapp";

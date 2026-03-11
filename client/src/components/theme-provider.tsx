@@ -10,11 +10,27 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+function getStoredTheme(): Theme | null {
+  try {
+    const stored = localStorage.getItem("theme");
+    if (stored === "light" || stored === "dark") return stored;
+  } catch {
+  }
+  return null;
+}
+
+function storeTheme(theme: Theme) {
+  try {
+    localStorage.setItem("theme", theme);
+  } catch {
+  }
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("theme");
-      if (stored === "light" || stored === "dark") return stored;
+      const stored = getStoredTheme();
+      if (stored) return stored;
       return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     return "light";
@@ -24,7 +40,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const root = document.documentElement;
     root.classList.remove("light", "dark");
     root.classList.add(theme);
-    localStorage.setItem("theme", theme);
+    storeTheme(theme);
   }, [theme]);
 
   const toggleTheme = () => {

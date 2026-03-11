@@ -3,11 +3,7 @@ import { motion } from "framer-motion";
 import { Database, Share2, Lock, Shield, Cookie, Mail, Scissors, Clock, Users, Link2, Bell, UserCheck } from "lucide-react";
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
+import { fadeUpVariants as fadeUp } from "@/lib/animations";
 
 const sections = [
   {

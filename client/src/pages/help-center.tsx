@@ -4,13 +4,7 @@ import { Rocket, Calendar, CreditCard, Settings, Shield, Building2, ChevronDown,
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
 import { useState } from "react";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5 },
-};
+import { fadeUp } from "@/lib/animations";
 
 const helpTopics = [
   {

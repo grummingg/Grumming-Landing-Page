@@ -431,16 +431,16 @@ export function Locations({ locations }: LocationsProps) {
       }
     };
     const onTouchMove = (e: TouchEvent) => {
-      if (dragActiveId) {
-        e.preventDefault();
-        const touch = e.touches[0];
-        if (touch) handlePointerMoveRaw(touch.clientX, touch.clientY);
-      }
+      e.preventDefault();
+      const touch = e.touches[0];
+      if (touch) handlePointerMoveRaw(touch.clientX, touch.clientY);
     };
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerup", onUp);
     window.addEventListener("pointercancel", onUp);
-    window.addEventListener("touchmove", onTouchMove, { passive: false });
+    if (dragActiveId) {
+      window.addEventListener("touchmove", onTouchMove, { passive: false });
+    }
     return () => {
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerup", onUp);

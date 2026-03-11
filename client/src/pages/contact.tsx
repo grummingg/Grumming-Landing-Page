@@ -20,18 +20,19 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { insertContactMessageSchema, type InsertContactMessage } from "@shared/schema";
 import { SalonFooter } from "@/components/salon/footer";
+import { SUPPORT_EMAIL, SUPPORT_PHONE } from "@/lib/constants";
 
 const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    detail: "support@grumming.com",
+    detail: SUPPORT_EMAIL,
     sub: "We'll respond within 24 hours",
   },
   {
     icon: Phone,
     title: "Phone",
-    detail: "+91 1800-123-4567",
+    detail: SUPPORT_PHONE,
     sub: "Toll-free, Mon - Sat",
   },
   {

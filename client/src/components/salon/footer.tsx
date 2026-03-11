@@ -4,6 +4,7 @@ import { Mail, MapPin, ArrowUpRight, Sun, Moon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "@/components/theme-provider";
 import { Link } from "wouter";
+import { SUPPORT_EMAIL, SUPPORT_WHATSAPP_NUMBER, SUPPORT_WHATSAPP_DISPLAY, INSTAGRAM_URL, TWITTER_URL } from "@/lib/constants";
 
 export function SalonFooter() {
   const { toast } = useToast();
@@ -47,9 +48,9 @@ export function SalonFooter() {
   };
 
   const socialLinks = [
-    { icon: SiInstagram, label: "Instagram", url: "https://www.instagram.com/grummingindia?igsh=cnVuYmdsbnR6NHlr" },
+    { icon: SiInstagram, label: "Instagram", url: INSTAGRAM_URL },
     { icon: SiFacebook, label: "Facebook", url: null },
-    { icon: SiX, label: "X", url: "https://x.com/grummingapp?s=21" },
+    { icon: SiX, label: "X", url: TWITTER_URL },
     { icon: SiYoutube, label: "YouTube", url: null },
   ];
 
@@ -102,15 +103,15 @@ export function SalonFooter() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="mailto:support@grumming.com" className="flex items-center gap-2 text-black/70 dark:text-white/70 transition-colors text-sm" data-testid="text-footer-email">
+                <a href={`mailto:${SUPPORT_EMAIL}`} className="flex items-center gap-2 text-black/70 dark:text-white/70 transition-colors text-sm" data-testid="text-footer-email">
                   <Mail className="w-3.5 h-3.5 shrink-0" />
-                  support@grumming.com
+                  {SUPPORT_EMAIL}
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/919229506624" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-black/70 dark:text-white/70 transition-colors text-sm" data-testid="text-footer-phone">
+                <a href={`https://wa.me/${SUPPORT_WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-black/70 dark:text-white/70 transition-colors text-sm" data-testid="text-footer-phone">
                   <SiWhatsapp className="w-3.5 h-3.5 shrink-0" />
-                  +91 9229506624
+                  {SUPPORT_WHATSAPP_DISPLAY}
                 </a>
               </li>
               <li>

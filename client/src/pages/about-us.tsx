@@ -3,13 +3,7 @@ import { motion } from "framer-motion";
 import { Sparkles, Zap, Shield, HeartHandshake, TrendingUp, MapPin, Users, Scissors, Target, Eye, Lightbulb, Globe } from "lucide-react";
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5 },
-};
+import { fadeUp } from "@/lib/animations";
 
 const stats = [
   { value: "10,000+", label: "Happy Customers", icon: Users },

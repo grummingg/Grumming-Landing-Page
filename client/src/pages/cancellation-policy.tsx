@@ -3,13 +3,7 @@ import { motion } from "framer-motion";
 import { AlertTriangle, Crown, Clock, Bell, CheckCircle, Scissors } from "lucide-react";
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5 },
-};
+import { fadeUp } from "@/lib/animations";
 
 export default function CancellationPolicy() {
   useDocumentTitle("Cancellation Policy | Grumming");
