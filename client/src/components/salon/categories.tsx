@@ -186,7 +186,7 @@ export function Categories({ categories }: CategoriesProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-pink-400/20 blur-3xl rounded-full scale-150" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 blur-3xl rounded-full scale-150" />
             
             <div className="w-56 sm:w-72 h-[400px] sm:h-[520px] bg-hero rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl relative">
               <div className="w-full h-full rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden relative">
@@ -196,7 +196,7 @@ export function Categories({ categories }: CategoriesProps) {
                 />
               </div>
               <div className="absolute top-4 sm:top-6 left-1/2 -translate-x-1/2 w-20 sm:w-24 h-6 sm:h-7 bg-hero rounded-full" aria-hidden="true" />
-              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-1 bg-gray-700 rounded-full" aria-hidden="true" />
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-1 bg-muted-foreground/40 rounded-full" aria-hidden="true" />
             </div>
           </motion.div>
 

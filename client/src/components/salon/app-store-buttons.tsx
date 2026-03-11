@@ -46,7 +46,7 @@ export function AppStoreButtons({ variant = "section", className = "" }: AppStor
       >
         <GooglePlayIcon className={iconSize} />
         <div className="text-left">
-          <div className={`${comingSoonSize} text-amber-400 uppercase tracking-wider font-medium`}>Coming Soon</div>
+          <div className={`${comingSoonSize} text-accent uppercase tracking-wider font-medium`}>Coming Soon</div>
           <div className={`${labelSize} font-semibold text-white -mt-0.5`}>Google Play</div>
         </div>
       </button>
@@ -60,7 +60,7 @@ export function AppStoreButtons({ variant = "section", className = "" }: AppStor
       >
         <AppleIcon className={iconSize} />
         <div className="text-left">
-          <div className={`${comingSoonSize} text-amber-400 uppercase tracking-wider font-medium`}>Coming Soon</div>
+          <div className={`${comingSoonSize} text-accent uppercase tracking-wider font-medium`}>Coming Soon</div>
           <div className={`${labelSize} font-semibold text-white -mt-0.5`}>App Store</div>
         </div>
       </button>

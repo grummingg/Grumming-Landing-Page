@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import type { Location } from "@shared/schema";
 
 import cityDelhi from "../../assets/images/city-delhi.jpg";
@@ -506,13 +506,13 @@ export function Locations({ locations }: LocationsProps) {
                 <div
                   className={`relative w-full h-full rounded-lg overflow-hidden shadow-sm ring-1 ring-black/5 dark:ring-white/10 transition-shadow duration-300 ${
                     isSpecial ? "ring-2 ring-primary/40 shadow-lg" : ""
-                  } ${isDragging ? "ring-2 ring-amber-400 shadow-xl shadow-amber-400/30" : ""}`}
+                  } ${isDragging ? "ring-2 ring-accent shadow-xl shadow-accent/30" : ""}`}
                   data-testid={`card-location-${location.id}`}
                 >
                   <CityImage src={image} alt={location.name} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
                   {isDragging && (
-                    <div className="absolute inset-0 bg-amber-400/10 animate-pulse pointer-events-none" />
+                    <div className="absolute inset-0 bg-accent/10 animate-pulse pointer-events-none" />
                   )}
                   <div className={`absolute bottom-0 left-0 right-0 ${isSpecial ? "p-1.5 sm:p-2" : "p-1 sm:p-1.5"}`}>
                     <span

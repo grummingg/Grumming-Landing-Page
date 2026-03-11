@@ -116,7 +116,6 @@ export default function ReportIssue() {
   });
 
   const onSubmit = (data: ReportIssueFormData) => {
-    console.log("Form data:", data);
     toast({
       title: "Report submitted successfully",
       description: "We'll get back to you within 24 hours.",

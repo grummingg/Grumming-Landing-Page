@@ -2,6 +2,7 @@ import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 import { Send, Mail, User, MessageSquare, FileText, Phone, MapPin, Clock, Scissors } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -84,14 +85,19 @@ export default function ContactPage() {
               <span className="text-lg font-bold tracking-tight">Grumming</span>
             </span>
           </Link>
-          <div className="max-w-2xl">
+          <motion.div
+            className="max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3" data-testid="text-contact-title">
               Get in Touch
             </h1>
             <p className="text-base sm:text-lg text-white/80 leading-relaxed" data-testid="text-contact-description">
               Have questions or want to partner with Grumming? Our team is here to help you every step of the way.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
 
