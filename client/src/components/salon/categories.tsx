@@ -4,8 +4,6 @@ import type { Category } from "@shared/schema";
 
 import haircutMale from "../../assets/videos/haircut-male.mp4";
 import haircutFemale from "../../assets/videos/haircut-female.mp4";
-import spaMale from "../../assets/videos/spa-male.mp4";
-import spaFemale from "../../assets/videos/spa-female.mp4";
 import skincareMale from "../../assets/videos/skincare-male.mp4";
 import skincareFemale from "../../assets/videos/skincare-female.mp4";
 import makeupMale from "../../assets/videos/makeup-male.mp4";
@@ -17,7 +15,7 @@ import nailsFemale from "../../assets/videos/nails-female.mp4";
 
 const serviceVideosByName: Record<string, string[]> = {
   haircut: [haircutMale, haircutFemale],
-  spa: [spaMale, spaFemale],
+  spa: [skincareMale, skincareFemale],
   skincare: [skincareMale, skincareFemale],
   makeup: [makeupMale, makeupFemale],
   "hair colour": [haircolourMale, haircolourFemale],
