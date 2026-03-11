@@ -76,17 +76,17 @@ export default {
           border: "var(--sidebar-accent-border)"
         },
         status: {
-          online: "rgb(34 197 94)",
-          away: "rgb(245 158 11)",
-          busy: "rgb(239 68 68)",
-          offline: "rgb(156 163 175)",
+          online: "hsl(142 71% 45%)",
+          away: "hsl(38 92% 50%)",
+          busy: "hsl(0 84% 60%)",
+          offline: "hsl(220 9% 46%)",
         },
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
-        display: ["'Nunito'", "sans-serif"],
+        display: ["var(--font-sans)", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

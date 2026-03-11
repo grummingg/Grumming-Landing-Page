@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 import type { Category } from "@shared/schema";
-import { HaircutIcon, SpaIcon, SkincareIcon, MakeupIcon, HairColourIcon, NailsIcon } from "./category-icons";
 
 import haircutMale from "../../assets/videos/haircut-male.mp4";
 import haircutFemale from "../../assets/videos/haircut-female.mp4";
@@ -26,24 +25,6 @@ const serviceVideosByName: Record<string, string[]> = {
 };
 
 const allVideos: string[] = Object.values(serviceVideosByName).flat();
-
-const categoryIconComponents: Record<string, ({ className }: { className?: string }) => JSX.Element> = {
-  Scissors: HaircutIcon,
-  Bath: SpaIcon,
-  Sparkles: SkincareIcon,
-  Brush: MakeupIcon,
-  Palette: HairColourIcon,
-  Fingerprint: NailsIcon,
-};
-
-const categoryColorsByIcon: Record<string, string> = {
-  Scissors: "from-rose-400 to-rose-500",
-  Bath: "from-emerald-400 to-emerald-500",
-  Sparkles: "from-pink-400 to-pink-500",
-  Brush: "from-amber-400 to-amber-500",
-  Palette: "from-sky-400 to-sky-500",
-  Fingerprint: "from-violet-400 to-violet-500",
-};
 
 const categoryPillColors: Record<string, { bg: string; text: string; ring: string }> = {
   Scissors: { bg: "bg-rose-500", text: "text-white", ring: "ring-rose-300" },
@@ -79,10 +60,6 @@ function getRandomVideoForCategory(category: Category): string {
 
 function getRandomVideo(): string {
   return allVideos[Math.floor(Math.random() * allVideos.length)];
-}
-
-function getCategoryColor(category: Category): string {
-  return categoryColorsByIcon[category.icon] || "from-gray-400 to-gray-500";
 }
 
 interface CategoriesProps {
@@ -424,7 +401,11 @@ export function Categories({ categories }: CategoriesProps) {
                     <div
                       className={`cursor-pointer transition-all duration-300 rounded-full px-5 py-2.5 font-semibold text-sm shadow-md ${isSelected ? `${pillColor.bg} ${pillColor.text} ring-2 ${pillColor.ring} shadow-lg` : 'bg-muted text-muted-foreground dark:bg-white/10 dark:text-white/70'}`}
                       data-testid={`card-category-${category.id}`}
+                      role="button"
+                      tabIndex={0}
+                      aria-pressed={isSelected}
                       onClick={() => handleCategoryClick(category)}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCategoryClick(category); } }}
                     >
                       <span data-testid={`text-category-name-${category.id}`}>
                         {category.name}
@@ -477,7 +458,11 @@ export function Categories({ categories }: CategoriesProps) {
                     <div
                       className={`cursor-pointer transition-all duration-300 rounded-full px-5 py-2.5 font-semibold text-sm shadow-md ${isSelected ? `${pillColor.bg} ${pillColor.text} ring-2 ${pillColor.ring} shadow-lg` : 'bg-muted text-muted-foreground dark:bg-white/10 dark:text-white/70'}`}
                       data-testid={`card-category-${category.id}`}
+                      role="button"
+                      tabIndex={0}
+                      aria-pressed={isSelected}
                       onClick={() => handleCategoryClick(category)}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCategoryClick(category); } }}
                     >
                       <span data-testid={`text-category-name-${category.id}`}>
                         {category.name}
@@ -524,7 +509,11 @@ export function Categories({ categories }: CategoriesProps) {
                     <div
                       className={`cursor-pointer transition-all duration-300 rounded-full px-4 py-2 font-semibold text-xs shadow-md ${isSelected ? `${pillColor.bg} ${pillColor.text} ring-2 ${pillColor.ring} shadow-lg` : 'bg-muted text-muted-foreground dark:bg-white/10 dark:text-white/70'}`}
                       data-testid={`card-category-mobile-${category.id}`}
+                      role="button"
+                      tabIndex={0}
+                      aria-pressed={isSelected}
                       onClick={() => handleCategoryClick(category)}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCategoryClick(category); } }}
                     >
                       {category.name}
                     </div>

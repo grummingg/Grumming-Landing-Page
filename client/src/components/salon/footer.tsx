@@ -54,7 +54,7 @@ export function SalonFooter() {
   ];
 
   return (
-    <footer className="bg-white dark:bg-[#0f172a] text-foreground dark:text-white">
+    <footer className="bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-10 sm:py-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
           {Object.entries(footerLinks).map(([category, links]) => (
@@ -130,27 +130,31 @@ export function SalonFooter() {
 
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
-              {socialLinks.map((social) => (
-                <button
-                  key={social.label}
-                  className={`w-8 h-8 rounded-md flex items-center justify-center transition-colors ${
-                    social.url
-                      ? "text-foreground/50 dark:text-white/50 hover-elevate"
-                      : "text-foreground/20 dark:text-white/20 cursor-not-allowed"
-                  }`}
-                  onClick={() => {
-                    if (social.url) {
-                      window.open(social.url, "_blank", "noopener,noreferrer");
-                    } else {
-                      handleComingSoonLink(social.label);
-                    }
-                  }}
-                  aria-label={social.label}
-                  data-testid={`link-social-${social.label.toLowerCase()}`}
-                >
-                  <social.icon className="w-3.5 h-3.5" />
-                </button>
-              ))}
+              {socialLinks.map((social) =>
+                social.url ? (
+                  <a
+                    key={social.label}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-md flex items-center justify-center transition-colors text-foreground/50 hover-elevate"
+                    aria-label={social.label}
+                    data-testid={`link-social-${social.label.toLowerCase()}`}
+                  >
+                    <social.icon className="w-3.5 h-3.5" />
+                  </a>
+                ) : (
+                  <button
+                    key={social.label}
+                    className="w-8 h-8 rounded-md flex items-center justify-center transition-colors text-foreground/20 cursor-not-allowed"
+                    onClick={() => handleComingSoonLink(social.label)}
+                    aria-label={`${social.label} - Coming Soon`}
+                    data-testid={`link-social-${social.label.toLowerCase()}`}
+                  >
+                    <social.icon className="w-3.5 h-3.5" />
+                  </button>
+                )
+              )}
             </div>
 
             <div className="w-px h-4 bg-black/10 dark:bg-white/10" />
@@ -164,7 +168,7 @@ export function SalonFooter() {
               <div
                 className={`absolute top-0.5 w-[18px] h-[18px] rounded-full flex items-center justify-center transition-all ${
                   theme === "dark"
-                    ? "left-[22px] bg-[#1e293b]"
+                    ? "left-[22px] bg-card"
                     : "left-0.5 bg-white shadow-sm"
                 }`}
               >

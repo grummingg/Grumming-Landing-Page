@@ -31,11 +31,11 @@ The frontend follows a component-based architecture with:
 - Responsive design for mobile, tablet, and desktop
 
 ### Color Theme
-- **Primary**: Deep teal (#2D5F5D / hsl(177, 35%, 27%))
+- **Primary**: Deep teal (#2D5F5D / hsl(177, 35%, 27%)) — all chart/sidebar hues aligned to 177
 - **Accent**: Warm gold (#D4A574 / hsl(28, 52%, 64%))
 - **Dark Mode Background**: Deep navy (#0f172a) matching the Grumming mobile app
 - **Cards**: White with subtle shadows (light), Navy blue #1e293b (dark)
-- **Font**: Inter
+- **Font**: Inter (via CSS var --font-sans; display font also uses Inter)
 
 ### Deployment
 - **Type**: Static deployment (no backend server)

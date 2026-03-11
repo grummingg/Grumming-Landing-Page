@@ -81,6 +81,10 @@ export function SalonHero() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
         onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.scrollBy({ top: window.innerHeight, behavior: 'smooth' }); } }}
+        role="button"
+        tabIndex={0}
+        aria-label="Scroll down"
         data-testid="button-scroll-down"
       >
         <div className="w-6 h-10 rounded-full border-2 border-white/60 flex justify-center pt-2">

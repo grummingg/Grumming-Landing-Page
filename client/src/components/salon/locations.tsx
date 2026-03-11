@@ -267,7 +267,7 @@ export function Locations({ locations }: LocationsProps) {
     if (locations.length === 0) return;
 
     const scheduleSwap = () => {
-      const delay = 100 + Math.random() * 1900;
+      const delay = 500 + Math.random() * 2000;
       swapTimerRef.current = setTimeout(() => {
         if (shouldAnimate()) {
           setOrder(prev => {
@@ -284,7 +284,7 @@ export function Locations({ locations }: LocationsProps) {
     };
 
     const scheduleSize = () => {
-      const delay = 200 + Math.random() * 2300;
+      const delay = 800 + Math.random() * 2500;
       sizeTimerRef.current = setTimeout(() => {
         if (shouldAnimate()) {
           const currentOrder = locationsRef.current;
