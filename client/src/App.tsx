@@ -1,8 +1,50 @@
-import { useEffect, lazy, Suspense } from "react";
+import { Component, useEffect, lazy, Suspense } from "react";
+import type { ErrorInfo, ReactNode } from "react";
 import { Switch, Route, useLocation } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
+
+class ErrorBoundary extends Component<
+  { children: ReactNode },
+  { hasError: boolean }
+> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, info: ErrorInfo) {
+    console.error("ErrorBoundary caught:", error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div
+          className="min-h-screen bg-background flex flex-col items-center justify-center gap-4 p-6 text-center"
+          data-testid="error-boundary"
+        >
+          <h1 className="text-2xl font-semibold text-foreground">
+            Something went wrong
+          </h1>
+          <p className="text-muted-foreground max-w-md">
+            An unexpected error occurred. Please reload the page to try again.
+          </p>
+          <button
+            data-testid="button-reload"
+            onClick={() => window.location.reload()}
+            className="mt-2 px-4 min-h-9 rounded-md bg-primary text-primary-foreground font-medium hover-elevate active-elevate-2"
+          >
+            Reload Page
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -43,6 +85,7 @@ function PageLoader() {
 
 function Router() {
   return (
+    <ErrorBoundary>
     <Suspense fallback={<PageLoader />}>
       <Switch>
         <Route path="/" component={SalonLanding} />
@@ -67,6 +110,7 @@ function Router() {
         <Route component={NotFound} />
       </Switch>
     </Suspense>
+    </ErrorBoundary>
   );
 }
 

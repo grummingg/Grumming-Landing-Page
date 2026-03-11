@@ -16,17 +16,20 @@ Grumming is a modern beauty & grooming booking landing page built as a fully sta
 ## System Architecture
 
 ### Frontend Architecture
-- **Framework**: React 18 with TypeScript
+- **Framework**: React 18 with TypeScript (StrictMode enabled)
 - **Routing**: Wouter (lightweight React router)
 - **Styling**: Tailwind CSS with CSS variables for theming
-- **UI Components**: shadcn/ui component library (Radix UI primitives)
+- **UI Components**: shadcn/ui component library (Radix UI primitives) — only 19 used components kept
 - **Animations**: Framer Motion for smooth transitions
 - **Build Tool**: Vite with path aliases (@/, @shared/, @assets/)
 - **Code Splitting**: All pages lazy-loaded via React.lazy() with Suspense fallback
+- **Error Handling**: ErrorBoundary wraps all routes; shows reload UI on chunk load failures
 - **SEO**: Per-page document titles via useDocumentTitle hook
+- **Theme**: FOUC prevention via inline script in index.html; ThemeProvider validates localStorage
 
 The frontend follows a component-based architecture with:
-- Landing page sections as separate components (Hero, Categories, Locations, Featured Salons, How It Works, App Download, Footer)
+- Landing page sections as separate components (Hero, Categories, Locations, How It Works, App Download, Footer)
+- Reusable AppStoreButtons component (shared between Hero and App Download)
 - Theme support (light/dark mode) via ThemeProvider context
 - Responsive design for mobile, tablet, and desktop
 
@@ -53,17 +56,16 @@ The `shared/` directory contains:
 
 ## Landing Page Sections
 
-1. **Hero** - Full-height section with search bar, city selector, and stats
+1. **Hero** - Full-height section with video background and Coming Soon app store buttons
 2. **Categories** - 6 service categories (Haircut, Spa, Skincare, Makeup, Hair Colour, Nails) with custom SVG icons
-3. **Locations** - 6 popular cities with business counts
-4. **Featured Salons** - Horizontal carousel of 5 top-rated businesses with booking CTAs
-5. **How It Works** - 3-step process (Search, Book, Enjoy)
-6. **App Download** - Mobile app promotion with store links
-7. **Footer** - 4 columns (Company, Support, Legal, Business), newsletter signup, contact info, social links
+3. **Locations** - 60+ Indian cities with dynamic masonry grid and animated card swapping
+4. **How It Works** - 3-step process (Search, Book, Enjoy)
+5. **App Download** - Mobile app promotion with Coming Soon store links
+6. **Footer** - 4 columns (Company, Support, Legal, Business), contact info, social links, theme toggle
 
 ## Sub-Pages
 
-All sub-pages follow consistent design: dark hero banner (bg-[#0f172a]) with amber label, white heading, clickable "Grumming" brand logo at top, alternating section backgrounds, framer-motion fadeUp animations, SalonFooter at bottom.
+All sub-pages follow consistent design: dark hero banner (bg-[#0f172a]) with amber label, white heading, clickable "Grumming" brand logo at top, framer-motion fadeUp animations, SalonFooter at bottom.
 
 - **About Us** (`/about-us`)
 - **FAQ** (`/faq`)
@@ -81,15 +83,17 @@ All sub-pages follow consistent design: dark hero banner (bg-[#0f172a]) with amb
 - ads@grumming.com (advertise)
 - franchise@grumming.com (franchise)
 - bookings@grumming.com (bulk bookings)
+- careers@grumming.com (hiring)
+- support@grumming.com (support)
 
 ## External Dependencies
 
 ### UI Libraries
-- **shadcn/ui**: Full component library with Radix UI primitives
+- **shadcn/ui**: 19 components (accordion, aspect-ratio, badge, button, card, dialog, form, input, label, radio-group, select, separator, sheet, skeleton, textarea, toast, toaster, toggle, tooltip)
 - **Tailwind CSS**: Utility-first CSS framework
 - **Framer Motion**: Animation library
 - **Lucide React**: Icon library
-- **react-icons**: Social media icons
+- **react-icons**: Social media icons (SiInstagram, SiFacebook, SiX, SiYoutube, SiWhatsapp)
 
 ### Build & Development
 - **Vite**: Frontend bundler with HMR

@@ -81,7 +81,7 @@ export function HowItWorks() {
               
               {index < steps.length - 1 && (
                 <div className="hidden md:block absolute top-1/2 -right-6 lg:-right-8 transform -translate-y-1/2 z-10">
-                  <div className="w-4 h-4 border-t-2 border-r-2 border-gray-300 dark:border-gray-600 transform rotate-45"></div>
+                  <div className="w-4 h-4 border-t-2 border-r-2 border-border transform rotate-45" aria-hidden="true"></div>
                 </div>
               )}
             </motion.div>

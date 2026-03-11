@@ -273,10 +273,10 @@ function getGroupedPositions() {
 
 export default function HiringPage() {
   useDocumentTitle("Careers | Grumming");
-  const handleApply = (jobTitle: string) => {
+  const getApplyHref = (jobTitle: string) => {
     const subject = encodeURIComponent(`Application for ${jobTitle}`);
     const body = encodeURIComponent(`Hi Grumming Team,\n\nI'm interested in the ${jobTitle} position. Please find my details below:\n\nName: \nExperience: \nPortfolio/LinkedIn: \n\nLooking forward to hearing from you.\n\nBest regards`);
-    window.open(`mailto:careers@grumming.com?subject=${subject}&body=${body}`, "_blank", "noopener,noreferrer");
+    return `mailto:careers@grumming.com?subject=${subject}&body=${body}`;
   };
 
   const grouped = getGroupedPositions();
@@ -417,10 +417,10 @@ export default function HiringPage() {
                         <Button
                           size="sm"
                           className="flex-shrink-0 bg-accent text-accent-foreground border-accent-border"
-                          onClick={() => handleApply(job.title)}
+                          asChild
                           data-testid={`button-apply-${job.id}`}
                         >
-                          Apply
+                          <a href={getApplyHref(job.title)}>Apply</a>
                         </Button>
                       </div>
                     </div>
@@ -448,11 +448,13 @@ export default function HiringPage() {
               </p>
               <Button
                 className="bg-accent text-accent-foreground border-accent-border"
-                onClick={() => window.open("mailto:careers@grumming.com?subject=General%20Application&body=Hi%20Grumming%20Team%2C%0A%0AI'd%20love%20to%20explore%20opportunities%20at%20Grumming.%20Please%20find%20my%20details%20below%3A%0A%0AName%3A%20%0AExperience%3A%20%0APortfolio%2FLinkedIn%3A%20%0A%0ABest%20regards", "_blank", "noopener,noreferrer")}
+                asChild
                 data-testid="button-general-apply"
               >
-                <Mail className="w-4 h-4 mr-2" />
-                Send your resume
+                <a href="mailto:careers@grumming.com?subject=General%20Application&body=Hi%20Grumming%20Team%2C%0A%0AI'd%20love%20to%20explore%20opportunities%20at%20Grumming.%20Please%20find%20my%20details%20below%3A%0A%0AName%3A%20%0AExperience%3A%20%0APortfolio%2FLinkedIn%3A%20%0A%0ABest%20regards">
+                  <Mail className="w-4 h-4 mr-2" />
+                  Send your resume
+                </a>
               </Button>
             </div>
           </motion.div>
