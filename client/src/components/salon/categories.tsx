@@ -127,11 +127,11 @@ function CrossfadeVideoPlayer({ src, testId }: { src: string; testId: string }) 
 }
 
 export function Categories({ categories }: CategoriesProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [currentVideo, setCurrentVideo] = useState<string>(() =>
     categories.length > 0 ? getRandomVideoForCategory(categories[0]) : allVideos[0]
   );
   const intervalRef = useRef<number | null>(null);
-  const categoryIndexRef = useRef(0);
 
   const startAutoRotate = useCallback(() => {
     if (intervalRef.current) {
@@ -139,11 +139,14 @@ export function Categories({ categories }: CategoriesProps) {
     }
     if (categories.length === 0) return;
     intervalRef.current = window.setInterval(() => {
-      categoryIndexRef.current = (categoryIndexRef.current + 1) % categories.length;
-      const nextCategory = categories[categoryIndexRef.current];
-      if (nextCategory) {
-        setCurrentVideo(getRandomVideoForCategory(nextCategory));
-      }
+      setCurrentIndex((prev) => {
+        const nextIdx = (prev + 1) % categories.length;
+        const nextCategory = categories[nextIdx];
+        if (nextCategory) {
+          setCurrentVideo(getRandomVideoForCategory(nextCategory));
+        }
+        return nextIdx;
+      });
     }, 5000);
   }, [categories]);
 
@@ -177,7 +180,7 @@ export function Categories({ categories }: CategoriesProps) {
           </h2>
         </motion.div>
 
-        <div className="flex items-center justify-center">
+        <div className="flex flex-col items-center justify-center gap-8">
           <motion.div
             className="relative"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -197,6 +200,29 @@ export function Categories({ categories }: CategoriesProps) {
               <div className="absolute top-4 sm:top-6 left-1/2 -translate-x-1/2 w-20 sm:w-24 h-6 sm:h-7 bg-hero rounded-full" aria-hidden="true" />
               <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-1 bg-gray-700 rounded-full" aria-hidden="true" />
             </div>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            data-testid="category-labels"
+          >
+            {categories.map((cat, idx) => (
+              <span
+                key={cat.name}
+                className={`text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-500 ${
+                  idx === currentIndex
+                    ? "bg-accent/15 text-accent"
+                    : "text-muted-foreground"
+                }`}
+                data-testid={`category-label-${cat.name.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                {cat.name}
+              </span>
+            ))}
           </motion.div>
         </div>
       </div>

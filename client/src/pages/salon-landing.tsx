@@ -1,6 +1,7 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { SalonHero } from "@/components/salon/hero";
 import { Categories } from "@/components/salon/categories";
+import { Stats } from "@/components/salon/stats";
 import { Locations } from "@/components/salon/locations";
 
 import { AppDownload } from "@/components/salon/app-download";
@@ -14,6 +15,7 @@ export default function SalonLanding() {
       <main>
         <SalonHero />
         <Categories categories={defaultSalonConfig.categories} />
+        <Stats />
         <Locations locations={defaultSalonConfig.locations} />
         <AppDownload />
       </main>

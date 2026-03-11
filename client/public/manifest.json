@@ -1,0 +1,21 @@
+{
+  "name": "Grumming",
+  "short_name": "Grumming",
+  "description": "Find & book the best salons, spas, and grooming studios near you",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#2D5F5D",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

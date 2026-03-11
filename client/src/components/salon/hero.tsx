@@ -10,6 +10,7 @@ export function SalonHero() {
         loop
         muted
         playsInline
+        poster="/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover"
         data-testid="video-hero-background"
         aria-label="Background video showcasing beauty and grooming services"

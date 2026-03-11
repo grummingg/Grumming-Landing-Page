@@ -24,11 +24,11 @@ Grumming is a modern beauty & grooming booking landing page built as a fully sta
 - **Build Tool**: Vite with path aliases (@/, @shared/, @assets/)
 - **Code Splitting**: All pages lazy-loaded via React.lazy() with Suspense fallback
 - **Error Handling**: ErrorBoundary wraps all routes; shows reload UI on chunk load failures
-- **SEO**: Per-page document titles via useDocumentTitle hook
+- **SEO**: Per-page document titles via useDocumentTitle hook; OG/Twitter meta images; JSON-LD Organization schema; web manifest for PWA
 - **Theme**: FOUC prevention via inline script in index.html; ThemeProvider validates localStorage
 
 The frontend follows a component-based architecture with:
-- Landing page sections as separate components (Hero, Categories, Locations, App Download, Footer)
+- Landing page sections as separate components (Hero, Categories, Stats, Locations, App Download, Footer)
 - Reusable AppStoreButtons component (shared between Hero and App Download)
 - Theme support (light/dark mode) via ThemeProvider context
 - Responsive design for mobile, tablet, and desktop
@@ -56,11 +56,12 @@ The `shared/` directory contains:
 
 ## Landing Page Sections
 
-1. **Hero** - Full-height section with video background and Coming Soon app store buttons
-2. **Categories** - 6 service categories (Haircut, Spa, Skincare, Makeup, Hair Colour, Nails) with custom SVG icons
-3. **Locations** - 60+ Indian cities with dynamic masonry grid and animated card swapping
-4. **App Download** - Mobile app promotion with Coming Soon store links
-5. **Footer** - 4 columns (Company, Support, Legal, Business), contact info, social links, theme toggle
+1. **Hero** - Full-height section with video background (poster image for fast load), Coming Soon app store buttons
+2. **Categories** - Phone mockup with auto-rotating service preview videos; category labels (Haircut, Spa, Skincare, Makeup, Hair Colour, Nails) with active indicator below
+3. **Stats** - Trust signals row: 500+ partners, 60+ cities, 6 categories, 4.8 rating
+4. **Locations** - 60+ Indian cities with dynamic masonry grid and animated card swapping
+5. **App Download** - Mobile app promotion with Coming Soon store links
+6. **Footer** - 4 columns (Company, Support, Legal, Business), contact info, social links, theme toggle
 
 ## Sub-Pages
 
