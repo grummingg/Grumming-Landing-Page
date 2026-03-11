@@ -1,23 +1,22 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
+import { Link } from "wouter";
 
 export default function NotFound() {
   useDocumentTitle("Page Not Found | Grumming");
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-background">
-      <Card className="w-full max-w-md mx-4">
-        <CardContent className="pt-6">
-          <div className="flex mb-4 gap-2">
-            <AlertCircle className="h-8 w-8 text-destructive" />
-            <h1 className="text-2xl font-bold text-foreground">404 Page Not Found</h1>
-          </div>
-
-          <p className="mt-4 text-sm text-muted-foreground">
-            Did you forget to add the page to the router?
-          </p>
-        </CardContent>
-      </Card>
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-background px-4 text-center">
+      <p className="text-6xl font-bold text-foreground mb-4">404</p>
+      <h1 className="text-xl font-semibold text-foreground mb-2">Page not found</h1>
+      <p className="text-muted-foreground text-sm max-w-sm mb-6">
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+      <Link
+        href="/"
+        className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium"
+        data-testid="link-back-home"
+      >
+        Back to Home
+      </Link>
     </div>
   );
 }

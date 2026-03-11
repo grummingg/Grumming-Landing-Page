@@ -70,8 +70,6 @@ const RefundPolicy = lazy(() => import("@/pages/refund-policy"));
 const Disclaimer = lazy(() => import("@/pages/disclaimer"));
 const PartnerWithUs = lazy(() => import("@/pages/partner-with-us"));
 const ForSalonOwners = lazy(() => import("@/pages/for-salon-owners"));
-const Advertise = lazy(() => import("@/pages/advertise"));
-const Franchise = lazy(() => import("@/pages/franchise"));
 const BulkBookings = lazy(() => import("@/pages/bulk-bookings"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
@@ -104,8 +102,6 @@ function Router() {
         <Route path="/disclaimer" component={Disclaimer} />
         <Route path="/partner-with-us" component={PartnerWithUs} />
         <Route path="/business" component={ForSalonOwners} />
-        <Route path="/advertise" component={Advertise} />
-        <Route path="/franchise" component={Franchise} />
         <Route path="/bulk-bookings" component={BulkBookings} />
         <Route component={NotFound} />
       </Switch>

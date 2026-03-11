@@ -82,12 +82,10 @@ All sub-pages follow consistent design: dark hero banner (bg-hero token, resolve
 - **Help Center** (`/help-center`)
 - **Report Issue** (`/report-issue`)
 - **Legal**: Privacy (`/privacy-policy`), Terms (`/terms-of-service`), Cookie Policy (`/cookie-policy`), Refund Policy (`/refund-policy`), Cancellation (`/cancellation-policy`), Disclaimer (`/disclaimer`)
-- **Business**: For Business Owners (`/business`), Advertise (`/advertise`), Franchise (`/franchise`), Bulk Bookings (`/bulk-bookings`)
+- **Business**: For Business Owners (`/business`), Bulk Bookings (`/bulk-bookings`)
 
 ## Business Contact Emails
 - partners@grumming.com (general)
-- ads@grumming.com (advertise)
-- franchise@grumming.com (franchise)
 - bookings@grumming.com (bulk bookings)
 - careers@grumming.com (hiring)
 - support@grumming.com (support)
