@@ -1,9 +1,9 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
-import { Building, TrendingUp, Users, BarChart, Headphones, Globe, CheckCircle, Mail, Phone, Scissors } from "lucide-react";
-import { Link } from "wouter";
+import { Building, TrendingUp, Users, BarChart, Headphones, Globe, CheckCircle, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SalonFooter } from "@/components/salon/footer";
+import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUpVariants as fadeUp } from "@/lib/animations";
 
 const benefits = [
@@ -69,26 +69,13 @@ export default function PartnerWithUs() {
   useDocumentTitle("Partner With Us | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-hero text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <Link href="/">
-            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
-              <Scissors className="w-5 h-5" />
-              <span className="text-lg font-bold tracking-tight">Grumming</span>
-            </span>
-          </Link>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-partner-label">Partner with Us</span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4" data-testid="text-partner-title">
-              Grow your business with Grumming
-            </h1>
-            <p className="text-white/60 mt-4 text-lg max-w-2xl" data-testid="text-partner-subtitle">
-              Join India's fastest-growing beauty & grooming booking platform and connect with thousands of customers looking for your services.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <SubPageHero
+        compact
+        maxWidth="4xl"
+        label="Partner with Us"
+        title="Grow your business with Grumming"
+        subtitle="Join India's fastest-growing beauty & grooming booking platform and connect with thousands of customers looking for your services."
+      />
 
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

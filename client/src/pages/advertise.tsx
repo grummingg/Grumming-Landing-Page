@@ -1,9 +1,9 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
-import { Scissors, Megaphone, Eye, Target, BarChart3, Palette, Smartphone, ArrowRight, Mail } from "lucide-react";
-import { Link } from "wouter";
+import { Megaphone, Eye, Target, BarChart3, Palette, Smartphone, ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SalonFooter } from "@/components/salon/footer";
+import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUpVariants as fadeUp } from "@/lib/animations";
 
 const adFormats = [
@@ -68,29 +68,17 @@ export default function Advertise() {
   useDocumentTitle("Advertise With Us | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-hero text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <Link href="/">
-            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
-              <Scissors className="w-5 h-5" />
-              <span className="text-lg font-bold tracking-tight">Grumming</span>
-            </span>
-          </Link>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-3">Advertise on Grumming</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6" data-testid="text-advertise-title">
-              Reach customers who<br />are ready to book
-            </h1>
-            <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed mb-8">
-              Put your brand in front of thousands of beauty-conscious customers actively searching for beauty and grooming services.
-            </p>
-            <Button className="bg-amber-500 border-amber-600 text-white" asChild data-testid="button-get-started-ads">
-              <a href="mailto:ads@grumming.com">Get Started <ArrowRight className="w-4 h-4 ml-2" /></a>
-            </Button>
-          </motion.div>
+      <SubPageHero
+        label="Advertise on Grumming"
+        title={<>Reach customers who<br />are ready to book</>}
+        subtitle="Put your brand in front of thousands of beauty-conscious customers actively searching for beauty and grooming services."
+      >
+        <div className="mt-8">
+          <Button className="bg-amber-500 border-amber-600 text-white" asChild data-testid="button-get-started-ads">
+            <a href="mailto:ads@grumming.com">Get Started <ArrowRight className="w-4 h-4 ml-2" /></a>
+          </Button>
         </div>
-      </section>
+      </SubPageHero>
 
       <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

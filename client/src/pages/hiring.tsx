@@ -1,6 +1,5 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
-import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -18,12 +17,12 @@ import {
   PackageSearch,
   Heart,
   Mail,
-  Scissors,
   GraduationCap,
   Rocket,
   Shield,
 } from "lucide-react";
 import { SalonFooter } from "@/components/salon/footer";
+import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUpVariants as fadeUp } from "@/lib/animations";
 
 const perks = [
@@ -280,32 +279,20 @@ export default function HiringPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-hero text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <Link href="/">
-            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
-              <Scissors className="w-5 h-5" />
-              <span className="text-lg font-bold tracking-tight">Grumming</span>
-            </span>
-          </Link>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-careers-label">Careers at Grumming</span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4" data-testid="text-hiring-title">
-              Build the future of beauty tech
-            </h1>
-            <p className="text-white/60 mt-4 text-lg max-w-2xl" data-testid="text-hiring-subtitle">
-              We're on a mission to transform how India discovers and books beauty and grooming services. Join our team of passionate builders, creators, and problem-solvers.
-            </p>
-            <div className="flex items-center gap-3 mt-6">
-              <Badge className="bg-white/15 text-white border-0 no-default-hover-elevate no-default-active-elevate" data-testid="badge-hiring">
-                We're hiring
-              </Badge>
-              <span className="text-white/50 text-sm">{openPositions.length} open roles across {departmentOrder.length} departments</span>
-            </div>
-          </motion.div>
+      <SubPageHero
+        compact
+        maxWidth="4xl"
+        label="Careers at Grumming"
+        title="Build the future of beauty tech"
+        subtitle="We're on a mission to transform how India discovers and books beauty and grooming services. Join our team of passionate builders, creators, and problem-solvers."
+      >
+        <div className="flex items-center gap-3 mt-6">
+          <Badge className="bg-white/15 text-white border-0 no-default-hover-elevate no-default-active-elevate" data-testid="badge-hiring">
+            We're hiring
+          </Badge>
+          <span className="text-white/50 text-sm">{openPositions.length} open roles across {departmentOrder.length} departments</span>
         </div>
-      </section>
+      </SubPageHero>
 
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

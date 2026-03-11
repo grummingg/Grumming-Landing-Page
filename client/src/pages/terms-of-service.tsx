@@ -1,8 +1,8 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
-import { UserCheck, BookOpen, CreditCard, Shield, Building, Scale, AlertTriangle, Gavel, Mail, Scissors, FileText, Bell } from "lucide-react";
-import { Link } from "wouter";
+import { UserCheck, BookOpen, CreditCard, Shield, Building, Scale, AlertTriangle, Gavel, Mail, FileText, Bell } from "lucide-react";
 import { SalonFooter } from "@/components/salon/footer";
+import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUpVariants as fadeUp } from "@/lib/animations";
 
 const sections = [
@@ -242,25 +242,17 @@ export default function TermsOfService() {
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-hero text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <Link href="/">
-            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
-              <Scissors className="w-5 h-5" />
-              <span className="text-lg font-bold tracking-tight">Grumming</span>
-            </span>
-          </Link>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-terms-label">Terms of Service</span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4" data-testid="text-terms-title">Terms and Conditions</h1>
-            <p className="text-white/60 mt-4 text-lg max-w-2xl" data-testid="text-terms-subtitle">Last updated: January 2026</p>
-            <p className="text-white/50 mt-3 text-sm max-w-2xl leading-relaxed" data-testid="text-terms-intro">
-              These Terms of Service ("Terms") govern your access to and use of the Grumming platform, including our website, mobile applications, and all related services operated by Grumming ("we", "our", or "us"). Please read these Terms carefully before using our platform.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <SubPageHero
+        compact
+        maxWidth="4xl"
+        label="Terms of Service"
+        title="Terms and Conditions"
+        subtitle="Last updated: January 2026"
+      >
+        <p className="text-white/50 mt-3 text-sm max-w-2xl leading-relaxed">
+          These Terms of Service ("Terms") govern your access to and use of the Grumming platform, including our website, mobile applications, and all related services operated by Grumming ("we", "our", or "us"). Please read these Terms carefully before using our platform.
+        </p>
+      </SubPageHero>
 
       {groups.map((group, gi) => (
         <section key={gi} className="py-16">

@@ -1,8 +1,8 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
-import { Cookie, Shield, Settings, BarChart, Eye, Scissors, Clock, Bell, Mail, Megaphone } from "lucide-react";
-import { Link } from "wouter";
+import { Cookie, Shield, Settings, BarChart, Eye, Clock, Bell, Mail, Megaphone } from "lucide-react";
 import { SalonFooter } from "@/components/salon/footer";
+import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUp } from "@/lib/animations";
 
 const cookieTypes = [
@@ -103,25 +103,16 @@ export default function CookiePolicy() {
   useDocumentTitle("Cookie Policy | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-hero text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <Link href="/">
-            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
-              <Scissors className="w-5 h-5" />
-              <span className="text-lg font-bold tracking-tight">Grumming</span>
-            </span>
-          </Link>
-          <motion.div {...fadeUp}>
-            <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase">Cookie Policy</span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4">How we use cookies</h1>
-            <p className="text-white/60 mt-4 text-lg max-w-2xl">Last updated: January 2026</p>
-            <p className="text-white/50 mt-3 text-sm max-w-2xl leading-relaxed">
-              This Cookie Policy explains how Grumming ("we", "our", or "us") uses cookies and similar tracking technologies when you visit our website or use our mobile application. This policy should be read alongside our Privacy Policy, which provides further details on how we process your personal data.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <SubPageHero
+        compact
+        label="Cookie Policy"
+        title="How we use cookies"
+        subtitle="Last updated: January 2026"
+      >
+        <p className="text-white/50 mt-3 text-sm max-w-2xl leading-relaxed">
+          This Cookie Policy explains how Grumming ("we", "our", or "us") uses cookies and similar tracking technologies when you visit our website or use our mobile application. This policy should be read alongside our Privacy Policy, which provides further details on how we process your personal data.
+        </p>
+      </SubPageHero>
 
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

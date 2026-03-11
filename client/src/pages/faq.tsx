@@ -1,7 +1,5 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
-import { Scissors } from "lucide-react";
-import { Link } from "wouter";
 import {
   Accordion,
   AccordionContent,
@@ -9,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SalonFooter } from "@/components/salon/footer";
+import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUp } from "@/lib/animations";
 
 const faqCategories = [
@@ -73,32 +72,11 @@ export default function FAQPage() {
   useDocumentTitle("FAQ | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-hero text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <Link href="/">
-            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
-              <Scissors className="w-5 h-5" />
-              <span className="text-lg font-bold tracking-tight">Grumming</span>
-            </span>
-          </Link>
-          <motion.div {...fadeUp}>
-            <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-3">
-              Frequently Asked Questions
-            </p>
-            <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6"
-              data-testid="text-faq-title"
-            >
-              We're here to help
-            </h1>
-            <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed">
-              Everything you need to know about Grumming and how to get the most
-              out of your booking experience.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <SubPageHero
+        label="Frequently Asked Questions"
+        title="We're here to help"
+        subtitle="Everything you need to know about Grumming and how to get the most out of your booking experience."
+      />
 
       {faqCategories.map((category, categoryIndex) => (
         <section

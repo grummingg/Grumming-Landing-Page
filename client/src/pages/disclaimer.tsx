@@ -1,8 +1,8 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
-import { AlertTriangle, Info, Shield, IndianRupee, ExternalLink, Scale, FileText, Gavel, Mail, Scissors } from "lucide-react";
-import { Link } from "wouter";
+import { AlertTriangle, Info, Shield, IndianRupee, ExternalLink, Scale, FileText, Gavel, Mail } from "lucide-react";
 import { SalonFooter } from "@/components/salon/footer";
+import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUp } from "@/lib/animations";
 
 const sections = [
@@ -75,22 +75,12 @@ export default function Disclaimer() {
   useDocumentTitle("Disclaimer | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-hero text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-          <Link href="/">
-            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
-              <Scissors className="w-5 h-5" />
-              <span className="text-lg font-bold tracking-tight">Grumming</span>
-            </span>
-          </Link>
-          <motion.div {...fadeUp}>
-            <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-disclaimer-label">Disclaimer</span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4" data-testid="text-disclaimer-title">Legal disclaimer</h1>
-            <p className="text-white/60 mt-4 text-lg max-w-2xl" data-testid="text-disclaimer-lastupdate">Last updated: January 2026</p>
-          </motion.div>
-        </div>
-      </section>
+      <SubPageHero
+        compact
+        label="Disclaimer"
+        title="Legal disclaimer"
+        subtitle="Last updated: January 2026"
+      />
 
       <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

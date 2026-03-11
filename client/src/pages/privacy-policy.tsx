@@ -1,8 +1,9 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
-import { Database, Share2, Lock, Shield, Cookie, Mail, Scissors, Clock, Users, Link2, Bell, UserCheck } from "lucide-react";
+import { Database, Share2, Lock, Shield, Cookie, Mail, Clock, Users, Link2, Bell, UserCheck } from "lucide-react";
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
+import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUpVariants as fadeUp } from "@/lib/animations";
 
 const sections = [
@@ -162,25 +163,17 @@ export default function PrivacyPolicy() {
   useDocumentTitle("Privacy Policy | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-hero overflow-hidden py-16 sm:py-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/">
-            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
-              <Scissors className="w-5 h-5" />
-              <span className="text-lg font-bold tracking-tight">Grumming</span>
-            </span>
-          </Link>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-policy-label">Privacy Policy</span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4" data-testid="text-privacy-title">Your privacy matters to us</h1>
-            <p className="text-white/60 mt-4 text-lg max-w-2xl" data-testid="text-last-updated">Last updated: January 2026</p>
-            <p className="text-white/50 mt-3 text-sm max-w-2xl leading-relaxed" data-testid="text-privacy-intro">
-              This Privacy Policy describes how Grumming ("we", "our", or "us") collects, uses, shares, and protects your personal information when you use our platform and services. We are committed to safeguarding your privacy in accordance with applicable Indian data protection laws, including the Information Technology Act, 2000 and the Digital Personal Data Protection Act, 2023.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <SubPageHero
+        compact
+        maxWidth="4xl"
+        label="Privacy Policy"
+        title="Your privacy matters to us"
+        subtitle="Last updated: January 2026"
+      >
+        <p className="text-white/50 mt-3 text-sm max-w-2xl leading-relaxed">
+          This Privacy Policy describes how Grumming ("we", "our", or "us") collects, uses, shares, and protects your personal information when you use our platform and services. We are committed to safeguarding your privacy in accordance with applicable Indian data protection laws, including the Information Technology Act, 2000 and the Digital Personal Data Protection Act, 2023.
+        </p>
+      </SubPageHero>
 
       {sections.map((section, index) => {
         const isEvenSection = index % 2 === 0;

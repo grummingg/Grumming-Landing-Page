@@ -1,8 +1,8 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
-import { Shield, UserCheck, AlertCircle, Phone, Eye, Lock, CheckCircle2, MessageSquare, MapPin, Mail, Scissors } from "lucide-react";
-import { Link } from "wouter";
+import { Shield, UserCheck, AlertCircle, Phone, Eye, Lock, CheckCircle2, MessageSquare, MapPin, Mail } from "lucide-react";
 import { SalonFooter } from "@/components/salon/footer";
+import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUp } from "@/lib/animations";
 
 const features = [
@@ -98,26 +98,11 @@ export default function Safety() {
   useDocumentTitle("Safety | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-hero text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <Link href="/">
-            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
-              <Scissors className="w-5 h-5" />
-              <span className="text-lg font-bold tracking-tight">Grumming</span>
-            </span>
-          </Link>
-          <motion.div {...fadeUp}>
-            <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-3">Safety</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6" data-testid="text-safety-title">
-              Your safety is our top priority
-            </h1>
-            <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed">
-              At Grumming, we are committed to creating a safe and trustworthy environment for both customers and partners. We have implemented comprehensive safety measures to ensure every booking experience is secure and reliable.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <SubPageHero
+        label="Safety"
+        title="Your safety is our top priority"
+        subtitle="At Grumming, we are committed to creating a safe and trustworthy environment for both customers and partners. We have implemented comprehensive safety measures to ensure every booking experience is secure and reliable."
+      />
 
       <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Sparkles, Zap, Shield, HeartHandshake, TrendingUp, MapPin, Users, Scissors, Target, Eye, Lightbulb, Globe } from "lucide-react";
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
+import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUp } from "@/lib/animations";
 
 const stats = [
@@ -69,26 +70,11 @@ export default function AboutUs() {
   useDocumentTitle("About Us | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-hero text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <Link href="/">
-            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
-              <Scissors className="w-5 h-5" />
-              <span className="text-lg font-bold tracking-tight">Grumming</span>
-            </span>
-          </Link>
-          <motion.div {...fadeUp}>
-            <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-3" data-testid="text-about-label">About Grumming</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6" data-testid="text-about-title">
-              Making self-care<br />effortless for everyone
-            </h1>
-            <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed" data-testid="text-about-subtitle">
-              We connect you with the best salons, spas, studios, and grooming experts near you, turning what used to be a hassle into something you actually look forward to.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <SubPageHero
+        label="About Grumming"
+        title={<>Making self-care<br />effortless for everyone</>}
+        subtitle="We connect you with the best salons, spas, studios, and grooming experts near you, turning what used to be a hassle into something you actually look forward to."
+      />
 
       <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

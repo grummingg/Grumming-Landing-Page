@@ -1,9 +1,9 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
-import { Scissors, Building2, TrendingUp, Headphones, Shield, BookOpen, Banknote, Award, ArrowRight } from "lucide-react";
-import { Link } from "wouter";
+import { Building2, TrendingUp, Headphones, Shield, BookOpen, Banknote, Award, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SalonFooter } from "@/components/salon/footer";
+import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUpVariants as fadeUp } from "@/lib/animations";
 
 const benefits = [
@@ -78,29 +78,17 @@ export default function Franchise() {
   useDocumentTitle("Franchise Opportunities | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-hero text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <Link href="/">
-            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
-              <Scissors className="w-5 h-5" />
-              <span className="text-lg font-bold tracking-tight">Grumming</span>
-            </span>
-          </Link>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-3">Franchise Opportunities</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6" data-testid="text-franchise-title">
-              Bring Grumming<br />to your city
-            </h1>
-            <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed mb-8">
-              Own a piece of India's fastest-growing beauty & grooming booking platform. Launch and operate Grumming in your region.
-            </p>
-            <Button className="bg-amber-500 border-amber-600 text-white" asChild data-testid="button-inquire-franchise">
-              <a href="mailto:franchise@grumming.com">Inquire Now <ArrowRight className="w-4 h-4 ml-2" /></a>
-            </Button>
-          </motion.div>
+      <SubPageHero
+        label="Franchise Opportunities"
+        title={<>Bring Grumming<br />to your city</>}
+        subtitle="Own a piece of India's fastest-growing beauty & grooming booking platform. Launch and operate Grumming in your region."
+      >
+        <div className="mt-8">
+          <Button className="bg-amber-500 border-amber-600 text-white" asChild data-testid="button-inquire-franchise">
+            <a href="mailto:franchise@grumming.com">Inquire Now <ArrowRight className="w-4 h-4 ml-2" /></a>
+          </Button>
         </div>
-      </section>
+      </SubPageHero>
 
       <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

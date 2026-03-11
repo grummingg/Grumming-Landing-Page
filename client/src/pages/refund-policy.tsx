@@ -1,8 +1,9 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
-import { IndianRupee, Clock, CheckCircle, XCircle, Crown, CreditCard, Mail, Scissors, Shield, AlertTriangle, FileText, Bell } from "lucide-react";
+import { IndianRupee, Clock, CheckCircle, XCircle, Crown, CreditCard, Mail, Shield, AlertTriangle, FileText, Bell } from "lucide-react";
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
+import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUp } from "@/lib/animations";
 
 const eligibilityReasons = [
@@ -110,31 +111,16 @@ export default function RefundPolicy() {
   useDocumentTitle("Refund Policy | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-hero text-white overflow-hidden py-16 sm:py-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/">
-            <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">
-              <Scissors className="w-5 h-5" />
-              <span className="text-lg font-bold tracking-tight">Grumming</span>
-            </span>
-          </Link>
-          <motion.div {...fadeUp}>
-            <span className="text-amber-400 text-sm font-semibold tracking-widest uppercase" data-testid="text-refund-label">
-              Refund Policy
-            </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4" data-testid="text-refund-title">
-              Our refund commitment
-            </h1>
-            <p className="text-white/60 mt-4 text-lg max-w-2xl" data-testid="text-refund-date">
-              Last updated: January 2026
-            </p>
-            <p className="text-white/50 mt-3 text-sm max-w-2xl leading-relaxed">
-              At Grumming, we are committed to ensuring a fair and transparent refund process. This Refund Policy outlines the circumstances under which refunds may be issued, the process for requesting a refund, and the timelines involved. This policy applies to all bookings made through the Grumming platform.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <SubPageHero
+        compact
+        label="Refund Policy"
+        title="Our refund commitment"
+        subtitle="Last updated: January 2026"
+      >
+        <p className="text-white/50 mt-3 text-sm max-w-2xl leading-relaxed">
+          At Grumming, we are committed to ensuring a fair and transparent refund process. This Refund Policy outlines the circumstances under which refunds may be issued, the process for requesting a refund, and the timelines involved. This policy applies to all bookings made through the Grumming platform.
+        </p>
+      </SubPageHero>
 
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
