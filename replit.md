@@ -2,7 +2,7 @@
 
 ## Overview
 
-Grumming is a modern beauty & grooming booking landing page built with React and Express. The platform covers salons, spas, beauty parlors, and grooming studios. Users can discover and explore businesses, browse service categories, view popular locations, and see featured listings. The design uses a deep teal (#2D5F5D) primary color and warm gold (#D4A574) accent color with Inter font family.
+Grumming is a modern beauty & grooming booking landing page built as a fully static React SPA (no backend server). The platform covers salons, spas, beauty parlors, and grooming studios. Users can discover and explore businesses, browse service categories, view popular locations, and see featured listings. The design uses a deep teal (#2D5F5D) primary color and warm gold (#D4A574) accent color with Inter font family.
 
 ## User Preferences
 
@@ -18,7 +18,6 @@ Grumming is a modern beauty & grooming booking landing page built with React and
 ### Frontend Architecture
 - **Framework**: React 18 with TypeScript
 - **Routing**: Wouter (lightweight React router)
-- **State Management**: TanStack React Query for server state
 - **Styling**: Tailwind CSS with CSS variables for theming
 - **UI Components**: shadcn/ui component library (Radix UI primitives)
 - **Animations**: Framer Motion for smooth transitions
@@ -36,26 +35,19 @@ The frontend follows a component-based architecture with:
 - **Cards**: White with subtle shadows (light), Navy blue #1e293b (dark)
 - **Font**: Inter
 
-### Backend Architecture
-- **Framework**: Express 5 on Node.js
-- **Language**: TypeScript with ES modules
-- **API Design**: RESTful JSON API with `/api` prefix
-- **Validation**: Zod schemas for request/response validation
-
-Routes registered in `server/routes.ts`:
-- `GET /api/salon-config` - Fetch page configuration (categories, locations, featured listings)
-
-### Data Storage
-- **Current**: In-memory storage (`MemStorage` class in `server/storage.ts`)
-- **Schema Ready**: Drizzle ORM configured with PostgreSQL dialect
-- **Database Schema**: Defined in `shared/schema.ts`
+### Deployment
+- **Type**: Static deployment (no backend server)
+- **Build**: `npx vite build` outputs to `dist/public/`
+- **SPA Routing**: 404.html auto-generated from index.html via Vite plugin
+- **Data**: All data (categories, locations, featured salons) is bundled directly in the frontend from `shared/schema.ts`
+- **Contact Forms**: Client-side only (show success toast, no API calls)
+- **Cost**: Free — no server compute needed
 
 ### Shared Code
 The `shared/` directory contains:
-- Database schema definitions (Drizzle tables)
 - Zod validation schemas for data (categories, locations, featured listings)
-- TypeScript types shared between frontend and backend
-- Default configuration data
+- TypeScript types used by frontend
+- Default configuration data (cities, categories, featured salons)
 
 ## Landing Page Sections
 
@@ -99,5 +91,4 @@ All sub-pages follow consistent design: dark hero banner (bg-[#0f172a]) with amb
 
 ### Build & Development
 - **Vite**: Frontend bundler with HMR
-- **esbuild**: Server bundler for production
 - **tsx**: TypeScript execution for development

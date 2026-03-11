@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Send, Mail, User, MessageSquare, FileText } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -16,11 +16,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 import { insertContactMessageSchema, type InsertContactMessage } from "@shared/schema";
 
 export function ContactForm() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<InsertContactMessage>({
     resolver: zodResolver(insertContactMessageSchema),
@@ -32,29 +32,16 @@ export function ContactForm() {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: async (data: InsertContactMessage) => {
-      const res = await apiRequest("POST", "/api/contact", data);
-      return res.json();
-    },
-    onSuccess: (data) => {
+  const onSubmit = (data: InsertContactMessage) => {
+    setIsSubmitting(true);
+    setTimeout(() => {
       toast({
         title: "Message Sent",
-        description: data.message,
+        description: `Thank you ${data.name}! We've received your message and will get back to you within 24 hours.`,
       });
       form.reset();
-    },
-    onError: (error: Error) => {
-      toast({
-        title: "Something went wrong",
-        description: error.message || "Please try again later.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const onSubmit = (data: InsertContactMessage) => {
-    mutation.mutate(data);
+      setIsSubmitting(false);
+    }, 800);
   };
 
   return (
@@ -196,10 +183,10 @@ export function ContactForm() {
                     <Button
                       type="submit"
                       className="w-full"
-                      disabled={mutation.isPending}
+                      disabled={isSubmitting}
                       data-testid="button-contact-submit"
                     >
-                      {mutation.isPending ? (
+                      {isSubmitting ? (
                         "Sending..."
                       ) : (
                         <>

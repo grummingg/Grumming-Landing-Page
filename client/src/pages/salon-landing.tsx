@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { SalonHero } from "@/components/salon/hero";
 import { Categories } from "@/components/salon/categories";
@@ -6,9 +5,7 @@ import { Locations } from "@/components/salon/locations";
 
 import { AppDownload } from "@/components/salon/app-download";
 import { SalonFooter } from "@/components/salon/footer";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { AlertTriangle } from "lucide-react";
-import { defaultSalonConfig, type SalonConfig } from "@shared/schema";
+import { defaultSalonConfig } from "@shared/schema";
 
 function ShimmerSkeleton({ className }: { className?: string }) {
   return (
@@ -110,34 +107,12 @@ function LoadingSkeleton() {
 }
 
 export default function SalonLanding() {
-  const { data: config, isLoading, isError, error } = useQuery<SalonConfig>({
-    queryKey: ["/api/salon-config"],
-  });
-
-  if (isLoading) {
-    return <LoadingSkeleton />;
-  }
-
-  const salonData = config || defaultSalonConfig;
-  const usingFallback = !config && !isLoading;
-
   return (
     <div className="min-h-screen bg-background">
-      {(isError || usingFallback) && (
-        <Alert variant="destructive" className="rounded-none border-x-0 border-t-0" data-testid="alert-api-error">
-          <AlertTriangle className="h-4 w-4" />
-          <AlertDescription>
-            {isError 
-              ? `Unable to load latest data: ${error?.message || 'Please try again later.'}`
-              : 'Showing default data. Live data could not be loaded.'
-            }
-          </AlertDescription>
-        </Alert>
-      )}
       <main>
         <SalonHero />
-        <Categories categories={salonData.categories} />
-        <Locations locations={salonData.locations} />
+        <Categories categories={defaultSalonConfig.categories} />
+        <Locations locations={defaultSalonConfig.locations} />
         <AppDownload />
       </main>
       <SalonFooter />

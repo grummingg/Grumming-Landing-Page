@@ -1,12 +1,28 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import fs from "fs";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+
+function copyIndexTo404() {
+  return {
+    name: "copy-index-to-404",
+    closeBundle() {
+      const outDir = path.resolve(import.meta.dirname, "dist/public");
+      const src = path.join(outDir, "index.html");
+      const dest = path.join(outDir, "404.html");
+      if (fs.existsSync(src)) {
+        fs.copyFileSync(src, dest);
+      }
+    },
+  };
+}
 
 export default defineConfig({
   plugins: [
     react(),
     runtimeErrorOverlay(),
+    copyIndexTo404(),
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [

@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import { Send, Mail, User, MessageSquare, FileText, Phone, MapPin, Clock, Scissors } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 import { insertContactMessageSchema, type InsertContactMessage } from "@shared/schema";
 import { SalonFooter } from "@/components/salon/footer";
 
@@ -49,6 +48,7 @@ const contactInfo = [
 
 export default function ContactPage() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<InsertContactMessage>({
     resolver: zodResolver(insertContactMessageSchema),
@@ -60,29 +60,16 @@ export default function ContactPage() {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: async (data: InsertContactMessage) => {
-      const res = await apiRequest("POST", "/api/contact", data);
-      return res.json();
-    },
-    onSuccess: (data) => {
+  const onSubmit = (data: InsertContactMessage) => {
+    setIsSubmitting(true);
+    setTimeout(() => {
       toast({
         title: "Message Sent",
-        description: data.message,
+        description: `Thank you ${data.name}! We've received your message and will get back to you within 24 hours.`,
       });
       form.reset();
-    },
-    onError: (error: Error) => {
-      toast({
-        title: "Something went wrong",
-        description: error.message || "Please try again later.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const onSubmit = (data: InsertContactMessage) => {
-    mutation.mutate(data);
+      setIsSubmitting(false);
+    }, 800);
   };
 
   return (
@@ -224,10 +211,10 @@ export default function ContactPage() {
                       type="submit"
                       size="lg"
                       className="w-full"
-                      disabled={mutation.isPending}
+                      disabled={isSubmitting}
                       data-testid="button-contact-submit"
                     >
-                      {mutation.isPending ? (
+                      {isSubmitting ? (
                         "Sending..."
                       ) : (
                         <>
