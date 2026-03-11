@@ -26,16 +26,6 @@ const serviceVideosByName: Record<string, string[]> = {
 
 const allVideos: string[] = Object.values(serviceVideosByName).flat();
 
-const categoryPillColors: Record<string, { bg: string; text: string; ring: string }> = {
-  Scissors: { bg: "bg-rose-500", text: "text-white", ring: "ring-rose-300" },
-  Bath: { bg: "bg-emerald-500", text: "text-white", ring: "ring-emerald-300" },
-  Sparkles: { bg: "bg-pink-500", text: "text-white", ring: "ring-pink-300" },
-  Brush: { bg: "bg-amber-500", text: "text-white", ring: "ring-amber-300" },
-  Palette: { bg: "bg-sky-500", text: "text-white", ring: "ring-sky-300" },
-  Fingerprint: { bg: "bg-violet-500", text: "text-white", ring: "ring-violet-300" },
-};
-
-const defaultPillColor = { bg: "bg-gray-500", text: "text-white", ring: "ring-gray-300" };
 
 function getRandomVideoForCategory(category: Category): string {
   const nameLower = category.name.toLowerCase();
@@ -141,23 +131,9 @@ function CrossfadeVideoPlayer({ src, testId }: { src: string; testId: string }) 
 }
 
 export function Categories({ categories }: CategoriesProps) {
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(
-    categories.length > 0 ? categories[0] : null
-  );
   const [currentVideo, setCurrentVideo] = useState<string>(() => getRandomVideo());
   const intervalRef = useRef<number | null>(null);
-  const timeoutRef = useRef<number | null>(null);
-
-  const clearAllTimers = useCallback(() => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
-  }, []);
+  const categoryIndexRef = useRef(0);
 
   const startAutoRotate = useCallback(() => {
     if (intervalRef.current) {
@@ -165,41 +141,26 @@ export function Categories({ categories }: CategoriesProps) {
     }
     if (categories.length === 0) return;
     intervalRef.current = window.setInterval(() => {
-      setSelectedCategory(prev => {
-        const currentIndex = prev ? categories.findIndex(c => c.id === prev.id) : -1;
-        const nextIndex = (currentIndex + 1) % categories.length;
-        const nextCategory = categories[nextIndex];
-        if (!nextCategory) return prev;
+      categoryIndexRef.current = (categoryIndexRef.current + 1) % categories.length;
+      const nextCategory = categories[categoryIndexRef.current];
+      if (nextCategory) {
         setCurrentVideo(getRandomVideoForCategory(nextCategory));
-        return nextCategory;
-      });
+      }
     }, 5000);
   }, [categories]);
-
-  const handleCategoryClick = useCallback((category: Category) => {
-    setSelectedCategory(category);
-    setCurrentVideo(getRandomVideoForCategory(category));
-    
-    clearAllTimers();
-    
-    timeoutRef.current = window.setTimeout(() => {
-      startAutoRotate();
-    }, 10000);
-  }, [clearAllTimers, startAutoRotate]);
 
   useEffect(() => {
     startAutoRotate();
     return () => {
-      clearAllTimers();
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
     };
-  }, [startAutoRotate, clearAllTimers]);
+  }, [startAutoRotate]);
   
-  if (!categories.length || !selectedCategory) {
+  if (!categories.length) {
     return null;
   }
-
-  const leftCategories = categories.slice(0, 3);
-  const rightCategories = categories.slice(3, 6);
 
   return (
     <section id="categories" className="py-10 sm:py-16 bg-background">
@@ -218,312 +179,27 @@ export function Categories({ categories }: CategoriesProps) {
           </h2>
         </motion.div>
 
-        <div className="relative flex items-center justify-center min-h-[520px]">
-          <svg
-            className="absolute inset-0 w-full h-full hidden lg:block pointer-events-none"
-            viewBox="0 0 1200 520"
-            preserveAspectRatio="xMidYMid meet"
+        <div className="flex items-center justify-center">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <motion.path
-              d="M 320 100 Q 450 100 520 200"
-              stroke="url(#gradient1)"
-              strokeWidth="2"
-              fill="none"
-              strokeDasharray="6 4"
-              initial={{ pathLength: 0, opacity: 0 }}
-              whileInView={{ pathLength: 1, opacity: 0.6 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.3 }}
-            />
-            <motion.path
-              d="M 350 260 Q 450 260 520 260"
-              stroke="url(#gradient2)"
-              strokeWidth="2"
-              fill="none"
-              strokeDasharray="6 4"
-              initial={{ pathLength: 0, opacity: 0 }}
-              whileInView={{ pathLength: 1, opacity: 0.6 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.4 }}
-            />
-            <motion.path
-              d="M 320 420 Q 450 420 520 320"
-              stroke="url(#gradient3)"
-              strokeWidth="2"
-              fill="none"
-              strokeDasharray="6 4"
-              initial={{ pathLength: 0, opacity: 0 }}
-              whileInView={{ pathLength: 1, opacity: 0.6 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.5 }}
-            />
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-pink-400/20 blur-3xl rounded-full scale-150" />
             
-            <motion.path
-              d="M 880 100 Q 750 100 680 200"
-              stroke="url(#gradient4)"
-              strokeWidth="2"
-              fill="none"
-              strokeDasharray="6 4"
-              initial={{ pathLength: 0, opacity: 0 }}
-              whileInView={{ pathLength: 1, opacity: 0.6 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.3 }}
-            />
-            <motion.path
-              d="M 850 260 Q 750 260 680 260"
-              stroke="url(#gradient5)"
-              strokeWidth="2"
-              fill="none"
-              strokeDasharray="6 4"
-              initial={{ pathLength: 0, opacity: 0 }}
-              whileInView={{ pathLength: 1, opacity: 0.6 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.4 }}
-            />
-            <motion.path
-              d="M 880 420 Q 750 420 680 320"
-              stroke="url(#gradient6)"
-              strokeWidth="2"
-              fill="none"
-              strokeDasharray="6 4"
-              initial={{ pathLength: 0, opacity: 0 }}
-              whileInView={{ pathLength: 1, opacity: 0.6 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.5 }}
-            />
-            
-            <motion.circle
-              cx="400"
-              cy="100"
-              r="4"
-              fill="#f472b6"
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 0.7, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.6 }}
-            />
-            <motion.circle
-              cx="420"
-              cy="260"
-              r="4"
-              fill="#34d399"
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 0.7, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.7 }}
-            />
-            <motion.circle
-              cx="400"
-              cy="420"
-              r="4"
-              fill="#ec4899"
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 0.7, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.8 }}
-            />
-            <motion.circle
-              cx="800"
-              cy="100"
-              r="4"
-              fill="#fbbf24"
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 0.7, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.6 }}
-            />
-            <motion.circle
-              cx="780"
-              cy="260"
-              r="4"
-              fill="#38bdf8"
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 0.7, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.7 }}
-            />
-            <motion.circle
-              cx="800"
-              cy="420"
-              r="4"
-              fill="#a78bfa"
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 0.7, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.8 }}
-            />
-            
-            <defs>
-              <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#fb7185" />
-                <stop offset="100%" stopColor="#c084fc" />
-              </linearGradient>
-              <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#34d399" />
-                <stop offset="100%" stopColor="#c084fc" />
-              </linearGradient>
-              <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#ec4899" />
-                <stop offset="100%" stopColor="#c084fc" />
-              </linearGradient>
-              <linearGradient id="gradient4" x1="100%" y1="0%" x2="0%" y2="0%">
-                <stop offset="0%" stopColor="#fbbf24" />
-                <stop offset="100%" stopColor="#c084fc" />
-              </linearGradient>
-              <linearGradient id="gradient5" x1="100%" y1="0%" x2="0%" y2="0%">
-                <stop offset="0%" stopColor="#38bdf8" />
-                <stop offset="100%" stopColor="#c084fc" />
-              </linearGradient>
-              <linearGradient id="gradient6" x1="100%" y1="0%" x2="0%" y2="0%">
-                <stop offset="0%" stopColor="#a78bfa" />
-                <stop offset="100%" stopColor="#c084fc" />
-              </linearGradient>
-            </defs>
-          </svg>
-
-          <div className="hidden lg:flex items-center justify-between w-full max-w-6xl relative z-10">
-            <div className="flex flex-col gap-5 items-end">
-              {leftCategories.map((category, index) => {
-                const pillColor = categoryPillColors[category.icon] || defaultPillColor;
-                const offsets = [
-                  { x: 160, y: -10 },
-                  { x: 200, y: 0 },
-                  { x: 160, y: 10 },
-                ];
-                const isSelected = selectedCategory.id === category.id;
-                return (
-                  <motion.div
-                    key={category.id}
-                    initial={{ opacity: 0, x: -40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.15 }}
-                    style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
-                  >
-                    <div
-                      className={`cursor-pointer transition-all duration-300 rounded-full px-5 py-2.5 font-semibold text-sm shadow-md ${isSelected ? `${pillColor.bg} ${pillColor.text} ring-2 ${pillColor.ring} shadow-lg` : 'bg-muted text-muted-foreground dark:bg-white/10 dark:text-white/70'}`}
-                      data-testid={`card-category-${category.id}`}
-                      role="button"
-                      tabIndex={0}
-                      aria-pressed={isSelected}
-                      onClick={() => handleCategoryClick(category)}
-                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCategoryClick(category); } }}
-                    >
-                      <span data-testid={`text-category-name-${category.id}`}>
-                        {category.name}
-                      </span>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            <motion.div
-              className="relative mx-12"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-pink-400/20 blur-3xl rounded-full scale-150" />
-              
-              <div className="w-72 h-[520px] bg-hero rounded-[3rem] p-3 shadow-2xl relative">
-                <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative">
-                  <CrossfadeVideoPlayer
-                    src={currentVideo}
-                    testId="video-salon-services"
-                  />
-                </div>
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-7 bg-hero rounded-full" aria-hidden="true" />
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-gray-700 rounded-full" aria-hidden="true" />
+            <div className="w-56 sm:w-72 h-[400px] sm:h-[520px] bg-hero rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl relative">
+              <div className="w-full h-full rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden relative">
+                <CrossfadeVideoPlayer
+                  src={currentVideo}
+                  testId="video-salon-services"
+                />
               </div>
-            </motion.div>
-
-            <div className="flex flex-col gap-5 items-start">
-              {rightCategories.map((category, index) => {
-                const pillColor = categoryPillColors[category.icon] || defaultPillColor;
-                const offsets = [
-                  { x: -160, y: -10 },
-                  { x: -200, y: 0 },
-                  { x: -160, y: 10 },
-                ];
-                const isSelected = selectedCategory.id === category.id;
-                return (
-                  <motion.div
-                    key={category.id}
-                    initial={{ opacity: 0, x: 40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.15 }}
-                    style={{ transform: `translateX(${offsets[index].x}px) translateY(${offsets[index].y}px)` }}
-                  >
-                    <div
-                      className={`cursor-pointer transition-all duration-300 rounded-full px-5 py-2.5 font-semibold text-sm shadow-md ${isSelected ? `${pillColor.bg} ${pillColor.text} ring-2 ${pillColor.ring} shadow-lg` : 'bg-muted text-muted-foreground dark:bg-white/10 dark:text-white/70'}`}
-                      data-testid={`card-category-${category.id}`}
-                      role="button"
-                      tabIndex={0}
-                      aria-pressed={isSelected}
-                      onClick={() => handleCategoryClick(category)}
-                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCategoryClick(category); } }}
-                    >
-                      <span data-testid={`text-category-name-${category.id}`}>
-                        {category.name}
-                      </span>
-                    </div>
-                  </motion.div>
-                );
-              })}
+              <div className="absolute top-4 sm:top-6 left-1/2 -translate-x-1/2 w-20 sm:w-24 h-6 sm:h-7 bg-hero rounded-full" aria-hidden="true" />
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-1 bg-gray-700 rounded-full" aria-hidden="true" />
             </div>
-          </div>
-
-          <div className="lg:hidden flex flex-col items-center gap-8">
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="w-56 h-[400px] bg-hero rounded-[2.5rem] p-2 shadow-2xl relative">
-                <div className="w-full h-full rounded-[2rem] overflow-hidden relative">
-                  <CrossfadeVideoPlayer
-                    src={currentVideo}
-                    testId="video-salon-services-mobile"
-                  />
-                </div>
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-hero rounded-full" aria-hidden="true" />
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-gray-700 rounded-full" aria-hidden="true" />
-              </div>
-            </motion.div>
-
-            <div className="flex flex-wrap justify-center gap-2.5">
-              {categories.map((category, index) => {
-                const pillColor = categoryPillColors[category.icon] || defaultPillColor;
-                const isSelected = selectedCategory.id === category.id;
-                return (
-                  <motion.div
-                    key={category.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <div
-                      className={`cursor-pointer transition-all duration-300 rounded-full px-4 py-2 font-semibold text-xs shadow-md ${isSelected ? `${pillColor.bg} ${pillColor.text} ring-2 ${pillColor.ring} shadow-lg` : 'bg-muted text-muted-foreground dark:bg-white/10 dark:text-white/70'}`}
-                      data-testid={`card-category-mobile-${category.id}`}
-                      role="button"
-                      tabIndex={0}
-                      aria-pressed={isSelected}
-                      onClick={() => handleCategoryClick(category)}
-                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCategoryClick(category); } }}
-                    >
-                      {category.name}
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
