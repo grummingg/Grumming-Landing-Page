@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { Cookie, Shield, Settings, BarChart, Eye, Scissors, Clock, Bell, Mail, Megaphone } from "lucide-react";
 import { Link } from "wouter";
@@ -105,6 +106,7 @@ const thirdPartyCookies = [
 ];
 
 export default function CookiePolicy() {
+  useDocumentTitle("Cookie Policy | Grumming");
   return (
     <div className="min-h-screen bg-background">
       <section className="relative bg-[#0f172a] text-white overflow-hidden">

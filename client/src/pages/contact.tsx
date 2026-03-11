@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -47,6 +48,7 @@ const contactInfo = [
 ];
 
 export default function ContactPage() {
+  useDocumentTitle("Contact Us | Grumming");
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 

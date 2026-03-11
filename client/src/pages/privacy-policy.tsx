@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { Database, Share2, Lock, Shield, Cookie, Mail, Scissors, Clock, Users, Link2, Bell, UserCheck } from "lucide-react";
 import { Link } from "wouter";
@@ -162,6 +163,7 @@ const sections = [
 ];
 
 export default function PrivacyPolicy() {
+  useDocumentTitle("Privacy Policy | Grumming");
   return (
     <div className="min-h-screen bg-background">
       <section className="relative bg-[#0f172a] overflow-hidden py-16 sm:py-20">

@@ -22,6 +22,8 @@ Grumming is a modern beauty & grooming booking landing page built as a fully sta
 - **UI Components**: shadcn/ui component library (Radix UI primitives)
 - **Animations**: Framer Motion for smooth transitions
 - **Build Tool**: Vite with path aliases (@/, @shared/, @assets/)
+- **Code Splitting**: All pages lazy-loaded via React.lazy() with Suspense fallback
+- **SEO**: Per-page document titles via useDocumentTitle hook
 
 The frontend follows a component-based architecture with:
 - Landing page sections as separate components (Hero, Categories, Locations, Featured Salons, How It Works, App Download, Footer)
@@ -63,15 +65,15 @@ The `shared/` directory contains:
 
 All sub-pages follow consistent design: dark hero banner (bg-[#0f172a]) with amber label, white heading, clickable "Grumming" brand logo at top, alternating section backgrounds, framer-motion fadeUp animations, SalonFooter at bottom.
 
-- **About Us** (`/about`)
+- **About Us** (`/about-us`)
 - **FAQ** (`/faq`)
 - **Contact** (`/contact`)
-- **Careers** (`/careers`)
-- **Partner With Us** (`/partner`)
+- **Careers** (`/hiring`)
+- **Partner With Us** (`/partner-with-us`)
 - **Safety** (`/safety`)
-- **Help Center** (`/help`)
+- **Help Center** (`/help-center`)
 - **Report Issue** (`/report-issue`)
-- **Legal**: Privacy (`/privacy`), Terms (`/terms`), Cookie Policy (`/cookie-policy`), Refund Policy (`/refund-policy`), Cancellation (`/cancellation-policy`), Disclaimer (`/disclaimer`)
+- **Legal**: Privacy (`/privacy-policy`), Terms (`/terms-of-service`), Cookie Policy (`/cookie-policy`), Refund Policy (`/refund-policy`), Cancellation (`/cancellation-policy`), Disclaimer (`/disclaimer`)
 - **Business**: For Business Owners (`/business`), Advertise (`/advertise`), Franchise (`/franchise`), Bulk Bookings (`/bulk-bookings`)
 
 ## Business Contact Emails

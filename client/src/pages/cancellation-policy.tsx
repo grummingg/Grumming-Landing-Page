@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { AlertTriangle, Crown, Clock, Bell, CheckCircle, Scissors } from "lucide-react";
 import { Link } from "wouter";
@@ -11,6 +12,7 @@ const fadeUp = {
 };
 
 export default function CancellationPolicy() {
+  useDocumentTitle("Cancellation Policy | Grumming");
   const cancellationSteps = [
     {
       step: 1,

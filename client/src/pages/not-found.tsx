@@ -1,7 +1,9 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle } from "lucide-react";
 
 export default function NotFound() {
+  useDocumentTitle("Page Not Found | Grumming");
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-background">
       <Card className="w-full max-w-md mx-4">

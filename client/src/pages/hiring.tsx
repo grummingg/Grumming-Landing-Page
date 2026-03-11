@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -271,6 +272,7 @@ function getGroupedPositions() {
 }
 
 export default function HiringPage() {
+  useDocumentTitle("Careers | Grumming");
   const handleApply = (jobTitle: string) => {
     const subject = encodeURIComponent(`Application for ${jobTitle}`);
     const body = encodeURIComponent(`Hi Grumming Team,\n\nI'm interested in the ${jobTitle} position. Please find my details below:\n\nName: \nExperience: \nPortfolio/LinkedIn: \n\nLooking forward to hearing from you.\n\nBest regards`);

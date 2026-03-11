@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { Scissors, Store, CalendarCheck, Star, BarChart3, Smartphone, Shield, Users, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
@@ -69,6 +70,7 @@ const steps = [
 ];
 
 export default function ForSalonOwners() {
+  useDocumentTitle("For Business Owners | Grumming");
   return (
     <div className="min-h-screen bg-background">
       <section className="relative bg-[#0f172a] text-white overflow-hidden">

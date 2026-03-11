@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { Scissors } from "lucide-react";
 import { Link } from "wouter";
@@ -75,6 +76,7 @@ const faqCategories = [
 ];
 
 export default function FAQPage() {
+  useDocumentTitle("FAQ | Grumming");
   return (
     <div className="min-h-screen bg-background">
       <section className="relative bg-[#0f172a] text-white overflow-hidden">

@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -101,6 +102,7 @@ const steps = [
 ];
 
 export default function ReportIssue() {
+  useDocumentTitle("Report an Issue | Grumming");
   const { toast } = useToast();
   const form = useForm<ReportIssueFormData>({
     resolver: zodResolver(reportIssueSchema),

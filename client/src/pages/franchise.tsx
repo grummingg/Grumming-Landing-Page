@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { Scissors, Building2, TrendingUp, Headphones, Shield, BookOpen, Banknote, Award, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
@@ -78,6 +79,7 @@ const steps = [
 ];
 
 export default function Franchise() {
+  useDocumentTitle("Franchise Opportunities | Grumming");
   return (
     <div className="min-h-screen bg-background">
       <section className="relative bg-[#0f172a] text-white overflow-hidden">

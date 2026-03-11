@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { UserCheck, BookOpen, CreditCard, Shield, Building, Scale, AlertTriangle, Gavel, Mail, Scissors, FileText, Bell } from "lucide-react";
 import { Link } from "wouter";
@@ -236,6 +237,7 @@ function SectionCard({ section, delay }: { section: typeof sections[0]; delay: n
 }
 
 export default function TermsOfService() {
+  useDocumentTitle("Terms of Service | Grumming");
   const groupSize = 2;
   const groups: { items: typeof sections; alt: boolean }[] = [];
   for (let i = 0; i < sections.length; i += groupSize) {

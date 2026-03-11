@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { IndianRupee, Clock, CheckCircle, XCircle, Crown, CreditCard, Mail, Scissors, Shield, AlertTriangle, FileText, Bell } from "lucide-react";
 import { Link } from "wouter";
@@ -112,6 +113,7 @@ const refundMethods = [
 ];
 
 export default function RefundPolicy() {
+  useDocumentTitle("Refund Policy | Grumming");
   return (
     <div className="min-h-screen bg-background">
       <section className="relative bg-[#0f172a] text-white overflow-hidden py-16 sm:py-20">

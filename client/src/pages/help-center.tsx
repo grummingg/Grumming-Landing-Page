@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { Rocket, Calendar, CreditCard, Settings, Shield, Building2, ChevronDown, Scissors } from "lucide-react";
 import { Link } from "wouter";
@@ -104,6 +105,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export default function HelpCenter() {
+  useDocumentTitle("Help Center | Grumming");
   return (
     <div className="min-h-screen bg-background">
       <section className="relative bg-[#0f172a] text-white overflow-hidden">

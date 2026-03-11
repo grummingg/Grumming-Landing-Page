@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { Building, TrendingUp, Users, BarChart, Headphones, Globe, CheckCircle, Mail, Phone, Scissors } from "lucide-react";
 import { Link } from "wouter";
@@ -69,6 +70,7 @@ const stats = [
 ];
 
 export default function PartnerWithUs() {
+  useDocumentTitle("Partner With Us | Grumming");
   return (
     <div className="min-h-screen bg-background">
       <section className="relative bg-[#0f172a] text-white overflow-hidden">

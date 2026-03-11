@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { SalonHero } from "@/components/salon/hero";
 import { Categories } from "@/components/salon/categories";
@@ -107,6 +108,7 @@ function LoadingSkeleton() {
 }
 
 export default function SalonLanding() {
+  useDocumentTitle("Grumming - Find & Book the Best Salons Near You");
   return (
     <div className="min-h-screen bg-background">
       <main>

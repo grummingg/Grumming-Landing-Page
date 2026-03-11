@@ -1,3 +1,4 @@
+import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { Scissors, Megaphone, Eye, Target, BarChart3, Palette, Smartphone, ArrowRight, Mail } from "lucide-react";
 import { Link } from "wouter";
@@ -68,6 +69,7 @@ const pricingTiers = [
 ];
 
 export default function Advertise() {
+  useDocumentTitle("Advertise With Us | Grumming");
   return (
     <div className="min-h-screen bg-background">
       <section className="relative bg-[#0f172a] text-white overflow-hidden">
