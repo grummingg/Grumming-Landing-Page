@@ -166,7 +166,7 @@ export default function PrivacyPolicy() {
   useDocumentTitle("Privacy Policy | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-[#0f172a] overflow-hidden py-16 sm:py-20">
+      <section className="relative bg-hero overflow-hidden py-16 sm:py-20">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/">
@@ -269,10 +269,8 @@ export default function PrivacyPolicy() {
                 </div>
               </div>
 
-              <Link href="/contact">
-                <button className="inline-flex items-center gap-2 bg-[#0f172a] dark:bg-white text-white dark:text-[#0f172a] px-6 py-3 rounded-md font-medium text-sm transition-colors hover:opacity-90" data-testid="button-contact">
-                  Send us a Message
-                </button>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-hero dark:bg-white text-white dark:text-hero px-6 py-3 rounded-md font-medium text-sm transition-colors hover:opacity-90" data-testid="button-contact">
+                Send us a Message
               </Link>
             </div>
           </motion.div>

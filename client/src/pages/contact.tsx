@@ -76,7 +76,7 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="bg-[#0f172a] text-white">
+      <div className="bg-hero text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24 sm:pb-28">
           <Link href="/">
             <span className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors cursor-pointer mb-6" data-testid="link-brand-home">

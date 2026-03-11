@@ -32,32 +32,38 @@ export function AppStoreButtons({ variant = "section", className = "" }: AppStor
   const border = isHero ? "border border-white/20" : "dark:border dark:border-white/20";
   const shadow = isHero ? "" : "shadow-sm";
 
-  const buttonBase = `inline-flex items-center gap-3 bg-[#0f172a] ${rounded} ${padding} ${border} opacity-70 cursor-not-allowed ${shadow}`;
+  const buttonBase = `inline-flex items-center gap-3 bg-hero ${rounded} ${padding} ${border} opacity-70 cursor-not-allowed ${shadow}`;
 
   return (
     <div className={`flex flex-wrap gap-3 ${className}`} data-testid="app-store-buttons">
-      <div
+      <button
+        type="button"
+        disabled
         className={buttonBase}
         data-testid={`button-play-store${isHero ? "-hero" : ""}`}
         aria-label="Google Play - Coming Soon"
+        aria-disabled="true"
       >
         <GooglePlayIcon className={iconSize} />
         <div className="text-left">
           <div className={`${comingSoonSize} text-amber-400 uppercase tracking-wider font-medium`}>Coming Soon</div>
           <div className={`${labelSize} font-semibold text-white -mt-0.5`}>Google Play</div>
         </div>
-      </div>
-      <div
+      </button>
+      <button
+        type="button"
+        disabled
         className={buttonBase}
         data-testid={`button-app-store${isHero ? "-hero" : ""}`}
         aria-label="App Store - Coming Soon"
+        aria-disabled="true"
       >
         <AppleIcon className={iconSize} />
         <div className="text-left">
           <div className={`${comingSoonSize} text-amber-400 uppercase tracking-wider font-medium`}>Coming Soon</div>
           <div className={`${labelSize} font-semibold text-white -mt-0.5`}>App Store</div>
         </div>
-      </div>
+      </button>
     </div>
   );
 }

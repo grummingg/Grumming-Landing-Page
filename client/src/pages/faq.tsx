@@ -79,7 +79,7 @@ export default function FAQPage() {
   useDocumentTitle("FAQ | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-[#0f172a] text-white overflow-hidden">
+      <section className="relative bg-hero text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
           <Link href="/">
@@ -172,21 +172,11 @@ export default function FAQPage() {
               our support team or visit our help center.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-2 bg-[#0f172a] dark:bg-white text-white dark:text-[#0f172a] px-6 py-3 rounded-md font-medium text-sm transition-colors"
-                  data-testid="button-contact-support"
-                >
-                  Contact Support
-                </button>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-hero dark:bg-white text-white dark:text-hero px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-contact-support">
+                Contact Support
               </Link>
-              <Link href="/contact">
-                <button
-                  className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-6 py-3 rounded-md font-medium text-sm transition-colors"
-                  data-testid="button-help-center"
-                >
-                  Help Center
-                </button>
+              <Link href="/contact" className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-help-center">
+                Help Center
               </Link>
             </div>
           </motion.div>

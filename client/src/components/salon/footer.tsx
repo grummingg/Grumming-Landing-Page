@@ -173,9 +173,9 @@ export function SalonFooter() {
                 }`}
               >
                 {theme === "dark" ? (
-                  <Moon className="w-2.5 h-2.5 text-white" />
+                  <Moon className="w-2.5 h-2.5 text-white" aria-hidden="true" />
                 ) : (
-                  <Sun className="w-2.5 h-2.5 text-amber-500" />
+                  <Sun className="w-2.5 h-2.5 text-amber-500" aria-hidden="true" />
                 )}
               </div>
             </button>

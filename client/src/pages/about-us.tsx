@@ -75,7 +75,7 @@ export default function AboutUs() {
   useDocumentTitle("About Us | Grumming");
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative bg-[#0f172a] text-white overflow-hidden">
+      <section className="relative bg-hero text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
           <Link href="/">
@@ -267,20 +267,14 @@ export default function AboutUs() {
               Grumming is growing fast and we're looking for passionate people who want to shape the future of beauty and wellness in India. Whether you're a customer, a business, or a potential team member, there's a place for you.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Link href="/hiring">
-                <button className="inline-flex items-center gap-2 bg-[#0f172a] dark:bg-white text-white dark:text-[#0f172a] px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-view-careers">
-                  View Open Positions
-                </button>
+              <Link href="/hiring" className="inline-flex items-center gap-2 bg-hero dark:bg-white text-white dark:text-hero px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-view-careers">
+                View Open Positions
               </Link>
-              <Link href="/partner-with-us">
-                <button className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-partner">
-                  Become a Partner
-                </button>
+              <Link href="/partner-with-us" className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-partner">
+                Become a Partner
               </Link>
-              <Link href="/contact">
-                <button className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-contact-us">
-                  Get in Touch
-                </button>
+              <Link href="/contact" className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-contact-us">
+                Get in Touch
               </Link>
             </div>
           </motion.div>

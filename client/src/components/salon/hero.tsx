@@ -45,15 +45,13 @@ export function SalonHero() {
         </motion.div>
       </div>
 
-      <motion.div
-        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer z-10"
+      <motion.button
+        type="button"
+        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer z-10 bg-transparent border-none p-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
         onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
-        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.scrollBy({ top: window.innerHeight, behavior: 'smooth' }); } }}
-        role="button"
-        tabIndex={0}
         aria-label="Scroll down"
         data-testid="button-scroll-down"
       >
@@ -64,7 +62,7 @@ export function SalonHero() {
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
-      </motion.div>
+      </motion.button>
     </section>
   );
 }
