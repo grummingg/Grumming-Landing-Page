@@ -30,7 +30,7 @@ export function AppDownload() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div className="relative">
+            <div className="relative" aria-hidden="true">
               <div className="w-44 h-[340px] bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-[2rem] p-1.5 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.4)] relative border border-gray-300/50 dark:border-gray-600/50">
                 <div className="w-full h-full bg-white dark:bg-hero rounded-[1.75rem] flex flex-col items-center justify-center px-4 py-6 relative">
                   <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-gray-800 dark:bg-black rounded-full" aria-hidden="true" />

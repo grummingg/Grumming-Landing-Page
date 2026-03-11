@@ -2,7 +2,6 @@ import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
 import { Scissors, Store, CalendarCheck, Star, BarChart3, Smartphone, Shield, Users, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
 import { SalonFooter } from "@/components/salon/footer";
 
 const fadeUp = {
@@ -90,10 +89,8 @@ export default function ForSalonOwners() {
             <p className="text-white/60 text-lg sm:text-xl max-w-2xl leading-relaxed mb-8">
               Join Grumming and let thousands of customers discover, book, and love your services — all for free.
             </p>
-            <Link href="/partner-with-us">
-              <Button className="bg-amber-500 border-amber-600 text-white" data-testid="button-get-started">
-                Get Started Free <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+            <Link href="/partner-with-us" className="inline-flex items-center gap-2 bg-amber-500 border border-amber-600 text-white px-4 py-2 rounded-md font-medium text-sm transition-colors" data-testid="button-get-started">
+              Get Started Free <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
         </div>
@@ -172,15 +169,11 @@ export default function ForSalonOwners() {
               Join 500+ partners already using Grumming to attract new customers and grow their business.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/partner-with-us">
-                <Button className="bg-primary border-primary-border text-white" data-testid="button-become-partner">
-                  Become a Partner
-                </Button>
+              <Link href="/partner-with-us" className="inline-flex items-center gap-2 bg-primary border border-primary-border text-white px-4 py-2 rounded-md font-medium text-sm transition-colors" data-testid="button-become-partner">
+                Become a Partner
               </Link>
-              <Link href="/contact">
-                <Button variant="outline" data-testid="button-contact-us">
-                  Contact Us
-                </Button>
+              <Link href="/contact" className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-4 py-2 rounded-md font-medium text-sm transition-colors" data-testid="button-contact-us">
+                Contact Us
               </Link>
             </div>
             <p className="text-muted-foreground text-sm mt-4">

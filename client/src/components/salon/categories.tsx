@@ -48,10 +48,6 @@ function getRandomVideoForCategory(category: Category): string {
   return allVideos[Math.floor(Math.random() * allVideos.length)];
 }
 
-function getRandomVideo(): string {
-  return allVideos[Math.floor(Math.random() * allVideos.length)];
-}
-
 interface CategoriesProps {
   categories: Category[];
 }
@@ -131,7 +127,9 @@ function CrossfadeVideoPlayer({ src, testId }: { src: string; testId: string }) 
 }
 
 export function Categories({ categories }: CategoriesProps) {
-  const [currentVideo, setCurrentVideo] = useState<string>(() => getRandomVideo());
+  const [currentVideo, setCurrentVideo] = useState<string>(() =>
+    categories.length > 0 ? getRandomVideoForCategory(categories[0]) : allVideos[0]
+  );
   const intervalRef = useRef<number | null>(null);
   const categoryIndexRef = useRef(0);
 
