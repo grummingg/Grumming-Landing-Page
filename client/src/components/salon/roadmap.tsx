@@ -61,9 +61,6 @@ export function Roadmap() {
           >
             Where We're Headed
           </h2>
-          <p className="mt-3 text-muted-foreground text-sm sm:text-base max-w-md mx-auto">
-            A transparent look at our journey from concept to a fully launched platform.
-          </p>
         </motion.div>
 
         <div className="hidden md:block">
