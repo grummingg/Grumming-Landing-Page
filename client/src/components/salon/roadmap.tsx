@@ -43,7 +43,6 @@ export function Roadmap() {
     <section className="py-12 sm:py-16 bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div {...fadeUp} className="text-center mb-10 sm:mb-14">
-          <p className="text-accent font-medium text-sm tracking-wider uppercase mb-3" data-testid="text-roadmap-label">Our Journey</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight" data-testid="text-roadmap-heading">Where We're Headed</h2>
         </motion.div>
 
