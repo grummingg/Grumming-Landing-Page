@@ -148,6 +148,14 @@ export function Categories({ categories }: CategoriesProps) {
     }, 5000);
   }, [categories]);
 
+  const selectCategory = useCallback((index: number) => {
+    const category = categories[index];
+    if (!category) return;
+    setCurrentIndex(index);
+    setCurrentVideo(getRandomVideoForCategory(category));
+    startAutoRotate();
+  }, [categories, startAutoRotate]);
+
   useEffect(() => {
     startAutoRotate();
     return () => {
@@ -200,6 +208,29 @@ export function Categories({ categories }: CategoriesProps) {
             </div>
           </motion.div>
 
+          <motion.div
+            className="flex flex-wrap justify-center gap-2"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+          >
+            {categories.map((cat, i) => (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => selectCategory(i)}
+                data-testid={`button-category-${cat.name.toLowerCase().replace(/\s+/g, "-")}`}
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                  i === currentIndex
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {cat.name}
+              </button>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
