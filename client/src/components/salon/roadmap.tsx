@@ -106,10 +106,10 @@ export function Roadmap() {
         </div>
 
         <div className="md:hidden">
-          <div className="relative pl-14">
-            <div className="absolute left-[19px] top-0 bottom-0 w-0.5 bg-muted-foreground/15" aria-hidden="true" />
+          <div className="relative">
+            <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-muted-foreground/15" aria-hidden="true" />
             <div
-              className="absolute left-[19px] top-0 w-0.5 bg-primary"
+              className="absolute left-5 top-0 w-0.5 bg-primary"
               style={{ height: `${progressPct}%` }}
               aria-hidden="true"
             />
@@ -117,17 +117,17 @@ export function Roadmap() {
             {steps.map((step, i) => (
               <motion.div
                 key={step.label}
-                className="relative flex items-start gap-4 py-4"
+                className="flex items-start gap-4 py-4"
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 data-testid={`roadmap-step-mobile-${step.label.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <div className="absolute left-[-33px]">
+                <div className="shrink-0">
                   <StepNode status={step.status} index={i} />
                 </div>
-                <div>
+                <div className="pt-2">
                   <div className="flex items-center gap-2">
                     <span
                       className={`text-sm font-semibold ${
