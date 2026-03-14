@@ -57,7 +57,7 @@ export function Countdown() {
               <div key={label} className="flex items-start gap-4 sm:gap-8">
                 <div className="flex flex-col items-center">
                   <div
-                    className="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center shadow-md bg-primary"
+                    className="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center shadow-md bg-[#0f172a]"
                   >
                     <span
                       className="text-2xl sm:text-4xl font-bold text-white tabular-nums"
