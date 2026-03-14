@@ -52,7 +52,7 @@ export function Roadmap() {
     <section className="py-16 sm:py-24 bg-muted/30" data-testid="section-roadmap">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div {...fadeUp} className="text-center mb-12 sm:mb-16">
-          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-widest uppercase mb-4">
+          <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-white text-xs font-semibold tracking-widest uppercase mb-4">
             Product Roadmap
           </span>
           <h2
@@ -95,7 +95,7 @@ export function Roadmap() {
                     {step.description}
                   </span>
                   {step.status === "current" && (
-                    <span className="mt-2 inline-block px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-semibold tracking-wide uppercase">
+                    <span className="mt-2 inline-block px-2 py-0.5 rounded-full bg-white/10 text-white text-[10px] font-semibold tracking-wide uppercase">
                       Now
                     </span>
                   )}
@@ -140,7 +140,7 @@ export function Roadmap() {
                         {step.label}
                       </span>
                       {step.status === "current" && (
-                        <span className="inline-block px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-semibold tracking-wide uppercase">
+                        <span className="inline-block px-2 py-0.5 rounded-full bg-white/10 text-white text-[10px] font-semibold tracking-wide uppercase">
                           Now
                         </span>
                       )}
