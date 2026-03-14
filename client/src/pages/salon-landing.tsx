@@ -2,7 +2,6 @@ import { useDocumentTitle } from "@/hooks/use-document-title";
 import { SalonHero } from "@/components/salon/hero";
 import { HowItWorks } from "@/components/salon/how-it-works";
 import { Categories } from "@/components/salon/categories";
-import { Stats } from "@/components/salon/stats";
 import { WhyGrumming } from "@/components/salon/why-grumming";
 import { Locations } from "@/components/salon/locations";
 import { Roadmap } from "@/components/salon/roadmap";
@@ -19,7 +18,6 @@ export default function SalonLanding() {
         <SalonHero />
         <HowItWorks />
         <Categories categories={defaultSalonConfig.categories} />
-        <Stats />
         <WhyGrumming />
         <Locations locations={defaultSalonConfig.locations} />
         <Roadmap />
