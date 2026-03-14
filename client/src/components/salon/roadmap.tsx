@@ -106,46 +106,50 @@ export function Roadmap() {
         </div>
 
         <div className="md:hidden">
-          <div className="relative">
-            <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-muted-foreground/15" aria-hidden="true" />
-            <div
-              className="absolute left-5 top-0 w-0.5 bg-primary"
-              style={{ height: `${progressPct}%` }}
-              aria-hidden="true"
-            />
+          <div>
+            {steps.map((step, i) => {
+              const isFirst = i === 0;
+              const isLast = i === steps.length - 1;
+              const isPastOrCurrent = step.status === "done" || step.status === "current";
+              const nextIsPastOrCurrent = i < steps.length - 1 && (steps[i + 1].status === "done" || steps[i + 1].status === "current");
+              const lineAboveColor = isPastOrCurrent ? "bg-primary" : "bg-muted-foreground/15";
+              const lineBelowColor = nextIsPastOrCurrent ? "bg-primary" : "bg-muted-foreground/15";
 
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.label}
-                className="flex items-start gap-4 py-4"
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                data-testid={`roadmap-step-mobile-${step.label.toLowerCase().replace(/\s+/g, "-")}`}
-              >
-                <div className="shrink-0">
-                  <StepNode status={step.status} index={i} />
-                </div>
-                <div className="pt-2">
-                  <div className="flex items-center gap-2">
-                    <span
-                      className={`text-sm font-semibold ${
-                        step.status === "upcoming" ? "text-muted-foreground/50" : "text-foreground"
-                      }`}
-                    >
-                      {step.label}
-                    </span>
-                    {step.status === "current" && (
-                      <span className="inline-block px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-semibold tracking-wide uppercase">
-                        Now
-                      </span>
-                    )}
+              return (
+                <motion.div
+                  key={step.label}
+                  className="flex items-stretch gap-4"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  data-testid={`roadmap-step-mobile-${step.label.toLowerCase().replace(/\s+/g, "-")}`}
+                >
+                  <div className="flex flex-col items-center shrink-0 w-10">
+                    <div className={`w-0.5 flex-1 ${isFirst ? "bg-transparent" : lineAboveColor}`} aria-hidden="true" />
+                    <StepNode status={step.status} index={i} />
+                    <div className={`w-0.5 flex-1 ${isLast ? "bg-transparent" : lineBelowColor}`} aria-hidden="true" />
                   </div>
-                  <p className="text-xs text-muted-foreground/60 mt-0.5">{step.description}</p>
-                </div>
-              </motion.div>
-            ))}
+                  <div className="py-4 flex-1">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={`text-sm font-semibold ${
+                          step.status === "upcoming" ? "text-muted-foreground/50" : "text-foreground"
+                        }`}
+                      >
+                        {step.label}
+                      </span>
+                      {step.status === "current" && (
+                        <span className="inline-block px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-semibold tracking-wide uppercase">
+                          Now
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-muted-foreground/60 mt-0.5">{step.description}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
