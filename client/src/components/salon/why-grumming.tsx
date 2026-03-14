@@ -49,8 +49,8 @@ export function WhyGrumming() {
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 data-testid={`why-feature-${feature.title.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-accent/10 flex items-center justify-center mb-3">
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
                 <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1.5">
                   {feature.title}

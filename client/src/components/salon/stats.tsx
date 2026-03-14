@@ -31,8 +31,8 @@ export function Stats() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 data-testid={stat.testId}
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/10 flex items-center justify-center mb-1">
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center mb-1">
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
                 <span className="text-2xl sm:text-3xl font-bold text-foreground">{stat.value}</span>
                 <span className="text-xs sm:text-sm text-muted-foreground">{stat.label}</span>
