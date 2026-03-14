@@ -5,6 +5,7 @@ import { Categories } from "@/components/salon/categories";
 import { WhyGrumming } from "@/components/salon/why-grumming";
 import { Locations } from "@/components/salon/locations";
 import { Roadmap } from "@/components/salon/roadmap";
+import { Countdown } from "@/components/salon/countdown";
 import { Waitlist } from "@/components/salon/waitlist";
 import { AppDownload } from "@/components/salon/app-download";
 import { SalonFooter } from "@/components/salon/footer";
@@ -21,6 +22,7 @@ export default function SalonLanding() {
         <WhyGrumming />
         <Locations locations={defaultSalonConfig.locations} />
         <Roadmap />
+        <Countdown />
         <Waitlist />
         <AppDownload />
       </main>
