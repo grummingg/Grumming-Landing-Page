@@ -40,12 +40,16 @@ The frontend follows a component-based architecture with:
 - **Cards**: White with subtle shadows (light), Navy blue #1e293b (dark)
 - **Font**: Inter (via CSS var --font-sans; display font also uses Inter)
 
+### Backend API
+- **Server**: Express.js (serves Vite in dev, static files in prod)
+- **`POST /api/contact`**: Receives contact form submissions with Zod validation, in-memory rate limiting (5 requests/minute per IP), and in-memory storage via `MemStorage`
+
 ### Deployment
-- **Type**: Static deployment (no backend server)
+- **Type**: Static deployment (no backend server in production)
 - **Build**: `npx vite build` outputs to `dist/public/`
 - **SPA Routing**: 404.html auto-generated from index.html via Vite plugin
 - **Data**: All data (categories, locations, featured salons) is bundled directly in the frontend from `shared/schema.ts`
-- **Contact Forms**: Client-side only (show success toast, no API calls)
+- **Contact Form**: Posts to `/api/contact` in dev; in production static deploy, the form still validates client-side but the API is unavailable
 - **Cost**: Free — no server compute needed
 
 ### Shared Code
@@ -65,7 +69,7 @@ The `shared/` directory contains:
 
 ## Shared Frontend Utilities (`client/src/lib/`)
 
-- **`constants.ts`** — Named exports for all contact info (SUPPORT_EMAIL, SUPPORT_PHONE, SUPPORT_WHATSAPP_NUMBER, SUPPORT_WHATSAPP_DISPLAY, PARTNERS_EMAIL, ADS_EMAIL, FRANCHISE_EMAIL, BOOKINGS_EMAIL, CAREERS_EMAIL, INSTAGRAM_URL, TWITTER_URL). Imported by footer.tsx and contact.tsx.
+- **`constants.ts`** — Named exports for all contact info (SUPPORT_EMAIL, SUPPORT_PHONE, SUPPORT_WHATSAPP_NUMBER, SUPPORT_WHATSAPP_DISPLAY, PARTNERS_EMAIL, BOOKINGS_EMAIL, CAREERS_EMAIL, INSTAGRAM_URL, TWITTER_URL). Imported by footer.tsx and contact.tsx.
 - **`animations.ts`** — Shared Framer Motion variants: `fadeUp` (spread pattern with `initial/whileInView/viewport/transition`) and `fadeUpVariants` (variant pattern with `hidden/visible`). All 17 sub-pages import from here — no local `const fadeUp` definitions.
 - **`utils.ts`** — shadcn `cn()` helper.
 

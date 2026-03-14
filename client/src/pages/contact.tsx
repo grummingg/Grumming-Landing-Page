@@ -64,16 +64,30 @@ export default function ContactPage() {
     },
   });
 
-  const onSubmit = (data: InsertContactMessage) => {
+  const onSubmit = async (data: InsertContactMessage) => {
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.message || "Failed to send message");
       toast({
         title: "Message Sent",
         description: `Thank you ${data.name}! We've received your message and will get back to you within 24 hours.`,
       });
       form.reset();
+    } catch (err: any) {
+      toast({
+        title: "Error",
+        description: err.message || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 800);
+    }
   };
 
   return (

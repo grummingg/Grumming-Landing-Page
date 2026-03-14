@@ -37,15 +37,6 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  app.get("/api/salon-config", async (_req: Request, res: Response) => {
-    try {
-      const config = await storage.getSalonConfig();
-      res.json(config);
-    } catch (error) {
-      res.status(500).json({ message: "Something went wrong. Please try again later." });
-    }
-  });
-
   app.post("/api/contact", async (req: Request, res: Response) => {
     try {
       const clientIp = getClientIp(req);
