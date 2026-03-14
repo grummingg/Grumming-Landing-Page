@@ -77,7 +77,7 @@ export function Roadmap() {
         </div>
 
         <div className="md:hidden">
-          <div className="relative pl-10">
+          <div className="relative pl-12">
             <div className="absolute left-[15px] top-0 bottom-0 w-0.5 bg-muted-foreground/15" aria-hidden="true" />
 
             {steps.map((step, i) => (
@@ -90,7 +90,7 @@ export function Roadmap() {
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 data-testid={`roadmap-step-mobile-${step.label.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <div className="absolute left-[-24px]">
+                <div className="absolute left-[-32px]">
                   <StepIcon status={step.status} />
                 </div>
                 <span className={`text-sm font-medium ${
