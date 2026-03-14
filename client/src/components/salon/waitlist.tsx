@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Bell } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -28,30 +28,52 @@ export function Waitlist() {
   };
 
   return (
-    <section className="py-12 sm:py-16 bg-background">
-      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div {...fadeUp}>
-          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-            <Bell className="w-6 h-6 text-primary" />
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-3" data-testid="text-waitlist-heading">
-            Be First in Line
+    <section className="py-20 sm:py-28 bg-primary" data-testid="section-waitlist">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div {...fadeUp} className="flex flex-col items-center">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white/80 text-xs font-medium tracking-widest uppercase mb-6">
+            Early Access
+          </span>
+
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight mb-4"
+            data-testid="text-waitlist-heading"
+          >
+            Launch is Coming.
+            <br />
+            <span className="text-white/70">Be the First to Know.</span>
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base mb-8 max-w-md mx-auto" data-testid="text-waitlist-subtext">
-            Get notified when Grumming launches in your city. No spam, just one email when we're live.
+
+          <p
+            className="text-white/60 text-sm sm:text-base mb-10 max-w-md mx-auto leading-relaxed"
+            data-testid="text-waitlist-subtext"
+          >
+            Join the waitlist and get early access when Grumming goes live in your city. One email. No spam.
           </p>
 
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto" data-testid="form-waitlist">
-            <Input
-              type="email"
-              placeholder="you@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1"
-              data-testid="input-waitlist-email"
-            />
-            <Button type="submit" data-testid="button-waitlist-notify">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col sm:flex-row gap-3 w-full max-w-md"
+            data-testid="form-waitlist"
+          >
+            <div className="relative flex-1">
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 pointer-events-none" />
+              <Input
+                type="email"
+                placeholder="Enter your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-white/30 focus-visible:border-white/40 h-11"
+                data-testid="input-waitlist-email"
+              />
+            </div>
+            <Button
+              type="submit"
+              className="bg-white text-primary hover:bg-white/90 font-semibold h-11 px-6 gap-2 shrink-0"
+              data-testid="button-waitlist-notify"
+            >
               Notify Me
+              <ArrowRight className="w-4 h-4" />
             </Button>
           </form>
         </motion.div>
