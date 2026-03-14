@@ -17,7 +17,7 @@ function StepIcon({ status }: { status: StepStatus }) {
   if (status === "done") {
     return (
       <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary flex items-center justify-center shrink-0" data-testid="icon-step-done">
-        <Check className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+        <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
       </div>
     );
   }
@@ -26,7 +26,7 @@ function StepIcon({ status }: { status: StepStatus }) {
       <div className="relative shrink-0">
         <div className="absolute inset-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent/30 animate-ping" />
         <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent flex items-center justify-center" data-testid="icon-step-current">
-          <Wrench className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+          <Wrench className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
         </div>
       </div>
     );
