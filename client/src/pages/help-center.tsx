@@ -1,5 +1,6 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Rocket, Calendar, CreditCard, Settings, Shield, Building2, ChevronDown } from "lucide-react";
 import { SalonFooter } from "@/components/salon/footer";
 import { SubPageHero } from "@/components/salon/sub-page-hero";

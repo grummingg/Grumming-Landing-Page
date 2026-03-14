@@ -1,5 +1,6 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import {
   Accordion,
   AccordionContent,
