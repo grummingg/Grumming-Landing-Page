@@ -1,26 +1,20 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, Clock, Zap, Star } from "lucide-react";
 import { fadeUp } from "@/lib/animations";
-import type { LucideIcon } from "lucide-react";
 
-const features: { icon: LucideIcon; title: string; description: string }[] = [
+const features: { title: string; description: string }[] = [
   {
-    icon: ShieldCheck,
     title: "Verified Listings",
     description: "Every business on Grumming is verified for quality, hygiene, and professionalism.",
   },
   {
-    icon: Clock,
     title: "Real-time Availability",
     description: "See live time slots so you never have to call ahead or wait in line.",
   },
   {
-    icon: Zap,
     title: "Instant Confirmation",
     description: "Book in seconds and get immediate confirmation — no back-and-forth needed.",
   },
   {
-    icon: Star,
     title: "Rated & Reviewed",
     description: "Read honest reviews from real customers to find the perfect match for you.",
   },
@@ -37,30 +31,24 @@ export function WhyGrumming() {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {features.map((feature, i) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={feature.title}
-                className="flex flex-col items-center text-center"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                data-testid={`why-feature-${feature.title.toLowerCase().replace(/\s+/g, "-")}`}
-              >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                </div>
-                <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1.5">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            );
-          })}
+          {features.map((feature, i) => (
+            <motion.div
+              key={feature.title}
+              className="flex flex-col items-center text-center"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              data-testid={`why-feature-${feature.title.toLowerCase().replace(/\s+/g, "-")}`}
+            >
+              <h3 className="text-sm sm:text-base font-semibold text-foreground mb-1.5">
+                {feature.title}
+              </h3>
+              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
