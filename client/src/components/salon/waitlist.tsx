@@ -44,13 +44,6 @@ export function Waitlist() {
             <span className="text-white/70">Be the First to Know.</span>
           </h2>
 
-          <p
-            className="text-white/60 text-sm sm:text-base mb-10 max-w-md mx-auto leading-relaxed"
-            data-testid="text-waitlist-subtext"
-          >
-            Join the waitlist and get early access when Grumming goes live in your city. One email. No spam.
-          </p>
-
           <form
             onSubmit={handleSubmit}
             className="flex flex-col sm:flex-row gap-3 w-full max-w-md"
