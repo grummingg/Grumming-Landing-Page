@@ -39,7 +39,7 @@ export function Countdown() {
     <section className="py-16 sm:py-24 bg-background" data-testid="section-countdown">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div {...fadeUp} className="flex flex-col items-center">
-          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary dark:text-white/70 dark:bg-white/10 text-xs font-semibold tracking-widest uppercase mb-4">
+          <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-widest uppercase mb-4">
             Launching Soon
           </span>
           <h2
@@ -57,7 +57,7 @@ export function Countdown() {
               <div key={label} className="flex items-start gap-4 sm:gap-8">
                 <div className="flex flex-col items-center">
                   <div
-                    className="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center shadow-lg bg-gradient-to-br from-primary to-accent dark:from-white/15 dark:to-white/5 dark:shadow-none"
+                    className="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center shadow-md bg-primary"
                   >
                     <span
                       className="text-2xl sm:text-4xl font-bold text-white tabular-nums"
