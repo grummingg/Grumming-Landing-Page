@@ -7,8 +7,8 @@ const steps: { number: string; icon: LucideIcon; title: string; description: str
   {
     number: "1",
     icon: Search,
-    title: "Find",
-    description: "Search salons, spas, and studios near you by service, location, or rating.",
+    title: "Search",
+    description: "Find salons, spas, and studios near you by service, location, or rating.",
   },
   {
     number: "2",
