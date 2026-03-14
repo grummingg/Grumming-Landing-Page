@@ -35,6 +35,42 @@ export function Countdown() {
     { label: "Seconds", value: time.seconds },
   ];
 
+  const isLaunched = time.days === 0 && time.hours === 0 && time.minutes === 0 && time.seconds === 0;
+
+  if (isLaunched) {
+    return (
+      <section className="py-16 sm:py-24 bg-background" data-testid="section-countdown">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div {...fadeUp} className="flex flex-col items-center">
+            <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-widest uppercase mb-4" data-testid="badge-live">
+              We&apos;re Live!
+            </span>
+            <h2
+              className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-2"
+              data-testid="text-countdown-heading"
+            >
+              Grumming is now live
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base mb-6" data-testid="text-launched-description">
+              Download the app and book your first appointment today.
+            </p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <a
+                href="https://play.google.com/store"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-medium text-sm transition-colors"
+                data-testid="button-get-app"
+              >
+                Get the App
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-16 sm:py-24 bg-background" data-testid="section-countdown">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

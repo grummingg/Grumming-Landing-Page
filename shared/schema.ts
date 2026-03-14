@@ -36,6 +36,21 @@ export type Location = z.infer<typeof locationSchema>;
 export type Salon = z.infer<typeof salonSchema>;
 export type SalonConfig = z.infer<typeof salonConfigSchema>;
 
+// Report Issue
+export const reportIssueSchema = z.object({
+  id: z.string(),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email"),
+  issueType: z.string().min(1, "Please select an issue type"),
+  bookingId: z.string().optional(),
+  description: z.string().min(10, "Description must be at least 10 characters"),
+});
+
+export const insertReportIssueSchema = reportIssueSchema.omit({ id: true });
+
+export type ReportIssue = z.infer<typeof reportIssueSchema>;
+export type InsertReportIssue = z.infer<typeof insertReportIssueSchema>;
+
 // Contact Form
 export const contactMessageSchema = z.object({
   id: z.string(),

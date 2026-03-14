@@ -1,7 +1,7 @@
 import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertContactMessageSchema } from "@shared/schema";
+import { insertContactMessageSchema, insertReportIssueSchema } from "@shared/schema";
 
 const contactRateMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_WINDOW = 60 * 1000;
@@ -52,6 +52,19 @@ export async function registerRoutes(
       res.status(201).json({ message: "Thank you! Your message has been sent successfully.", id: message.id });
     } catch (error) {
       res.status(500).json({ message: "Failed to send message. Please try again." });
+    }
+  });
+
+  app.post("/api/report-issue", async (req: Request, res: Response) => {
+    try {
+      const parsed = insertReportIssueSchema.safeParse(req.body);
+      if (!parsed.success) {
+        return res.status(400).json({ message: "Please check your form and try again." });
+      }
+      const issue = await storage.createReportIssue(parsed.data);
+      res.status(201).json({ message: "Your report has been submitted. We'll get back to you within 24 hours.", id: issue.id });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to submit report. Please try again." });
     }
   });
 

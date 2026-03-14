@@ -148,7 +148,7 @@ export default function FAQPage() {
               <Link href="/contact" className="inline-flex items-center gap-2 bg-hero dark:bg-white text-white dark:text-hero px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-contact-support">
                 Contact Support
               </Link>
-              <Link href="/contact" className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-help-center">
+              <Link href="/help-center" className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-help-center">
                 Help Center
               </Link>
             </div>

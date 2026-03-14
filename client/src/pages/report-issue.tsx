@@ -109,12 +109,23 @@ export default function ReportIssue() {
     },
   });
 
-  const onSubmit = (data: ReportIssueFormData) => {
-    toast({
-      title: "Report submitted successfully",
-      description: "We'll get back to you within 24 hours.",
-    });
-    form.reset();
+  const onSubmit = async (data: ReportIssueFormData) => {
+    try {
+      const res = await fetch("/api/report-issue", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok) {
+        toast({ title: "Submission failed", description: json.message || "Please try again.", variant: "destructive" });
+        return;
+      }
+      toast({ title: "Report submitted successfully", description: "We'll get back to you within 24 hours." });
+      form.reset();
+    } catch (err: unknown) {
+      toast({ title: "Network error", description: "Could not reach our servers. Please try again.", variant: "destructive" });
+    }
   };
 
   return (
