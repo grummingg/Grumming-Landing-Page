@@ -3,7 +3,7 @@ import { SalonHero } from "@/components/salon/hero";
 import { Categories } from "@/components/salon/categories";
 import { Stats } from "@/components/salon/stats";
 import { Locations } from "@/components/salon/locations";
-
+import { Roadmap } from "@/components/salon/roadmap";
 import { AppDownload } from "@/components/salon/app-download";
 import { SalonFooter } from "@/components/salon/footer";
 import { defaultSalonConfig } from "@shared/schema";
@@ -17,6 +17,7 @@ export default function SalonLanding() {
         <Categories categories={defaultSalonConfig.categories} />
         <Stats />
         <Locations locations={defaultSalonConfig.locations} />
+        <Roadmap />
         <AppDownload />
       </main>
       <SalonFooter />
