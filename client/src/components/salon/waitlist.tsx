@@ -28,7 +28,7 @@ export function Waitlist() {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-primary" data-testid="section-waitlist">
+    <section className="py-20 sm:py-28 bg-[#0f172a]" data-testid="section-waitlist">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div {...fadeUp} className="flex flex-col items-center">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white/80 text-xs font-medium tracking-widest uppercase mb-6">
