@@ -88,26 +88,26 @@ export function Countdown() {
             Mark your calendar — Grumming launches at 7:00 PM IST
           </p>
 
-          <div className="flex items-start justify-center gap-4 sm:gap-8" data-testid="countdown-timer">
+          <div className="flex items-start justify-center gap-2 sm:gap-8" data-testid="countdown-timer">
             {units.map(({ label, value }, i) => (
-              <div key={label} className="flex items-start gap-4 sm:gap-8">
+              <div key={label} className="flex items-start gap-2 sm:gap-8">
                 <div className="flex flex-col items-center">
                   <div
-                    className="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center shadow-md bg-[#0f172a]"
+                    className="w-12 h-12 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-md bg-[#0f172a]"
                   >
                     <span
-                      className="text-2xl sm:text-4xl font-bold text-white tabular-nums"
+                      className="text-lg sm:text-4xl font-bold text-white tabular-nums"
                       data-testid={`countdown-${label.toLowerCase()}`}
                     >
                       {Pad(value)}
                     </span>
                   </div>
-                  <span className="mt-2 text-[10px] sm:text-xs text-muted-foreground font-medium tracking-widest uppercase">
+                  <span className="mt-1.5 text-[9px] sm:text-xs text-muted-foreground font-medium tracking-widest uppercase">
                     {label}
                   </span>
                 </div>
                 {i < units.length - 1 && (
-                  <span className="text-2xl sm:text-4xl font-bold text-muted-foreground/30 mt-3 sm:mt-5 select-none">
+                  <span className="text-lg sm:text-4xl font-bold text-muted-foreground/30 mt-2 sm:mt-5 select-none">
                     :
                   </span>
                 )}
