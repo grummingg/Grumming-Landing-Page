@@ -62,7 +62,7 @@ export function Waitlist() {
             </div>
             <Button
               type="submit"
-              className="bg-white text-primary hover:bg-white/90 font-semibold h-11 px-6 gap-2 shrink-0"
+              className="bg-white text-black hover:bg-white/90 font-semibold h-11 px-6 gap-2 shrink-0"
               data-testid="button-waitlist-notify"
             >
               Notify Me
