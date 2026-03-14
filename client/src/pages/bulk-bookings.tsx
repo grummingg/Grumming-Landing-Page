@@ -160,7 +160,7 @@ export default function BulkBookings() {
 
           <div className="grid sm:grid-cols-3 gap-8">
             {steps.map((step, i) => (
-              <motion.div key={step.step} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ ...fadeUp.visible, transition: { duration: 0.5, delay: i * 0.1 } }}>
+              <motion.div key={step.step} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: i * 0.1 } } }}>
                 <div className="text-center">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <span className="text-lg font-bold text-primary">{step.step}</span>
