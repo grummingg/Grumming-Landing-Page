@@ -14,7 +14,7 @@ import { defaultSalonConfig } from "@shared/schema";
 export default function SalonLanding() {
   useDocumentTitle("Grumming - Find & Book the Best Salons Near You");
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <main>
         <SalonHero />
         <HowItWorks />
