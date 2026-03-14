@@ -28,25 +28,25 @@ export function Waitlist() {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-[#0f172a]" data-testid="section-waitlist">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="py-14 sm:py-28 bg-[#0f172a]" data-testid="section-waitlist">
+      <div className="max-w-2xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
         <motion.div {...fadeUp} className="flex flex-col items-center">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white/80 text-xs font-medium tracking-widest uppercase mb-6">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-white/70 text-[10px] font-semibold tracking-widest uppercase mb-5">
             Early Access
           </span>
 
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight mb-4"
+            className="text-[1.75rem] sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-snug mb-5"
             data-testid="text-waitlist-heading"
           >
             Launch is Coming.
             <br />
-            <span className="text-white/70">Be the First to Know.</span>
+            <span className="text-white/60">Be the First to Know.</span>
           </h2>
 
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col sm:flex-row gap-3 w-full max-w-md"
+            className="flex flex-col gap-2.5 w-full max-w-sm sm:max-w-md sm:flex-row sm:gap-3"
             data-testid="form-waitlist"
           >
             <div className="relative flex-1">
@@ -56,13 +56,13 @@ export function Waitlist() {
                 placeholder="Enter your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-white/30 focus-visible:border-white/40 h-11"
+                className="pl-10 bg-white/10 border-white/15 text-white placeholder:text-white/35 focus-visible:ring-white/25 focus-visible:border-white/35 h-11 text-sm rounded-lg"
                 data-testid="input-waitlist-email"
               />
             </div>
             <Button
               type="submit"
-              className="bg-white text-black hover:bg-white/90 font-semibold h-11 px-6 gap-2 shrink-0"
+              className="bg-white text-black hover:bg-white/90 font-semibold h-11 px-6 gap-2 shrink-0 rounded-lg text-sm"
               data-testid="button-waitlist-notify"
             >
               Notify Me
