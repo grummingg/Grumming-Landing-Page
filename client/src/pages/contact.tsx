@@ -79,10 +79,10 @@ export default function ContactPage() {
         description: `Thank you ${data.name}! We've received your message and will get back to you within 24 hours.`,
       });
       form.reset();
-    } catch (err: any) {
+    } catch (err: unknown) {
       toast({
         title: "Error",
-        description: err.message || "Something went wrong. Please try again.",
+        description: err instanceof Error ? err.message : "Something went wrong. Please try again.",
         variant: "destructive",
       });
     } finally {
