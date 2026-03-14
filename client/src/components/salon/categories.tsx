@@ -200,28 +200,6 @@ export function Categories({ categories }: CategoriesProps) {
             </div>
           </motion.div>
 
-          <motion.div
-            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            data-testid="category-labels"
-          >
-            {categories.map((cat, idx) => (
-              <span
-                key={cat.name}
-                className={`text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full transition-all duration-500 ${
-                  idx === currentIndex
-                    ? "bg-accent/15 text-accent"
-                    : "text-muted-foreground"
-                }`}
-                data-testid={`category-label-${cat.name.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                {cat.name}
-              </span>
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>
