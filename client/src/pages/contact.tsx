@@ -117,19 +117,19 @@ export default function ContactPage() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 pb-16">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-10">
-          {contactInfo.map((item) => (
-            <div key={item.title} data-testid={`card-contact-${item.title.toLowerCase()}`}>
-              <div className="p-4 sm:p-5 text-center">
-                <div className="w-10 h-10 rounded-md bg-primary/10 dark:bg-primary/20 flex items-center justify-center mx-auto mb-3">
-                  <item.icon className="w-5 h-5 text-foreground" />
+        <div className="bg-background rounded-2xl shadow-lg border border-border/40 mb-8 sm:mb-10">
+          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-border/40">
+            {contactInfo.map((item) => (
+              <div key={item.title} className="p-5 sm:p-6 text-center" data-testid={`card-contact-${item.title.toLowerCase()}`}>
+                <div className="w-10 h-10 rounded-md bg-muted flex items-center justify-center mx-auto mb-3">
+                  <item.icon className="w-5 h-5 text-muted-foreground" />
                 </div>
                 <h3 className="font-semibold text-foreground text-sm mb-0.5">{item.title}</h3>
                 <p className="text-foreground text-xs sm:text-sm">{item.detail}</p>
                 <p className="text-muted-foreground text-[11px] sm:text-xs mt-1 hidden sm:block">{item.sub}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10">
