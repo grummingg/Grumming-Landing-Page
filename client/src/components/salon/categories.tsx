@@ -178,15 +178,21 @@ export function Categories({ categories }: CategoriesProps) {
           </h2>
         </motion.div>
 
-        <div className="flex flex-col items-center justify-center gap-8">
+        <div className="flex flex-col items-center justify-center gap-8" style={{ perspective: "1000px" }}>
           <motion.div
             className="relative"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 60, rotateX: 18 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 blur-3xl rounded-full scale-150" />
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 blur-3xl rounded-full scale-150"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.1, delay: 0.3 }}
+            />
             
             <div className="w-56 sm:w-72 h-[400px] sm:h-[520px] bg-hero rounded-[2.5rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-2xl relative">
               <div className="w-full h-full rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden relative">
