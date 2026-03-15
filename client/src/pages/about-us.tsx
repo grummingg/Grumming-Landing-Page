@@ -53,11 +53,14 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2019", title: "The Idea", description: "Grumming was born from a simple frustration — finding and booking quality beauty services was needlessly difficult." },
-  { year: "2020", title: "Building the Foundation", description: "Assembled our founding team, built the first version of the platform, and onboarded our initial 50 partner businesses." },
-  { year: "2022", title: "Expanding Horizons", description: "Launched in 10 cities across India, crossed 1,000 partner businesses, and introduced our mobile app on iOS and Android." },
-  { year: "2024", title: "Scaling Up", description: "Expanded to 40+ cities, introduced Grumming Pass for premium members, and processed over 100,000 bookings." },
-  { year: "2025", title: "Going Nationwide", description: "Present in 60+ cities, serving 10,000+ happy customers with 500+ verified partner businesses across India." },
+  { year: "2019", title: "The Idea", description: "Born from a simple frustration — booking quality grooming services in India was needlessly difficult." },
+  { year: "2020", title: "Building the Foundation", description: "Assembled the founding team and started researching what the ideal salon booking experience should look like." },
+  { year: "2021", title: "Market Research & Validation", description: "Conducted user interviews with salon owners and customers across India to validate the concept and map pain points." },
+  { year: "2022", title: "Product Vision", description: "Defined the full product — app experience, salon onboarding flow, service categories, and pricing model." },
+  { year: "2023", title: "Design & Prototype", description: "Designed the UI/UX end-to-end and built the first working prototype to test with real users." },
+  { year: "2024", title: "Development Begins", description: "Started full engineering of the Grumming app, booking engine, and backend infrastructure." },
+  { year: "2025", title: "Going Digital", description: "Secured the Grumming domain, launched this website, and entered final stages of app development." },
+  { year: "2026", title: "Building Towards Launch", description: "The Grumming app is currently in active development — launching April 1, 2026 on iOS & Android." },
 ];
 
 export default function AboutUs() {
@@ -88,7 +91,7 @@ export default function AboutUs() {
                   That's when Grumming was born. We set out to build a platform that makes booking beauty and grooming services as effortless as ordering food online, while giving local businesses the tools they need to grow, compete, and thrive in the digital age.
                 </p>
                 <p>
-                  Today, Grumming serves thousands of customers across 60+ cities in India, connecting them with verified salons, spas, studios, and beauty professionals. And we're just getting started.
+                  Today, Grumming is in active development — building a platform that connects customers with verified salons, spas, studios, and grooming professionals across India. Our app launches April 1, 2026, and we can't wait to show you what we've built.
                 </p>
               </div>
             </motion.div>
@@ -182,7 +185,7 @@ export default function AboutUs() {
             <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3">Our Journey</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight" data-testid="text-journey-title">Key milestones</h2>
             <p className="text-muted-foreground mt-3 max-w-2xl">
-              From an idea to a platform serving thousands across India, here's how we've grown.
+              From a frustration in 2019 to a launch in 2026 — here's the journey that brought Grumming to life.
             </p>
           </motion.div>
 
