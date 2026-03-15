@@ -139,9 +139,6 @@ export default function HelpCenter() {
       <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="mb-12">
-            <p className="text-amber-500 font-medium text-sm tracking-wider uppercase mb-3" data-testid="label-popular-questions">
-              Common Questions
-            </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight" data-testid="text-popular-questions-heading">
               Popular Questions
             </h2>
