@@ -227,7 +227,7 @@ export default function AboutUs() {
               Grumming is growing fast and we're looking for passionate people who want to shape the future of beauty and wellness in India. Whether you're a customer, a business, or a potential team member, there's a place for you.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <Link href="/hiring" className="inline-flex items-center gap-2 bg-hero dark:bg-white text-white dark:text-hero px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-view-careers">
+              <Link href="/careers" className="inline-flex items-center gap-2 bg-hero dark:bg-white text-white dark:text-hero px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-view-careers">
                 View Open Positions
               </Link>
               <Link href="/partner-with-us" className="inline-flex items-center gap-2 border border-foreground/20 text-foreground px-6 py-3 rounded-md font-medium text-sm transition-colors" data-testid="button-partner">
