@@ -1,17 +1,11 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { motion } from "framer-motion";
-import { Sparkles, Zap, Shield, HeartHandshake, TrendingUp, MapPin, Users, Scissors, Target, Eye, Lightbulb, Globe } from "lucide-react";
+import { Zap, Shield, HeartHandshake, TrendingUp, Target, Eye, Lightbulb, Globe } from "lucide-react";
 import { Link } from "wouter";
 import { SalonFooter } from "@/components/salon/footer";
 import { SubPageHero } from "@/components/salon/sub-page-hero";
 import { fadeUp } from "@/lib/animations";
 
-const stats = [
-  { value: "10,000+", label: "Happy Customers", icon: Users },
-  { value: "500+", label: "Partner Businesses", icon: Scissors },
-  { value: "60+", label: "Cities Across India", icon: MapPin },
-  { value: "4.8", label: "Average Rating", icon: Sparkles },
-];
 
 const values = [
   {
@@ -76,23 +70,6 @@ export default function AboutUs() {
         subtitle="We connect you with the best salons, spas, studios, and grooming experts near you, turning what used to be a hassle into something you actually look forward to."
       />
 
-      <section className="py-16 sm:py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeUp}>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
-                    <stat.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <p className="text-2xl sm:text-3xl font-bold text-foreground mb-1">{stat.value}</p>
-                  <p className="text-muted-foreground text-sm">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       <section className="py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

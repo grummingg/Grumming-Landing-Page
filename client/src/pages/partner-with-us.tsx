@@ -58,12 +58,6 @@ const steps = [
   { step: "4", title: "Go Live", description: "Start receiving bookings from customers in your area and grow your business." },
 ];
 
-const stats = [
-  { value: "500+", label: "Partner Businesses" },
-  { value: "15+", label: "Cities" },
-  { value: "10,000+", label: "Monthly Bookings" },
-  { value: "4.8", label: "Avg. Partner Rating" },
-];
 
 export default function PartnerWithUs() {
   useDocumentTitle("Partner With Us | Grumming");
@@ -79,17 +73,6 @@ export default function PartnerWithUs() {
 
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-16">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                  <p className="text-3xl font-bold text-foreground">{stat.value}</p>
-                  <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="text-2xl font-bold text-foreground mb-8" data-testid="text-why-partner">Why partner with Grumming?</h2>
           </motion.div>
