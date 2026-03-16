@@ -12,6 +12,7 @@ export function SalonHero() {
         playsInline
         poster="/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover"
+        style={{ pointerEvents: 'none' }}
         data-testid="video-hero-background"
         aria-label="Background video showcasing beauty and grooming services"
       >
