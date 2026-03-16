@@ -104,6 +104,7 @@ function CrossfadeVideoPlayer({ src, testId }: { src: string; testId: string }) 
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
           activeVideo === 'A' ? 'opacity-100 z-10' : 'opacity-0 z-0'
         }`}
+        style={{ pointerEvents: 'none' }}
         data-testid={`${testId}-a`}
         aria-label="Service category preview video"
       />
@@ -117,6 +118,7 @@ function CrossfadeVideoPlayer({ src, testId }: { src: string; testId: string }) 
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
           activeVideo === 'B' ? 'opacity-100 z-10' : 'opacity-0 z-0'
         }`}
+        style={{ pointerEvents: 'none' }}
         data-testid={`${testId}-b`}
         aria-label="Service category preview video"
       />
