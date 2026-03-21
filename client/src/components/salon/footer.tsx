@@ -38,7 +38,6 @@ export function SalonFooter() {
       { name: "Privacy Policy", url: "/privacy-policy", scrollTo: null },
       { name: "Terms of Service", url: "/terms-of-service", scrollTo: null },
       { name: "Cookie Policy", url: "/cookie-policy", scrollTo: null },
-      { name: "Refund Policy", url: "/refund-policy", scrollTo: null },
     ],
     Business: [
       { name: "For Business Owners", url: "/business", scrollTo: null },
