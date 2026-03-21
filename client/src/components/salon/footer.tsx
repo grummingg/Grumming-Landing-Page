@@ -43,7 +43,6 @@ export function SalonFooter() {
     Business: [
       { name: "For Business Owners", url: "/business", scrollTo: null },
       { name: "Partner with Us", url: "/partner-with-us", scrollTo: null },
-      { name: "Bulk Bookings", url: "/bulk-bookings", scrollTo: null },
     ],
   };
 
