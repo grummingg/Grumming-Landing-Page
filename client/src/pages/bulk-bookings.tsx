@@ -108,7 +108,7 @@ export default function BulkBookings() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {useCases.map((useCase, i) => (
-              <motion.div key={useCase.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ ...fadeUp.visible, transition: { duration: 0.5, delay: i * 0.08 } }}>
+              <motion.div key={useCase.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.5, delay: i * 0.08 }}>
                 <div className="h-full" data-testid={`card-usecase-${useCase.title.toLowerCase().replace(/\s+/g, "-")}`}>
                   <div className="p-6">
                     <div className={`w-10 h-10 rounded-xl ${useCase.bg} flex items-center justify-center mb-4`}>
@@ -133,7 +133,7 @@ export default function BulkBookings() {
 
           <div className="grid sm:grid-cols-2 gap-6">
             {benefits.map((benefit, i) => (
-              <motion.div key={benefit.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ ...fadeUp.visible, transition: { duration: 0.5, delay: i * 0.1 } }}>
+              <motion.div key={benefit.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.5, delay: i * 0.1 }}>
                 <div className="h-full" data-testid={`card-benefit-${benefit.title.toLowerCase().replace(/\s+/g, "-")}`}>
                   <div className="p-6 flex gap-4">
                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">

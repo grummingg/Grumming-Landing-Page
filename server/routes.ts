@@ -28,9 +28,9 @@ function isRateLimited(ip: string): boolean {
 
 setInterval(() => {
   const now = Date.now();
-  for (const [ip, entry] of contactRateMap) {
+  contactRateMap.forEach((entry, ip) => {
     if (now > entry.resetAt) contactRateMap.delete(ip);
-  }
+  });
 }, 5 * 60 * 1000);
 
 export async function registerRoutes(
