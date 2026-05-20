@@ -1,43 +1,21 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/animations";
 
-const LAUNCH_DATE = new Date("2026-04-01T19:00:00+05:30");
-
-function getTimeLeft() {
-  const now = new Date();
-  const diff = LAUNCH_DATE.getTime() - now.getTime();
-  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-  return {
-    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((diff / (1000 * 60)) % 60),
-    seconds: Math.floor((diff / 1000) % 60),
-  };
-}
+const IS_LIVE = false;
 
 function Pad(n: number) {
   return String(n).padStart(2, "0");
 }
 
 export function Countdown() {
-  const [time, setTime] = useState(getTimeLeft);
-
-  useEffect(() => {
-    const id = setInterval(() => setTime(getTimeLeft()), 1000);
-    return () => clearInterval(id);
-  }, []);
-
   const units = [
-    { label: "Days", value: time.days },
-    { label: "Hours", value: time.hours },
-    { label: "Minutes", value: time.minutes },
-    { label: "Seconds", value: time.seconds },
+    { label: "Days", value: 0 },
+    { label: "Hours", value: 0 },
+    { label: "Minutes", value: 0 },
+    { label: "Seconds", value: 0 },
   ];
 
-  const isLaunched = time.days === 0 && time.hours === 0 && time.minutes === 0 && time.seconds === 0;
-
-  if (isLaunched) {
+  if (IS_LIVE) {
     return (
       <section className="py-16 sm:py-24 bg-background" data-testid="section-countdown">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -82,10 +60,10 @@ export function Countdown() {
             className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight mb-2"
             data-testid="text-countdown-heading"
           >
-            Going Live On April 1
+            Launching Soon
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base mb-10">
-            Mark your calendar — Grumming launches at 7:00 PM IST
+            We&apos;re putting the finishing touches on Grumming — stay tuned for the official launch date.
           </p>
 
           <div className="flex items-start justify-center gap-2 sm:gap-8" data-testid="countdown-timer">
