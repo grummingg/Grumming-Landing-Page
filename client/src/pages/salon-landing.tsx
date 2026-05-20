@@ -8,6 +8,7 @@ import { Roadmap } from "@/components/salon/roadmap";
 import { Countdown } from "@/components/salon/countdown";
 import { Waitlist } from "@/components/salon/waitlist";
 import { AppDownload } from "@/components/salon/app-download";
+import { StartupPartners } from "@/components/salon/startup-partners";
 import { SalonFooter } from "@/components/salon/footer";
 import { defaultSalonConfig } from "@shared/schema";
 
@@ -24,6 +25,7 @@ export default function SalonLanding() {
         <Roadmap />
         <Countdown />
         <Waitlist />
+        <StartupPartners />
         <AppDownload />
       </main>
       <SalonFooter />
