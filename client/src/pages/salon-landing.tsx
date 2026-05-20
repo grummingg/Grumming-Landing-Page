@@ -1,5 +1,6 @@
 import { useDocumentTitle } from "@/hooks/use-document-title";
 import { SalonHero } from "@/components/salon/hero";
+import { BackedByBar } from "@/components/salon/backed-by-bar";
 import { HowItWorks } from "@/components/salon/how-it-works";
 import { Categories } from "@/components/salon/categories";
 import { WhyGrumming } from "@/components/salon/why-grumming";
@@ -16,6 +17,7 @@ export default function SalonLanding() {
   useDocumentTitle("Grumming - Find & Book the Best Salons Near You");
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <BackedByBar />
       <main>
         <SalonHero />
         <HowItWorks />

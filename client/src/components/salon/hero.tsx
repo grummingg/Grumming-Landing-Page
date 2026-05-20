@@ -24,41 +24,9 @@ export function SalonHero() {
 
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="mb-6 sm:mb-8 flex justify-center"
-          data-testid="hero-backed-by"
-        >
-          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[11px] sm:text-xs text-white/70">
-            <span className="uppercase tracking-[0.18em]">Backed by</span>
-            <span aria-hidden="true" className="hidden sm:inline h-3 w-px bg-white/25" />
-            <span className="flex items-center gap-1.5" aria-label="Microsoft for Startups">
-              <span className="grid grid-cols-2 grid-rows-2 gap-[1.5px]" aria-hidden="true">
-                <span className="block h-1.5 w-1.5 bg-[#F25022]" />
-                <span className="block h-1.5 w-1.5 bg-[#7FBA00]" />
-                <span className="block h-1.5 w-1.5 bg-[#00A4EF]" />
-                <span className="block h-1.5 w-1.5 bg-[#FFB900]" />
-              </span>
-              <span className="font-medium text-white/85">Microsoft for Startups</span>
-            </span>
-            <span aria-hidden="true" className="text-white/35">·</span>
-            <span className="flex items-center gap-1.5" aria-label="Deel Ventures">
-              <span
-                aria-hidden="true"
-                className="flex h-4 w-4 items-center justify-center rounded-[3px] bg-gradient-to-br from-[#1A1F36] to-[#0B5FFF] text-[9px] font-bold text-white leading-none"
-              >
-                D
-              </span>
-              <span className="font-medium text-white/85">Deel Ventures</span>
-            </span>
-          </div>
-        </motion.div>
-
-        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.6 }}
         >
           <h1
             className="text-4xl sm:text-5xl md:text-6xl font-medium text-white mb-8 leading-tight drop-shadow-lg font-display"
